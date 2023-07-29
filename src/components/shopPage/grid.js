@@ -63,10 +63,6 @@ const Grid = (props)=>{
         uniqueTags,uniqueCategories,finalItems, setFilterCategories, filterCategories, resetFilters, removeFilter
     } = useShop(items);
 
-    console.log({
-        uniqueTags,uniqueCategories,finalItems, filterCategories
-    });
-
     return (
         <GridWrapper>
             <Tags tags={uniqueTags} />
