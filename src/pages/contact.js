@@ -1,14 +1,14 @@
 import React from 'react';
-import Layout from '../components/layout'
-import { ContactLinks } from '../constants';
-import ThreeImages from '../components/threeImages';
-import Links from '../components/contactPage/links';
-import SocialIcons from '../components/socials';
+import Layout from '@components/layout'
+import { ContactLinks } from '@constants';
+import ThreeImages from '@components/threeImages';
+import Links from '@components/contactPage/links';
+import SocialIcons from '@components/socials';
 
-import { SocialIconsWrapper, Content } from '../components/contactPage/contact.styled';
+import { SocialIconsWrapper, Content } from '@components/contactPage/contact.styled';
 
-import backDesk from '../images/back-contact-big.jpeg';
-import backMobile from '../images/back-contact-mobile.jpg';
+import backDesk from '@images/back-contact-big.jpeg';
+import backMobile from '@images/back-contact-mobile.jpg';
 
 const Contact = () => {
     return (

@@ -1,9 +1,8 @@
 import React from "react"
 import { useCallback, useState } from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { MainMenu } from "../../constants";
+import { MainMenu } from "@constants";
 import { Link } from "gatsby";
-import useWidth from "../../hooks/useWindowSize";
+import useWidth from "@hooks/useWindowSize";
 
 import { MobileTrigger, ShopLink, Navigation, NavWrapper } from "./navigation.styled";
 import SocialIcons from "../socials";

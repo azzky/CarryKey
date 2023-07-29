@@ -1,6 +1,6 @@
 import React from 'react';
 import Wrapper from "./links.styled"
-import { gothicClass } from "../../constants"
+import { gothicClass } from "@constants"
 
 const Links = (props) => {
     const {links} = props

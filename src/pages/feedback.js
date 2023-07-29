@@ -1,12 +1,12 @@
 import React from 'react';
 import Layout from '@components/layout'
 
-const About = () => {
+const Feedback = () => {
     return (
         <Layout hasNavigation isHero
-            h1={'About'}>
+            h1={'Feedback'}>
         </Layout>
     )
 }
 
-export default About;
+export default Feedback;

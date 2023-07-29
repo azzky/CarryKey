@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import jsonp from "jsonp";
 import toQueryString from "to-querystring";
-import { oswaldClass } from "../../constants";
+import { oswaldClass } from "@constants";
 
 const SimpleForm = ({ status, message, className, style, onSubmitted }) => {
   let input;

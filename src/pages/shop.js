@@ -1,10 +1,10 @@
 import React from 'react';
 import { graphql } from "gatsby"
-import Layout from '../components/layout'
+import Layout from '@components/layout'
 
-import backDesk from '../images/back-shop.jpg';
-import backMobile from '../images/back-shop-mobile.jpg';
-import Grid from '../components/shopPage/grid';
+import backDesk from '@images/back-shop.jpg';
+import backMobile from '@images/back-shop-mobile.jpg';
+import Grid from '@components/shopPage/grid';
 
 const Shop = ({
     data: {allContentfulPost: posts}
@@ -24,21 +24,22 @@ export default Shop;
 export const pageQuery = graphql`
 query{
     allContentfulPost(
-        sort: {postId: ASC}
+        sort: {postId: DESC}
     ) {
         edges {
             node {
                 id
+                postId
                 title
                 price
                 priceMax
                 categories
                 tags
+                gallery {
+                    gatsbyImageData(width: 400, quality: 100)
+                }
                 preview {
                     gatsbyImageData(width: 280, quality: 100)
-                    file {
-                        url
-                    }
                 }
             }
         }

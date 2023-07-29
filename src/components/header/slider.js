@@ -6,7 +6,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import SliderWrapper from "./slider.styled";
 
 const HomeSlider = (props) => {
-    const {slides, isMobile} = props
+    const {slides} = props
     const settings = {
         dots: true,
         arrows: false,

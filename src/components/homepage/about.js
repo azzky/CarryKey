@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
-import ThreeImages from "../threeImages";
-import { gothicClass } from "../../constants";
+import ThreeImages from "@components/threeImages";
+import { gothicClass } from "@constants";
 
 import { AboutWrapper } from "./about.styled";
 

@@ -3,14 +3,14 @@ import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { Item } from "./shopItem.styled";
-import { gothicClass } from "../../constants";
+import { gothicClass } from "@constants";
 const ShopItem = ({post}) => {
     const {node: {
         title,
         isBestseller,
         price,
         priceMax,
-        gallery,
+        // gallery,
         preview
     }} = post;
     const image = getImage(preview)

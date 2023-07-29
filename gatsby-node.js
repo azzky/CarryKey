@@ -10,6 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
             edges {
                 node {
                     tags
+                    postId
                 }
             }
         }
@@ -17,7 +18,14 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
     const posts = results.data.allContentfulPost.edges
 
-    const promises = posts.map(async (post, i) => {
+    const promises = posts.map(async (post) => {
+        createPage({
+            path: '/shop/post/' + post.node.postId,
+            component: path.resolve(`./src/templates/post.js`),
+            context: {
+                slug: post.node.postId
+            }
+        })
         post.node.tags && post.node.tags.map(tag => {
             createPage({
                 path: '/shop/tag/' + tag.replace(' ', '_'),

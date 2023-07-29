@@ -1,6 +1,4 @@
 import "./src/styles/globals.css"
-// import "firebase"
-// import "firebase/messaging"
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(

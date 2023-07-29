@@ -1,10 +1,9 @@
 import React from "react"
 import MailchimpSubscribe from "./subscription";
-import { gothicClass, MainMenu, oswaldClass, subscriptionUrl } from '../../constants';
+import { gothicClass, MainMenu, oswaldClass, subscriptionUrl } from '@constants';
 import { Link } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import useWidth from "../../hooks/useWindowSize";
-import SocialIcons from "../socials";
+import useWidth from "@hooks/useWindowSize";
+import SocialIcons from "@components/socials";
 import BottomNavigation from "./bottomNavigation";
 
 import { FooterRoot, Socials, Bottom, UpperSection, BottomSection } from "./footer.styled"

@@ -1,6 +1,5 @@
 import React from "react"
-// import { GatsbyImage } from "gatsby-plugin-image";
-import useWidth from "../../hooks/useWindowSize";
+import useWidth from "@hooks/useWindowSize";
 
 import ImagesBlock from "./threeImages.styled";
 

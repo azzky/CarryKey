@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from '../components/layout'
-import AboutBlock from '../components/homepage/about'
-import ShopSlider from '../components/homepage/shopSlider'
-import Services from '../components/homepage/services'
-import Feedback from '../components/homepage/services'
+import Layout from '@components/layout'
+import AboutBlock from '@components/homepage/about'
+import ShopSlider from '@components/homepage/shopSlider'
+import Services from '@components/homepage/services'
+import Feedback from '@components/homepage/services'
 
 const IndexPage = ({
     data: {
@@ -40,12 +40,15 @@ query{
         edges {
             node {
                 id
+                postId
+                price
+                priceMax
                 title
+                gallery {
+                    gatsbyImageData(width: 400)
+                }
                 preview {
                     gatsbyImageData(width: 400)
-                    file {
-                        url
-                    }
                 }
             }
         }
@@ -61,13 +64,13 @@ query{
                 }
                 mobileImage {
                     gatsbyImageData(
-                            width: 390
-                        )
+                        width: 390
+                    )
                 }
                 desktopImage {
                     gatsbyImageData(
-                            width: 1920
-                        )
+                        width: 1920
+                    )
                 }
             }
         }

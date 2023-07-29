@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby";
 import NavMenu from "./navigation";
-import useWidth from "../../hooks/useWindowSize";
+import useWidth from "@hooks/useWindowSize";
 import SocialIcons from "../socials";
 import HomeSlider from "./slider";
 import MiniCart from "./minicart";
@@ -10,7 +10,7 @@ import Search from './search';
 import { HeaderRoot, BottomBlock, SearchWrapper, Socials } from "./header.styled";
 
 const Header = (props) => {
-    const {hasNavigation, hasCart, isHero, heroImageDesktop, heroImageMobile, h1, isHome, slides, isContact} = props;
+    const {hasNavigation, isHero, heroImageDesktop, heroImageMobile, h1, isHome, slides, isContact} = props;
     const {isMobile, isDesktop} = useWidth();
     const back = isMobile ? heroImageMobile : heroImageDesktop;
     return (
