@@ -5,7 +5,7 @@ const Wrapper = styled.div`
     display: grid;
     gap: 32px;
 
-    @media (min-width: 391px) {
+    @media (min-width: 754px) {
         padding: 24px 11.5vw;
         gap: 21px;
     }

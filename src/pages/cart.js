@@ -3,10 +3,10 @@ import Layout from '@components/layout'
 import useCart from "@hooks/useCart";
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import {createClient} from 'contentful-management';
+import { Link } from 'gatsby';
 
 const Cart = () => {
-    console.log(process.env.PERSONAL_TOKEN);
-    const {cart} = useCart();
+    const {cart, removeItem} = useCart();
     const [order, setOrder] = useState(null);
     const entryFields = {
             email: {
@@ -50,7 +50,7 @@ const Cart = () => {
         // TODO remove cart localStorage here
     }
     return (
-        <Layout hasNavigation isHero
+        <Layout hasNavigation isCart
             h1={'Cart'}>
             <div>
                 <h2>{`Basket (quantity: ${cart.length})`}</h2>
@@ -62,6 +62,8 @@ const Cart = () => {
                             <GatsbyImage image={image} layout="fill" alt="" />
                             <p>{title}</p>
                             <p>{priceType === 'min' ? price : priceMax}</p>
+                            <Link to={'/shop/post/'+postId}>Edit</Link>
+                            <button onClick={() =>removeItem(item)}>remove</button>
                         </div>
                         
                     )

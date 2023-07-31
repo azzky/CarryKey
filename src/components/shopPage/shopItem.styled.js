@@ -1,19 +1,25 @@
+import { Link } from "gatsby";
 import { styled } from "styled-components";
 
-const Item = styled.li`
+const Item = styled(Link)`
+    margin-bottom: 40px;
+
+    @media (min-width: 754px) {
+        margin-bottom: 0;
+    }
+
     &:hover {
         cursor: pointer;
     }
     
     & .imageWrapper {
-        width: 280px;
-        height: 280px;
+        width: 100%;
 
         img {
             object-fit: cover;
             object-position: center 12%;
-            width: 280px;
-            height: 280px;
+            aspect-ratio: 1 / 1;
+            height: auto;
         }
     }
 

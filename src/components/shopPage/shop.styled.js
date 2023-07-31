@@ -1,15 +1,26 @@
 import { styled } from "styled-components";
 
 const GridWrapper = styled.div`
-    display: grid;
-    grid-template-areas:
-        'tags tags'
-        'filters grid';
-    max-width: var(--desktop-width);
     margin: 0 auto;
-    grid-template-columns: 231px 1fr;
-    gap: 10px 48px;
-    padding-bottom: 104px;
+    padding: 0 55px 104px;
+
+    @media (min-width: 754px) {
+        padding: 0 86px 104px;
+        display: grid;
+        gap: 10px 20px;
+        grid-template-columns: 180px 1fr;
+        grid-template-areas:
+            'tags tags'
+            'filters grid';
+        max-width: 100%;
+    }
+
+    @media (min-width: 1280px) {
+        max-width: var(--desktop-width);
+        gap: 10px 48px;
+        grid-template-columns: 231px 1fr;
+        padding: 0 0 104px;
+    }
 
     & .top {
         grid-area: tags;
@@ -104,10 +115,16 @@ const GridWrapper = styled.div`
     }
 
     & .grid {
-        grid-area: grid;
-        display: grid;
-        gap: 40px 20px;
-        grid-template-columns: repeat(3, 1fr);
+        @media (min-width: 754px) {
+            grid-area: grid;
+            grid-template-columns: repeat(2, 1fr);
+            display: grid;
+            gap: 40px 20px;
+        }
+
+        @media (min-width: 1280px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 
     & .filter-name {
@@ -153,6 +170,13 @@ const GridWrapper = styled.div`
             background-color: var(--color-cta);
         }
     }
+`;
+
+const MobileFiltersWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    height: 52px;
+    align-items: center;
 `
 
-export {GridWrapper}
+export {GridWrapper, MobileFiltersWrapper}

@@ -28,8 +28,9 @@ function useWidth() {
     return {
         width: width,
         isVertical,
-        isMobile: width < 391,
-        isDesktop: width > 1280
+        isMobile: width < 754,
+        isTablet: width > 753 && width < 1280,
+        isDesktop: width > 1279
     }
 }
 

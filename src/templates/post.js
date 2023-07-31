@@ -8,7 +8,7 @@ const Post = ({
 }) => {
     const data = edges[0].node
     return (
-        <Layout hasNavigation isHero
+        <Layout hasNavigation isCart
             h1={data.title}>
             <Item post={data}/>
         </Layout>

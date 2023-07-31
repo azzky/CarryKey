@@ -10,12 +10,13 @@ const ShopItem = ({post}) => {
         isBestseller,
         price,
         priceMax,
+        postId,
         // gallery,
         preview
     }} = post;
     const image = getImage(preview)
     return (
-        <Item>
+        <Item to={'/shop/post/'+postId}>
             <div className="imageWrapper">
                 <GatsbyImage image={image}
                     alt=""/>

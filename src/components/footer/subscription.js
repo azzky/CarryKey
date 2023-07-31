@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import jsonp from "jsonp";
 import toQueryString from "to-querystring";
-import { oswaldClass } from "@constants";
 
 const SimpleForm = ({ status, message, className, style, onSubmitted }) => {
   let input;
@@ -31,9 +30,8 @@ const SimpleForm = ({ status, message, className, style, onSubmitted }) => {
       <input
         ref={node => (input = node)}
         type="email"
-        placeholder="Enter email address"
-        className={oswaldClass}/>
-      <button className={oswaldClass} onClick={submit}>Subscribe</button>
+        placeholder="Enter email address"/>
+      <button onClick={submit}>Subscribe</button>
     </div>
   );
 };

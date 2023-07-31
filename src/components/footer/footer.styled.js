@@ -6,7 +6,7 @@ const FooterRoot = styled.footer`
     justify-content: center;
     padding: 40px 55px 0;
 
-    @media (min-width: 391px) {
+    @media (min-width: 754px) {
         padding: 18px 86px 0;
     }
 
@@ -20,8 +20,9 @@ const FooterRoot = styled.footer`
     & .hiddenDescription {
         font-size: 12px;
         font-weight: 400;
+        font-family: CG, sans-serif;
 
-        @media (min-width: 391px) {
+        @media (min-width: 754px) {
             margin-top: 8px;
             line-height: 15px;
         }
@@ -41,8 +42,9 @@ const FooterRoot = styled.footer`
         line-height: 20px;
         display: block;
         margin: 10px 0 27px;
+        font-family: CG, sans-serif;
 
-        @media (min-width: 391px) {
+        @media (min-width: 754px) {
             margin-bottom: 15px;
         }
 
@@ -51,8 +53,15 @@ const FooterRoot = styled.footer`
         }
     }
 
+    & .changingFont {
+        @media (min-width: 754px) {
+            font-family: CG, sans-serif;
+            letter-spacing: 0 !important;
+        }
+    }
+
     & .form {
-        @media (min-width: 391px) {
+        @media (min-width: 754px) {
             text-align: right;
             display: flex;
             flex-direction: column;
@@ -71,7 +80,7 @@ const FooterRoot = styled.footer`
             place-items: center;
             margin: 10px 0 30px;
 
-            @media (min-width: 391px) {
+            @media (min-width: 754px) {
                 display: flex;
                 margin: 24px 0 15px;
                 column-gap: 5px;
@@ -83,7 +92,7 @@ const FooterRoot = styled.footer`
             font-size: 14px;
             letter-spacing: 0.048em;
 
-            @media (min-width: 391px) {
+            @media (min-width: 754px) {
                 font-size: 20px;
                 letter-spacing: 1px;
             }
@@ -100,7 +109,7 @@ const FooterRoot = styled.footer`
             font-size: 12px;
             letter-spacing: 0.6px;
 
-            @media (min-width: 391px) {
+            @media (min-width: 754px) {
                 letter-spacing: 1.6px;
             }
 
@@ -119,8 +128,10 @@ const FooterRoot = styled.footer`
             border: 0;
             text-align: center;
             font-weight: 400;
+            font-family: Oswald, sans-serif;
 
-            @media (min-width: 391px) {
+
+            @media (min-width: 754px) {
                 height: 43px;
             }
 
@@ -130,7 +141,8 @@ const FooterRoot = styled.footer`
             }
         }
         input {
-            @media (min-width: 391px) {
+            background: #D5CEE4;
+            @media (min-width: 754px) {
                 width: 301px;
                 text-align: left;
                 padding: 0 21px;
@@ -141,9 +153,10 @@ const FooterRoot = styled.footer`
             }
         }
 
-        input:placeholder {
+        input::placeholder {
             color: #ADA9B6;
             font-size: 12px;
+            opacity: 1;
 
             @media (min-width: 1280px) {
                 font-size: 14px;
@@ -156,7 +169,7 @@ const FooterRoot = styled.footer`
             color: var(--color-white);
             font-size: 14px;
 
-            @media (min-width: 391px) {
+            @media (min-width: 754px) {
                 width: 105px;
             }
 
@@ -188,12 +201,12 @@ const Bottom = styled.div`
     align-items: center;
     margin: 34px -55px 0;
 
-    @media (min-width: 391px) {
+    @media (min-width: 754px) {
         height: 63px;
         margin: 6px -86px 0;
     }
 
-    @media (min-width: 391px) {
+    @media (min-width: 1280px) {
         height: 80px;
         margin: 6px calc(var(--desktop-offset) * -1) 0;
         grid-column: 1 / span 2;
@@ -201,7 +214,7 @@ const Bottom = styled.div`
 `;
 
 const UpperSection = styled.div`
-    @media (min-width: 391px) {
+    @media (min-width: 754px) {
         display: grid;
         grid-template-columns: 160px auto;
     }
@@ -212,7 +225,7 @@ const UpperSection = styled.div`
 `;
 
 const BottomSection = styled.div`
-    @media (min-width: 391px) {
+    @media (min-width: 754px) {
         display: flex;
         justify-content: center;
         gap: 102px;

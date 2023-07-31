@@ -18,12 +18,37 @@ const HeaderRoot = styled.header`
             min-height: ${$isHome ? '100vh' : '38vw'};
         }
     `}
+    ${({$isCart})=>$isCart && `
+        min-height: 54px;
+        background: var(--color-cta);
+        padding: 0 55px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (min-width: 754px) {
+            background: linear-gradient(to bottom, var(--color-cta) 54px, white 40px);
+            min-height: 94px;
+            padding: 0 86px;
+            display: grid;
+            grid-template-rows: 54px 40px;
+
+            ul {
+                grid-row: 2 / span 2;
+            }
+
+            > div,
+            > a {
+                grid-row: 1;
+            }
+        }
+    `}
 
     img.logo {
         width: 81px;
         height: 35px;
 
-        @media (min-width: 391px) {
+        @media (min-width: 754px) {
             width: 102px;
             height: 44px;
         }
@@ -47,7 +72,7 @@ const HeaderRoot = styled.header`
         height: 100%;
         z-index: -1;
 
-        @media (min-width: 391px) {
+        @media (min-width: 754px) {
             object-position: center 19%;
         }
     }
@@ -61,7 +86,7 @@ const HeaderRoot = styled.header`
         position: absolute;
         width: 100%;
 
-        @media (min-width: 391px) {
+        @media (min-width: 754px) {
             height: 80px;
             padding: 0 11.5vw;
 
@@ -90,7 +115,7 @@ const HeaderRoot = styled.header`
         font-weight: 300;
         line-height: normal;
 
-        @media (min-width: 391px) {
+        @media (min-width: 754px) {
             font-size: 48px;
         }
 
@@ -107,13 +132,14 @@ const BottomBlock = styled.div`
     right: 0;
     padding: 0 55px 47px;
 
-    @media (min-width: 391px) {
-        padding: 0 2vw 60px;
-        max-width: var(--desktop-width);
+    @media (min-width: 754px) {
+        padding: 0 86px 60px;
         margin: 0 auto;
     }
 
     @media (min-width: 1280px) {
+        padding: 0 2vw 60px;
+        max-width: var(--desktop-width);
         padding: ${props=>props.$isHome ? '0 0 108px' : '0 0 34px'};
     }
 `;
@@ -123,9 +149,17 @@ const SearchWrapper = styled.div`
     display: flex;
     justify-content: ${props=>props.$isContact ? 'center' : 'space-between'};
     align-items: center;
-    height: 64px;
+    height: 48px;
     background: var(--color-main);
-    padding: 0 var(--desktop-offset);
+    padding: 0 55px;
+
+    @media (min-width: 754px) {
+        height: 64px;
+        padding: 0 86px;
+    }
+    @media (min-width: 1280px) {
+        padding: 0 var(--desktop-offset);
+    }
 `;
 
 const Socials = styled.div`

@@ -1,10 +1,12 @@
 import React from 'react';
-import { GridWrapper } from "./shop.styled";
 import ShopItem from './shopItem';
 import Banner from "./banner";
 import useShop from './useShop'
 import { useCallback } from "react";
 import { Link } from 'gatsby';
+import useWidth from '@hooks/useWindowSize'
+
+import { GridWrapper, MobileFiltersWrapper } from "./shop.styled";
 
 const Tags = ({tags}) => {
     return (
@@ -57,20 +59,35 @@ const Filters = ({categories, setFilterCategories, filterCategories, resetFilter
     )
 }
 
+const MobileFilters = (props) => {
+    const {count} = props
+    return (
+        <MobileFiltersWrapper>
+            <p>{count + ' results'}</p>
+            <div className="sorting">
+            sorting
+            </div>
+            <div>Filters</div>
+        </MobileFiltersWrapper>
+    )
+}
+
 const Grid = (props)=>{
     const {items} = props;
+    const {isMobile, isTablet} = useWidth()
     const {
         uniqueTags,uniqueCategories,finalItems, setFilterCategories, filterCategories, resetFilters, removeFilter
-    } = useShop(items);
+    } = useShop(items, isTablet);
 
     return (
         <GridWrapper>
-            <Tags tags={uniqueTags} />
-            <Filters categories={uniqueCategories}
+            {isMobile && <MobileFilters count={finalItems.length}/>}
+            {!isMobile && <Tags tags={uniqueTags} />}
+            {!isMobile && <Filters categories={uniqueCategories}
                 setFilterCategories={setFilterCategories}
                 resetFilters={resetFilters}
                 removeFilter={removeFilter}
-                filterCategories={filterCategories} />
+                filterCategories={filterCategories} />}
             <ul className="grid">
                 {finalItems.length > 0 && finalItems.map(post => {
                     return post.node.isBanner ? (

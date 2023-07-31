@@ -1,14 +1,13 @@
 import { useState, useCallback } from 'react'
 
-const useShop = (items) => {
+const useShop = (items, isTablet, indexFromdata = 3) => { // TODO move indexFromdata to parent and get from data
     let finalItems = items;
     let categories = [];
     let tags = [];
     const [filterCategories, setFilterCategories] = useState(null);
-    const index = 3; // TODO
+    const index = isTablet && indexFromdata % 2 !== 0 ? indexFromdata - 1 : indexFromdata;
     const hasBanner = true; // TODO
-    // TODO replace with data from admin
-    const bannerElement = {node: {
+    const bannerElement = {node: {// TODO replace with data from admin
         isBanner: true,
         url: 'hjhgjhgjgj',
         preview: '//images.ctfassets.net/3mb1yc1vta0f/2P49KyvCUPMifVZMXcgoVG/6b3973c85656abc89f7d9f125b2ec67d/back-home.jpg'

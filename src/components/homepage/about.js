@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "gatsby";
 import ThreeImages from "@components/threeImages";
-import { gothicClass } from "@constants";
 
 import { AboutWrapper } from "./about.styled";
 
-const AboutBlock = (props) => {
+const AboutBlock = () => {
     return (
         <AboutWrapper>
             <h2>ABOUT</h2>
-            <div className={'numbers ' + gothicClass}>
+            <div className="numbers">
                 <p>
                     <span className="number">8+</span>
                     <span>Years in cosplay</span>
@@ -23,7 +22,7 @@ const AboutBlock = (props) => {
                     <span>Unique photo shoots</span>
                 </p>
             </div>
-            <div className={gothicClass + ' about'}>
+            <div className="about">
                 <p>Hi, I’m Katy.<br/>
                     I’m a super heroes from Little, Sky.</p>
                 <p>8 years ago I started with a freelance shooting and now proudly represent my own photo studio called “CarryKey” cosplay.</p>

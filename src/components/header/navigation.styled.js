@@ -77,7 +77,7 @@ const Navigation = styled.ul`
     text-transform: uppercase;
     font-size: 14px;
 
-    @media (max-width: 390px) {
+    @media (max-width: 753px) {
         display: grid;
         width: 100%;
         padding-bottom: 52px;
@@ -86,7 +86,7 @@ const Navigation = styled.ul`
     & li {
         position: relative;
 
-        @media (max-width: 390px) {
+        @media (max-width: 753px) {
             color: var(--color-black);
             height: 54px;
             border-bottom: 1px solid var(--color-cta);
@@ -112,11 +112,13 @@ const Navigation = styled.ul`
     & a {
         text-decoration: none;
         margin: 0 15px;
-        color: var(--color-white);
+        color: var(--color-black);
 
-        @media (max-width: 390px) {
-            color: var(--color-black);
-        }
+        ${props=>!props.$isCart && `
+            @media (min-width: 754px) {
+                color: var(--color-white);
+            }
+        `}
     }
 `;
 

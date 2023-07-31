@@ -14,3 +14,4 @@ export const onServiceWorkerUpdateReady = () => {
 //     reg.update();
 //   });
 // };
+export { default as wrapRootElement } from './src/redux/wrapper';

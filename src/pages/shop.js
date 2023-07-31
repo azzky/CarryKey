@@ -36,10 +36,10 @@ query{
                 categories
                 tags
                 gallery {
-                    gatsbyImageData(width: 400, quality: 100)
+                    gatsbyImageData(width: 450, quality: 100)
                 }
                 preview {
-                    gatsbyImageData(width: 280, quality: 100)
+                    gatsbyImageData(width: 450, quality: 100)
                 }
             }
         }

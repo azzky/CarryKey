@@ -29,20 +29,10 @@ const AboutWrapper = styled.div`
     }
 
     & h2 {
-        color: var(--color-black);
-        font-size: 2.25rem;
-        font-weight: 400;
-        line-height: normal;
-        letter-spacing: 0.1125rem;
         margin-bottom: 5px;
-
-        @media (min-width: 754px) {
-            font-size: 44px;
-        }
 
         @media (min-width: 1280px) {
             text-align: start;
-            letter-spacing: 0;
             grid-row: 1;
             margin: 0;
         }
@@ -52,12 +42,14 @@ const AboutWrapper = styled.div`
         display: grid;
         gap: 20px;
         margin-bottom: 16px;
+        font-family: CG, sans-serif;
 
         @media (min-width: 754px) {
             grid-template-columns: repeat(3, 1fr);
             width: calc(100% + 90px);
             margin-left: -35px;
             margin-top: 21px;
+            margin-bottom: -42px;
         }
 
         @media (min-width: 1280px) {
@@ -74,6 +66,7 @@ const AboutWrapper = styled.div`
     & .about {
         font-size: 14px;
         margin-bottom: 15px;
+        font-family: CG, sans-serif;
 
         @media (min-width: 754px) {
             grid-row: 2;
@@ -113,7 +106,8 @@ const AboutWrapper = styled.div`
             display: none;
         }
 
-        &.tablet {
+        &.tablet,
+        &.tablet+p {
             display: none;
 
             @media (min-width: 754px) {
@@ -124,6 +118,7 @@ const AboutWrapper = styled.div`
         a {
             text-decoration: underline;
             color: var(--color-cta);
+            font-size: 16px;
         }
     }
 `

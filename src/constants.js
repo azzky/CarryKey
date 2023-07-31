@@ -49,8 +49,7 @@ const ContactLinks = [
 ];
 
 const gothicClass = 'gothic'
-const oswaldClass = 'oswald'
 
 const subscriptionUrl = ''
 
-export {MainMenu, ContactLinks, gothicClass, oswaldClass, subscriptionUrl}
+export {MainMenu, ContactLinks, gothicClass, subscriptionUrl}

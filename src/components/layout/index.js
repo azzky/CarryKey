@@ -4,13 +4,14 @@ import Header from "@components/header";
 import Footer from "@components/footer";
 
 const Layout = (props) => {
-    const {hasNavigation, isHero, h1, isHome, heroImageDesktop, heroImageMobile, slides, isContact} = props;
+    const {hasNavigation, isHero, h1, isHome, heroImageDesktop, heroImageMobile, slides, isContact, isCart} = props;
     return (
         <>
             <Sprite/>
             <Header hasNavigation={hasNavigation}
                 isHero={isHero}
                 isHome={isHome}
+                isCart={isCart}
                 isContact={isContact}
                 heroImageDesktop={heroImageDesktop}
                 heroImageMobile={heroImageMobile}

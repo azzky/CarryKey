@@ -10,13 +10,14 @@ import Search from './search';
 import { HeaderRoot, BottomBlock, SearchWrapper, Socials } from "./header.styled";
 
 const Header = (props) => {
-    const {hasNavigation, isHero, heroImageDesktop, heroImageMobile, h1, isHome, slides, isContact} = props;
+    const {hasNavigation, isHero, heroImageDesktop, heroImageMobile, h1, isHome, slides, isContact, isCart} = props;
     const {isMobile, isDesktop} = useWidth();
     const back = isMobile ? heroImageMobile : heroImageDesktop;
     return (
         <>
         <HeaderRoot $isHero={isHero}
-            $isHome={isHome}>
+            $isHome={isHome}
+            $isCart={isCart}>
             {isHome ? (
                 <HomeSlider slides={slides}
                     isMobile={isMobile}/>
@@ -26,20 +27,34 @@ const Header = (props) => {
                     className="hero"
                     quality={100}/>}</>
             )}
-            <div className="header">
-                <Link className="logo" to={'/'}>
-                    <img src="/logo1.png" alt="CarryKey logo" className="logo" quality={100}/>
-                </Link>
-                {hasNavigation && <NavMenu/>}
-            </div>
-            <BottomBlock $isHome={isHome}>
-                {!isHome && <h1>{h1}</h1>}
-                <Socials>
-                    {!isContact && <SocialIcons size={isMobile ? 21 : 32} gap={isMobile ? 8 : 11}/>}
-                </Socials>
-            </BottomBlock>
+            {isCart ? (
+                <>
+                    <Link className="logo" to={'/'}>
+                        <img src="/logo1.png" alt="CarryKey logo" className="logo" quality={100}/>
+                    </Link>
+                    <Socials>
+                        {!isMobile && <SocialIcons size={isMobile ? 21 : 32} gap={isMobile ? 8 : 11}/>}
+                    </Socials>
+                    {hasNavigation && <NavMenu isCart/>}
+                </>
+            ) : (
+                <>
+                    <div className="header">
+                        <Link className="logo" to={'/'}>
+                            <img src="/logo1.png" alt="CarryKey logo" className="logo" quality={100}/>
+                        </Link>
+                        {hasNavigation && <NavMenu/>}
+                    </div>
+                    <BottomBlock $isHome={isHome}>
+                        {!isHome && !isCart && <h1>{h1}</h1>}
+                        <Socials>
+                            {!isContact && <SocialIcons size={isMobile ? 21 : 32} gap={isMobile ? 8 : 11}/>}
+                        </Socials>
+                    </BottomBlock>
+                </>
+            )}
         </HeaderRoot>
-        {!isHome && <SearchWrapper $isContact={isContact}>
+        {!isHome && !isCart && <SearchWrapper $isContact={isContact}>
             {isContact ? (
                 <>
                     {!isDesktop && <SocialIcons size={isMobile ? 37 : 51} gap={isMobile ? 14.5 : 18.5}/>}
