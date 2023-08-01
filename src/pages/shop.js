@@ -32,6 +32,7 @@ query{
                 price
                 priceMax
                 categories
+                isBestseller
                 tags
                 gallery {
                     gatsbyImageData(width: 450, quality: 100)
