@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import { Item } from "./shopItem.styled";
 import { gothicClass } from "@constants";
+import { Link } from 'gatsby';
 const ShopItem = ({post}) => {
     const {node: {
         title,
@@ -16,7 +17,11 @@ const ShopItem = ({post}) => {
     }} = post;
     const image = getImage(preview)
     return (
-        <Item to={'/shop/post/'+postId}>
+        <Item>
+            <Link to={'/shop/post/'+postId}
+                aria-label={'link to post '+title}>
+                <span className="visually-hidden">{'link to post '+title}</span>
+            </Link>
             <div className="imageWrapper">
                 <GatsbyImage image={image}
                     alt=""/>

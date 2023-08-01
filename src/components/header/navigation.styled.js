@@ -59,10 +59,13 @@ const NavWrapper = styled.div`
     flex-direction: column;
     font-size: 30px;
     align-items: center;
-    translate: ${props=>props.$isOpen ? '0 0' : '100% 0'};
+    translate: ${props=>props.$isOpen ? '0 0' : '130% 0'};
     transition: linear .3s translate;
     padding-right: 30px;
     padding-bottom: 50px;
+    bottom: 0;
+    box-shadow: 30px 0 50px 20px var(--color-black);
+    will-change: translate;
 
     & .top {
         height: 48px;
@@ -109,22 +112,24 @@ const Navigation = styled.ul`
         }
     }
 
-    & a:hover::after,
-    &:not(:hover) a.active::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 11px 4.5px 0 4.5px;
-        border-color: var(--color-main) transparent transparent transparent;
-        ${props=>props.$isCart ? `
-        top: 6px;
-        right: 17px;
-        `:`
-        top: 5px;
-        right: 1px;
-        `}
+    @media (min-width: 754px) {
+        & a:hover::after,
+        &:not(:hover) a.active::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 11px 4.5px 0 4.5px;
+            border-color: var(--color-main) transparent transparent transparent;
+            ${props=>props.$isCart ? `
+            top: 6px;
+            right: 17px;
+            `:`
+            top: 5px;
+            right: 1px;
+            `}
+        }
     }
 
     & a {

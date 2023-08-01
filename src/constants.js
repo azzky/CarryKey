@@ -27,16 +27,16 @@ const MainMenu = [
 
 const ContactLinks = [
     {
-        title: 'No name',
-        link: 'https://www.instagram.com/carry.key_cosplay/'
+        title: 'Instagram',
+        link: 'https://www.instagram.com/carry.key_cosplay'
     },
     {
-        title: 'No name',
-        link: 'https://www.instagram.com/carry.key_cosplay/'
+        title: 'Twitter',
+        link: 'https://twitter.com/CarryKey_'
     },
     {
-        title: 'No name',
-        link: 'https://www.instagram.com/carry.key_cosplay/'
+        title: 'Tiktok',
+        link: 'https://www.tiktok.com/@carrykey_cosplay'
     },
     {
         title: 'No name',

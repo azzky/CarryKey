@@ -14,13 +14,16 @@ const ThreeImages = (props) => {
         <ImagesBlock>
             <img src={'/'+src+'1.jpg'} alt=""
                 width={bigSizeW}
-                height={bigSizeH}/>
+                height={bigSizeH}
+                loading="lazy"/>
             <img src={'/'+src+'2.jpg'} alt=""
                 width={smallSizeW}
-                height={smallSizeH}/>
+                height={smallSizeH}
+                loading="lazy"/>
             <img src={'/'+src+'3.jpg'} alt=""
                 width={87}
-                height={86}/>
+                height={86}
+                loading="lazy"/>
         </ImagesBlock>
     )
 };

@@ -15,7 +15,7 @@ const SocialIcons = (props) => {
                     <use href="#facebook"/>
                 </svg>
             </a>
-            <a href={'https://www.instagram.com/carry.key_cosplay'}>
+            <a href={'https://www.tiktok.com/@carrykey_cosplay'}>
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="#fff" xmlns="http://www.w3.org/2000/svg">
                     <use href='#tiktok'/>
                 </svg>

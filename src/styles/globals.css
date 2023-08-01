@@ -91,6 +91,17 @@ input::placeholder {
     font-family: inherit;
 }
 
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    block-size: 1px;
+    border: 0;
+    inline-size: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
 @media screen and (min-width: 754px) {
     h2 {
         font-size: 44px;

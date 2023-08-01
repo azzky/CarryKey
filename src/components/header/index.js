@@ -22,7 +22,7 @@ const Header = (props) => {
                     isMobile={isMobile}/>
             ) : (
                 <>{isHero && <img src={heroImageDesktop}
-                    alt=""
+                    alt="" loading="lazy"
                     className="hero"/>}</>
             )}
             {isCart ? (

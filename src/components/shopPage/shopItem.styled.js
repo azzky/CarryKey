@@ -1,15 +1,20 @@
-import { Link } from "gatsby";
 import { styled } from "styled-components";
 
-const Item = styled(Link)`
+const Item = styled.li`
     margin-bottom: 40px;
+    position: relative;
+
+    &>a {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+    }
 
     @media (min-width: 754px) {
         margin-bottom: 0;
-    }
-
-    &:hover {
-        cursor: pointer;
     }
     
     & .imageWrapper {
