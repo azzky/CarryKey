@@ -12,18 +12,15 @@ const ThreeImages = (props) => {
     const smallSizeH = isMobile ? 86 : isDesktop ? 353 : 307
     return (
         <ImagesBlock>
-            <img src={'/'+src+'1.jpeg'} alt=""
+            <img src={'/'+src+'1.jpg'} alt=""
                 width={bigSizeW}
-                height={bigSizeH}
-                quality={100}/>
-            <img src={'/'+src+'2.jpeg'} alt=""
+                height={bigSizeH}/>
+            <img src={'/'+src+'2.jpg'} alt=""
                 width={smallSizeW}
-                height={smallSizeH}
-                quality={100}/>
-            <img src={'/'+src+'3.jpeg'} alt=""
+                height={smallSizeH}/>
+            <img src={'/'+src+'3.jpg'} alt=""
                 width={87}
-                height={86}
-                quality={100}/>
+                height={86}/>
         </ImagesBlock>
     )
 };

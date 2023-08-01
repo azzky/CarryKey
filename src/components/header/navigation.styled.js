@@ -33,6 +33,19 @@ const ShopLink = styled(Link)`
     font-size: 12px;
     color: var(--color-white);
     margin-right: -38px;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 11px 4.5px 0 4.5px;
+        border-color: var(--color-main) transparent transparent transparent;
+        top: 5px;
+        right: -16px;
+    }
 `;
 
 const NavWrapper = styled.div`
@@ -102,11 +115,16 @@ const Navigation = styled.ul`
         position: absolute;
         width: 0;
         height: 0;
-        top: 5px;
-        right: 1px;
         border-style: solid;
         border-width: 11px 4.5px 0 4.5px;
         border-color: var(--color-main) transparent transparent transparent;
+        ${props=>props.$isCart ? `
+        top: 6px;
+        right: 17px;
+        `:`
+        top: 5px;
+        right: 1px;
+        `}
     }
 
     & a {
@@ -114,13 +132,13 @@ const Navigation = styled.ul`
         margin: 0 15px;
         color: var(--color-black);
 
-        ${props=>!props.$isCart ? `
+        ${props=>props.$isCart ? `
             @media (min-width: 754px) {
-                color: var(--color-white);
+                margin: 0 30px 0 0;
             }
         `: `
             @media (min-width: 754px) {
-                margin: 0 30px 0 0;
+                color: var(--color-white);
             }
         `}
     }

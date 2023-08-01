@@ -7,7 +7,7 @@ import useWidth from "@hooks/useWindowSize";
 import { MobileTrigger, ShopLink, Navigation, NavWrapper } from "./navigation.styled";
 import SocialIcons from "../socials";
 
-const NavMenu = ({isCart}) => {
+const NavMenu = ({isCart, isShop}) => {
     const {isMobile} = useWidth();
     const [isOpen, setIsOpen] = useState(false);
 
@@ -19,7 +19,7 @@ const NavMenu = ({isCart}) => {
         <>
         {isMobile && (
             <>
-                <ShopLink to={isCart ? '/about' : '/shop'}>{isCart ? 'About' : 'Shop'}</ShopLink>
+                <ShopLink to={isShop ? '/about' : '/shop'}>{isShop ? 'About' : 'Shop'}</ShopLink>
                 <MobileTrigger onClick={clickHandler}
                     $isOpen={isOpen}>
                     <span/>

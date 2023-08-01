@@ -9,7 +9,7 @@ const Shop = ({
     data: {allContentfulPost: posts}
 }) => {
     return (
-        <Layout hasNavigation isHero
+        <Layout hasNavigation isHero isShop
             h1={'Shop'}
             heroImageDesktop={backDesk}>
             {posts.edges?.length > 0 && <Grid items={posts.edges}/>}

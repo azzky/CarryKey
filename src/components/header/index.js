@@ -10,7 +10,7 @@ import Search from './search';
 import { HeaderRoot, BottomBlock, SearchWrapper, Socials } from "./header.styled";
 
 const Header = (props) => {
-    const {hasNavigation, isHero, heroImageDesktop, h1, isHome, slides, isContact, isCart} = props;
+    const {hasNavigation, isHero, heroImageDesktop, h1, isHome, slides, isContact, isCart, isShop} = props;
     const {isMobile, isDesktop} = useWidth();
     return (
         <>
@@ -41,7 +41,7 @@ const Header = (props) => {
                         <Link className="logo" to={'/'}>
                             <img src="/logo1.png" alt="CarryKey logo" className="logo"/>
                         </Link>
-                        {hasNavigation && <NavMenu/>}
+                        {hasNavigation && <NavMenu isShop={isShop}/>}
                     </div>
                     <BottomBlock $isHome={isHome}>
                         {!isHome && !isCart && <h1>{h1}</h1>}
