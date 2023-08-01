@@ -3,7 +3,6 @@ import { graphql } from "gatsby"
 import Layout from '@components/layout'
 
 import backDesk from '@images/back-shop.jpg';
-import backMobile from '@images/back-shop-mobile.jpg';
 import Grid from '@components/shopPage/grid';
 
 const Shop = ({
@@ -13,8 +12,7 @@ const Shop = ({
     return (
         <Layout hasNavigation isHero
             h1={'Results for ' +slug+ ' tag:'}
-            heroImageDesktop={backDesk}
-            heroImageMobile={backMobile}>
+            heroImageDesktop={backDesk}>
             {posts.edges?.length > 0 && <Grid items={posts.edges}/>}
         </Layout>
     )
