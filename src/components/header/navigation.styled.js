@@ -114,9 +114,13 @@ const Navigation = styled.ul`
         margin: 0 15px;
         color: var(--color-black);
 
-        ${props=>!props.$isCart && `
+        ${props=>!props.$isCart ? `
             @media (min-width: 754px) {
                 color: var(--color-white);
+            }
+        `: `
+            @media (min-width: 754px) {
+                margin: 0 30px 0 0;
             }
         `}
     }

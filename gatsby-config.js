@@ -76,37 +76,26 @@ module.exports = {
                 }
             },
         },
-        // {
-        //     resolve: `gatsby-plugin-manifest`,
-        //     options: {
-        //         name: `Shibari by Azzky`,
-        //         short_name: `Shibari by Azzky`,
-        //         start_url: `/`,
-        //         description: 'Shibari portfolio of rope artist Azzky',
-        //         lang: 'en',
-        //         // direction: 'ltr',
-        //         orientation: 'portrait',
-        //         background_color: `#f7f0eb`,
-        //         theme_color: `#000`,
-        //         display: `standalone`,
-        //         icon: `src/images/favic/fav.png`,
-        //         include_favicon: true,
-        //         cache_busting_mode: 'none',
-        //         // gcm_sender_id: '976120493038',
-        //         icon_options: {
-        //         purpose: `any maskable`,
-        //         },
-        //         localize: [
-        //         {
-        //             start_url: '/ru/',
-        //             lang: 'ru',
-        //             name: `Шибари от Azzky`,
-        //             short_name: `Шибари от Azzky`,
-        //             description: 'Сайт-портфолио Azzky про шибари',
-        //         }
-        //         ]
-        //     }
-        // },
+        {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: `CarryKey`,
+                short_name: `CarryKey`,
+                start_url: `/`,
+                description: 'CarryKey website portfolio',
+                lang: 'en',
+                orientation: 'portrait',
+                background_color: `#f7f0eb`,
+                theme_color: `#000`,
+                display: `standalone`,
+                icon: `src/images/favic/favicon.png`,
+                include_favicon: true,
+                cache_busting_mode: 'none',
+                icon_options: {
+                    purpose: `any maskable`,
+                }
+            }
+        },
         // {
         //     resolve: `gatsby-plugin-sitemap`,
         //     options: {

@@ -1,4 +1,5 @@
 import { createStore } from 'redux';
+import {configureStore} from '@reduxjs/toolkit'
 import Reducer from './reducer';
 let arr = []
 try {
@@ -15,6 +16,7 @@ const initialState = {
         items: arr
     }
 }
-const store = createStore(Reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+// const tools = typeof window !== 'undefined' ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : ()=>{return {}}
+const store = createStore(Reducer, initialState);
 
 export default store;

@@ -1,54 +1,63 @@
-import { useCallback } from "react";
+import { useState } from 'react';
+import useBasket from "@hooks/useBasket";
+import {createClient} from 'contentful-management';
 import useLocalStorage from "./useLocalStorage";
-import { useSelector } from "react-redux";
-import reduxStore from '../redux/store';
-import {cartData } from '../redux/actions'
-import { navigate } from "@reach/router"  
 
 const useCart = () => {
-    const [, setValue] = useLocalStorage("cart", "")
-    const { items } = useSelector(state=>state.cart)
-
-    const saveData = useCallback((data, redirect) =>{
-        setValue(data); // set localstorage to keep cart on refresh
-        reduxStore.dispatch(cartData(data)) // set redux too to work on a fly
-        if (redirect) navigate(redirect) // TODO check on builded site
-    }, [setValue])
-
-    const addItem = useCallback((post, priceType) => {
-        post.priceType = priceType
-        let arr = [...items]
-        if(items && items.filter(el => el.postId === post.postId).length > 0) {
-            return
-        } else {
-            arr.push(post)
-        }
-        saveData(arr, false)
-    }, [items, saveData]);
-
-    const removeItem = useCallback(post => {
-        let arr = [...items]
-        if(items && items.filter(el => el.postId === post.postId).length > 0) {
-            arr = items.filter(el => el.postId !== post.postId)
-        }
-        saveData(arr, false)
-    }, [items, saveData])
-
-    const editItem = useCallback((type, id) => {
-        let arr = [...items]
-        for(let i = 0;i < arr.length;i++) {
-            if (arr[i].postId === id) {
-                arr[i].priceType = type
+    const {cart, removeItem} = useBasket();
+    const [order, setOrder] = useState(null);
+    const {removeValue} = useLocalStorage()
+    let totalValue = 0
+    cart.map(item => {
+        totalValue = totalValue + (item.priceType === 'min' ? item.price : item.priceMax)
+    })
+    const entryFields = {
+            email: {
+                'en-US':'test@test.com',
+            },
+            status: {
+                'en-US': 'unpaid'
+            },
+            // sets: cart.map(set=>({
+            //         id: {'en-US': set.id},
+            //         postId: {'en-US': set.postId},
+            //         title: {'en-US': set.title},
+            //         // preview: {'en-US': set.preview},
+            //     })),
+            priceType: {
+                'en-US': [...cart.map(set=>`${set.title} (id ${set.postId}) | ${set.priceType}`)]
             }
         }
-        saveData(arr, '/cart')
-    }, [items, saveData])
-    
+    const contentType = 'order' // Contentful model type
+    const clickHandler = async () => {
+        const client = await createClient({
+            accessToken: process.env.PERSONAL_TOKEN
+        })
+        const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID)
+        const env = await space.getEnvironment('master')
+        // Execute entry creation
+        console.log({fields: entryFields});
+        const entry = await env.createEntry(contentType, {
+                fields: entryFields
+            });
+        // If we get a new entry ID, then success, otherwise default to null
+        const newEntryId = entry.sys.id ?? null;
+        if (newEntryId) setOrder(entry);
+        console.log('order started');
+    }
+    const publishOrder = () => {
+        console.log(order);
+        order.fields.status['en-US'] = 'paid'
+        order.update();
+        console.log('paid, now can remove order');
+        removeValue('cart');
+    }
     return {
-        addItem,
+        cart,
+        totalValue,
         removeItem,
-        editItem,
-        cart: items
+        clickHandler,
+        publishOrder
     }
 }
 

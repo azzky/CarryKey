@@ -11,14 +11,14 @@ const MainMenu = [
         title: 'Gallery',
         link: '/gallery'
     },
-    {
-        title: 'Services',
-        link: '/services'
-    },
-    {
-        title: 'Feedback',
-        link: '/feedback'
-    },
+    // {
+    //     title: 'Services',
+    //     link: '/services'
+    // },
+    // {
+    //     title: 'Feedback',
+    //     link: '/feedback'
+    // },
     {
         title: 'Contact us',
         link: '/contact'

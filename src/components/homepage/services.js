@@ -1,11 +1,11 @@
 import React from "react"
-import { Wrapper } from "./services.styled"
+import { Wrapper, List } from "./services.styled"
 
 const Services = ()=> {
     return (
-        <>
+        <Wrapper>
             <h2>Services</h2>
-            <Wrapper>
+            <List>
                 <li>
                     <h3 className="title">Standard</h3>
                     <p>Consultation</p>
@@ -24,8 +24,8 @@ const Services = ()=> {
                     <p className="price">$149</p>
                     <button className="button">I want this package</button>
                 </li>
-            </Wrapper>
-        </>
+            </List>
+        </Wrapper>
     )
 }
 

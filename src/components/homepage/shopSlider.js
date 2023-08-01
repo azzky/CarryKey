@@ -1,9 +1,9 @@
 import React from "react"
 import Slider from "react-slick";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 import Wrapper from './shopSlider.styled'
-import { Link } from "gatsby";
 
 const settings = {
     dots: false,

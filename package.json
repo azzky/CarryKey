@@ -23,6 +23,7 @@
     "gatsby": "^5.11.0",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-image": "^3.11.0",
+    "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-preconnect": "^1.4.0",
     "gatsby-plugin-sharp": "^5.11.0",
     "gatsby-plugin-styled-components": "^6.11.0",

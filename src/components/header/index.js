@@ -10,9 +10,8 @@ import Search from './search';
 import { HeaderRoot, BottomBlock, SearchWrapper, Socials } from "./header.styled";
 
 const Header = (props) => {
-    const {hasNavigation, isHero, heroImageDesktop, heroImageMobile, h1, isHome, slides, isContact, isCart} = props;
+    const {hasNavigation, isHero, heroImageDesktop, h1, isHome, slides, isContact, isCart} = props;
     const {isMobile, isDesktop} = useWidth();
-    const back = isMobile ? heroImageMobile : heroImageDesktop;
     return (
         <>
         <HeaderRoot $isHero={isHero}
@@ -22,10 +21,9 @@ const Header = (props) => {
                 <HomeSlider slides={slides}
                     isMobile={isMobile}/>
             ) : (
-                <>{isHero && <img src={back}
+                <>{isHero && <img src={heroImageDesktop}
                     alt=""
-                    className="hero"
-                    quality={100}/>}</>
+                    className="hero"/>}</>
             )}
             {isCart ? (
                 <>
@@ -33,7 +31,7 @@ const Header = (props) => {
                         <img src="/logo1.png" alt="CarryKey logo" className="logo" quality={100}/>
                     </Link>
                     <Socials>
-                        {!isMobile && <SocialIcons size={isMobile ? 21 : 32} gap={isMobile ? 8 : 11}/>}
+                        {!isMobile && <SocialIcons size={23} gap={18}/>}
                     </Socials>
                     {hasNavigation && <NavMenu isCart/>}
                 </>
@@ -41,7 +39,7 @@ const Header = (props) => {
                 <>
                     <div className="header">
                         <Link className="logo" to={'/'}>
-                            <img src="/logo1.png" alt="CarryKey logo" className="logo" quality={100}/>
+                            <img src="/logo1.png" alt="CarryKey logo" className="logo"/>
                         </Link>
                         {hasNavigation && <NavMenu/>}
                     </div>

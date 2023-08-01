@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from "react";
-import useCart from "@hooks/useCart";
+import useBasket from "@hooks/useBasket";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Item = (props) => {
     const {post} = props
-    const {addItem, cart, editItem} = useCart();
+    const {addItem, cart, editItem} = useBasket();
     const isInCart = cart && cart.filter(el => el.postId === post.postId).length > 0
     const preselectedType = (cart && cart.filter(el => el.postId === post.postId)?.[0]?.priceType) || null;
     const [priceType, setPriceType] = useState(preselectedType)

@@ -1,0 +1,45 @@
+import React from 'react';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Link } from 'gatsby';
+
+import Item from "./cartItem.styled";
+
+const CartItem = ({item, removeItem}) => {
+    const {postId, title, priceType, price, priceMax, preview} = item;
+    const image = getImage(preview)
+    return (
+        <Item>
+            <GatsbyImage image={image} layout="fill" alt="" />
+            <div className="details">
+                <p className="title">{title}</p>
+                <div className="info">
+                    <div className="options">
+                        <p>Number of photos</p>
+                        <p>Permission</p>
+                        <p>Size</p>
+                    </div>
+                    <div className="priceType">
+                        <p className="title">{priceType === 'min' ? 'Standart' : 'Maximum'}</p>
+                        <p className="price">${priceType === 'min' ? price : priceMax}</p>
+                    </div>
+                </div>
+                <div className="actions">
+                    <Link to={'/shop/post/'+postId}>
+                        <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#edit"/>
+                        </svg>
+                        <span>Edit...</span>
+                    </Link>
+                    <button onClick={() =>removeItem(item)}>
+                        <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#bin"/>
+                        </svg>
+                        <span>Delete</span>
+                    </button>
+                </div>
+            </div>
+        </Item>
+    )
+}
+
+export default CartItem

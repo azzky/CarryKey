@@ -1,10 +1,9 @@
 import React from 'react';
 import { graphql } from "gatsby"
 import Layout from '@components/layout'
+import Grid from '@components/shopPage/grid';
 
 import backDesk from '@images/back-shop.jpg';
-import backMobile from '@images/back-shop-mobile.jpg';
-import Grid from '@components/shopPage/grid';
 
 const Shop = ({
     data: {allContentfulPost: posts}
@@ -12,8 +11,7 @@ const Shop = ({
     return (
         <Layout hasNavigation isHero
             h1={'Shop'}
-            heroImageDesktop={backDesk}
-            heroImageMobile={backMobile}>
+            heroImageDesktop={backDesk}>
             {posts.edges?.length > 0 && <Grid items={posts.edges}/>}
         </Layout>
     )
