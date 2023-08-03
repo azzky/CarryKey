@@ -35,7 +35,7 @@ query ($slug: Int!) {
                     gatsbyImageData(width: 280, quality: 100)
                 }
                 gallery {
-                    gatsbyImageData(width: 280, quality: 100)
+                    gatsbyImageData(width: 320, quality: 100)
                     file {
                         url
                     }
@@ -45,3 +45,13 @@ query ($slug: Int!) {
     }
 }
 `
+
+export const Head = () => {
+    return (
+        <>
+            <title>Product page</title>
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
+            {/* <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/> */}
+        </>
+    )
+}

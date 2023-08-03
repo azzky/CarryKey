@@ -20,10 +20,6 @@ const useGalleryGrid = (posts) => {
             columnNumber = 3
             setWidth()
             break
-        // case width > 753:
-        //     columnNumber = 2
-        //     setWidth()
-        //     break
         default:
             getWidth = true
     }
