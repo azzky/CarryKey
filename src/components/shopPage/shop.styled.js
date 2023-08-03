@@ -30,25 +30,6 @@ const GridWrapper = styled.div`
         align-items: center;
     }
 
-    & .tags {
-        display: flex;
-        column-gap: 8px;
-
-        a {
-            display: block;
-            height: 25px;
-            border-radius: 5px;
-            border: 1px solid #CECDCF;
-            letter-spacing: 0.7px;
-            font-weight: 300;
-            padding: 0 10px;
-            text-transform: lowercase;
-            color: var(--color-black);
-            line-height: 20px;
-            cursor: pointer;
-        }
-    }
-
     & .filters {
         grid-area: filters;
 

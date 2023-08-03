@@ -1,47 +1,20 @@
 import React from 'react';
-import { graphql } from "gatsby"
 import Layout from '@components/layout'
 import Grid from '@components/shopPage/grid';
+import ShopITems from '@hooks/useShopitems'
 
 import backDesk from '@images/back-shop.jpg';
 
-const Shop = ({
-    data: {allContentfulPost: posts}
-}) => {
+const Shop = () => {
+    const posts = ShopITems()
+    
     return (
         <Layout hasNavigation isHero isShop
             h1={'Shop'}
             heroImageDesktop={backDesk}>
-            {posts.edges?.length > 0 && <Grid items={posts.edges}/>}
+            {posts?.length > 0 && <Grid items={posts}/>}
         </Layout>
     )
 }
 
 export default Shop;
-
-export const pageQuery = graphql`
-query{
-    allContentfulPost(
-        sort: {postId: DESC}
-    ) {
-        edges {
-            node {
-                id
-                postId
-                title
-                price
-                priceMax
-                categories
-                isBestseller
-                tags
-                gallery {
-                    gatsbyImageData(width: 450, quality: 100)
-                }
-                preview {
-                    gatsbyImageData(width: 450, quality: 100)
-                }
-            }
-        }
-    }
-}
-`

@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react'
 
 const useShop = (items, isTablet, indexFromdata = 3) => { // TODO move indexFromdata to parent and get from data
     let finalItems = items;
-    let categories = [];
+    const categories = {};
     let tags = [];
     const [filterCategories, setFilterCategories] = useState(null);
     const index = isTablet && indexFromdata % 2 !== 0 ? indexFromdata - 1 : indexFromdata;
@@ -33,15 +33,21 @@ const useShop = (items, isTablet, indexFromdata = 3) => { // TODO move indexFrom
     // start getting all the tags and categories possible
     items.map(post => {
         if (post.node.categories) {
-            categories = [...categories, ...post.node.categories]
+            post.node.categories.map(cat => {
+                if(categories[cat]) {
+                    categories[cat] = categories[cat] + 1
+                } else {
+                    categories[cat] = 1
+                }
+                return null
+            })
         }
         if (post.node.tags) {
             tags = [...tags, ...post.node.tags]
         }
-        // return null
+        return null
     })
     const uniqueTags = [...new Set(tags)];
-    let uniqueCategories = [...new Set(categories)];
     // end getting all the tags and categories possible
 
     if (hasBanner && items.length > index) {
@@ -71,7 +77,8 @@ const useShop = (items, isTablet, indexFromdata = 3) => { // TODO move indexFrom
 // debugger
     return {
         uniqueTags,
-        uniqueCategories,
+        uniqueCategories: categories,
+        categoryNames: Object.keys(categories),
         finalItems,
         setFilterCategories,
         filterCategories,

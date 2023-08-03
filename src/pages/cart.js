@@ -1,44 +1,17 @@
 import React from 'react';
 import Layout from '@components/layout'
 import Content from '@components/cartPage/content'
-import { graphql } from "gatsby"
+import ShopITems from '@hooks/useShopitems'
 
-const Cart = ({
-    data: {
-        allContentfulPost: posts,
-        allContentfulHomePageSlide: slides
-    }
-}) => {
+const Cart = () => {
+    const posts = ShopITems()
+
     return (
         <Layout hasNavigation isCart
             h1={'Cart'}>
-            <Content posts={posts.edges}/>
+            <Content posts={posts}/>
         </Layout>
     )
 }
 
 export default Cart;
-
-export const pageQuery = graphql`
-query{
-    allContentfulPost(
-        sort: {postId: ASC}
-    ) {
-        edges {
-            node {
-                id
-                postId
-                price
-                priceMax
-                title
-                gallery {
-                    gatsbyImageData(width: 400)
-                }
-                preview {
-                    gatsbyImageData(width: 400)
-                }
-            }
-        }
-    }
-}
-`

@@ -1,19 +1,22 @@
 import React from 'react';
 import { graphql } from "gatsby"
 import Layout from '@components/layout'
+import Grid from '@components/shopPage/grid';
+import GalleryGrid from '@components/galleryPage/grid';
 
 import backDesk from '@images/back-shop.jpg';
-import Grid from '@components/shopPage/grid';
 
 const Shop = ({
     data: {allContentfulPost: posts},
+    type,
     pageContext: {slug}
 }) => {
+    const component = type === 'shop' ? <Grid items={posts.edges}/> : <GalleryGrid posts={posts.edges} />
     return (
         <Layout hasNavigation isHero
             h1={'Results for ' +slug+ ' tag:'}
             heroImageDesktop={backDesk}>
-            {posts.edges?.length > 0 && <Grid items={posts.edges}/>}
+            {posts.edges?.length > 0 && component}
         </Layout>
     )
 }

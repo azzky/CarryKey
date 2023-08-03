@@ -31,7 +31,16 @@ exports.createPages = async ({ graphql, actions }) => {
                 path: '/shop/tag/' + tag.replace(' ', '_'),
                 component: path.resolve(`./src/templates/tag.js`),
                 context: {
-                    slug: tag
+                    slug: tag,
+                    type: 'shop'
+                }
+            })
+            createPage({
+                path: '/gallery/tag/' + tag.replace(' ', '_'),
+                component: path.resolve(`./src/templates/tag.js`),
+                context: {
+                    slug: tag,
+                    type: 'gallery'
                 }
             })
         })

@@ -1,22 +1,21 @@
 import React from "react"
-import { graphql } from "gatsby"
 import Layout from '@components/layout'
 import AboutBlock from '@components/homepage/about'
 import ShopSlider from '@components/homepage/shopSlider'
 import Services from '@components/homepage/services'
 import Feedback from '@components/homepage/feedback'
+import ShopITems from '@hooks/useShopitems'
+import Slides from '@hooks/useHomepageSlider'
 
-const IndexPage = ({
-    data: {
-        allContentfulPost: posts,
-        allContentfulHomePageSlide: slides
-    }
-}) => {
+const IndexPage = () => {
+    const posts = ShopITems()
+    const slides = Slides()
+
     return (
         <>
-            <Layout hasNavigation isHero isHome slides={slides.edges}>
+            <Layout hasNavigation isHero isHome slides={slides}>
                 <AboutBlock/>
-                <ShopSlider posts={posts.edges}/>
+                <ShopSlider posts={posts}/>
                 <Services/>
                 <Feedback/>
             </Layout>
@@ -35,49 +34,3 @@ export const Head = () => {
         </>
     )
 }
-
-export const pageQuery = graphql`
-query{
-    allContentfulPost(
-        sort: {postId: ASC}
-    ) {
-        edges {
-            node {
-                id
-                postId
-                price
-                priceMax
-                title
-                gallery {
-                    gatsbyImageData(width: 400)
-                }
-                preview {
-                    gatsbyImageData(width: 400)
-                }
-            }
-        }
-    }
-    allContentfulHomePageSlide(
-        sort: {title: ASC}
-    ) {
-        edges {
-            node {
-                title
-                text {
-                    raw
-                }
-                mobileImage {
-                    gatsbyImageData(
-                        width: 390
-                    )
-                }
-                desktopImage {
-                    gatsbyImageData(
-                        width: 1920
-                    )
-                }
-            }
-        }
-    }
-    }
-`
