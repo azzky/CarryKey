@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 const Item = styled.li`
     display: grid;
-    grid-template-columns: 79px 1fr;
+    grid-template-columns: 20.25vw 1fr;
     column-gap: 14px;
     padding-top: 9px;
     font-size: 12px;
@@ -11,7 +11,7 @@ const Item = styled.li`
     color: var(--color-grey);
     margin-bottom: 24px;
 
-    @media (min-width: 754px) {
+    @media (min-width: 600px) {
         grid-template-columns: 140px 1fr;
         column-gap: 22px;
         margin-bottom: 16px;
@@ -44,7 +44,7 @@ const Item = styled.li`
         display: flex;
         justify-content: space-between;
 
-        @media (min-width: 754px) {
+        @media (min-width: 600px) {
             justify-content: end;
 
             a {
@@ -59,7 +59,7 @@ const Item = styled.li`
         font-weight: 400;
         letter-spacing: 0.8px;
 
-        @media (min-width: 754px) {
+        @media (min-width: 600px) {
             font-size: 24px;
             letter-spacing: 1.2px;
             margin-top: 9px;
@@ -83,7 +83,7 @@ const Item = styled.li`
         align-items: center;
         margin-bottom: 20px;
 
-        @media (min-width: 754px) {
+        @media (min-width: 600px) {
             margin: 0;
         }
 
@@ -98,7 +98,7 @@ const Item = styled.li`
             letter-spacing: 0;
             line-height: 33px;
 
-            @media (min-width: 754px) {
+            @media (min-width: 600px) {
                 width: 140px;
                 height: 36px;
                 line-height: 36px;
@@ -121,13 +121,13 @@ const Item = styled.li`
     & .details {
         max-width: 138px;
 
-        @media (min-width: 754px) {
+        @media (min-width: 600px) {
             max-width: unset;
         }
     }
 
     & .info {
-        @media (min-width: 754px) {
+        @media (min-width: 600px) {
             display: grid;
             align-items: start;
             grid-template-columns: 125px auto;
@@ -142,7 +142,7 @@ const Item = styled.li`
     }
 
     & .options {
-        @media (min-width: 754px) {
+        @media (min-width: 600px) {
             margin-top: 10px;
         }
 

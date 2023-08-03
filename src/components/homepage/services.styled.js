@@ -25,7 +25,7 @@ export const List = styled.ul`
     display: flex;
     flex-direction: column;
     row-gap: 24px;
-    margin: 32px 55px 48px;
+    margin: 32px var(--mobile-offset) 48px;
 
     @media (min-width: 754px) {
         align-items: center;

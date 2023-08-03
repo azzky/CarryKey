@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
 
 const Wrapper = styled.div`
-    padding: 0 55px;
+    padding: 0 var(--mobile-offset);
 
     @media (min-width: 754px) {
-        padding: 10px 86px;
+        padding: 10px --tablet-offset;
     }
 
     @media (min-width: 1280px) {
@@ -86,10 +86,10 @@ export const Summary = styled.div`
         text-transform: none;
         background: var(--color-cta);
         font-size: 14px;
-        min-width: 243px;
+        max-width: 243px;
+        width: 100%;
         letter-spacing: 0.7px;
-        margin-top: 29px;
-        margin-bottom: 12px;
+        margin: 29px auto 12px;
 
         @media (min-width: 754px) {
             margin: 14px auto 12px;

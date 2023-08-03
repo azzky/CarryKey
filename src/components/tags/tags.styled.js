@@ -5,7 +5,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column-reverse;
     align-items: end;
-    padding: 7px 55px 32px;
+    padding: 7px var(--mobile-offset) 32px;
     row-gap: 24px;
     width: 100%;
 
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
         justify-content: space-between;
         height: 78px;
         align-items: center;
-        padding: 0 86px;
+        padding: 0 --tablet-offset;
     }
 
     @media (min-width: 1280px) {

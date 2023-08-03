@@ -4,10 +4,10 @@ const FooterRoot = styled.footer`
     background-color: var(--color-secondary);
     color: var(--color-cta);
     justify-content: center;
-    padding: 40px 55px 0;
+    padding: 40px var(--mobile-offset) 0;
 
     @media (min-width: 754px) {
-        padding: 18px 86px 0;
+        padding: 18px --tablet-offset 0;
     }
 
     @media (min-width: 1280px) {
@@ -199,7 +199,7 @@ const Bottom = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 34px -55px 0;
+    margin: 34px calc(var(--mobile-offset) * -1) 0;
 
     @media (min-width: 754px) {
         height: 63px;

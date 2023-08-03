@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 const Wrapper = styled.div`
-    padding: 16px 55px;
+    padding: 16px var(--mobile-offset);
 
     @media (min-width: 1280px) {
         display: flex;

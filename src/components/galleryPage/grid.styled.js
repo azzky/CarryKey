@@ -6,7 +6,7 @@ const Wrapper = styled.div`
     grid-template-columns: repeat(${$columnNumber}, 1fr);
     gap: 8px;
     justify-content: center;
-    padding: 0 55px;
+    padding: 0 var(--mobile-offset);
 
     @media (min-width: 754px) {
         grid-template-columns: repeat(${$columnNumber}, 280px);

@@ -26,6 +26,8 @@
     /* --desktop-width: 1160px; */
     --desktop-width: 78.9vw;
     /* --desktop-offset: calc(50vw - 580px); */
+    --mobile-offset: 55px;
+    --tablet-offset: 86px;
     --desktop-offset: 10.55vw;
 }
 

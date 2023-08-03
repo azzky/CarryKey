@@ -2,18 +2,22 @@ import { styled } from "styled-components";
 
 const SearchWrapper = styled.form`
     position: relative;
+    width: 100%;
+
+    @media (min-width: 754px) {
+        max-width: 448px;
+    }
 
     & input {
         height: 30px;
         border-radius: 15px;
         border: 0;
-        min-width: 280px;
         padding: 0 18px;
+        width: 100%;
 
         @media (min-width: 754px) {
             height: 48px;
             border-radius: 24px;
-            min-width: 448px;
             padding: 0 28px;
         }
 

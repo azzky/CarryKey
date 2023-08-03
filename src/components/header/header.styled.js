@@ -21,7 +21,7 @@ const HeaderRoot = styled.header`
     ${({$isCart})=>$isCart && `
         min-height: 54px;
         background: var(--color-cta);
-        padding: 0 55px;
+        padding: 0 var(--mobile-offset);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -29,7 +29,7 @@ const HeaderRoot = styled.header`
         @media (min-width: 754px) {
             background: linear-gradient(to bottom, var(--color-cta) 68px, white 40px);
             min-height: 106px;
-            padding: 0 86px;
+            padding: 0 --tablet-offset;
             display: grid;
             grid-template-rows: 68px 38px;
 
@@ -46,9 +46,9 @@ const HeaderRoot = styled.header`
         }
 
         @media (min-width: 1280px) {
-            background: linear-gradient(to bottom, var(--color-cta) 86px, white 40px);
+            background: linear-gradient(to bottom, var(--color-cta) --tablet-offset, white 40px);
             padding: 0 var(--desktop-offset);
-            grid-template-rows: 86px 47px;
+            grid-template-rows: --tablet-offset 47px;
 
             ul {
                 grid-row: 2;
@@ -99,7 +99,7 @@ const HeaderRoot = styled.header`
         justify-content: space-between;
         align-items: center;
         height: 66px;
-        padding: 0 55px;
+        padding: 0 var(--mobile-offset);
         position: absolute;
         width: 100%;
 
@@ -147,10 +147,10 @@ const BottomBlock = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 0 55px 47px;
+    padding: 0 var(--mobile-offset) 47px;
 
     @media (min-width: 754px) {
-        padding: 0 86px 60px;
+        padding: 0 --tablet-offset 60px;
         margin: 0 auto;
     }
 
@@ -168,11 +168,11 @@ const SearchWrapper = styled.div`
     align-items: center;
     height: 48px;
     background: var(--color-main);
-    padding: 0 55px;
+    padding: 0 var(--mobile-offset);
 
     @media (min-width: 754px) {
         height: 64px;
-        padding: 0 86px;
+        padding: 0 --tablet-offset;
     }
     @media (min-width: 1280px) {
         padding: 0 var(--desktop-offset);

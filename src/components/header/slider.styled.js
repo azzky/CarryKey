@@ -56,7 +56,7 @@ const SliderWrapper =styled.div`
 
     & .slide-content {
         position: absolute;
-        left: 55px;
+        left: var(--mobile-offset);
         bottom: 108px;
         z-index: 1;
 

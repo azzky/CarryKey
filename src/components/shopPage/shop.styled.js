@@ -2,10 +2,10 @@ import { styled } from "styled-components";
 
 const GridWrapper = styled.div`
     margin: 0 auto;
-    padding: 0 55px 104px;
+    padding: 0 var(--mobile-offset) 104px;
 
     @media (min-width: 754px) {
-        padding: 0 86px 104px;
+        padding: 0 --tablet-offset 104px;
         display: grid;
         gap: 10px 20px;
         grid-template-columns: 180px 1fr;
