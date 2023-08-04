@@ -2,12 +2,12 @@ import { useState, useCallback } from 'react'
 
 const useShop = (items, isTablet, banner) => {
     let finalItems = items;
-    const bannerPosition = banner.node.position - 1
+    const hasBanner = banner?.node?.type || false;
+    const bannerPosition = hasBanner ? banner.node.position - 1 : 0
     const categories = {};
     let tags = [];
     const [filterCategories, setFilterCategories] = useState(null);
     const index = isTablet && bannerPosition % 2 !== 0 ? bannerPosition - 1 : bannerPosition;
-    const hasBanner = banner.node.type;
     const resetFilters = useCallback(() => {
         setFilterCategories([]);
     }, []);

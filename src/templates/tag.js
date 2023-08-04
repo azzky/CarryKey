@@ -8,8 +8,7 @@ import backDesk from '@images/back-shop.jpg';
 
 const Shop = ({
     data: {allContentfulPost: posts},
-    type,
-    pageContext: {slug}
+    pageContext: {slug, type}
 }) => {
     const component = type === 'shop' ? <Grid items={posts.edges}/> : <GalleryGrid posts={posts.edges} />
     return (
@@ -35,6 +34,7 @@ query ($slug: String!) {
                 title
                 price
                 priceMax
+                postId
                 tags
                 categories
                 preview {

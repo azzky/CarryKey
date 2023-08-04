@@ -17,7 +17,6 @@ const Item = ({post }) => {
 const Column = ({column, index}) => {
     return (
         <div key={index}>
-            {console.log(column)}
             {column.map((post, postIndex) => (
                 <Item post={post.node}
                     key={postIndex} />
