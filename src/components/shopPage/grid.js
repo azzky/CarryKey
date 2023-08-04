@@ -10,11 +10,11 @@ import { Tags } from '@components/tags';
 import { GridWrapper } from "./shop.styled";
 
 const Grid = (props)=>{
-    const {items} = props;
+    const {items, banner} = props;
     const {isMobile, isTablet} = useWidth()
     const {
         uniqueTags,uniqueCategories,categoryNames,finalItems, setFilterCategories, filterCategories, resetFilters, removeFilter
-    } = useShop(items, isTablet);
+    } = useShop(items, isTablet, banner);
     return (
         <GridWrapper>
             {isMobile && <MobileFilters count={finalItems.length}/>}
@@ -27,7 +27,7 @@ const Grid = (props)=>{
                 categoryNames={categoryNames} />}
             <ul className="grid">
                 {finalItems.length > 0 && finalItems.map(post => {
-                    return post.node.isBanner ? (
+                    return post.node.type ? (
                         <Banner post={post} key="banner"/>
                     ) : (
                         <ShopItem post={post} key={post.node.postId} isBanner={false}/>

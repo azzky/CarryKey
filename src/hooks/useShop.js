@@ -1,17 +1,13 @@
 import { useState, useCallback } from 'react'
 
-const useShop = (items, isTablet, indexFromdata = 3) => { // TODO move indexFromdata to parent and get from data
+const useShop = (items, isTablet, banner) => {
     let finalItems = items;
+    const bannerPosition = banner.node.position - 1
     const categories = {};
     let tags = [];
     const [filterCategories, setFilterCategories] = useState(null);
-    const index = isTablet && indexFromdata % 2 !== 0 ? indexFromdata - 1 : indexFromdata;
-    const hasBanner = true; // TODO
-    const bannerElement = {node: {// TODO replace with data from admin
-        isBanner: true,
-        url: 'hjhgjhgjgj',
-        preview: '//images.ctfassets.net/3mb1yc1vta0f/2P49KyvCUPMifVZMXcgoVG/6b3973c85656abc89f7d9f125b2ec67d/back-home.jpg'
-    }};
+    const index = isTablet && bannerPosition % 2 !== 0 ? bannerPosition - 1 : bannerPosition;
+    const hasBanner = banner.node.type;
     const resetFilters = useCallback(() => {
         setFilterCategories([]);
     }, []);
@@ -49,22 +45,21 @@ const useShop = (items, isTablet, indexFromdata = 3) => { // TODO move indexFrom
     })
     const uniqueTags = [...new Set(tags)];
     // end getting all the tags and categories possible
-
     if (hasBanner && items.length > index) {
         finalItems = [
             ...items.slice(0, index),
-            bannerElement,
+            banner,
             ...items.slice(index)
         ];
     }
     if (hasBanner && items.length <= index) {
-        finalItems = [...items, bannerElement]
+        finalItems = [...items, banner]
     }
     
     if(filterCategories) {
         finalItems = finalItems.filter(el => {
             let state = false;
-            if(el.isBanner) return true;
+            if(el.node.type) return true;
             if (filterCategories.length === 0) return true;
             for(let i = 0; i< filterCategories.length;i++) {
                 if (el.node.categories?.includes(filterCategories[i])) {
@@ -74,7 +69,6 @@ const useShop = (items, isTablet, indexFromdata = 3) => { // TODO move indexFrom
             return state
         });
     }
-// debugger
     return {
         uniqueTags,
         uniqueCategories: categories,
