@@ -1,7 +1,9 @@
 import React from "react"
-import useGalleryGrid from '@hooks/useGalleryGrid'
+// import useGalleryGrid from '@hooks/useGalleryGrid'
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Tags } from '@components/tags';
+import useShop from '@hooks/useShop'
+import useWidth from '@hooks/useWindowSize'
 
 import Wrapper from "./grid.styled";
 
@@ -26,10 +28,16 @@ const Column = ({column, index}) => {
 }
 
 const GalleryGrid = ({posts}) => {
-    const { columnNumber, getWidth, postSubArray, uniqueTags } = useGalleryGrid(posts)
+    const { width } = useWidth()
+
+    const {
+        uniqueTags,setSortingValue, sortList, columnNumber, getWidth, postSubArray
+    } = useShop(posts, width, false, null, 'gallery');
     return (
         <div>
-            <Tags tags={uniqueTags} path="gallery"/>
+            <Tags tags={uniqueTags} path="gallery"
+                setSortingValue={setSortingValue}
+                sortList={sortList}/>
             <Wrapper $columnNumber={columnNumber}>
             {getWidth && postSubArray.map((column, index) => (
                 <Column column={column}

@@ -181,6 +181,10 @@ const Wrapper = styled.div`
         min-width: 100%;
         background-color: var(--color-cta);
 
+        &:hover {
+            background: var(--color-cta-hover);
+        }
+
         @media (min-width: 754px) {
             min-width: 300px;
             margin: 0 auto;

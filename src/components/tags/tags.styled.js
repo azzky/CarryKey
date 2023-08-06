@@ -48,6 +48,41 @@ const Wrapper = styled.div`
             cursor: pointer;
         }
     }
+
+    & .sorting {
+        .react-select__control {
+            border: 1px solid #CECDCF;
+            height: 32px;
+            border-radius: 16px;
+            width: 121px;
+            padding: 0 14px;
+            letter-spacing: 0.7px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        .react-select__indicators {
+            display: none;
+        }
+
+        .react-select__single-value {
+            &::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 8px 4px 0 4px;
+                border-color: var(--color-main) transparent transparent transparent;
+                top: 8px;
+                right: 0;
+            }
+        }
+
+        .react-select__menu {
+            z-index: 2;
+        }
+    }
 `
 
 export default Wrapper

@@ -11,15 +11,17 @@ import { GridWrapper } from "./shop.styled";
 
 const Grid = (props)=>{
     const {items, banner} = props;
-    const {isMobile, isTablet} = useWidth()
+    const {isMobile, isTablet, width} = useWidth()
     const {
-        uniqueTags,uniqueCategories,categoryNames,finalItems, setFilterCategories, filterCategories, resetFilters, removeFilter
-    } = useShop(items, isTablet, banner);
+        uniqueTags,categories,categoryNames,finalItems, setFilterCategories, filterCategories, resetFilters, removeFilter, setSortingValue, sortList
+    } = useShop(items, width, isTablet, banner, 'shop');
     return (
         <GridWrapper>
             {isMobile && <MobileFilters count={finalItems.length}/>}
-            {!isMobile && <Tags tags={uniqueTags} path="shop" />}
-            {!isMobile && <Filters categories={uniqueCategories}
+            {!isMobile && <Tags tags={uniqueTags} path="shop"
+                setSortingValue={setSortingValue}
+                sortList={sortList} />}
+            {!isMobile && <Filters categories={categories}
                 setFilterCategories={setFilterCategories}
                 resetFilters={resetFilters}
                 removeFilter={removeFilter}

@@ -91,6 +91,10 @@ export const Summary = styled.div`
         letter-spacing: 0.7px;
         margin: 29px auto 12px;
 
+        &:hover {
+            background: var(--color-cta-hover);
+        }
+
         @media (min-width: 754px) {
             margin: 14px auto 12px;
         }

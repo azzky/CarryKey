@@ -46,9 +46,9 @@ const HeaderRoot = styled.header`
         }
 
         @media (min-width: 1280px) {
-            background: linear-gradient(to bottom, var(--color-cta) --tablet-offset, white 40px);
+            background: linear-gradient(to bottom, var(--color-cta) var(--tablet-offset), white 40px);
             padding: 0 var(--desktop-offset);
-            grid-template-rows: --tablet-offset 47px;
+            grid-template-rows: var(--tablet-offset) 47px;
 
             ul {
                 grid-row: 2;
