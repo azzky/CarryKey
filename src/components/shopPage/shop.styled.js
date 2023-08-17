@@ -245,7 +245,7 @@ export const MobileFiltersContent = styled.div`
     overflow: hidden;
 
     & .content {
-        padding: 0 39px;
+        padding: 0 39px 39px;
     }
 
     & .bottom {
