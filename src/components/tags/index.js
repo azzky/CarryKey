@@ -11,7 +11,7 @@ export const Tags = ({tags, path, setSortingValue, sortList}) => {
                 {tags.map(tag=>(<Link className="tag" key={tag} to={'/' +path +'/tag/'+tag.replace(' ','_')}>{tag}</Link>))}
             </div>
             <div className="sorting">
-                <Select options={sortList} unstyled
+                <Select options={sortList} unstyled isSearchable={false}
                     defaultValue={sortList[0]}
                     onChange={setSortingValue}
                     className="react-select-container"

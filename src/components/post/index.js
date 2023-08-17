@@ -2,9 +2,11 @@ import React, { useCallback, useState } from "react";
 import useBasket from "@hooks/useBasket";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Slider from "react-slick";
-import Wrapper from "./post.styled";
 import { Link } from "gatsby";
 import useWidth from "@hooks/useWindowSize";
+import { currency } from '@constants';
+
+import Wrapper from "./post.styled";
 
 const settings = {
     dots: true,
@@ -59,14 +61,14 @@ const Item = (props) => {
                             {'Standart'}
                         </button>
                         <p className="details">Standard number of photos</p>
-                        <p className="price">${post.price}</p>
+                        <p className="price">{currency + post.price}</p>
                     </div>
                     <div className="item">
                         <button className="button" onClick={() => priceSelect('max')} disabled={priceType === 'max'}>
                             {'Premium'}
                         </button>
                         <p className="details">Maximum number of photos</p>
-                        <p className="price">${post.priceMax}</p>
+                        <p className="price">{currency + post.priceMax}</p>
                     </div>
                 </div>
                 <button className="button add" onClick={isInCart ? () => editItem(priceType, post.postId) : handler}>

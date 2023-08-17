@@ -4,6 +4,7 @@ import Item from './cartItem';
 import { Link } from 'gatsby';
 import Recommend from './recommend';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { currency } from '@constants';
 
 import Wrapper, { Summary, Items, WhatsNextWrapper } from "./content.styled";
 
@@ -106,13 +107,13 @@ const Content = ({posts}) => {
                     return (
                         <p key={item.postId}>
                             {item.title}
-                            <span>${item.priceType === 'min' ? item.price : item.priceMax}</span>
+                            <span>{currency+(item.priceType === 'min' ? item.price : item.priceMax)}</span>
                         </p>
                     )
                 })}
                 <p>
                     Together
-                    <span>${totalValue}</span>
+                    <span>{currency + totalValue}</span>
                 </p>
                 {!state && <PayPalScriptProvider options={options}>
                     <PayPalButtons style={style}

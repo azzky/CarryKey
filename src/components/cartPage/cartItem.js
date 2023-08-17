@@ -1,6 +1,7 @@
 import React from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
+import { currency } from '@constants';
 
 import Item from "./cartItem.styled";
 
@@ -20,7 +21,7 @@ const CartItem = ({item, removeItem}) => {
                     </div>
                     <div className="priceType">
                         <p className="title">{priceType === 'min' ? 'Standart' : 'Maximum'}</p>
-                        <p className="price">${priceType === 'min' ? price : priceMax}</p>
+                        <p className="price">{currency + (priceType === 'min' ? price : priceMax)}</p>
                     </div>
                 </div>
                 <div className="actions">

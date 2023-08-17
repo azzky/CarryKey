@@ -41,6 +41,7 @@ const Item = styled.li`
         height: 35px;
         align-items: center;
         justify-content: end;
+        font-family: CG, sans-serif;
 
         &>* {
             border-left: 1px solid var(--color-main);

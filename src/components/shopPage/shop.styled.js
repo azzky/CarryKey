@@ -158,6 +158,106 @@ const MobileFiltersWrapper = styled.div`
     justify-content: space-between;
     height: 52px;
     align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+
+    & .sorting {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 8px;
+
+        p {
+            white-space: nowrap;
+            padding-left: 4px;
+        }
+    }
+
+    & .react-select__menu {
+        z-index: 2;
+        color: var(--color-grey);
+        text-align: end;
+        background: var(--color-white);
+        padding: 5px;
+        font-size: 16px;
+        white-space: nowrap;
+        width: auto;
+    }
+
+    & .react-select__control {
+        color: var(--color-cta);
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 0.6px;
+    }
+
+    & .react-select__indicators {
+        display: none;
+    }
+
+    & .react-select__single-value {
+        overflow: hidden;
+        max-width: 58px;
+    }
+
+    & .react-select-container {
+        padding-right: 10px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 8px 4px 0 4px;
+            border-color: var(--color-main) transparent transparent transparent;
+            top: 15px;
+            right: 0;
+        }
+    }
+
+    & .filters {
+        display: flex;
+        column-gap: 8px;
+        padding-left: 16px;
+        height: 20px;
+        border-left: 1px solid var(--color-cta);
+    }
+
+    & .results {
+        min-width: 65px;
+        height: 20px;
+        line-height: 20px;
+        border-right: 1px solid var(--color-cta);
+    }
+`
+
+export const MobileFiltersContent = styled.div`
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: ${({SisOpen}) => SisOpen ? '0' : '100%'};
+    top: 0;
+    transition: height .4s linear;
+    background: var(--color-secondary);
+    overflow: hidden;
+
+    & .content {
+        padding: 0 39px;
+    }
+
+    & .bottom {
+        padding: 13px;
+        display: flex;
+        justify-content: end;
+        background: var(--color-main);
+
+        button {
+            background: var(--color-cta);
+        }
+    }
 `
 
 export {GridWrapper, MobileFiltersWrapper}

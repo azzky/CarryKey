@@ -1,4 +1,6 @@
 import React from "react"
+import { currency } from '@constants';
+
 import { Wrapper, List } from "./services.styled"
 
 const Services = ()=> {
@@ -12,7 +14,7 @@ const Services = ()=> {
                     <p>1 hour shooting</p>
                     <p>50 retouched photos</p>
                     <p>Delivery in 2 weeks</p>
-                    <p className="price">$89</p>
+                    <p className="price">{currency}89</p>
                     <button className="button">I want this package</button>
                 </li>
                 <li>
@@ -21,7 +23,7 @@ const Services = ()=> {
                     <p>2 hour shooting</p>
                     <p>80 retouched photos</p>
                     <p>Delivery in 2 weeks</p>
-                    <p className="price">$149</p>
+                    <p className="price">{currency}149</p>
                     <button className="button">I want this package</button>
                 </li>
             </List>

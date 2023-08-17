@@ -81,6 +81,10 @@ const Wrapper = styled.div`
 
         .react-select__menu {
             z-index: 2;
+            color: var(--color-grey);
+            text-align: end;
+            background: var(--color-white);
+            padding: 5px;
         }
     }
 `

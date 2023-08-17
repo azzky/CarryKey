@@ -25,6 +25,7 @@ const Wrapper = styled.div`
         color: var(--color-cta);
         font-size: 1rem;
         text-decoration: underline;
+        font-family: CG, sans-serif;
     }
 `
 

@@ -10,8 +10,6 @@ function useWidth() {
             const height = window.innerHeight
             setWidth(width)
             setIsVertical(height > width)
-            const vh = window.innerHeight * 0.01
-            document.documentElement.style.setProperty('--vh', vh.toFixed(2) + 'px')
         }
     }, [])
 

@@ -48,8 +48,8 @@ const ContactLinks = [
     }
 ];
 
-const gothicClass = 'gothic'
-
 const subscriptionUrl = ''
 
-export {MainMenu, ContactLinks, gothicClass, subscriptionUrl}
+const currency = '$'
+
+export {MainMenu, ContactLinks, subscriptionUrl, currency}

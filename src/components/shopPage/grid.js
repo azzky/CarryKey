@@ -18,7 +18,15 @@ const Grid = (props)=>{
     console.log(finalItems);
     return (
         <GridWrapper>
-            {isMobile && <MobileFilters count={finalItems.length}/>}
+            {isMobile && <MobileFilters count={finalItems.length}
+                categories={categories}
+                setFilterCategories={setFilterCategories}
+                resetFilters={resetFilters}
+                removeFilter={removeFilter}
+                filterCategories={filterCategories}
+                categoryNames={categoryNames}
+                setSortingValue={setSortingValue}
+                sortList={sortList}/>}
             {!isMobile && <Tags tags={uniqueTags} path="shop"
                 setSortingValue={setSortingValue}
                 sortList={sortList} />}

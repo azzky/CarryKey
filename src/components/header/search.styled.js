@@ -2,10 +2,11 @@ import { styled } from "styled-components";
 
 const SearchWrapper = styled.form`
     position: relative;
-    width: 100%;
+    width: 77%;
 
     @media (min-width: 754px) {
         max-width: 448px;
+        width: 100%;
     }
 
     & input {
@@ -23,6 +24,8 @@ const SearchWrapper = styled.form`
 
         &::placeholder {
             font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 0.6px;
         }
     }
 
