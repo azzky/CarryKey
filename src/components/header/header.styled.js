@@ -29,7 +29,7 @@ const HeaderRoot = styled.header`
         @media (min-width: 754px) {
             background: linear-gradient(to bottom, var(--color-cta) 68px, white 40px);
             min-height: 106px;
-            padding: 0 --tablet-offset;
+            padding: 0 var(--tablet-offset);
             display: grid;
             grid-template-rows: 68px 38px;
 
@@ -150,7 +150,7 @@ const BottomBlock = styled.div`
     padding: 0 var(--mobile-offset) 47px;
 
     @media (min-width: 754px) {
-        padding: 0 --tablet-offset 60px;
+        padding: 0 var(--tablet-offset) 60px;
         margin: 0 auto;
     }
 
@@ -172,7 +172,7 @@ const SearchWrapper = styled.div`
 
     @media (min-width: 754px) {
         height: 64px;
-        padding: 0 --tablet-offset;
+        padding: 0 var(--tablet-offset);
     }
     @media (min-width: 1280px) {
         padding: 0 var(--desktop-offset);

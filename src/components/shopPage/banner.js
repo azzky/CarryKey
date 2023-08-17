@@ -4,8 +4,9 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 import BannerWrapper from "./banner.styled";
 
-const Banner = (props) => {
-    const {image, link, type, setReference: {postId}} = props.post.node;
+const Banner = ({post}) => {
+    console.log(post);
+    const {image, link, type, setReference: {postId}} = post;
     const pic = getImage(image)
     // TODO use postId to got to selected post
     return (

@@ -15,6 +15,7 @@ const Grid = (props)=>{
     const {
         uniqueTags,categories,categoryNames,finalItems, setFilterCategories, filterCategories, resetFilters, removeFilter, setSortingValue, sortList
     } = useShop(items, width, isTablet, banner, 'shop');
+    console.log(finalItems);
     return (
         <GridWrapper>
             {isMobile && <MobileFilters count={finalItems.length}/>}
@@ -29,10 +30,10 @@ const Grid = (props)=>{
                 categoryNames={categoryNames} />}
             <ul className="grid">
                 {finalItems.length > 0 && finalItems.map(post => {
-                    return post.node.type ? (
+                    return post.type ? (
                         <Banner post={post} key="banner"/>
                     ) : (
-                        <ShopItem post={post} key={post.node.postId} isBanner={false}/>
+                        <ShopItem post={post} key={post.postId} isBanner={false}/>
                     )
                 })}
             </ul>

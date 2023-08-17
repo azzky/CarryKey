@@ -6,7 +6,7 @@ import { Item } from "./shopItem.styled";
 import { gothicClass } from "@constants";
 import { Link } from 'gatsby';
 const ShopItem = ({post}) => {
-    const {node: {
+    const {
         title,
         isBestseller,
         price,
@@ -14,7 +14,7 @@ const ShopItem = ({post}) => {
         postId,
         // gallery,
         preview
-    }} = post;
+    } = post;
     const image = getImage(preview)
     return (
         <Item>

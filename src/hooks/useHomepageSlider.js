@@ -14,7 +14,7 @@ export default function Slides() {
                     }
                     mobileImage {
                         gatsbyImageData(
-                            width: 390
+                            width: 1280
                         )
                     }
                     desktopImage {

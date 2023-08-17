@@ -19,7 +19,7 @@ const settings = {
 
 const Recommend = ({posts}) => {
     return (
-        <Wrapper>
+        <Wrapper $isCart>
             <div className="heading">
                 <h2>Products you may like</h2>
                 <Link to="/shop">
@@ -31,9 +31,9 @@ const Recommend = ({posts}) => {
             </div>
             <Slider {...settings}>
                 {posts.map(slide => {
-                    const image = getImage(slide.node.preview)
+                    const image = getImage(slide.preview)
                     return (
-                    <div key={'slider1-'+slide.node.postId} className="item">
+                    <div key={'slider1-'+slide.postId} className="item">
                         <GatsbyImage alt="" image={image} width={242} height={363} />
                         <button className="button">Purchase</button>
                     </div>

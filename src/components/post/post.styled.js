@@ -215,6 +215,10 @@ const Wrapper = styled.div`
         display: grid;
         gap: 24px;
         grid-template-columns: repeat(2, 1fr);
+
+        img {
+            object-position: center 12%;
+        }
     }
 `
 

@@ -3,9 +3,15 @@ import { styled } from "styled-components";
 const Wrapper = styled.div`
     margin-bottom: 32px;
 
+    ${({$isCart}) => $isCart && `
+        @media (min-width: 1280px) {
+            margin-bottom: 80px;
+        }
+    `}
+
     & .heading {
-        max-width: var(--desktop-width);
-        margin: -13px 33px 29px;
+        max-width: calc(100vw - (var(--mobile-offset) * 2));
+        margin: -13px auto 29px;
         text-transform: uppercase;
 
         @media (min-width: 754px) {
@@ -13,6 +19,8 @@ const Wrapper = styled.div`
             justify-content: space-between;
             align-items: end;
             margin: 0 auto 56px;
+            max-width: var(--desktop-width);
+            margin: -13px auto 29px;
         }
         
         a {
@@ -26,6 +34,47 @@ const Wrapper = styled.div`
                 font-size: 16px;
             }
         }
+
+        ${({$isCart}) => $isCart && `
+            @media (min-width: 754px) {
+                max-width: calc(100vw - var(--tablet-offset) * 2);
+                margin: -13px auto 29px;
+            }
+
+            @media (min-width: 1280px) {
+                max-width: var(--desktop-width);
+                margin-bottom: 48px;
+            }
+            
+            h2 {
+                font-size: 18px;
+                text-transform: none;
+                text-align: start;
+                letter-spacing: 0.9px;
+                margin-bottom: 21px;
+
+                @media (min-width: 754px) {
+                    font-size: 24px;
+                    text-align: center;
+                    margin-bottom: 0;
+                    
+                }
+
+                @media (min-width: 1280px) {
+                    font-size: 36px;
+                }
+            }
+
+            a {
+                font-size: 12px;
+                letter-spacing: 0.6px;
+
+                @media (min-width: 1280px) {
+                    font-size: 16px;
+                    letter-spacing: 0.8px;
+                }
+            }
+        `}
     }
 
     & .button {

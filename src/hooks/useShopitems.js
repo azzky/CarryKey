@@ -6,26 +6,24 @@ export default function ShopITems() {
         allContentfulPost(
             sort: {postId: DESC}
         ) {
-            edges {
-                node {
-                    id
-                    postId
-                    title
-                    price
-                    priceMax
-                    categories
-                    isBestseller
-                    tags
-                    gallery {
-                        gatsbyImageData(width: 450, quality: 100)
-                    }
-                    preview {
-                        gatsbyImageData(width: 450, quality: 100)
-                    }
+            nodes {
+                id
+                postId
+                title
+                price
+                priceMax
+                categories
+                isBestseller
+                tags
+                gallery {
+                    gatsbyImageData(width: 450, quality: 100)
+                }
+                preview {
+                    gatsbyImageData(width: 450, quality: 100)
                 }
             }
         }
     }
     `)
-    return data.allContentfulPost.edges
+    return data.allContentfulPost.nodes
 }

@@ -6,10 +6,12 @@ import Services from '@components/homepage/services'
 import Feedback from '@components/homepage/feedback'
 import ShopITems from '@hooks/useShopitems'
 import Slides from '@hooks/useHomepageSlider'
+import Reviews from "@hooks/useFeedbackData"
 
 const IndexPage = () => {
     const posts = ShopITems()
     const slides = Slides()
+    const reviews = Reviews()
 
     return (
         <>
@@ -17,7 +19,7 @@ const IndexPage = () => {
                 <AboutBlock/>
                 <ShopSlider posts={posts}/>
                 <Services/>
-                <Feedback/>
+                <Feedback reviews={reviews}/>
             </Layout>
         </>
     )

@@ -9,7 +9,8 @@ const useCart = () => {
     const {removeValue} = useLocalStorage()
     let totalValue = 0
     cart.map(item => {
-        totalValue = totalValue + (item.priceType === 'min' ? item.price : item.priceMax)
+        totalValue = totalValue + (item.priceType === 'min' ? item.price : item.priceMax);
+        return null
     })
     const entryFields = {
             email: {
@@ -36,7 +37,6 @@ const useCart = () => {
         const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID)
         const env = await space.getEnvironment('master')
         // Execute entry creation
-        console.log({fields: entryFields});
         const entry = await env.createEntry(contentType, {
                 fields: entryFields
             });

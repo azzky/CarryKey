@@ -10,7 +10,7 @@ const SliderWrapper =styled.div`
         }
 
         @media (min-width: 1280px) {
-            height: 100vh;
+            height: 100dvh;
         }
     }
     & .slick-slider {
@@ -114,6 +114,10 @@ const SliderWrapper =styled.div`
             height: 7px;
             width: 7px;
         }
+    }
+
+    & .gatsby-image-wrapper-constrained {
+        display: block;
     }
 `;
 

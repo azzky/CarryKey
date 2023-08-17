@@ -7,7 +7,7 @@ const FooterRoot = styled.footer`
     padding: 40px var(--mobile-offset) 0;
 
     @media (min-width: 754px) {
-        padding: 18px --tablet-offset 0;
+        padding: 18px var(--tablet-offset) 0;
     }
 
     @media (min-width: 1280px) {

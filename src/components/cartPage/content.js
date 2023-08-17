@@ -1,18 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useCart from "@hooks/useCart";
 import Item from './cartItem';
 import { Link } from 'gatsby';
-import Recommend from './recommed';
+import Recommend from './recommend';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
-import Wrapper, { Summary, Items } from "./content.styled";
+import Wrapper, { Summary, Items, WhatsNextWrapper } from "./content.styled";
+
+const options = {
+    currency: "EUR",
+    clientId: process.env.CLIENT_ID
+};
+
+const style = {
+    layout: "vertical",
+    shape: "pill",
+    height: 38,
+    color: 'blue',
+    label: 'checkout'
+}
+
+const WhatsNext = () => (
+    <WhatsNextWrapper>
+        <div className='item'>
+            <svg width="24" height="9" viewBox="0 0 24 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href='#numbers'/>
+            </svg>
+            <div>
+                <p className='heading'>What happens after the purchase</p>
+                <p>Brief information for the buyer.</p>
+                <p>Brief information for the buyer.</p>
+                <p>Brief information for the buyer.</p>
+            </div>
+        </div>
+        <div className='item'>
+            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href='#clock'/>
+            </svg>
+            <div>
+                <p className='heading'>What happens after the purchase</p>
+                <p>Brief information for the buyer.</p>
+                <p>Brief information for the buyer.</p>
+                <p>Brief information for the buyer.</p>
+                <p>Brief information for the buyer.</p>
+            </div>
+        </div>
+        <div className='item'>
+            <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href='#hand'/>
+            </svg>
+            <div>
+                <p className='heading'>What happens after the purchase</p>
+                <p>Brief information for the buyer.</p>
+                <p>Brief information for the buyer.</p>
+            </div>
+        </div>
+        <div className='payments'>
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href='#paypalicon'/>
+            </svg>
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href='#paypalicon'/>
+            </svg>
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href='#paypalicon'/>
+            </svg>
+        </div>
+    </WhatsNextWrapper>
+)
 
 const Content = ({posts}) => {
+    const [state, setState] = useState(true)
     const {
         cart,
         totalValue,
         removeItem,
+        publishOrder,
         clickHandler
-    } = useCart() 
+    } = useCart()
+    const onApprove = (data) => {
+        console.log(data); // TODO check what we have - maybe order ID or something
+        publishOrder();
+    }
     return (
         <>
         <Wrapper>
@@ -45,10 +114,15 @@ const Content = ({posts}) => {
                     Together
                     <span>${totalValue}</span>
                 </p>
-                <button onClick={clickHandler} className="button">Go to checkout</button>
+                {!state && <PayPalScriptProvider options={options}>
+                    <PayPalButtons style={style}
+                        onClick={clickHandler}
+                        onApprove={onApprove}/>
+                </PayPalScriptProvider>}
+                {state && <button  className="button" onClick={() => setState(false)}>Go to checkout</button>}
                 <Link to="/shop" className="continue">Continue shopping</Link>
-                {/* <button onClick={publishOrder}>when payment done</button> */}
             </Summary>
+            <WhatsNext/>
         </Wrapper>
         <Recommend posts={posts} />
         </>
@@ -56,3 +130,11 @@ const Content = ({posts}) => {
 }
 
 export default Content
+
+export const Head = () => {
+    return (
+        <>
+            <script src={"https://www.paypal.com/sdk/js?client-id="+process.env.CLIENT_ID} defer="true"/>
+        </>
+    )
+}

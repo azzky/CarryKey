@@ -12,8 +12,8 @@ const getTagsAndCategories = array => {
     const categories = {};
 // start getting all the tags and categories possible
     array.map(post => {
-        if (post.node.categories) {
-            post.node.categories.map(cat => {
+        if (post.categories) {
+            post.categories.map(cat => {
                 if(categories[cat]) {
                     categories[cat] = categories[cat] + 1
                 } else {
@@ -22,8 +22,8 @@ const getTagsAndCategories = array => {
                 return null
             })
         }
-        if (post.node.tags) {
-            tags = [...tags, ...post.node.tags]
+        if (post.tags) {
+            tags = [...tags, ...post.tags]
         }
         return null
     })
@@ -35,10 +35,10 @@ const getTagsAndCategories = array => {
 const useShop = (items, width, isTablet, banner, path) => {
     let finalItems = items;
     const isGallery = path === 'gallery'
-    const hasBanner = banner?.node?.type || false;
+    const hasBanner = banner?.type || false;
     let columnNumber = 2
     let getWidth = false
-    const bannerPosition = hasBanner ? banner.node.position - 1 : 0
+    const bannerPosition = hasBanner ? banner.position - 1 : 0
     const [filterCategories, setFilterCategories] = useState([]);
     const [sortOption, setSortOption] = useState(sortList[0].value);
     const index = isTablet && bannerPosition % 2 !== 0 ? bannerPosition - 1 : bannerPosition;
@@ -77,10 +77,10 @@ const useShop = (items, width, isTablet, banner, path) => {
     if(filterCategories.length > 0) {
         finalItems = finalItems.filter(el => {
             let state = false;
-            if(el.node.type) return true;
+            if(el.type) return true;
             if (filterCategories.length === 0) return true;
             for(let i = 0; i< filterCategories.length;i++) {
-                if (el.node.categories?.includes(filterCategories[i])) {
+                if (el.categories?.includes(filterCategories[i])) {
                     state = true;
                 }
             }
@@ -93,24 +93,24 @@ const useShop = (items, width, isTablet, banner, path) => {
     // start sorting
         switch (sortOption) {
             case sortList[0].value: // use postId
-                finalItems = finalItems.sort((el1,el2) => el2.node.postId - el1.node.postId)
+                finalItems = finalItems.sort((el1,el2) => el2.postId - el1.postId)
                 break
             case sortList[1].value: // bestsellers
                 finalItems = finalItems.sort((el1,el2) => {
-                    if (el1.node.isBestseller && !el2.node.isBestseller) {
+                    if (el1.isBestseller && !el2.isBestseller) {
                         return -1;
                     }
-                    if (!el1.node.isBestseller && el2.node.isBestseller) {
+                    if (!el1.isBestseller && el2.isBestseller) {
                         return 1;
                     }
                     return 0;
                 })
                 break;
             case sortList[2].value: // price ASC
-                finalItems = finalItems.sort((el1,el2) => el1.node.price - el2.node.price)
+                finalItems = finalItems.sort((el1,el2) => el1.price - el2.price)
                 break;
             case sortList[3].value: // price DESC
-                finalItems = finalItems.sort((el1,el2) => el2.node.price - el1.node.price)
+                finalItems = finalItems.sort((el1,el2) => el2.price - el1.price)
                 break;
             default:
                 break;

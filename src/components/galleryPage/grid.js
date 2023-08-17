@@ -20,7 +20,7 @@ const Column = ({column, index}) => {
     return (
         <div key={index}>
             {column.map((post, postIndex) => (
-                <Item post={post.node}
+                <Item post={post}
                     key={postIndex} />
             ))}
         </div>

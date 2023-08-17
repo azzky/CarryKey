@@ -14,7 +14,7 @@ const Wrapper = styled.div`
         justify-content: space-between;
         height: 78px;
         align-items: center;
-        padding: 0 --tablet-offset;
+        padding: 0 var(--tablet-offset);
     }
 
     @media (min-width: 1280px) {

@@ -4,7 +4,7 @@ const Wrapper = styled.div`
     padding: 0 var(--mobile-offset);
 
     @media (min-width: 754px) {
-        padding: 10px --tablet-offset;
+        padding: 10px var(--tablet-offset);
     }
 
     @media (min-width: 1280px) {
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
         max-width: var(--desktop-width);
         margin: 0 auto;
         display: grid;
-        gap: 35px;
+        gap: 0 35px;
         grid-template-columns: 1fr 280px;
     }
 
@@ -82,6 +82,17 @@ export const Summary = styled.div`
         justify-content: space-between;
     }
 
+    & .paypal-buttons-context-iframe {
+]       max-width: 243px;
+        margin: 0 auto;
+    }
+
+    & .continue {
+        font-weight: 400;
+        display: block;
+        text-align: center;
+    }
+
     & .button {
         text-transform: none;
         background: var(--color-cta);
@@ -103,11 +114,57 @@ export const Summary = styled.div`
             margin: 28px auto 12px;
         }
     }
+`
 
-    & .continue {
-        font-weight: 400;
-        display: block;
-        text-align: center;
+export const WhatsNextWrapper = styled.div`
+    color: var(--color-grey);
+    font-family: CG, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 15px auto 20px;
+    line-height: 18px;
+    max-width: 420px;
+    width: 100%;
+    grid-column: 2;
+
+    @media (min-width: 754px) {
+        padding: 0 35px;
+    }
+
+    @media (min-width: 1280px) {
+        padding: 0;
+    }
+
+    & .item {
+        display: grid;
+        grid-template-columns: 24px auto;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 2px;
+        padding-left: 5px;
+    }
+
+    & .heading {
+        font-family: Oswald;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.7px;
+    }
+
+    & .payments {
+        padding: 0 32px;
+        display: flex;
+        column-gap: 11px;
+        margin: 24px 0 61px;
+
+        @media (min-width: 754px) {
+            padding: 0 39px;
+            column-gap: 12px;
+        }
+
+        @media (min-width: 1280px) {
+            margin: 24px 0 91px;
+        }
     }
 `
 

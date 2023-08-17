@@ -4,8 +4,7 @@ export default function BannerItem() {
   const data = useStaticQuery(graphql`
     query {
         allContentfulShopBanner {
-            edges {
-            node {
+            nodes {
                 type
                 setReference {
                     postId
@@ -13,12 +12,11 @@ export default function BannerItem() {
                 link
                 position
                 image {
-                    gatsbyImageData(width: 580, quality: 100)
+                    gatsbyImageData(width: 800, quality: 100)
                 }
-            }
             }
         }
     }
     `)
-    return (data.allContentfulShopBanner?.edges && data.allContentfulShopBanner.edges[0]) || {}
+    return (data.allContentfulShopBanner.nodes && data.allContentfulShopBanner.nodes[0]) || {}
 }

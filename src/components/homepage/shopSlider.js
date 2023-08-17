@@ -9,8 +9,8 @@ const settings = {
     dots: false,
     arrows: false,
     infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
+    // autoplay: true,
+    // autoplaySpeed: 3000,
     // pauseOnHover:false,
     adaptiveHeight: true,
     slidesToShow: 6,
@@ -31,21 +31,21 @@ const ShopSlider = ({posts})=> {
             </div>
             <Slider {...settings}>
                 {posts.map(slide => {
-                    const image = getImage(slide.node.preview)
+                    const image = getImage(slide.preview)
                     return (
-                    <div key={'slider1-'+slide.node.postId} className="item">
+                    <div key={'slider1-'+slide.postId} className="item">
                         <GatsbyImage alt="" image={image} width={242} height={363} />
-                        <button className="button">Purchase</button>
+                        <Link to={'/shop/post/'+slide.postId} className="button">Purchase</Link>
                     </div>
                 )})}
             </Slider>
             <Slider {...settings} rtl={true}>
                 {posts.map(slide => {
-                    const image = getImage(slide.node.preview)
+                    const image = getImage(slide.preview)
                     return(
-                    <div key={'slider1-'+slide.node.postId} className="item">
+                    <div key={'slider1-'+slide.postId} className="item">
                         <GatsbyImage alt="" image={image} width={242} height={363} />
-                        <button className="button">Purchase</button>
+                        <Link className="button">Purchase</Link>
                     </div>
                 )})}
             </Slider>
