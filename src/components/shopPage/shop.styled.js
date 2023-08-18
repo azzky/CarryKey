@@ -238,7 +238,7 @@ export const MobileFiltersContent = styled.div`
     position: fixed;
     z-index: 1;
     left: 0;
-    right: ${({SisOpen}) => SisOpen ? '0' : '100%'};
+    right: ${({$isOpen}) => $isOpen ? '0' : '100%'};
     top: 0;
     transition: height .4s linear;
     background: var(--color-secondary);

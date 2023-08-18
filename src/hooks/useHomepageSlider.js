@@ -6,26 +6,27 @@ export default function Slides() {
         allContentfulHomePageSlide(
             sort: {title: ASC}
         ) {
-            edges {
-                node {
-                    title
-                    text {
-                        raw
-                    }
-                    mobileImage {
-                        gatsbyImageData(
-                            width: 1280
-                        )
-                    }
-                    desktopImage {
-                        gatsbyImageData(
-                            width: 1920
-                        )
-                    }
+            nodes {
+                title
+                text {
+                    raw
+                }
+                mobileImage {
+                    gatsbyImageData(
+                        width: 1280
+                    )
+                }
+                desktopImage {
+                    gatsbyImageData(
+                        width: 1920
+                    )
+                }
+                post {
+                    postId
                 }
             }
         }
     }
     `)
-    return data.allContentfulHomePageSlide.edges
+    return data.allContentfulHomePageSlide.nodes
 }

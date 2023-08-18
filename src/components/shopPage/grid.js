@@ -13,12 +13,12 @@ const Grid = (props)=>{
     const {items, banner} = props;
     const {isMobile, isTablet, width} = useWidth()
     const {
-        uniqueTags,categories,categoryNames,finalItems, setFilterCategories, filterCategories, resetFilters, removeFilter, setSortingValue, sortList
+        uniqueTags,categories,categoryNames,finalItems, setFilterCategories, filterCategories, resetFilters, removeFilter, setSortingValue, sortList,
+        hasBanner
     } = useShop(items, width, isTablet, banner, 'shop');
-    console.log(finalItems);
     return (
         <GridWrapper>
-            {isMobile && <MobileFilters count={finalItems.length}
+            {isMobile && <MobileFilters count={hasBanner ? finalItems.length - 1 : finalItems.length}
                 categories={categories}
                 setFilterCategories={setFilterCategories}
                 resetFilters={resetFilters}

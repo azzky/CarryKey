@@ -36,7 +36,7 @@ export const MobileFilters = (props) => {
                 </svg>
             </button>
         </MobileFiltersWrapper>
-        <MobileFiltersContent SisOpen={isFilterOpen}>
+        <MobileFiltersContent $isOpen={isFilterOpen}>
             <div className="content">
                 {filterCategories?.length > 0 ? (<div className="applied">
                     <p className="applied-title">Applied filters</p>
@@ -65,7 +65,7 @@ export const MobileFilters = (props) => {
                 </div>
             </div>
             <div className="bottom">
-                <button onClick={() => setIsFilterOpen(false)} className="button">Apply</button>
+                <button onClick={() => setIsFilterOpen(false)} className="button">Close</button>
             </div>
         </MobileFiltersContent>
         </>

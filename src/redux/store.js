@@ -1,5 +1,4 @@
 import { createStore } from 'redux';
-import {configureStore} from '@reduxjs/toolkit'
 import Reducer from './reducer';
 let arr = []
 try {

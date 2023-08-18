@@ -5,6 +5,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import useWidth from '@hooks/useWindowSize'
 
 import SliderWrapper from "./slider.styled";
+import { Link } from "gatsby";
 
 const HomeSlider = (props) => {
     const {slides} = props
@@ -23,13 +24,13 @@ const HomeSlider = (props) => {
         <SliderWrapper>
         <Slider {...settings}>
             {slides.map(slide => {
-            const text = renderRichText({raw: slide.node.text.raw})
-            const image = isMobile ? getImage(slide.node.mobileImage) : getImage(slide.node.desktopImage)
+            const text = renderRichText({raw: slide.text.raw})
+            const image = isMobile ? getImage(slide.mobileImage) : getImage(slide.desktopImage)
             return (
-                <div className="slide-inner" key={slide.node.title}>
+                <div className="slide-inner" key={slide.title}>
                     <div className="slide-content">
                         {text}
-                        <button className="button">Purchase</button>
+                        <Link className="button" to={'/shop/post/'+slide.post.postId}>Purchase</Link>
                     </div>
                     <GatsbyImage image={image}
                         layout="fill"

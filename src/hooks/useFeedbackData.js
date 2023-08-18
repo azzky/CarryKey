@@ -17,5 +17,5 @@ export default function Reviews () {
         }
     }
     `)
-    return [...data.allContentfulFeedback.nodes, ...data.allContentfulFeedback.nodes, ...data.allContentfulFeedback.nodes, ...data.allContentfulFeedback.nodes] || {}
+    return [...data.allContentfulFeedback.nodes, ...data.allContentfulFeedback.nodes, ...data.allContentfulFeedback.nodes, ...data.allContentfulFeedback.nodes] || []
 }

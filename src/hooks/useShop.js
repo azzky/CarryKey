@@ -145,7 +145,8 @@ const useShop = (items, width, isTablet, banner, path) => {
         sortList,
         columnNumber,
         getWidth,
-        postSubArray
+        postSubArray,
+        hasBanner
     }
 }
 

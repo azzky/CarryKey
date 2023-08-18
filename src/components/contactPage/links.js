@@ -8,7 +8,7 @@ const Links = (props) => {
             {links.map((link, index) => (
             <div key={index}>
                 <p>{link.title}</p>
-                <a href={link.link}>{link.link}</a>
+                <a href={link.link} rel="me noreferrer" target="_blank">{link.link}</a>
             </div>))}
         </Wrapper>
     )

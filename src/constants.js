@@ -37,14 +37,6 @@ const ContactLinks = [
     {
         title: 'Tiktok',
         link: 'https://www.tiktok.com/@carrykey_cosplay'
-    },
-    {
-        title: 'No name',
-        link: 'https://www.instagram.com/carry.key_cosplay/'
-    },
-    {
-        title: 'No name',
-        link: 'https://www.instagram.com/carry.key_cosplay/'
     }
 ];
 

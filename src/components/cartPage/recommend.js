@@ -1,21 +1,8 @@
 import React from "react"
 import { Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import Slider from "react-slick";
+import PostCarousel from "@components/postCarousel";
 
 import Wrapper from "../homepage/shopSlider.styled"
-
-const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    // pauseOnHover:false,
-    adaptiveHeight: true,
-    slidesToShow: 6,
-    slidesToScroll: 1
-};
 
 const Recommend = ({posts}) => {
     return (
@@ -29,16 +16,7 @@ const Recommend = ({posts}) => {
                     </svg>
                 </Link>
             </div>
-            <Slider {...settings}>
-                {posts.map(slide => {
-                    const image = getImage(slide.preview)
-                    return (
-                    <div key={'slider1-'+slide.postId} className="item">
-                        <GatsbyImage alt="" image={image} width={242} height={363} />
-                        <button className="button">Purchase</button>
-                    </div>
-                )})}
-            </Slider>
+            <PostCarousel className="row1" posts={posts} />
         </Wrapper>
     )
 }
