@@ -245,7 +245,21 @@ export const MobileFiltersContent = styled.div`
     overflow: hidden;
 
     & .content {
-        padding: 0 39px 39px;
+        padding: 7px 55px 39px;
+    }
+
+    & .filter-name {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        svg {
+            color: #CECDCF;
+        }
+    }
+
+    & .filter-items {
+        gap: 11px;
     }
 
     & .bottom {
