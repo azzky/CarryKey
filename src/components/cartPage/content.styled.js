@@ -45,22 +45,25 @@ export const Items = styled.div`
 `
 
 export const Summary = styled.div`
+    --offset: 19px;
     background-color: var(--color-secondary);
     border-radius: 10px;
-    padding: 10px 19px 31px;
+    padding: 10px var(--offset) 31px;
     color: var(--color-cta);
     font-weight: 300;
     font-size: 14px;
     letter-spacing: 0.7px;
 
     @media (min-width: 754px) {
+        --offset: 33px;
         margin: 0 auto;
         max-width: 420px;
-        padding: 25px 33px 31px;
+        padding: 25px var(--offset) 31px;
     }
 
     @media (min-width: 1280px) {
-        padding: 10px 19px 32px;
+        --offset: 19px;
+        padding: 10px var(--offset) 32px;
         width: 100%;
         margin-top: 23px;
         height: fit-content;
@@ -77,9 +80,13 @@ export const Summary = styled.div`
 
     & p {
         line-height: 50px;
-        border-top: 1px solid;
+        border-top: 1px solid #BFBBC9;
         display: flex;
         justify-content: space-between;
+
+        &:last-of-type {
+            border-bottom: 1px solid #BFBBC9;
+        }
     }
 
     & .paypal-buttons-context-iframe {
@@ -113,6 +120,44 @@ export const Summary = styled.div`
         @media (min-width: 1280px) {
             margin: 28px auto 12px;
         }
+    }
+
+    & .form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(146, 75, 155, 0.1);
+        height: 35px;
+        margin: 13px calc(var(--offset) * -1) 0;
+        padding: 0 var(--offset);
+
+        p {
+            border: 0;
+            line-height: initial;
+            
+            &.error {
+                color: red;
+            }
+        }
+
+        input {
+            border: 0;
+            background: none;
+        }
+
+        button,
+        input::placeholder {
+            color: var(--color-cta);
+            font-weight: 400;
+            letter-spacing: 0.7px;
+            opacity: 1;
+            font-family: 'Oswald', sans-serif;
+        }
+    }
+
+    & .paypal-buttons-context-iframe {
+        margin-top: 13px;
     }
 `
 

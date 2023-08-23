@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useCart from "@hooks/useCart";
 import Item from './cartItem';
 import { Link } from 'gatsby';
 import Recommend from './recommend';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { currency } from '@constants';
+import { useForm } from "react-hook-form"
 
 import Wrapper, { Summary, Items, WhatsNextWrapper } from "./content.styled";
 
@@ -71,19 +72,24 @@ const WhatsNext = () => (
 )
 
 const Content = ({posts}) => {
-    const [state, setState] = useState(true)
     const {
         cart,
         totalValue,
         removeItem,
-        publishOrder,
         clickHandler,
-        recommendArr
+        recommendArr,
+        email,
+        showPaypal,
+        proceedToPayment,
+        submitEmail,
+        showEmailReq,
+        onApprove,
+        formEdit,
+        setFormEdit
     } = useCart({posts})
-    const onApprove = (data) => {
-        console.log(data); // TODO check what we have - maybe order ID or something
-        publishOrder();
-    }
+    const { register, handleSubmit, formState: {errors} } = useForm()
+    
+    console.log(showEmailReq);
     return (
         <>
         <Wrapper>
@@ -116,12 +122,27 @@ const Content = ({posts}) => {
                     Together
                     <span>{currency + totalValue}</span>
                 </p>
-                {!state && <PayPalScriptProvider options={options}>
+                {(!email || formEdit) ? <form className="form"
+                    onSubmit={handleSubmit(submitEmail)}>
+                    <input type='email' placeholder='Enter your email'
+                        {...register("email", { required: true })}/>
+                    <button type='submit'>Add...</button>
+                    {(errors.email || showEmailReq) && <p className='error'>
+                        You need to set your email first!
+                    </p>}
+                </form> : <div className="form">
+                    <p>{email}</p>
+                    <button onClick={() => setFormEdit(true)}>Edit</button>
+                </div>}
+                {showPaypal && <PayPalScriptProvider options={options}>
                     <PayPalButtons style={style}
                         onClick={clickHandler}
                         onApprove={onApprove}/>
                 </PayPalScriptProvider>}
-                {state && <button  className="button" onClick={() => setState(false)}>Go to checkout</button>}
+                {!showPaypal && <button  className="button"
+                    onClick={() => proceedToPayment()}>
+                    Go to checkout
+                </button>}
                 <Link to="/shop" className="continue">Continue shopping</Link>
             </Summary>
             <WhatsNext/>

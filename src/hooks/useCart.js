@@ -1,12 +1,16 @@
-import { useState } from 'react';
-import useBasket from "@hooks/useBasket";
-import {createClient} from 'contentful-management';
-import useLocalStorage from "./useLocalStorage";
+import { useState } from 'react'
+import useBasket from "@hooks/useBasket"
+import {createClient} from 'contentful-management'
+import useLocalStorage from "./useLocalStorage"
 
 const useCart = ({posts}) => {
-    const {cart, removeItem} = useBasket();
+    const {cart, removeItem} = useBasket()
     let recommendArr = posts
-    const [order, setOrder] = useState(null);
+    const [order, setOrder] = useState(null)
+    const [email, setEmail] = useState(null)
+    const [showPaypal, setShowPaypal] = useState(false)
+    const [showEmailReq, setShowEmailReq] = useState(false)
+    const [formEdit, setFormEdit] = useState(false)
     const {removeValue} = useLocalStorage()
     let totalValue = 0
     cart.map(item => {
@@ -16,7 +20,7 @@ const useCart = ({posts}) => {
     })
     const entryFields = {
             email: {
-                'en-US':'test@test.com',
+                'en-US': email,
             },
             status: {
                 'en-US': 'unpaid'
@@ -54,13 +58,35 @@ const useCart = ({posts}) => {
         console.log('paid, now can remove order');
         removeValue('cart');
     }
+    const proceedToPayment = () => {
+        if (email) {
+            setShowPaypal(true)
+        } else {
+            setShowEmailReq(true)
+        }
+    }
+    const submitEmail = ({email}) => {
+        setEmail(email)
+        setFormEdit(false)
+    }
+    const onApprove = (data) => {
+        console.log(data); // TODO check what we have - maybe order ID or something
+        publishOrder();
+    }
     return {
         cart,
         totalValue,
         removeItem,
         clickHandler,
-        publishOrder,
-        recommendArr
+        recommendArr,
+        email,
+        showPaypal,
+        showEmailReq,
+        proceedToPayment,
+        submitEmail,
+        onApprove,
+        formEdit,
+        setFormEdit
     }
 }
 
