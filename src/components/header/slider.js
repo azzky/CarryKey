@@ -34,6 +34,7 @@ const HomeSlider = (props) => {
                     </div>
                     <GatsbyImage image={image}
                         layout="fill"
+                        quality={100}
                         alt=""/>
                 </div>
             )})}
