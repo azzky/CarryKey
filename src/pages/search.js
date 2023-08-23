@@ -6,13 +6,17 @@ import Grid from '@components/shopPage/grid';
 const Search = ({location}) => {
     const posts = ShopITems()
     const string = location.search.split('?search=')[1] || 'empty'
+    const includesCase = function(str, arr){
+        const state = arr?.filter(i => i.toLowerCase().includes(str.toLowerCase())) || []
+        return state.length > 0
+    }
     let arr = []
     posts.map(post => {
         if(
             string !== 'empty' && (
                 post.title.toLowerCase().includes(string.toLowerCase()) ||
-                post.categories?.includes(string.toLowerCase()) ||
-                post.tags?.includes(string.toLowerCase())
+                includesCase(string, post.categories) ||
+                includesCase(string, post.tags)
             )
         ) {
             arr.push(post)

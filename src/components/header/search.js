@@ -5,7 +5,7 @@ import { navigate } from "gatsby"
 import SearchWrapper from './search.styled'
 
 const Search = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
         navigate(`/search?search=${data.search}`)
     }
