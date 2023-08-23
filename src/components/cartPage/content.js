@@ -77,8 +77,9 @@ const Content = ({posts}) => {
         totalValue,
         removeItem,
         publishOrder,
-        clickHandler
-    } = useCart()
+        clickHandler,
+        recommendArr
+    } = useCart({posts})
     const onApprove = (data) => {
         console.log(data); // TODO check what we have - maybe order ID or something
         publishOrder();
@@ -125,7 +126,7 @@ const Content = ({posts}) => {
             </Summary>
             <WhatsNext/>
         </Wrapper>
-        <Recommend posts={posts} />
+        <Recommend posts={recommendArr} />
         </>
     )
 }

@@ -3,13 +3,15 @@ import useBasket from "@hooks/useBasket";
 import {createClient} from 'contentful-management';
 import useLocalStorage from "./useLocalStorage";
 
-const useCart = () => {
+const useCart = ({posts}) => {
     const {cart, removeItem} = useBasket();
+    let recommendArr = posts
     const [order, setOrder] = useState(null);
     const {removeValue} = useLocalStorage()
     let totalValue = 0
     cart.map(item => {
         totalValue = totalValue + (item.priceType === 'min' ? item.price : item.priceMax);
+        recommendArr = recommendArr.filter(post => post.postId !== item.postId)
         return null
     })
     const entryFields = {
@@ -57,7 +59,8 @@ const useCart = () => {
         totalValue,
         removeItem,
         clickHandler,
-        publishOrder
+        publishOrder,
+        recommendArr
     }
 }
 

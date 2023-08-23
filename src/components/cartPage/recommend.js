@@ -5,7 +5,7 @@ import PostCarousel from "@components/postCarousel";
 import Wrapper from "../homepage/shopSlider.styled"
 
 const Recommend = ({posts}) => {
-    return (
+    return posts.length > 0  ? (
         <Wrapper $isCart>
             <div className="heading">
                 <h2>Products you may like</h2>
@@ -18,7 +18,7 @@ const Recommend = ({posts}) => {
             </div>
             <PostCarousel className="row1" posts={posts} />
         </Wrapper>
-    )
+    ) : null
 }
 
 export default Recommend
