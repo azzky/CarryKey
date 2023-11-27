@@ -35,7 +35,7 @@ query ($slug: Int!) {
                     gatsbyImageData(width: 280, quality: 100)
                 }
                 gallery {
-                    gatsbyImageData(width: 320, quality: 100)
+                    gatsbyImageData(width: 500, quality: 100)
                     file {
                         url
                     }

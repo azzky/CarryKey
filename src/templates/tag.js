@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from "gatsby"
 import Layout from '@components/layout'
 import Grid from '@components/shopPage/grid';
-import GalleryGrid from '@components/galleryPage/grid';
+// import GalleryGrid from '@components/galleryPage/grid';
 
 import backDesk from '@images/back-shop.jpg';
 
@@ -10,12 +10,12 @@ const Shop = ({
     data: {allContentfulPost: posts},
     pageContext: {slug, type}
 }) => {
-    const component = type === 'shop' ? <Grid items={posts.edges}/> : <GalleryGrid posts={posts.edges} />
+    // const component = type === 'shop' ? <Grid selectedTag={slug} items={posts.edges}/> : <GalleryGrid posts={posts.edges} />
     return (
         <Layout hasNavigation isHero
             h1={'Results for ' +slug+ ' tag:'}
             heroImageDesktop={backDesk}>
-            {posts.edges?.length > 0 && component}
+            {posts.edges?.length > 0 && <Grid selectedTag={slug} items={posts.edges}/>}
         </Layout>
     )
 }

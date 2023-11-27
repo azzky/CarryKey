@@ -35,11 +35,6 @@ const Footer = () => {
             </UpperSection>
             <BottomSection>
                 <BottomNavigation isDesktop={!isMobile} title="Company" links={MainMenu}/>
-                <BottomNavigation isDesktop={!isMobile} title="Shop" links={[
-                    {title: 'League of Legends', link: '/jhgjhgj'},
-                    {title: 'Cyberpunk 2077', link: '/jhgh'},
-                    {title: 'League of Legends', link: '/jhgjhgjhgjjhgj'},
-                ]}/>
                 {isDesktop && <Socials>
                     <SocialIcons size={32} gap={10}/>
                 </Socials>}

@@ -20,6 +20,9 @@ export default function ShopITems() {
                 }
                 preview {
                     gatsbyImageData(width: 450, quality: 100)
+                    file {
+                        url
+                    }
                 }
             }
         }

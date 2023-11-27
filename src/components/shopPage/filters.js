@@ -1,14 +1,20 @@
 import React, { useCallback } from "react";
 
 export const Filters = ({categories, categoryNames, setFilterCategories, filterCategories, resetFilters, removeFilter}) => {
-    const handleClick = useCallback(value => {
-        setFilterCategories(prev=>{
-            if (prev) {
-                return [...prev, value]
-            } else {
-                return [value]
-            }
-        });
+    const handleClick = useCallback((value, isSelected) => {
+        if (isSelected) { // removed from filters
+            setFilterCategories(prev=>{
+                return prev.filter(el => el !== value);
+            });
+        } else { // add to filters
+            setFilterCategories(prev=>{
+                if (prev) {
+                    return [...prev, value]
+                } else {
+                    return [value]
+                }
+            });
+        }
     }, [setFilterCategories])
     return (
         <div className="filters">
@@ -30,8 +36,8 @@ export const Filters = ({categories, categoryNames, setFilterCategories, filterC
             <div className="filter-items">
                 {categoryNames.map(category=>(
                     <button className="filter-item" key={category}
-                        onClick={()=>handleClick(category)}
-                        disabled={filterCategories && filterCategories.includes(category)}>
+                        onClick={()=>handleClick(category, filterCategories && filterCategories.includes(category))}
+                        >
                         <span className={filterCategories && filterCategories.includes(category) ? 'selected' : ''}>
                             {`${category} (${categories[category]})`}
                         </span>

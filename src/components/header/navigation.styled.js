@@ -34,18 +34,6 @@ const ShopLink = styled(Link)`
     color: var(--color-white);
     margin-right: -38px;
     position: relative;
-
-    &::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 11px 4.5px 0 4.5px;
-        border-color: var(--color-main) transparent transparent transparent;
-        top: 5px;
-        right: -16px;
-    }
 `;
 
 const NavWrapper = styled.div`
@@ -113,22 +101,9 @@ const Navigation = styled.ul`
     }
 
     @media (min-width: 754px) {
-        & a:hover::after,
-        &:not(:hover) a.active::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 11px 4.5px 0 4.5px;
-            border-color: var(--color-main) transparent transparent transparent;
-            ${props=>props.$isCart ? `
-            top: 6px;
-            right: 17px;
-            `:`
-            top: 5px;
-            right: 1px;
-            `}
+        a:hover,
+        a.active {
+            text-decoration: underline;
         }
     }
 

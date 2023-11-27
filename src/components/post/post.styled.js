@@ -4,11 +4,12 @@ const Wrapper = styled.div`
     padding: 16px var(--mobile-offset);
 
     @media (min-width: 1280px) {
-        display: flex;
+        display: grid;
         column-gap: 24px;
         max-width: var(--desktop-width);
         margin: 0 auto;
         padding-top: 24px;
+        grid-template-columns: 60% 40%;
     }
 
     & h1 {
@@ -39,7 +40,7 @@ const Wrapper = styled.div`
     }
 
     & .slick-slider {
-        @media (min-width: 754px) {
+        @media (min-width: 754px and max-width: 1280px) {
             min-width: 131.56vw;
             margin-left: -13.13vw;
         }
@@ -56,8 +57,8 @@ const Wrapper = styled.div`
         }
 
         @media (min-width: 1280px) {
-            width: 238px !important;
-            height: 238px;
+            width: auto !important;
+            height: auto;
         }
     }
 
@@ -157,10 +158,19 @@ const Wrapper = styled.div`
             font-size: 16px;
             font-family: CG, sans-serif;
             letter-spacing: 0;
+            background: var(--color-secondary);
+            color: var(--color-cta);
+            cursor: pointer;
+
+            &:hover {
+                background: var(--color-main);
+                color: var(--color-white);
+            }
 
             &:disabled {
-                background: var(--color-secondary);
-                color: var(--color-cta);
+                background: var(--color-main);
+                color: var(--color-white);
+                cursor: not-allowed;
             }
 
             @media (min-width: 754px) {
@@ -212,12 +222,22 @@ const Wrapper = styled.div`
     }
 
     & .images-grid {
-        display: grid;
-        gap: 24px;
-        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+    }
 
-        img {
-            object-position: center 12%;
+    & .nav {
+        margin: 10px -5px;
+
+        .slick-slide {
+            aspect-ratio: 1/1;
+            padding: 0 5px;
+        }
+    }
+
+    & .gallery {
+        .slick-slide > div {
+            display: flex;
+            justify-content: center;
         }
     }
 `

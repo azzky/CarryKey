@@ -88,7 +88,7 @@ const useShop = (items, width, isTablet, banner, path) => {
         });
     }
     
-    const {uniqueTags, categories} = getTagsAndCategories(finalItems)
+    const {uniqueTags, categories} = getTagsAndCategories(items)
     // TODO if we dont need categories to update after filtering - move it in the beginning of the hook
     // start sorting
         switch (sortOption) {

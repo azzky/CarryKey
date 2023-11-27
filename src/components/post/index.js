@@ -8,12 +8,31 @@ import { currency } from '@constants';
 
 import Wrapper from "./post.styled";
 
-const settings = {
-    dots: true,
-    arrows: false,
-    infinite: true,
-    slidesToScroll: 1
+const settings = (isDesktop) => {
+    return isDesktop ? {
+        dots: false,
+        arrows: false,
+        infinite: false,
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        adaptiveHeight: true
+    } : {
+        dots: true,
+        arrows: false,
+        infinite: true,
+        slidesToScroll: 1
+    }
 };
+
+const thumbSliderSettings = {
+    dots: true,
+    arrows: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    gap: 10,
+    focusOnSelect: true,
+    infinite: false
+}
 
 const Item = (props) => {
     const {post} = props
@@ -31,19 +50,38 @@ const Item = (props) => {
         setPriceType(value)
     }, [])
 
+    const [nav1, setNav1] = useState();
+    const [nav2, setNav2] = useState();
+
     return (
         <Wrapper>
             {isDesktop ? (
                 <div className="images-grid">
-                    {post.gallery.map(pic => {
+                    <Slider {...settings(isDesktop)}
+                        className="gallery"
+                        asNavFor={nav2}
+                        ref={(slider1) => setNav1(slider1)}>
+                        {post.gallery.map(pic => {
                             const image = getImage(pic)
                             return (
                                 <GatsbyImage className="slide-pic" key={pic.file.url} image={image} alt="" />
                             )
                         })}
+                    </Slider>
+                    <Slider {...thumbSliderSettings}
+                        className="nav"
+                        asNavFor={nav1}
+                        ref={(slider2) => setNav2(slider2)}>
+                        {post.gallery.map(pic => {
+                            const image = getImage(pic)
+                            return (
+                                <GatsbyImage className="slide-pic" key={pic.file.url} image={image} alt="" />
+                            )
+                        })}
+                    </Slider>
                 </div>
             ) : (
-                <Slider {...settings} slidesToShow={isMobile ? 1 : 3}>
+                <Slider {...settings(isDesktop)} slidesToShow={isMobile ? 1 : 3}>
                     {post.gallery.map(pic => {
                         const image = getImage(pic)
                         return (
@@ -73,6 +111,7 @@ const Item = (props) => {
                 </div>
                 <button className="button add" onClick={isInCart ? () => editItem(priceType, post.postId) : handler}>
                     {isInCart ? 'Edit' : 'Add to cart'}
+                    {!isInCart && ' - ' + currency + (priceType === 'max' ? post.priceMax : post.price)}
                 </button>
                 <Link to="/shop" className="continue">Continue shopping</Link>
             </div>

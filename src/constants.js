@@ -11,10 +11,10 @@ const MainMenu = [
         title: 'Gallery',
         link: '/gallery'
     },
-    {
-        title: 'Services',
-        link: '/services'
-    },
+    // {
+    //     title: 'Merch',
+    //     link: '/merch'
+    // },
     // {
     //     title: 'Feedback',
     //     link: '/feedback'
