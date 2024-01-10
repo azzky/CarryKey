@@ -14,13 +14,13 @@ const Content = styled.div`
         gap: 40px;
         grid-template-areas:
             'socials images'
-            'links images';
+            'form images';
         grid-template-rows: 51px auto;
         &>div:nth-child(1) {
             grid-area: socials;
         }
         &>div:nth-child(2) {
-            grid-area: links;
+            grid-area: form;
         }
         &>div:nth-child(3) {
             grid-area: images;

@@ -14,11 +14,7 @@ const CartItem = ({item, removeItem}) => {
             <div className="details">
                 <p className="title">{title}</p>
                 <div className="info">
-                    <div className="options">
-                        <p>Number of photos</p>
-                        <p>Permission</p>
-                        <p>Size</p>
-                    </div>
+                    <div className="options"/>
                     <div className="priceType">
                         <p className="title">{priceType === 'min' ? 'Standart' : 'Maximum'}</p>
                         <p className="price">{currency + (priceType === 'min' ? price : priceMax)}</p>

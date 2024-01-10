@@ -38,7 +38,7 @@ query ($slug: String!) {
                 tags
                 categories
                 preview {
-                    gatsbyImageData(width: 280, quality: 100)
+                    gatsbyImageData(width: 280, quality: 85)
                     file {
                         url
                     }

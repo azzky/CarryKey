@@ -16,10 +16,10 @@ export default function ShopITems() {
                 isBestseller
                 tags
                 gallery {
-                    gatsbyImageData(width: 450, quality: 100)
+                    gatsbyImageData(width: 450, quality: 85)
                 }
                 preview {
-                    gatsbyImageData(width: 450, quality: 100)
+                    gatsbyImageData(width: 450, quality: 85)
                     file {
                         url
                     }

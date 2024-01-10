@@ -141,7 +141,7 @@ const Content = ({posts}) => {
                 </PayPalScriptProvider>}
                 {!showPaypal && <button  className="button"
                     onClick={() => proceedToPayment()}>
-                    Go to checkout
+                    Pay with paypal
                 </button>}
                 <Link to="/shop" className="continue">Continue shopping</Link>
             </Summary>

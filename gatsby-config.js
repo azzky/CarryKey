@@ -64,7 +64,7 @@ module.exports = {
                 defaults: {
                     formats: [`avif`, `webp`, `auto`],
                     placeholder: `blurred`,
-                    quality: 100,
+                    quality: 75,
                     breakpoints: [390, 754, 1280, 1440, 1920],
                     backgroundColor: `transparent`,
                     tracedSVGOptions: {},

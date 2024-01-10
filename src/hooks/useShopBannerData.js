@@ -5,6 +5,7 @@ export default function BannerItem() {
     query {
         allContentfulShopBanner {
             nodes {
+                isEnabled
                 type
                 setReference {
                     postId
@@ -12,11 +13,11 @@ export default function BannerItem() {
                 link
                 position
                 image {
-                    gatsbyImageData(width: 800, quality: 100)
+                    gatsbyImageData(width: 800, quality: 85)
                 }
             }
         }
     }
     `)
-    return (data.allContentfulShopBanner.nodes && data.allContentfulShopBanner.nodes[0]) || {}
+    return data?.isEnabled ? (data?.allContentfulShopBanner?.nodes && data?.allContentfulShopBanner?.nodes[0]) : {}
 }

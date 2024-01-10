@@ -108,6 +108,7 @@ export const Summary = styled.div`
         width: 100%;
         letter-spacing: 0.7px;
         margin: 29px auto 12px;
+        cursor: pointer;
 
         &:hover {
             background: var(--color-cta-hover);
@@ -153,6 +154,13 @@ export const Summary = styled.div`
             letter-spacing: 0.7px;
             opacity: 1;
             font-family: 'Oswald', sans-serif;
+        }
+
+        button {
+            color: var(--color-white);
+            background-color: var(--color-cta);
+            padding: 7px 2em;
+            cursor: pointer;
         }
     }
 

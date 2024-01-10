@@ -32,10 +32,10 @@ query ($slug: Int!) {
                 tags
                 categories
                 preview {
-                    gatsbyImageData(width: 280, quality: 100)
+                    gatsbyImageData(width: 280, quality: 85)
                 }
                 gallery {
-                    gatsbyImageData(width: 500, quality: 100)
+                    gatsbyImageData(width: 500, quality: 85)
                     file {
                         url
                     }
