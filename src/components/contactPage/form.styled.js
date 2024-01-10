@@ -5,6 +5,7 @@ const FormWrapper = styled.form`
     max-width: 460px;
     grid-template-rows: repeat(5, max-content);
     gap: 20px;
+    margin: 40px auto;
 
     & input {
         display: block;
@@ -22,6 +23,10 @@ const FormWrapper = styled.form`
         text-transform: uppercase;
         cursor: pointer;
         height: 40px;
+    }
+
+    @media (min-width: 1280px) {
+        margin: 0;
     }
 `
 
