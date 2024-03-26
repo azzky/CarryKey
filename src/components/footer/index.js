@@ -21,7 +21,7 @@ const Footer = () => {
                     <Link to={'/contact'}
                         className="contact-link">{'Contact page'}</Link>
                 </div>
-                <MailchimpSubscribe
+                {/* <MailchimpSubscribe
                     url={subscriptionUrl}
                     isDesktop={isDesktop}
                     render={({ subscribe }) => (
@@ -31,7 +31,7 @@ const Footer = () => {
                         <SimpleForm onSubmitted={formData => subscribe(formData)} />
                     </div>
                     )}
-                />
+                /> */}
             </UpperSection>
             <BottomSection>
                 <BottomNavigation isDesktop={!isMobile} title="Company" links={MainMenu}/>
