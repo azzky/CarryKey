@@ -2,22 +2,41 @@ import { useState } from 'react'
 import useBasket from "@hooks/useBasket"
 import {createClient} from 'contentful-management'
 import useLocalStorage from "./useLocalStorage"
+import { currency } from '@constants';
 
-const useCart = ({posts}) => {
+const useCart = ({
+    posts
+}) => {
     const {cart, removeItem} = useBasket()
     let recommendArr = posts
     const [order, setOrder] = useState(null)
-    const [email, setEmail] = useState(null)
+    const [email, setEmail] = useState('')
+    const [orderData, setOrderFata] = useState(cart.length > 0 ? `
+Order info:
+        ${cart.map((product, i) => {
+            return `
+product ${i + 1}:
+title: ${product.title};
+id: ${product.postId};
+set price: ${product.priceType} - ${product.priceType === 'min' ? product.price : product.priceMax}${currency};
+`;
+        })}
+    ` : '')
     const [showPaypal, setShowPaypal] = useState(false)
-    const [showEmailReq, setShowEmailReq] = useState(false)
-    const [formEdit, setFormEdit] = useState(false)
+    // const [showEmailReq, setShowEmailReq] = useState(false)
+    // const [formEdit, setFormEdit] = useState(false)
     const {removeValue} = useLocalStorage()
+    // const [state, handleOrder] = useFormSpreeForm(formId);
+    // console.log(state);
+
     let totalValue = 0
+
     cart.map(item => {
         totalValue = totalValue + (item.priceType === 'min' ? item.price : item.priceMax);
         recommendArr = recommendArr.filter(post => post.postId !== item.postId)
         return null
     })
+    const [total, setTotal] = useState(totalValue > 0 ? (totalValue + currency) : '')
     const entryFields = {
             email: {
                 'en-US': email,
@@ -58,35 +77,36 @@ const useCart = ({posts}) => {
         console.log('paid, now can remove order');
         removeValue('cart');
     }
-    const proceedToPayment = () => {
-        if (email) {
-            setShowPaypal(true)
-        } else {
-            setShowEmailReq(true)
-        }
-    }
-    const submitEmail = ({email}) => {
-        setEmail(email)
-        setFormEdit(false)
-    }
+    // const submitEmail = ({email}) => {
+    //     setEmail(email)
+    //     setFormEdit(false)
+    // }
     const onApprove = (data) => {
         console.log(data); // TODO check what we have - maybe order ID or something
         publishOrder();
     }
+    
     return {
         cart,
         totalValue,
         removeItem,
-        clickHandler,
+        // clickHandler,
         recommendArr,
         email,
         showPaypal,
-        showEmailReq,
-        proceedToPayment,
-        submitEmail,
+        // showEmailReq: state.errors,
+        // submitEmail,
         onApprove,
-        formEdit,
-        setFormEdit
+        // formEdit,
+        // setFormEdit,
+        // handleOrder,
+        // showSuccess: state.succeeded,
+        // isButtonDisabled: state.submitting || state.errors,
+        setEmail,
+        orderData,
+        setOrderFata,
+        total,
+        setTotal
     }
 }
 

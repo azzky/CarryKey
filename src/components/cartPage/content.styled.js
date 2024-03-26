@@ -123,49 +123,14 @@ export const Summary = styled.div`
         }
     }
 
-    & .form {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(146, 75, 155, 0.1);
-        height: 35px;
-        margin: 13px calc(var(--offset) * -1) 0;
-        padding: 0 var(--offset);
-
-        p {
-            border: 0;
-            line-height: initial;
-            
-            &.error {
-                color: red;
-            }
-        }
-
-        input {
-            border: 0;
-            background: none;
-        }
-
-        button,
-        input::placeholder {
-            color: var(--color-cta);
-            font-weight: 400;
-            letter-spacing: 0.7px;
-            opacity: 1;
-            font-family: 'Oswald', sans-serif;
-        }
-
-        button {
-            color: var(--color-white);
-            background-color: var(--color-cta);
-            padding: 7px 2em;
-            cursor: pointer;
-        }
-    }
-
     & .paypal-buttons-context-iframe {
         margin-top: 13px;
+    }
+
+    input {
+        background: none;
+        border: none;
+        width: 100%;
     }
 `
 
@@ -219,6 +184,18 @@ export const WhatsNextWrapper = styled.div`
             margin: 24px 0 91px;
         }
     }
+`
+
+export const Success = styled.div`
+    display: grid;
+    place-items: center;
+    min-height: 350px;
+`
+
+export const EmptyCart = styled.div`
+    display: grid;
+    place-items: center;
+    min-height: 350px;
 `
 
 export default Wrapper

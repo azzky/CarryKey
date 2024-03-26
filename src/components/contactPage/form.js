@@ -6,7 +6,12 @@ import { FormWrapper } from './form.styled';
 const ContactForm = () => {
     const [state, handleSubmit] = useForm('xjvnkvjp');
 
-    return (
+    return state.succeeded ? (
+        <div>
+            <p>Your message is successfully submited!</p>
+            <p>We'll contact you soon</p>
+        </div>
+    ) : (
         <FormWrapper
             onSubmit={handleSubmit}
             >
