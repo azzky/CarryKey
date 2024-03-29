@@ -7,9 +7,13 @@ const randomGenerator = (min, max) => {
 }
 
 const NotFound = () => {
+    const [random, setRandom] = React.useState(null);
+    React.useEffect(() => {
+        setRandom(randomGenerator(1, 14))
+    }, []);
     return (
         <Content>
-            <img src={`/404/404-${randomGenerator(1, 14)}.png`} alt="404"/>
+            {random && <img src={`/404/404-${random}.png`} alt="404"/>}
             <div className="text">
                 <h1>Page not found :(</h1>
                 <p>You can visit</p>
