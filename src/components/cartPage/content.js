@@ -104,7 +104,7 @@ const Content = ({posts}) => {
         }
     }, [state.succeeded]);
     
-    return !state.succeeded ? (
+    return state.succeeded ? (
         <Success>
             <div>
                 <img alt="" src="success.webp"/>
