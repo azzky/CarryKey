@@ -10,18 +10,18 @@ import { currency } from '@constants';
 
 import Wrapper, { Summary, Items, WhatsNextWrapper, Success, EmptyCart } from "./content.styled";
 
-const options = {
-    currency: "EUR",
-    clientId: process.env.CLIENT_ID
-};
+// const options = {
+//     currency: "EUR",
+//     clientId: process.env.CLIENT_ID
+// };
 
-const style = {
-    layout: "vertical",
-    shape: "pill",
-    height: 38,
-    color: 'blue',
-    label: 'checkout'
-}
+// const style = {
+//     layout: "vertical",
+//     shape: "pill",
+//     height: 38,
+//     color: 'blue',
+//     label: 'checkout'
+// }
 
 const WhatsNext = () => (
     <WhatsNextWrapper>
@@ -104,11 +104,17 @@ const Content = ({posts}) => {
         }
     }, [state.succeeded]);
     
-    return state.succeeded ? (
+    return !state.succeeded ? (
         <Success>
             <div>
-                <p>Your order is succeeded!<br/>We'll contact you soon</p>
-                Got back to <Link to='/shop'>Shop</Link>
+                <img alt="" src="success.webp"/>
+                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 537.33 371.87">
+                    <path className="el" d="m.5,0s1.97,143.1,67.05,206.51c65.08,63.41,207.95,82.9,186.43,47.67-21.51-35.23-37.67,10.92-34.65,40.27,3.02,29.35,39.24,80.86,94.53,76.67,55.29-4.19,159.43-75.38,223.15-25.07"/>
+                </svg>
+                <div>
+                    <p className='text'>Your order is succeeded!<br/>We'll contact you soon</p>
+                    <Link className='link' to='/shop'>Go back to Shop</Link>
+                </div>
             </div>
         </Success>
     ) : (

@@ -1,6 +1,8 @@
 import React from "react"
-import MailchimpSubscribe from "./subscription";
-import { MainMenu, subscriptionUrl } from '@constants';
+// import MailchimpSubscribe from "./subscription";
+import { MainMenu,
+// subscriptionUrl
+} from '@constants';
 import { Link } from "gatsby";
 import useWidth from "@hooks/useWindowSize";
 import SocialIcons from "@components/socials";
@@ -8,7 +10,7 @@ import BottomNavigation from "./bottomNavigation";
 
 import { FooterRoot, Socials, Bottom, UpperSection, BottomSection } from "./footer.styled"
 
-const SimpleForm = () => <MailchimpSubscribe url={subscriptionUrl}/>
+// const SimpleForm = () => <MailchimpSubscribe url={subscriptionUrl}/>
 
 const Footer = () => {
     const {isDesktop, isMobile} = useWidth();
@@ -35,14 +37,11 @@ const Footer = () => {
             </UpperSection>
             <BottomSection>
                 <BottomNavigation isDesktop={!isMobile} title="Company" links={MainMenu}/>
-                {isDesktop && <Socials>
-                    <SocialIcons size={32} gap={10}/>
-                </Socials>}
             </BottomSection>
             <Bottom>
-                {!isDesktop && <Socials>
+                <Socials>
                     <SocialIcons size={32} gap={10}/>
-                </Socials>}
+                </Socials>
             </Bottom>
         </FooterRoot>
     )

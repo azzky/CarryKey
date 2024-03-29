@@ -187,9 +187,108 @@ export const WhatsNextWrapper = styled.div`
 `
 
 export const Success = styled.div`
-    display: grid;
-    place-items: center;
-    min-height: 350px;
+    position: relative;
+
+    > div {
+        display: grid;
+        text-align: center;
+        margin-top: 11vw;
+        min-height: 86vw;
+        padding-left: 5vw;
+
+        @media (min-width: 754px) {
+            margin-top: 10vw;
+            min-height: 22.5vw;
+            padding-left: 58vw;
+            text-align: start;
+        }
+    }
+    
+    .text,
+    .link {
+        font-size: 16px;
+        line-height: 110%;
+        font-weight: 300;
+        font-family: CG;
+
+        @media (min-width: 754px) {
+            font-size: 22px;
+            line-height: 125%;
+        }
+    }
+
+    .text {
+        position: relative;
+    }
+
+    .text:before,
+    .text::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 1px;
+        background-color: #914a9a;
+    }
+
+    .text:before {
+        width: 56px;
+        bottom: -41px;
+        right: 24vw;
+
+        @media (min-width: 754px) {
+            width: 135px;
+            bottom: -59px;
+        }
+    }
+    .text::after {
+        width: 101px;
+        top: 83px;
+        right: 20vw;
+
+        @media (min-width: 754px) {
+            width: 218px;
+            top: 120px;
+            right: 22vw;
+        }
+    }
+
+    .link {
+        text-decoration: underline;
+    }
+
+    img {
+        position: absolute;
+        width: 73vw;
+        top: 15vw;
+        left: 0;
+
+        @media (min-width: 754px) {
+            width: 33.5vw;
+            left: 40.5%;
+            transform: translate(-50%, -50%);
+            top: 63%;
+        }
+    }
+
+    svg {
+        position: absolute;
+        left: -30vw;
+        top: 27vw;
+
+        @media (min-width: 754px) {
+            left: 34vw;
+            max-width: 51vw;
+            top: -14vw;
+            z-index: -1;
+        }
+    }
+
+    svg .el {
+        fill: none;
+        fill-rule: evenodd;
+        stroke: #914a9a;
+        stroke-miterlimit: 10;
+    }
 `
 
 export const EmptyCart = styled.div`
