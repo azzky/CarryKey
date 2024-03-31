@@ -4,6 +4,8 @@ import Item from './cartItem';
 import { Link } from 'gatsby';
 import Recommend from './recommend';
 import { useForm as useFormSpreeForm, ValidationError } from '@formspree/react';
+import reduxStore from '../../redux/store';
+import {cartData } from '../../redux/actions'
 // import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { currency } from '@constants';
 // import { useForm } from "react-hook-form";
@@ -100,6 +102,7 @@ const Content = ({posts}) => {
     const [state, handleSubmit] = useFormSpreeForm('xvoewgal');
     useEffect(() => {
         if(state.succeeded) {
+            reduxStore.dispatch(cartData([]))
             localStorage.removeItem('cart')
         }
     }, [state.succeeded]);

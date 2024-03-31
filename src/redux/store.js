@@ -15,7 +15,11 @@ const initialState = {
         items: arr
     }
 }
-// const tools = typeof window !== 'undefined' ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : ()=>{return {}}
-const store = createStore(Reducer, initialState);
+
+const store = createStore(
+    Reducer,
+    initialState
+    // ,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 export default store;
