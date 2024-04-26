@@ -7,7 +7,7 @@ require('dotenv').config({
 module.exports = {
     siteMetadata: {
         title: `Carrykey`,
-        siteUrl: `https://www.yourdomain.tld` // TODO
+        siteUrl: `https://carrykey.me`
     },
     trailingSlash: "never",
     plugins: [
@@ -96,45 +96,26 @@ module.exports = {
                 }
             }
         },
-        // {
-        //     resolve: `gatsby-plugin-sitemap`,
-        //     options: {
-        //         output: `/`,
-        //         excludes: [`/ru/404`, `/404.html`, `/success`, `/ru/success`, `/contact`, `/ru/contact`],
-        //         query: `{
-        //         allSitePage {
-        //             nodes {
-        //             path
-        //             pageContext
-        //             }
-        //         }
-        //         }`,
-        //         resolveSiteUrl: () => process.env.SITE_URL,
-        //         serialize: ({path, pageContext}) => {
-        //         const today = new Date()
-        //         return {
-        //             url: process.env.SITE_URL + path,
-        //             changefreq: `daily`,
-        //             priority: 0.7,
-        //             lastmodISO: pageContext.modified || today.toISOString()
-        //         }
-        //         }
-        //     }
-        // },
-        // {
-        //     resolve: 'gatsby-plugin-robots-txt',
-        //     options: {
-        //         host: process.env.SITE_URL,
-        //         sitemap: process.env.SITE_URL +'/sitemap-0.xml',
-        //         env: {
-        //         development: {
-        //             policy: [{ userAgent: '*', disallow: ['/'] }]
-        //         },
-        //         production: {
-        //             policy: [{ userAgent: '*', allow: '/' }]
-        //         }
-        //         }
-        //     }
-        // },
+        {
+            resolve: 'gatsby-plugin-robots-txt',
+            options: {
+                host: 'https://carrykey.me',
+                sitemap: 'https://carrykey.me/sitemap-0.xml',
+                env: {
+                    development: {
+                        policy: [{ userAgent: '*', disallow: ['/'] }]
+                    },
+                    production: {
+                        policy: [{ userAgent: '*', allow: '/' }]
+                    }
+                }
+            }
+        },
+        {
+            resolve: "gatsby-plugin-sitemap",
+            options: {
+                excludes: ['/merch', '/feedback'],
+            },
+        },
     ]
 };

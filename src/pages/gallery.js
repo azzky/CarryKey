@@ -18,3 +18,11 @@ const Gallery = () => {
 }
 
 export default Gallery;
+
+export const Head = () => {
+    return (
+        <>
+            <title>Gallery | CarryKey</title>
+        </>
+    )
+}

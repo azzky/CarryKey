@@ -15,6 +15,6 @@ export default NotFoundPage
 
 export const Head = () => {
     return (
-        <title>Not found</title>
+        <title>Not found | CarryKey</title>
     )
 }

@@ -3,6 +3,8 @@ import Layout from '@components/layout'
 import ShopITems from '@hooks/useShopitems'
 import Grid from '@components/shopPage/grid';
 
+import backDesk from '@images/back-shop.jpg';
+
 const Search = ({location}) => {
     const posts = ShopITems()
     const string = location.search.split('?search=')[1] || 'empty'
@@ -25,10 +27,19 @@ const Search = ({location}) => {
     })
     return (
         <Layout hasNavigation isHero
-            h1={'Search results for: '+ string}>
+            h1={'Search results for: '+ string}
+            heroImageDesktop={backDesk}>
             {arr?.length > 0 ? <Grid items={arr}/> : <h2>Nothing found</h2>}
         </Layout>
     )
 }
 
 export default Search;
+
+export const Head = () => {
+    return (
+        <>
+            <title>Search | CarryKey</title>
+        </>
+    )
+}

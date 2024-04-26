@@ -20,3 +20,11 @@ const Shop = () => {
 }
 
 export default Shop;
+
+export const Head = () => {
+    return (
+        <>
+            <title>Shop | CarryKey</title>
+        </>
+    )
+}

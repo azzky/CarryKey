@@ -25,3 +25,11 @@ const Contact = () => {
 }
 
 export default Contact;
+
+export const Head = () => {
+    return (
+        <>
+            <title>Contact | CarryKey</title>
+        </>
+    )
+}

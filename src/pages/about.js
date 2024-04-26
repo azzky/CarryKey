@@ -15,3 +15,11 @@ const About = () => {
 }
 
 export default About;
+
+export const Head = () => {
+    return (
+        <>
+            <title>About | CarryKey</title>
+        </>
+    )
+}

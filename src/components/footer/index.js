@@ -19,7 +19,7 @@ const Footer = () => {
             <UpperSection>
                 <div>
                     <img quality={100} alt="" src="/logo2.png" className="logo" width={isDesktop ? 145 : 81} height={isDesktop ? 63 : 35}/>
-                    {!isMobile && <p className="hiddenDescription">{'At “CarryKey” we love our job and try to be creative every time, so our customers can get some really unique content.'}</p>}
+                    {!isMobile && <p className="hiddenDescription">{'Contact me if you have any questions and I will answer them as soon as possible!'}</p>}
                     <Link to={'/contact'}
                         className="contact-link">{'Contact page'}</Link>
                 </div>

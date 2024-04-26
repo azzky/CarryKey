@@ -19,7 +19,7 @@ export default Cart;
 export const Head = () => {
     return (
         <>
-            <title>Cart</title>
+            <title>Cart | CarryKey</title>
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
         </>
     )

@@ -10,3 +10,11 @@ const Feedback = () => {
 }
 
 export default Feedback;
+
+export const Head = () => {
+    return (
+        <>
+            <title>Feedback | CarryKey</title>
+        </>
+    )
+}

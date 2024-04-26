@@ -28,17 +28,15 @@ import Wrapper, { Summary, Items, WhatsNextWrapper, Success, EmptyCart } from ".
 const WhatsNext = () => (
     <WhatsNextWrapper>
         <div className='item'>
-            <svg width="24" height="9" viewBox="0 0 24 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <use href='#numbers'/>
+            <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href='#hand'/>
             </svg>
             <div>
                 <p className='heading'>What happens after the purchase</p>
-                <p>Brief information for the buyer.</p>
-                <p>Brief information for the buyer.</p>
-                <p>Brief information for the buyer.</p>
+                <p>Enter your e-mail and I’ll contact you to discuss the payment method and offer you a juicy discount ;)</p>
             </div>
         </div>
-        <div className='item'>
+        {/* <div className='item'>
             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <use href='#clock'/>
             </svg>
@@ -59,7 +57,7 @@ const WhatsNext = () => (
                 <p>Brief information for the buyer.</p>
                 <p>Brief information for the buyer.</p>
             </div>
-        </div>
+        </div> */}
         {/* <div className='payments'>
             <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <use href='#paypalicon'/>

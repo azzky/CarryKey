@@ -15,3 +15,11 @@ const Services = () => {
 }
 
 export default Services;
+
+export const Head = () => {
+    return (
+        <>
+            <title>Services | CarryKey</title>
+        </>
+    )
+}
