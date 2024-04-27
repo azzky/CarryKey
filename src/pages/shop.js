@@ -3,6 +3,7 @@ import Layout from '@components/layout'
 import Grid from '@components/shopPage/grid';
 import ShopITems from '@hooks/useShopitems'
 import BannerItem from '@hooks/useShopBannerData'
+import Meta from "@components/meta"
 
 import backDesk from '@images/back-shop.jpg';
 
@@ -23,8 +24,8 @@ export default Shop;
 
 export const Head = () => {
     return (
-        <>
-            <title>Shop | CarryKey</title>
-        </>
+        <Meta title="Shop"
+            thumbnail={backDesk}
+        />
     )
 }

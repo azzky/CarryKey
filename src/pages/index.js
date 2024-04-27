@@ -7,6 +7,9 @@ import ShopSlider from '@components/homepage/shopSlider'
 import ShopITems from '@hooks/useShopitems'
 import Slides from '@hooks/useHomepageSlider'
 // import Reviews from "@hooks/useFeedbackData"
+import Meta from "@components/meta"
+
+import backDesk from '@images/back-contact.jpg';
 
 const IndexPage = () => {
     const posts = ShopITems()
@@ -30,7 +33,9 @@ export default IndexPage
 export const Head = () => {
     return (
         <>
-            <title>Homepage | CarryKey</title>
+            <Meta title="Homepage"
+                thumbnail={backDesk}
+            />
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/>
         </>

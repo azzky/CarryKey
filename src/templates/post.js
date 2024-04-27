@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@components/layout'
 import { graphql } from "gatsby"
 import Item from '@components/post';
+import Meta from "@components/meta"
 
 const Post = ({
     data: {allContentfulPost: {edges}}
@@ -46,12 +47,16 @@ query ($slug: Int!) {
 }
 `
 
-export const Head = () => {
+export const Head = ({pageContext}) => {
+    console.log(pageContext);
     return (
         <>
-            <title>Product page</title>
+            <Meta title={'Buy ' + pageContext.title + ' cosplay set'}
+                thumbnail={'https:' + pageContext.image}
+                isPost
+            />
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
-            {/* <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/> */}
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/>
         </>
     )
 }

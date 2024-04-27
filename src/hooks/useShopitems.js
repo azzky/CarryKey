@@ -28,6 +28,5 @@ export default function ShopITems() {
         }
     }
     `)
-    console.log(data.allContentfulPost.nodes);
     return data.allContentfulPost.nodes
 }

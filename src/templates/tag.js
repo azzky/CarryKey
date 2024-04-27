@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from '@components/layout'
 import Grid from '@components/shopPage/grid';
 // import GalleryGrid from '@components/galleryPage/grid';
+import Meta from "@components/meta"
 
 import backDesk from '@images/back-shop.jpg';
 
@@ -48,3 +49,12 @@ query ($slug: String!) {
     }
 }
 `
+
+export const Head = ({pageContext}) => {
+    return (
+        <Meta title={'Results for ' + pageContext.slug + ' tag'}
+            thumbnail={'https:'+pageContext.image}
+            isPost
+        />
+    )
+}

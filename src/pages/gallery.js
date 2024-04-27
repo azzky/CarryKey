@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@components/layout'
 import ShopITems from '@hooks/useShopitems'
 import GalleryGrid from '@components/galleryPage/grid';
+import Meta from "@components/meta"
 
 import backDesk from '@images/back-gallery.jpg';
 
@@ -21,8 +22,8 @@ export default Gallery;
 
 export const Head = () => {
     return (
-        <>
-            <title>Gallery | CarryKey</title>
-        </>
+        <Meta title="Gallery"
+            thumbnail={backDesk}
+        />
     )
 }

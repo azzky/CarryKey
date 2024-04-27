@@ -1,6 +1,7 @@
 import * as React from "react"
 import Layout from '@components/layout'
-import NotFound from "../components/404page"
+import NotFound from "@components/404page"
+import Meta from "@components/meta"
 
 const NotFoundPage = () => {
     return (
@@ -15,6 +16,8 @@ export default NotFoundPage
 
 export const Head = () => {
     return (
-        <title>Not found | CarryKey</title>
+        <Meta title="Not found"
+            url="404"
+            />
     )
 }

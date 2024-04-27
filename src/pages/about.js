@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@components/layout'
 import AboutBlock from '@components/homepage/about'
+import Meta from "@components/meta"
 
 import backDesk from '@images/back-contact.jpg';
 
@@ -18,8 +19,9 @@ export default About;
 
 export const Head = () => {
     return (
-        <>
-            <title>About | CarryKey</title>
-        </>
+        <Meta title="About"
+            url="about"
+            thumbnail={backDesk}
+        />
     )
 }

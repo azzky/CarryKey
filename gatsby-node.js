@@ -11,6 +11,12 @@ exports.createPages = async ({ graphql, actions }) => {
                 node {
                     tags
                     postId
+                    title
+                    preview {
+                        file {
+                            url
+                        }
+                    }
                 }
             }
         }
@@ -23,7 +29,9 @@ exports.createPages = async ({ graphql, actions }) => {
             path: '/shop/post/' + post.node.postId,
             component: path.resolve(`./src/templates/post.js`),
             context: {
-                slug: post.node.postId
+                slug: post.node.postId,
+                image: post.node.preview.file.url,
+                title: post.node.title
             }
         })
         post.node.tags && post.node.tags.map(tag => {
@@ -32,7 +40,8 @@ exports.createPages = async ({ graphql, actions }) => {
                 component: path.resolve(`./src/templates/tag.js`),
                 context: {
                     slug: tag,
-                    type: 'shop'
+                    type: 'shop',
+                    image: post.node.preview.file.url
                 }
             })
             createPage({

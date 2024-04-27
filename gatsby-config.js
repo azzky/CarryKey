@@ -117,5 +117,16 @@ module.exports = {
                 excludes: ['/merch', '/feedback', '/search'],
             },
         },
+        // {
+        //     resolve: `gatsby-plugin-google-analytics`,
+        //     options: {
+        //         trackingId: "YOUR_GOOGLE_ANALYTICS_TRACKING_ID",
+        //         head: true,
+        //         exclude: ['/merch', '/feedback', '/search'],
+        //         pageTransitionDelay: 0,
+        //         defer: false,
+        //         enableWebVitalsTracking: true
+        //     },
+        // }
     ]
 };
