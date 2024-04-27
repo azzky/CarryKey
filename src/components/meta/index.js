@@ -44,12 +44,12 @@ const Meta = ({
         {thumbnail && <>
             <meta name="og:image"
                 property="og:image"
-                content={isPost ? thumbnail : process.env.SITE_URL + '/' + thumbnail}/>
+                content={isPost ? thumbnail+'?w=400' : process.env.SITE_URL + '/' + thumbnail+'?w=400'}/>
             <meta name="twitter:image"
-                property="twitter:image"content={isPost ? thumbnail : process.env.SITE_URL + '/' + thumbnail}/>
+                property="twitter:image"content={isPost ? thumbnail+'?w=400' : process.env.SITE_URL + '/' + thumbnail+'?w=400'}/>
             <meta name="vk:image"
                 property="vk:image"
-                content={isPost ? thumbnail : process.env.SITE_URL + thumbnail}/>
+                content={isPost ? thumbnail+'?w=400' : process.env.SITE_URL + thumbnail+'?w=400'}/>
         </>}
         {/* <meta name="fb:app_id"
                 property="fb:app_id"
