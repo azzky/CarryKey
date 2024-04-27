@@ -33,7 +33,7 @@ export default IndexPage
 export const Head = () => {
     return (
         <>
-            <Meta title="Homepage"
+            <Meta title="Hi I'm Carry"
                 thumbnail={backDesk}
             />
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>

@@ -51,7 +51,7 @@ export const Head = ({pageContext}) => {
     console.log(pageContext);
     return (
         <>
-            <Meta title={'Buy ' + pageContext.title + ' cosplay set'}
+            <Meta title={pageContext.title + ' cosplay set'}
                 thumbnail={'https:' + pageContext.image}
                 isPost
             />
