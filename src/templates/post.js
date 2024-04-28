@@ -32,6 +32,9 @@ query ($slug: Int!) {
                 priceMax
                 tags
                 categories
+                description {
+                    raw
+                }
                 preview {
                     gatsbyImageData(width: 280, quality: 85)
                 }
@@ -48,11 +51,12 @@ query ($slug: Int!) {
 `
 
 export const Head = ({pageContext}) => {
-    console.log(pageContext);
+    // console.log(pageContext);
     return (
         <>
             <Meta title={pageContext.title + ' cosplay set'}
                 thumbnail={'https:' + pageContext.image}
+                // description={pageContext.description}
                 isPost
             />
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>

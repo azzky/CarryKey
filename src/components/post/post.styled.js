@@ -73,7 +73,6 @@ const Wrapper = styled.div`
         @media (min-width: 754px) {
             column-gap: 6px;
             height: 35px;
-            translate: -9.95vw 0;
             margin-bottom: -12px;
         }
 
@@ -234,10 +233,45 @@ const Wrapper = styled.div`
         }
     }
 
-    & .gallery {
+    & .description {
+        margin-top: 70px;
+    }
+
+    & .images-grid {
+        margin-bottom: 40px;
+
         .slick-slide > div {
             display: flex;
             justify-content: center;
+        }
+
+        .slick-arrow {
+            width: 50px;
+            height: 50px;
+
+            &:before {
+                color: var(--color-cta);
+                font-size: 35px;
+            }
+        }
+
+        .slick-prev {
+            left: -40px;
+        }
+
+        .slick-next {
+            right: -40px;
+        }
+
+        .slick-dots {
+            bottom: -32px;
+            ul {
+                list-style: none;
+            }
+
+            button {
+                opacity: 0;
+            }
         }
     }
 `

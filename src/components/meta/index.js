@@ -7,7 +7,6 @@ const Meta = ({
     thumbnail,
     isPost
 }) => {
-    console.log(title);
     return <>
         {title && <>
             <title>{title + ' | CarryKey'}</title>

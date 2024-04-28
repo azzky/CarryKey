@@ -6,7 +6,7 @@ export default function ShopITems() {
         allContentfulPost(
             sort: {postId: DESC}
             filter: {
-                showInShop: {eq: true}
+                showInGallery: {eq: true}
             }
         ) {
             nodes {
@@ -17,7 +17,7 @@ export default function ShopITems() {
                 priceMax
                 categories
                 isBestseller
-                showInShop
+                showInGallery
                 tags
                 gallery {
                     gatsbyImageData(width: 450, quality: 85)
