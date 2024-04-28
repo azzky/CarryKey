@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '@components/layout'
-import ShopITems from '@hooks/useShopitems'
+import ShopITems from '@hooks/useGalleryItems'
 import GalleryGrid from '@components/galleryPage/grid';
 import Meta from "@components/meta"
 
