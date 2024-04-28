@@ -14,7 +14,7 @@ const Grid = (props)=>{
     const {isMobile, isTablet, width} = useWidth()
     const {
         uniqueTags,categories,categoryNames,finalItems, setFilterCategories, filterCategories, resetFilters, removeFilter, setSortingValue, sortList,
-        hasBanner
+        hasBanner, sortOption
     } = useShop(items, width, isTablet, banner, 'shop');
     return (
         <GridWrapper>
@@ -26,9 +26,11 @@ const Grid = (props)=>{
                 filterCategories={filterCategories}
                 categoryNames={categoryNames}
                 setSortingValue={setSortingValue}
+                sortOption={sortOption}
                 sortList={sortList}/>}
             {!isMobile && <Tags tags={uniqueTags} path="shop"
                 setSortingValue={setSortingValue}
+                sortOption={sortOption}
                 selectedTag={selectedTag}
                 sortList={sortList} />}
             {!isMobile && <Filters categories={categories}

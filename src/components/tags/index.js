@@ -4,7 +4,7 @@ import Select from 'react-select'
 
 import Wrapper from './tags.styled';
 
-export const Tags = ({tags, path, setSortingValue, sortList, selectedTag}) => (
+export const Tags = ({tags, path, setSortingValue, sortList, selectedTag, sortOption}) => (
     <Wrapper className="top">
         <div className="tags">
             {tags.length > 0 && tags.map(tag=>(<Link className="tag" key={tag} to={'/' +path +'/tag/'+tag.replace(' ','_')}>{tag}</Link>))}
@@ -12,7 +12,7 @@ export const Tags = ({tags, path, setSortingValue, sortList, selectedTag}) => (
         </div>
         <div className="sorting">
             <Select options={sortList} unstyled isSearchable={false}
-                defaultValue={sortList[0]}
+                defaultValue={sortOption}
                 onChange={setSortingValue}
                 className="react-select-container"
                 classNamePrefix="react-select"/>

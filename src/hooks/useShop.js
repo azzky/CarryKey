@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 
 const sortList = [
     { value: 'default', label: 'Editor\'s choice' },
@@ -132,6 +132,10 @@ const useShop = (items, width, isTablet, banner, path) => {
     if (hasBanner && finalItems.length <= index) {
         finalItems = [...finalItems, banner]
     }
+    useEffect(() => {
+        setSortingValue(sortList[1])
+    }, [setSortingValue])
+    
     return {
         uniqueTags: uniqueTags.sort(),
         categories,
@@ -142,6 +146,7 @@ const useShop = (items, width, isTablet, banner, path) => {
         resetFilters,
         removeFilter,
         setSortingValue,
+        sortOption: sortList.find(el => el.value === sortOption),
         sortList,
         columnNumber,
         getWidth,
