@@ -8,10 +8,9 @@ import 'react-image-lightbox/style.css';
 import Wrapper from "./grid.styled";
 
 const Item = ({post, setImage }) => {
-    const image = getImage(post.preview)
     return (
-        <div className="item" onClick={() => setImage(post.preview.file.url)}>
-            <GatsbyImage image={image} alt=""/>
+        <div className="item" onClick={() => setImage(post.file.url)}>
+            <GatsbyImage image={post.gatsbyImageData} alt=""/>
         </div>
     )
 }
@@ -28,13 +27,13 @@ const Column = ({column, index, setImage}) => {
     )
 }
 
-const GalleryGrid = ({posts}) => {
+const GalleryGrid = ({images}) => {
     const { width } = useWidth()
     const [image, setImage] = useState(null)
 
     const {
         columnNumber, getWidth, postSubArray
-    } = useShop(posts, width, false, null, 'gallery')
+    } = useShop(images, width, false, null, 'gallery')
     return (
         <>
         <div>

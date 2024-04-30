@@ -1,19 +1,19 @@
 import React from 'react';
 import Layout from '@components/layout'
-import ShopITems from '@hooks/useGalleryItems'
+import GalleryItems from '@hooks/useGalleryItems'
 import GalleryGrid from '@components/galleryPage/grid';
 import Meta from "@components/meta"
 
 import backDesk from '@images/back-gallery.jpg';
 
 const Gallery = () => {
-    const posts = ShopITems()
+    const images = GalleryItems()
 
     return (
         <Layout hasNavigation isHero
             heroImageDesktop={backDesk}
             h1={'Gallery'}>
-            {posts.length > 0 && <GalleryGrid posts={posts} />}
+            {images.length > 0 && <GalleryGrid images={images} />}
         </Layout>
     )
 }

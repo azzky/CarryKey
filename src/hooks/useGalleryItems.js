@@ -1,29 +1,12 @@
 import { useStaticQuery, graphql } from "gatsby"
 
-export default function ShopITems() {
+export default function GalleryItems() {
   const data = useStaticQuery(graphql`
     query {
-        allContentfulPost(
-            sort: {postId: DESC}
-            filter: {
-                showInGallery: {eq: true}
-            }
-        ) {
+        allContentfulGalleryPage {
             nodes {
-                id
-                postId
-                title
-                price
-                priceMax
-                categories
-                isBestseller
-                showInGallery
-                tags
-                gallery {
-                    gatsbyImageData(width: 450, quality: 85)
-                }
-                preview {
-                    gatsbyImageData(width: 450, quality: 85)
+                images {
+                    gatsbyImageData(width: 450, quality: 90)
                     file {
                         url
                     }
@@ -32,5 +15,5 @@ export default function ShopITems() {
         }
     }
     `)
-    return data.allContentfulPost.nodes
+    return data.allContentfulGalleryPage.nodes[0].images || []
 }
