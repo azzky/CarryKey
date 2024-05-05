@@ -22,8 +22,8 @@ const Wrapper = styled.div`
 
     & .item {
         margin-bottom: 8px;
-        cursor: pointer;
-
+        cursor: zoom-in;
+        
         @media (min-width: 754px) {
             margin-bottom: 20px;
         }

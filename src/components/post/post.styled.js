@@ -48,7 +48,6 @@ const Wrapper = styled.div`
 
     & .slide-pic {
         width: 280px !important;
-        height: 280px;
         object-fit: cover;
 
         @media (min-width: 754px) {
@@ -228,8 +227,11 @@ const Wrapper = styled.div`
         margin: 10px -5px;
 
         .slick-slide {
-            aspect-ratio: 1/1;
             padding: 0 5px;
+        }
+        .slick-track {
+            display: flex;
+            align-items: center;
         }
     }
 
@@ -240,9 +242,10 @@ const Wrapper = styled.div`
     & .images-grid {
         margin-bottom: 40px;
 
-        .slick-slide > div {
-            display: flex;
+        .slick-slide > div > div {
+            display: flex !important;
             justify-content: center;
+            cursor: zoom-in;
         }
 
         .slick-arrow {

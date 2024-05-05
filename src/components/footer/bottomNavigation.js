@@ -11,19 +11,21 @@ const BottomNavigation = (props) => {
     }, []);
     return (
         <div className="column">
-            <Nav onClick={clickHandler}>
+            {/* <Nav onClick={clickHandler}>
                 <h4>{title}</h4>
                 <svg width="10" height="12" viewBox="0 0 10 12">
                     <use href="#arrowDown"/>
                 </svg>
-            </Nav>
-            {(isDesktop || isOpen) && <ul>
+            </Nav> */}
+            {/* {(isDesktop || isOpen) &&  */}
+            <ul>
                 {links.map(item => (
                     <li key={item.link}>
                         <Link to={item.link}>{item.title}</Link>
                     </li>
                 ))}
-            </ul>}
+            </ul>
+            {/* } */}
         </div>
     )
 }

@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
-import { BLOCKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
+import Lightbox from 'react-image-lightbox';
 import useBasket from "@hooks/useBasket";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import Slider from "react-slick";
 import { Link } from "gatsby";
 import useWidth from "@hooks/useWindowSize";
@@ -23,7 +23,7 @@ const settings = (isDesktop) => {
         slidesToShow: 1,
         adaptiveHeight: true
     } : {
-        dots: true,
+        dots: false,
         arrows: true,
         infinite: true,
         slidesToScroll: 1
@@ -58,6 +58,14 @@ const Item = (props) => {
 
     const [nav1, setNav1] = useState();
     const [nav2, setNav2] = useState();
+    const [showLightBox, setShowLightBox] = useState(false);
+    const [photoIndex, setPhotoIndex] = useState(null);
+
+    const clickHandler = (index) => {
+        setShowLightBox(true);
+        setPhotoIndex(index);
+        console.log(index);
+    };
 
     return (
         <Wrapper>
@@ -68,10 +76,11 @@ const Item = (props) => {
                         className="gallery"
                         asNavFor={nav2}
                         ref={(slider1) => setNav1(slider1)}>
-                        {post.gallery.map(pic => {
-                            const image = getImage(pic)
+                        {post.gallery.map((pic, index) => {
                             return (
-                                <GatsbyImage className="slide-pic" key={pic.file.url} image={image} alt="" />
+                                <div key={pic.file.url} onClick={() =>clickHandler(index)}>
+                                <GatsbyImage className="slide-pic" image={pic.gatsbyImageData} alt="" backgroundColor="#adadad"/>
+                                </div>
                             )
                         })}
                     </Slider>
@@ -80,9 +89,8 @@ const Item = (props) => {
                         asNavFor={nav1}
                         ref={(slider2) => setNav2(slider2)}>
                         {post.gallery.map(pic => {
-                            const image = getImage(pic)
                             return (
-                                <GatsbyImage className="slide-pic" key={pic.file.url} image={image} alt="" />
+                                <GatsbyImage className="slide-pic" key={pic.file.url} image={pic.gatsbyImageData} alt="" backgroundColor="#adadad"/>
                             )
                         })}
                     </Slider>
@@ -91,13 +99,23 @@ const Item = (props) => {
                 <div className="images-grid">
                     <Slider {...settings(isDesktop)} slidesToShow={isMobile ? 1 : 3}>
                         {post.gallery.map(pic => {
-                            const image = getImage(pic)
                             return (
-                                <GatsbyImage className="slide-pic" key={pic.file.url} image={image} alt="" />
+                                <GatsbyImage className="slide-pic" key={pic.file.url} image={pic.gatsbyImageData} alt="" width={280} backgroundColor="#adadad"/>
                             )
                         })}
                     </Slider>
                 </div>
+            )}
+            {showLightBox && (
+                // <></>
+            <Lightbox
+                mainSrc={'https:'+post.gallery[photoIndex].file.url +'?w=2048&h=2048&fl=progressive&q=95'}
+                nextSrc={'https:' +post.gallery[photoIndex < post.gallery.length -1 ? photoIndex + 1 : 0].file.url + '?w=2048&h=2048&fl=progressive&q=95'}
+                prevSrc={'https:' +post.gallery[photoIndex > 0 ? photoIndex - 1 : post.gallery.length - 1].file.url + '?w=2048&h=2048&fl=progressive&q=95'}
+                onCloseRequest={() => setShowLightBox(false)}
+                onMovePrevRequest={() => setPhotoIndex((photoIndex + post.gallery.length - 1) % post.gallery.length)}
+                onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % post.gallery.length)}
+            />
             )}
             {post.description && <div className="description">
                 {renderRichText(post.description, options)}

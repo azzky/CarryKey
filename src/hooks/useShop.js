@@ -118,7 +118,7 @@ const useShop = (items, width, isTablet, banner, path) => {
     // end sorting
     if (isGallery) {
         for (let i = 0; i < items.length; i++) {
-            postSubArray[(i + columnNumber) % columnNumber].push(items[i])
+            postSubArray[(i + columnNumber) % columnNumber].push({...items[i], photoIndex: i})
         }
     }
     // put the banner on place after all

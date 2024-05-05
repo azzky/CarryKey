@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import React, { useCallback, useState } from "react"
+import { GatsbyImage } from "gatsby-plugin-image";
 import useShop from '@hooks/useShop'
 import useWidth from '@hooks/useWindowSize'
 import Lightbox from 'react-image-lightbox'
@@ -7,21 +7,27 @@ import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css';
 import Wrapper from "./grid.styled";
 
-const Item = ({post, setImage }) => {
+const Item = ({post, setImage, setPhotoIndex, postIndex}) => {
+    const clickHandler = useCallback(() => {
+        setImage(post.file.url)
+        setPhotoIndex(post.photoIndex)
+    }, []);
     return (
-        <div className="item" onClick={() => setImage(post.file.url)}>
-            <GatsbyImage image={post.gatsbyImageData} alt=""/>
+        <div className="item" onClick={clickHandler} id={post.photoIndex}>
+            <GatsbyImage image={post.gatsbyImageData} alt="" backgroundColor="#adadad"/>
         </div>
     )
 }
 
-const Column = ({column, index, setImage}) => {
+const Column = ({column, index, setImage, setPhotoIndex}) => {
     return (
         <div key={index}>
             {column.map((post, postIndex) => (
                 <Item post={post}
                     setImage={setImage}
-                    key={postIndex} />
+                    setPhotoIndex={setPhotoIndex}
+                    postIndex={index}
+                    key={postIndex}/>
             ))}
         </div>
     )
@@ -30,6 +36,7 @@ const Column = ({column, index, setImage}) => {
 const GalleryGrid = ({images}) => {
     const { width } = useWidth()
     const [image, setImage] = useState(null)
+    const [photoIndex, setPhotoIndex] = useState(null)
 
     const {
         columnNumber, getWidth, postSubArray
@@ -42,16 +49,19 @@ const GalleryGrid = ({images}) => {
                 <Column column={column}
                     index={index}
                     setImage={setImage}
+                    setPhotoIndex={setPhotoIndex}
                     key={index}/>
             ))}
             </Wrapper>
         </div>
         {image && (
           <Lightbox
-            mainSrc={image + '?w=2048&h=2048&fl=progressive&q=95'}
-            // nextSrc={images[(photoIndex + 1) % images.length]}
-            // prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            mainSrc={'https:'+images[photoIndex].file.url +'?w=2048&h=2048&fl=progressive&q=95'}
+            nextSrc={'https:' +images[photoIndex < images.length -1 ? photoIndex + 1 : 0].file.url + '?w=2048&h=2048&fl=progressive&q=95'}
+            prevSrc={'https:' +images[photoIndex > 0 ? photoIndex - 1 : images.length - 1].file.url + '?w=2048&h=2048&fl=progressive&q=95'}
             onCloseRequest={() => setImage(null)}
+            onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
+            onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
           />
         )}
         </>

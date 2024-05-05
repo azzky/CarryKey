@@ -11,7 +11,7 @@ const HomeSlider = (props) => {
     const {slides} = props
     const {isMobile} = useWidth()
     const settings = {
-        dots: true,
+        dots: !isMobile,
         arrows: false,
         infinite: true,
         autoplay: true,

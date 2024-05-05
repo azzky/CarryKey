@@ -7,7 +7,7 @@ import HomeSlider from "./slider";
 import MiniCart from "./minicart";
 import Search from './search';
 
-import { HeaderRoot, BottomBlock, SearchWrapper, Socials } from "./header.styled";
+import { HeaderRoot, BottomBlock, SearchWrapper, Socials, FixedMinicart } from "./header.styled";
 
 const Header = (props) => {
     const {hasNavigation, isHero, heroImageDesktop, h1, isHome, slides, isContact, isCart, isShop} = props;
@@ -64,6 +64,9 @@ const Header = (props) => {
                 </>
             )}
         </SearchWrapper>}
+        <FixedMinicart>
+            <MiniCart/>
+        </FixedMinicart>
         </>
     )
 }

@@ -57,7 +57,7 @@ const SliderWrapper =styled.div`
     & .slide-content {
         position: absolute;
         left: var(--mobile-offset);
-        bottom: 108px;
+        bottom: 20px;
         z-index: 1;
 
         @media (min-width: 754px) {
@@ -118,6 +118,20 @@ const SliderWrapper =styled.div`
 
     & .gatsby-image-wrapper-constrained {
         display: block;
+    }
+
+    & .gatsby-image-wrapper {
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            background-image: linear-gradient(to bottom,transparent 30%, rgba(0,0,0,0.4));
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
     }
 `;
 

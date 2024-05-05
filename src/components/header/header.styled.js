@@ -77,6 +77,14 @@ const HeaderRoot = styled.header`
         }
     }
 
+    a.logo {
+        ${({$isHome})=>$isHome && `background-image: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.3), transparent);`}
+
+        @media (min-width: 754px) {
+            background: none;
+        }
+    }
+
     img.hero {
         position: absolute;
         object-fit: cover;
@@ -184,5 +192,18 @@ const Socials = styled.div`
     display: flex;
     justify-content: end;
 `
+const FixedMinicart = styled.div`
+    position: fixed;
+    background: var(--color-main);
+    padding: 10px;
+    border-radius: 50%;
+    right: 40px;
+    bottom: 40px;
+    z-index: 999;
 
-export {HeaderRoot, BottomBlock, SearchWrapper, Socials}
+    &:hover {
+        box-shadow: 5px 4px 8px 0px rgba(0, 0, 0, 0.25);
+    }
+`
+
+export {HeaderRoot, BottomBlock, SearchWrapper, Socials, FixedMinicart}

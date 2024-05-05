@@ -36,10 +36,10 @@ query ($slug: Int!) {
                     raw
                 }
                 preview {
-                    gatsbyImageData(width: 280, quality: 85)
+                    gatsbyImageData(width: 450, quality: 90, formats: WEBP)
                 }
                 gallery {
-                    gatsbyImageData(width: 500, quality: 85)
+                    gatsbyImageData(width: 450, quality: 90, formats: WEBP)
                     file {
                         url
                     }

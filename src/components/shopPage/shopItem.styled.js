@@ -23,7 +23,7 @@ const Item = styled.li`
         img {
             object-fit: cover;
             object-position: center 12%;
-            aspect-ratio: 1 / 1;
+            // aspect-ratio: 1 / 1;
             height: auto;
         }
     }
