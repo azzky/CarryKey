@@ -26,6 +26,12 @@ export default function ShopITems() {
                     gatsbyImageData(width: 450, quality: 85)
                     file {
                         url
+                        details {
+                            image {
+                                width
+                                height
+                            }
+                        }
                     }
                 }
             }

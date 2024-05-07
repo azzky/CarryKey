@@ -1,6 +1,5 @@
 import React from 'react';
-// import Image from "next/image";
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { Item } from "./shopItem.styled";
 import { currency } from "@constants";
@@ -15,16 +14,16 @@ const ShopItem = ({post}) => {
         // gallery,
         preview
     } = post;
-    const image = getImage(preview)
+    const isHorizontal = preview?.file?.details?.image?.width > preview?.file?.details?.image?.height || false;
     return (
         <Item>
             <Link to={'/shop/post/'+postId}
                 aria-label={'link to post '+title}>
                 <span className="visually-hidden">{'link to post '+title}</span>
             </Link>
-            <div className="imageWrapper">
-                <GatsbyImage image={image}
-                    alt=""/>
+            <div className={isHorizontal ? 'imageWrapper square' : 'imageWrapper'}>
+                <GatsbyImage image={preview.gatsbyImageData}
+                    alt={'preview for '+title}/>
             </div>
             <p className="title">{title}</p>
             <div className="details">

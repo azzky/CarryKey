@@ -20,10 +20,13 @@ const Item = styled.li`
     & .imageWrapper {
         width: 100%;
 
+        &.square img {
+            aspect-ratio: 1 / 1;
+        }
+
         img {
             object-fit: cover;
             object-position: center 12%;
-            // aspect-ratio: 1 / 1;
             height: auto;
         }
     }
