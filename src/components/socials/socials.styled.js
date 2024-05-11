@@ -6,7 +6,7 @@ const SocialsWrapper = styled.div`
 
     & a {
         border-radius: 50%;
-        background-color: var(--color-main);
+        ${props=>props.$isLinksPage ? '' : 'background-color: var(--color-main);'}
         display: grid;
         place-items: center;
         ${props=>props.$size && `
@@ -23,8 +23,8 @@ const SocialsWrapper = styled.div`
     }
 
     & a:hover {
-        background-color: var(--color-main-hover);
-        box-shadow: 4px 4px 8px 0px #3D3D3D;
+        ${props=>props.$isLinksPage ? '' : `background-color: var(--color-main-hover);
+        box-shadow: 4px 4px 8px 0px #3D3D3D;`}
     }
 `;
 
