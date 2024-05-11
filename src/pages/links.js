@@ -74,19 +74,19 @@ const LinksPage = () => {
                 <SocialIcons isLinksPage size={25} gap={5}/>
                 <ul className='links'>
                     <li>
-                        <a href='https://fansly.com/CarryKeycos'>
+                        <a href='https://fansly.com/CarryKeycos' rel="me noreferrer" target="_blank">
                             <GatsbyImage image={data.fanslyAvatar.gatsbyImageData} alt=""/>
                             <span>Fansly</span>
                         </a>
                     </li>
                     <li>
-                        <a href='https://onlyfans.com/carrykey_cosplay'>
+                        <a href='https://onlyfans.com/carrykey_cosplay' rel="me noreferrer" target="_blank">
                             <GatsbyImage image={data.onlyFansAvatar.gatsbyImageData} alt=""/>
                             <span>OnlyFans</span>
                         </a>
                     </li>
                     <li>
-                        <a href='https://throne.com/carrykey'>
+                        <a href='https://throne.com/carrykey' rel="me noreferrer" target="_blank">
                             <GatsbyImage image={data.wishlistAvatar.gatsbyImageData} alt=""/>
                             <span>Wishlist</span>
                         </a>
@@ -96,7 +96,7 @@ const LinksPage = () => {
                     <ul className='grid'>
                         {links.map(item => (
                             <li key={item}>
-                                <a href={data[`tile${item}Url`]}>
+                                <a href={data[`tile${item}Url`]} rel="me noreferrer" target="_blank">
                                     <GatsbyImage image={data[`tile${item}Image`].gatsbyImageData} alt=''/>
                                     <h2>{data[`tile${item}Name`]}</h2>
                                 </a>
