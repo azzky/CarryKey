@@ -47,18 +47,7 @@ const Wrapper = styled.div`
     }
 
     & .slide-pic {
-        width: 280px !important;
         object-fit: cover;
-
-        @media (min-width: 754px) {
-            width: 320px !important;
-            height: 320px;
-        }
-
-        @media (min-width: 1280px) {
-            width: auto !important;
-            height: auto;
-        }
     }
 
     & .slick-dots {

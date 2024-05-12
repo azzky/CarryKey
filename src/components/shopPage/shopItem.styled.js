@@ -24,6 +24,12 @@ const Item = styled.li`
             aspect-ratio: 1 / 1;
         }
 
+        &:not(.square) img {
+            @media (min-width: 754px) {
+                aspect-ratio: 6 / 9;
+            }
+        }
+
         img {
             object-fit: cover;
             object-position: center 12%;

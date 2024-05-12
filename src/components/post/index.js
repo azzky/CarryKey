@@ -98,9 +98,13 @@ const Item = (props) => {
             ) : (
                 <div className="images-grid">
                     <Slider {...settings(isDesktop)} slidesToShow={isMobile ? 1 : 3}>
-                        {post.gallery.map(pic => {
+                        {post.gallery.map((pic, index) => {
                             return (
-                                <GatsbyImage className="slide-pic" key={pic.file.url} image={pic.gatsbyImageData} alt="" width={280} backgroundColor="#adadad"/>
+                                <div key={pic.file.url} 
+                                onClick={() =>clickHandler(index)}>
+                                    <GatsbyImage className="slide-pic" image={pic.gatsbyImageData} alt=""
+                                        width={280} backgroundColor="#adadad"/>
+                                </div>
                             )
                         })}
                     </Slider>
@@ -109,9 +113,9 @@ const Item = (props) => {
             {showLightBox && (
                 // <></>
             <Lightbox
-                mainSrc={'https:'+post.gallery[photoIndex].file.url +'?w=2048&h=2048&fl=progressive&q=95'}
-                nextSrc={'https:' +post.gallery[photoIndex < post.gallery.length -1 ? photoIndex + 1 : 0].file.url + '?w=2048&h=2048&fl=progressive&q=95'}
-                prevSrc={'https:' +post.gallery[photoIndex > 0 ? photoIndex - 1 : post.gallery.length - 1].file.url + '?w=2048&h=2048&fl=progressive&q=95'}
+                mainSrc={'https:'+post.gallery[photoIndex].file.url +'?w=1920&h=1920&q=90'}
+                nextSrc={'https:' +post.gallery[photoIndex < post.gallery.length -1 ? photoIndex + 1 : 0].file.url + '?w=1920&h=1920&q=90'}
+                prevSrc={'https:' +post.gallery[photoIndex > 0 ? photoIndex - 1 : post.gallery.length - 1].file.url + '?w=1920&h=1920&q=90'}
                 onCloseRequest={() => setShowLightBox(false)}
                 onMovePrevRequest={() => setPhotoIndex((photoIndex + post.gallery.length - 1) % post.gallery.length)}
                 onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % post.gallery.length)}

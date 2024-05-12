@@ -37,6 +37,10 @@ const ContactLinks = [
     {
         title: 'Tiktok',
         link: 'https://www.tiktok.com/@carrykey_cosplay'
+    },
+    {
+        title: 'Patreon',
+        link: 'https://www.patreon.com/carrykey'
     }
 ];
 
