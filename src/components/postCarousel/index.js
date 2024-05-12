@@ -1,20 +1,40 @@
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
-import Carousel from "nuka-carousel"
-import useWidth from '@hooks/useWindowSize'
+import Carousel from 'react-multi-carousel';
 
+import 'react-multi-carousel/lib/styles.css';
 import Wrapper from './postCarousel.styled'
 
 const PostCarousel = (props) => {
     const { className, posts, isReverse } = props
     const items = isReverse ? posts.reverse() : posts
-    const {isTablet, isDesktop} = useWidth()
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 6
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 4
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 3
+        }
+    };
     const settings = {
-        slidesToShow: isDesktop ? 6 : isTablet ? 4 : 3,
-        withoutControls: true,
-        disableEdgeSwiping: true,
-        wrapAround: true
+        swipeable: true,
+        draggable: true,
+        showDots: false,
+        arrows: false,
+        responsive: responsive,
+        ssr: true,
+        infinite: true,
+        autoPlay: true,
+        autoPlaySpeed: 3000,
+        keyBoardControl: true,
+        rtl: isReverse
     };
     return (
         <Wrapper>

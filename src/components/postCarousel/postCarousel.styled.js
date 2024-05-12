@@ -5,17 +5,19 @@ const Wrapper = styled.div`
         position: absolute;
         bottom: 15px;
         left: 18px;
+        right: 18px;
         font-size: 12px;
         border-radius: 12px;
         height: 24px;
         width: 117px;
+        width: auto;
 
         @media (min-width: 754px) {
             left: 28px;
+            right: 28px;
             font-size: 14px;
             height: 38px;
             border-radius: 19px;
-            width: 186px;
         }
     }
 
@@ -95,6 +97,10 @@ const Wrapper = styled.div`
             width: 242px;
             height: 363px;
         }
+    }
+
+    & .react-multi-carousel-item {
+        margin: 10px;
     }
 `
 
