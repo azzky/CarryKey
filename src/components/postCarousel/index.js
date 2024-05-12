@@ -10,8 +10,12 @@ const PostCarousel = (props) => {
     const { className, posts, isReverse } = props
     const items = isReverse ? posts.reverse() : posts
     const responsive = {
+        desktopXL: {
+            breakpoint: { max: 3000, min: 1450 },
+            items: 8
+        },
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
+            breakpoint: { max: 1450, min: 1024 },
             items: 6
         },
         tablet: {
