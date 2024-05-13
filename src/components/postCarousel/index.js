@@ -47,7 +47,7 @@ const PostCarousel = (props) => {
             {items.map(slide => {
                 return (
                 <div key={'slider1-'+slide.postId} className="item">
-                    <GatsbyImage alt="" image={image.gatsbyImageData}/>
+                    <GatsbyImage alt="" image={slide.preview.gatsbyImageData}/>
                     <Link to={'/shop/post/'+slide.postId} className="button">Purchase</Link>
                 </div>
             )})}
