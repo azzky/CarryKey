@@ -1,5 +1,5 @@
 import React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import Carousel from 'react-multi-carousel';
 
@@ -45,10 +45,9 @@ const PostCarousel = (props) => {
         <Wrapper>
         <Carousel {...settings} className={className}>
             {items.map(slide => {
-                const image = getImage(slide.preview)
                 return (
                 <div key={'slider1-'+slide.postId} className="item">
-                    <GatsbyImage alt="" image={image}/>
+                    <GatsbyImage alt="" image={image.gatsbyImageData}/>
                     <Link to={'/shop/post/'+slide.postId} className="button">Purchase</Link>
                 </div>
             )})}
