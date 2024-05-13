@@ -11,6 +11,7 @@ const Wrapper = styled.div`
         height: 24px;
         width: 117px;
         width: auto;
+        z-index: 1;
 
         @media (min-width: 754px) {
             left: 28px;

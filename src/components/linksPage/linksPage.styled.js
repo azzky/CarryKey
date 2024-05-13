@@ -48,7 +48,11 @@ const Wrapper = styled.main`
 
     & h1 {
         font-size: 14px;
-        font-weight: 300;
+        font-weight: 400;
+
+        @media (min-width: 768px) {
+            font-size: 20px;
+        }
     }
 
     & .links {
@@ -63,9 +67,9 @@ const Wrapper = styled.main`
             display: block;
             position: relative;
             text-align: center;
-            height: 58px;
             border-radius: 29px;
-            line-height: 50px;
+            line-height: 58px;
+            border: 1px solid var(--color-main-hover);
         }
 
         .gatsby-image-wrapper {

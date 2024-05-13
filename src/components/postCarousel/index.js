@@ -38,6 +38,7 @@ const PostCarousel = (props) => {
         autoPlay: true,
         autoPlaySpeed: 3000,
         keyBoardControl: true,
+        customTransition: 'transform 700ms ease-in-out',
         rtl: isReverse
     };
     return (

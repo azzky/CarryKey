@@ -7,6 +7,11 @@ const FormWrapper = styled.form`
     gap: 20px;
     margin: 40px auto;
 
+    @media (max-width: 768px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     & input {
         display: block;
         height: 40px;
