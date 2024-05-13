@@ -33,7 +33,7 @@ const PostCarousel = (props) => {
         showDots: false,
         arrows: false,
         responsive: responsive,
-        ssr: true,
+        // ssr: true,
         infinite: true,
         autoPlay: true,
         autoPlaySpeed: 3000,
@@ -48,7 +48,7 @@ const PostCarousel = (props) => {
                 const image = getImage(slide.preview)
                 return (
                 <div key={'slider1-'+slide.postId} className="item">
-                    <GatsbyImage alt="" image={image} />
+                    <GatsbyImage alt="" image={image}/>
                     <Link to={'/shop/post/'+slide.postId} className="button">Purchase</Link>
                 </div>
             )})}
