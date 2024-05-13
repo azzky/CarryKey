@@ -23,6 +23,7 @@ const Wrapper = styled.main`
         justify-items: center;
         gap: 0;
         grid-template-rows: repeat(6, max-content);
+        min-height: 95vw;
 
         & > *:not(.logo) {
             max-width: 550px;
