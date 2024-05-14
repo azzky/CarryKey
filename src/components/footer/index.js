@@ -18,7 +18,9 @@ const Footer = () => {
         <FooterRoot>
             <UpperSection>
                 <div>
-                    <img quality={100} alt="" src="/logo2.png" className="logo" width={isDesktop ? 145 : 81} height={isDesktop ? 63 : 35}/>
+                    <Link to="/">
+                        <img quality={100} alt="" src="/logo2.png" className="logo" width={isDesktop ? 145 : 81} height={isDesktop ? 63 : 35}/>
+                    </Link>
                     {!isMobile && <p className="hiddenDescription">{'Contact me if you have any questions and I will answer them as soon as possible!'}</p>}
                     <Link to={'/contact'}
                         className="contact-link">{'Contact page'}</Link>
