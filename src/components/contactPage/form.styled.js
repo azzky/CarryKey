@@ -28,6 +28,7 @@ const FormWrapper = styled.form`
         text-transform: uppercase;
         cursor: pointer;
         height: 40px;
+        border-radius: 20px;
     }
 
     @media (min-width: 1280px) {

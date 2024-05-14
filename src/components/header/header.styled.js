@@ -4,7 +4,7 @@ const HeaderRoot = styled.header`
     position: relative;
     background: rgba(0,0,0,0.2);
     ${({$isHero, $isHome})=>$isHero && `
-        min-height: ${$isHome ? '494px' : '303px'};
+        min-height: ${$isHome ? '127vw' : '80vw'};
 
         @media (min-width: 754px) {
             min-height: ${$isHome ? '63.66vw' : '46.5vw'};
