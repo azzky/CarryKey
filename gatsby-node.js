@@ -34,25 +34,25 @@ exports.createPages = async ({ graphql, actions }) => {
                 title: post.node.title
             }
         })
-        post.node.tags && post.node.tags.map(tag => {
-            createPage({
-                path: '/shop/tag/' + tag.replace(' ', '_'),
-                component: path.resolve(`./src/templates/tag.js`),
-                context: {
-                    slug: tag,
-                    type: 'shop',
-                    image: post.node.preview.file.url
-                }
-            })
-            createPage({
-                path: '/gallery/tag/' + tag.replace(' ', '_'),
-                component: path.resolve(`./src/templates/tag.js`),
-                context: {
-                    slug: tag,
-                    type: 'gallery'
-                }
-            })
-        })
+        // post.node.tags && post.node.tags.map(tag => {
+        //     createPage({
+        //         path: '/shop/tag/' + tag.replace(' ', '_'),
+        //         component: path.resolve(`./src/templates/tag.js`),
+        //         context: {
+        //             slug: tag,
+        //             type: 'shop',
+        //             image: post.node.preview.file.url
+        //         }
+        //     })
+        //     createPage({
+        //         path: '/gallery/tag/' + tag.replace(' ', '_'),
+        //         component: path.resolve(`./src/templates/tag.js`),
+        //         context: {
+        //             slug: tag,
+        //             type: 'gallery'
+        //         }
+        //     })
+        // })
     })
 
     await Promise.all(promises)

@@ -28,11 +28,11 @@ const Grid = (props)=>{
                 setSortingValue={setSortingValue}
                 sortOption={sortOption}
                 sortList={sortList}/>}
-            {!isMobile && <Tags tags={uniqueTags} path="shop"
+            {/* {!isMobile && <Tags tags={uniqueTags} path="shop"
                 setSortingValue={setSortingValue}
                 sortOption={sortOption}
                 selectedTag={selectedTag}
-                sortList={sortList} />}
+                sortList={sortList} />} */}
             {!isMobile && <Filters categories={categories}
                 setFilterCategories={setFilterCategories}
                 resetFilters={resetFilters}
