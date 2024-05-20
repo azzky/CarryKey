@@ -23,34 +23,19 @@ const LinksPage = () => {
                     url
                     }
                 }
-                fanslyAvatar {
-                    gatsbyImageData(width: 100, quality: 90)
+                tiles {
+                    name
+                    link
+                    background {
+                        gatsbyImageData(width: 450, quality: 85)
+                    }
                 }
-                wishlistAvatar {
-                    gatsbyImageData(width: 100, quality: 90)
-                }
-                onlyFansAvatar {
-                    gatsbyImageData(width: 100, quality: 90)
-                }
-                tile1Name
-                tile1Url
-                tile1Image {
-                    gatsbyImageData(width: 450, quality: 85)
-                }
-                tile2Name
-                tile2Url
-                tile2Image {
-                    gatsbyImageData(width: 450, quality: 85)
-                }
-                tile3Name
-                tile3Url
-                tile3Image {
-                    gatsbyImageData(width: 450, quality: 85)
-                }
-                tile4Name
-                tile4Url
-                tile4Image {
-                    gatsbyImageData(width: 450, quality: 85)
+                links {
+                    text
+                    link
+                    icon {
+                        gatsbyImageData(width: 100, quality: 90)
+                    }
                 }
             }
         }
@@ -58,7 +43,6 @@ const LinksPage = () => {
     `)
 
     const data = nodes[0]
-    const links = [1,2,3,4]
     return (
         <>
             <Wrapper>
@@ -73,32 +57,22 @@ const LinksPage = () => {
                 <h1>Hi I'm Carry</h1>
                 <SocialIcons isLinksPage size={25} gap={5}/>
                 <ul className='links'>
-                    <li>
-                        <a href='https://fansly.com/CarryKeycos' rel="me noreferrer" target="_blank">
-                            <GatsbyImage image={data.fanslyAvatar.gatsbyImageData} alt=""/>
-                            <span>Fansly</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href='https://onlyfans.com/carrykey_cosplay' rel="me noreferrer" target="_blank">
-                            <GatsbyImage image={data.onlyFansAvatar.gatsbyImageData} alt=""/>
-                            <span>OnlyFans</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href='https://throne.com/carrykey' rel="me noreferrer" target="_blank">
-                            <GatsbyImage image={data.wishlistAvatar.gatsbyImageData} alt=""/>
-                            <span>Wishlist</span>
-                        </a>
-                    </li>
+                    {data.links.map(link => (
+                        <li key={link.text}>
+                            <a href={link.link} rel="me noreferrer" target="_blank">
+                                <GatsbyImage image={link.icon.gatsbyImageData} alt=""/>
+                                <span>{link.text}</span>
+                            </a>
+                        </li>
+                    ))}
                 </ul>
                 <section>
                     <ul className='grid'>
-                        {links.map(item => (
-                            <li key={item}>
-                                <a href={data[`tile${item}Url`]} rel="me noreferrer" target="_blank">
-                                    <GatsbyImage image={data[`tile${item}Image`].gatsbyImageData} alt=''/>
-                                    <h2>{data[`tile${item}Name`]}</h2>
+                        {data.tiles.map(item => (
+                            <li key={item.name}>
+                                <a href={item.link} rel="me noreferrer" target="_blank">
+                                    <GatsbyImage image={item.background.gatsbyImageData} alt=''/>
+                                    <h2>{item.name}</h2>
                                 </a>
                             </li>
                         ))}

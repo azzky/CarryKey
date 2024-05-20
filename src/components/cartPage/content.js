@@ -97,7 +97,7 @@ const Content = ({posts}) => {
 } = useCart({
         posts
     });
-    const [state, handleSubmit] = useFormSpreeForm('xvoewgal');
+    const [state, handleSubmit] = useFormSpreeForm(process.env.ORDERFORM_FORMSPREE_KEY);
     useEffect(() => {
         if(state.succeeded) {
             reduxStore.dispatch(cartData([]))
