@@ -4,7 +4,7 @@ import { useForm, ValidationError } from '@formspree/react';
 import { FormWrapper } from './form.styled';
 
 const ContactForm = () => {
-    const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_CONTACTFORM_FORMSPREE_KEY);
+    const [state, handleSubmit] = useForm(process.env.GATSBY_CONTACTFORM_FORMSPREE_KEY);
 
     return state.succeeded ? (
         <div>

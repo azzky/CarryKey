@@ -14,7 +14,7 @@ import Wrapper, { Summary, Items, WhatsNextWrapper, Success, EmptyCart } from ".
 
 const options = {
     currency: "USD",
-    clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
+    clientId: process.env.GATSBY_CLIENT_ID,
     intent: "capture"
 };
 
@@ -78,9 +78,9 @@ const Content = ({posts}) => {
         }
     }, [showSuccess]);
 
-    console.log('aaa', process.env.NEXT_PUBLIC_CLIENT_ID);
+    console.log('aaa', process.env.GATSBY_CLIENT_ID);
 
-    console.log('bbb', process.env.NEXT_PUBLIC_SITE_URL);
+    console.log('bbb', process.env.GATSBY_SITE_URL);
 
     
     return showSuccess ? (
@@ -185,7 +185,7 @@ export default Content
 export const Head = () => {
     return (
         <>
-            <script src={"https://www.paypal.com/sdk/js?client-id="+process.env.NEXT_PUBLIC_CLIENT_ID} defer="true"/>
+            <script src={"https://www.paypal.com/sdk/js?client-id="+process.env.GATSBY_CLIENT_ID} defer="true"/>
         </>
     )
 }

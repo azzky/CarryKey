@@ -29,7 +29,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
     const [showSuccess, setShowSuccess] = useState(false)
     // const [formEdit, setFormEdit] = useState(false)
     // const {removeValue} = useLocalStorage()
-    // const [state, handleOrder] = useFormSpreeForm(process.env.NEXT_PUBLIC_ORDERFORM_FORMSPREE_KEY);
+    // const [state, handleOrder] = useFormSpreeForm(process.env.GATSBY_ORDERFORM_FORMSPREE_KEY);
     // console.log(state);
 
     let totalValue = 0
@@ -120,7 +120,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
                             name: product.title,
                             description: product.priceType === 'min' ? 'cosplay' : 'topless',
                             sku: product.postId,
-                            url: process.env.NEXT_PUBLIC_SITE_URL + '/shop/post/' + product.postId,
+                            url: process.env.GATSBY_SITE_URL + '/shop/post/' + product.postId,
                             quantity: 1,
                             category: 'DIGITAL_GOODS',
                             unit_amount: {
