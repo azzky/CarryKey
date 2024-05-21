@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import useBasket from "@hooks/useBasket"
-import {createClient} from 'contentful-management'
+// import {createClient} from 'contentful-management'
 // import useLocalStorage from "./useLocalStorage"
 import { currency } from '@constants';
 // import { useForm as useFormSpreeForm } from '@formspree/react';
@@ -58,39 +58,33 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
                 'en-US': [...cart.map(set=>`${set.title} (id ${set.postId}) | ${set.priceType === 'min' ? 'cosplay' : 'topless'}`)]
             }
         }
-    const contentType = 'order' // Contentful model type
+    // const contentType = 'order' // Contentful model type
     const clickHandler = async (e = email.current) => {
-        const client = await createClient({
-            accessToken: process.env.GATSBY_PERSONAL_TOKEN
-        });
-        const space = await client.getSpace(process.env.GATSBY_CONTENTFUL_SPACE_ID);
-        const env = await space.getEnvironment('master');
-        // Execute entry creation
-        const entry = await env.createEntry(contentType, {
-            fields: entryFields
-        });
+        // const client = await createClient({
+        //     accessToken: process.env.GATSBY_PERSONAL_TOKEN
+        // });
+        // const space = await client.getSpace(process.env.GATSBY_CONTENTFUL_SPACE_ID);
+        // const env = await space.getEnvironment('master');
+        // // Execute entry creation
+        // const entry = await env.createEntry(contentType, {
+        //     fields: entryFields
+        // });
 
-        console.log('fiedls', entryFields, e);
         // If we get a new entry ID, then success, otherwise default to null
         // setOrder(entry.sys.id);
         orderNumber.current = entry.sys.id;
-        console.log('order created yoba', entry);
-        console.log('order started', orderNumber.current);
     }
     const publishOrder = async (n = orderNumber.current) => {
-        const client = await createClient({
-            accessToken: process.env.GATSBY_PERSONAL_TOKEN
-        });
-        const space = await client.getSpace(process.env.GATSBY_CONTENTFUL_SPACE_ID);
-        const env = await space.getEnvironment('master');
-        // Execute entry creation
-        const entry = await env.getEntry(orderNumber.current);
-        console.log('order number is', n);
-        console.log('got an entry to edit', entry);
-        entry.fields.status['en-US'] = 'paid';
-        entry.update();
+        // const client = await createClient({
+        //     accessToken: process.env.GATSBY_PERSONAL_TOKEN
+        // });
+        // const space = await client.getSpace(process.env.GATSBY_CONTENTFUL_SPACE_ID);
+        // const env = await space.getEnvironment('master');
+        // // Execute entry creation
+        // const entry = await env.getEntry(orderNumber.current);
+        // entry.fields.status['en-US'] = 'paid';
+        // entry.update();
         // entry.publish();
-        console.log('paid, now can remove order');
         // removeValue('cart');
         // TODO clear localstorage in main page
     }
@@ -103,9 +97,8 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
 
     const onApprove = async (data, actions) => {
         const order = await actions.order.capture();
-        console.log('Order', order);
-        console.log('order id', data.orderId); // TODO check what we have - maybe order ID or something
-        publishOrder();
+        console.log(order);
+        // publishOrder();
         setShowSuccess(true);
     }
 
