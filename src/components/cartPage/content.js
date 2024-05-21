@@ -8,7 +8,6 @@ import {cartData } from '../../redux/actions'
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { currency } from '@constants';
 import { useForm } from "react-hook-form";
-// import useLocalStorage from "@hooks/useLocalStorage"
 
 import Wrapper, { Summary, Items, WhatsNextWrapper, Success, EmptyCart } from "./content.styled";
 
@@ -69,19 +68,12 @@ const Content = ({posts}) => {
     });
 
     const { register, handleSubmit, formState: {errors, isSubmitSuccessful, isSubmitting} } = useForm()
-    // const {removeValue} = useLocalStorage()
     useEffect(() => {
         if(showSuccess) {
             reduxStore.dispatch(cartData([]))
             localStorage.removeItem('cart')
-            // removeValue('cart')
         }
     }, [showSuccess]);
-
-    console.log('aaa', process.env.GATSBY_CLIENT_ID);
-
-    console.log('bbb', process.env.GATSBY_SITE_URL);
-
     
     return showSuccess ? (
         <Success>

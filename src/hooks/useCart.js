@@ -62,9 +62,9 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
     const clickHandler = async (e = email.current) => {
         const client = await createClient({
             accessToken: process.env.GATSBY_PERSONAL_TOKEN
-        })
-        const space = await client.getSpace(process.env.GATSBY_CONTENTFUL_SPACE_ID)
-        const env = await space.getEnvironment('master')
+        });
+        const space = await client.getSpace(process.env.GATSBY_CONTENTFUL_SPACE_ID);
+        const env = await space.getEnvironment('master');
         // Execute entry creation
         const entry = await env.createEntry(contentType, {
             fields: entryFields
@@ -80,7 +80,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
     const publishOrder = async (n = orderNumber.current) => {
         const client = await createClient({
             accessToken: process.env.GATSBY_PERSONAL_TOKEN
-        })
+        });
         const space = await client.getSpace(process.env.GATSBY_CONTENTFUL_SPACE_ID);
         const env = await space.getEnvironment('master');
         // Execute entry creation
