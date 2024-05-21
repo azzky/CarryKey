@@ -19,13 +19,13 @@ const Meta = ({
         {url && <>
             <meta name="og:url"
                 property="og:url"
-                content={process.env.SITE_URL + '/' + url}/>
+                content={process.env.NEXT_PUBLIC_SITE_URL + '/' + url}/>
             <meta name="ia:markup_url"
                 property="ia:markup_url"
-                content={process.env.SITE_URL + '/' + url}/>
+                content={process.env.NEXT_PUBLIC_SITE_URL + '/' + url}/>
             <meta name="ia:rules_url"
                 property="ia:rules_url"
-                content={process.env.SITE_URL + '/' + url}/>
+                content={process.env.NEXT_PUBLIC_SITE_URL + '/' + url}/>
         </>}
         <meta property="og:type"
                 content="website"></meta>
@@ -43,12 +43,12 @@ const Meta = ({
         {thumbnail && <>
             <meta name="og:image"
                 property="og:image"
-                content={isPost ? thumbnail+'?w=400' : process.env.SITE_URL + '/' + thumbnail+'?w=400'}/>
+                content={isPost ? thumbnail+'?w=400' : process.env.NEXT_PUBLIC_SITE_URL + '/' + thumbnail+'?w=400'}/>
             <meta name="twitter:image"
-                property="twitter:image"content={isPost ? thumbnail+'?w=400' : process.env.SITE_URL + '/' + thumbnail+'?w=400'}/>
+                property="twitter:image"content={isPost ? thumbnail+'?w=400' : process.env.NEXT_PUBLIC_SITE_URL + '/' + thumbnail+'?w=400'}/>
             <meta name="vk:image"
                 property="vk:image"
-                content={isPost ? thumbnail+'?w=400' : process.env.SITE_URL + thumbnail+'?w=400'}/>
+                content={isPost ? thumbnail+'?w=400' : process.env.NEXT_PUBLIC_SITE_URL + thumbnail+'?w=400'}/>
         </>}
         {/* <meta name="fb:app_id"
                 property="fb:app_id"

@@ -80,7 +80,7 @@ const Content = ({posts}) => {
 
     console.log('aaa', process.env.NEXT_PUBLIC_CLIENT_ID);
 
-    console.log('bbb', process.env.SITE_URL);
+    console.log('bbb', process.env.NEXT_PUBLIC_SITE_URL);
 
     
     return showSuccess ? (
