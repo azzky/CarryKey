@@ -109,8 +109,6 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
         setShowSuccess(true);
     }
 
-    console.log(cart);
-
     const createOrder = (data,actions) => {
         clickHandler();
         return actions.order.create({

@@ -67,8 +67,8 @@ const Content = ({posts}) => {
 } = useCart({
         posts
     });
-        const { register, handleSubmit, formState: {errors, isSubmitSuccessful, isSubmitting} } = useForm()
-        console.log({errors, isSubmitSuccessful, isSubmitting});
+
+    const { register, handleSubmit, formState: {errors, isSubmitSuccessful, isSubmitting} } = useForm()
     // const {removeValue} = useLocalStorage()
     useEffect(() => {
         if(showSuccess) {
@@ -78,8 +78,8 @@ const Content = ({posts}) => {
         }
     }, [showSuccess]);
 
-    console.log('aaa', process.env);
-    
+    console.log('aaa', process.env.CLIENT_ID);
+
     
     return showSuccess ? (
         <Success>
