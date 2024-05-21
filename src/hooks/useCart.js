@@ -61,9 +61,9 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
     const contentType = 'order' // Contentful model type
     const clickHandler = async (e = email.current) => {
         const client = await createClient({
-            accessToken: process.env.PERSONAL_TOKEN
+            accessToken: process.env.GATSBY_PERSONAL_TOKEN
         })
-        const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID)
+        const space = await client.getSpace(process.env.GATSBY_CONTENTFUL_SPACE_ID)
         const env = await space.getEnvironment('master')
         // Execute entry creation
         const entry = await env.createEntry(contentType, {
@@ -79,9 +79,9 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
     }
     const publishOrder = async (n = orderNumber.current) => {
         const client = await createClient({
-            accessToken: process.env.PERSONAL_TOKEN
+            accessToken: process.env.GATSBY_PERSONAL_TOKEN
         })
-        const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID);
+        const space = await client.getSpace(process.env.GATSBY_CONTENTFUL_SPACE_ID);
         const env = await space.getEnvironment('master');
         // Execute entry creation
         const entry = await env.getEntry(orderNumber.current);
