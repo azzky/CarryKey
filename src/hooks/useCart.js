@@ -101,7 +101,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
         }
     }
 
-    const onApprove = async (data) => {
+    const onApprove = async (data, actions) => {
         const order = await actions.order.capture();
         console.log('Order', order);
         console.log('order id', data.orderId); // TODO check what we have - maybe order ID or something
