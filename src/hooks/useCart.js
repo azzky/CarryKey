@@ -29,7 +29,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
     const [showSuccess, setShowSuccess] = useState(false)
     // const [formEdit, setFormEdit] = useState(false)
     // const {removeValue} = useLocalStorage()
-    // const [state, handleOrder] = useFormSpreeForm(process.env.ORDERFORM_FORMSPREE_KEY);
+    // const [state, handleOrder] = useFormSpreeForm(process.env.NEXT_PUBLIC_ORDERFORM_FORMSPREE_KEY);
     // console.log(state);
 
     let totalValue = 0
