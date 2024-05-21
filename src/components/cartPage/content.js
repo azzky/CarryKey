@@ -3,27 +3,28 @@ import useCart from "@hooks/useCart";
 import Item from './cartItem';
 import { Link } from 'gatsby';
 import Recommend from './recommend';
-import { useForm as useFormSpreeForm, ValidationError } from '@formspree/react';
 import reduxStore from '../../redux/store';
 import {cartData } from '../../redux/actions'
-// import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { currency } from '@constants';
-// import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
+// import useLocalStorage from "@hooks/useLocalStorage"
 
 import Wrapper, { Summary, Items, WhatsNextWrapper, Success, EmptyCart } from "./content.styled";
 
-// const options = {
-//     currency: "EUR",
-//     clientId: process.env.CLIENT_ID
-// };
+const options = {
+    currency: "EUR",
+    clientId: process.env.CLIENT_ID,
+    intent: "capture"
+};
 
-// const style = {
-//     layout: "vertical",
-//     shape: "pill",
-//     height: 38,
-//     color: 'blue',
-//     label: 'checkout'
-// }
+const style = {
+    layout: "vertical",
+    shape: "pill",
+    height: 38,
+    color: 'blue',
+    label: 'checkout'
+}
 
 const WhatsNext = () => (
     <WhatsNextWrapper>
@@ -36,39 +37,6 @@ const WhatsNext = () => (
                 <p>Enter your e-mail and I’ll contact you to discuss the payment method and offer you a juicy discount ;)</p>
             </div>
         </div>
-        {/* <div className='item'>
-            <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <use href='#clock'/>
-            </svg>
-            <div>
-                <p className='heading'>What happens after the purchase</p>
-                <p>Brief information for the buyer.</p>
-                <p>Brief information for the buyer.</p>
-                <p>Brief information for the buyer.</p>
-                <p>Brief information for the buyer.</p>
-            </div>
-        </div>
-        <div className='item'>
-            <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <use href='#hand'/>
-            </svg>
-            <div>
-                <p className='heading'>What happens after the purchase</p>
-                <p>Brief information for the buyer.</p>
-                <p>Brief information for the buyer.</p>
-            </div>
-        </div> */}
-        {/* <div className='payments'>
-            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <use href='#paypalicon'/>
-            </svg>
-            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <use href='#paypalicon'/>
-            </svg>
-            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <use href='#paypalicon'/>
-            </svg>
-        </div> */}
     </WhatsNextWrapper>
 )
 
@@ -79,33 +47,38 @@ const Content = ({posts}) => {
         removeItem,
         // clickHandler,
         recommendArr,
-        email,
-        // showPaypal,
+        // email,
+        showPaypal,
         // submitEmail,
         // showEmailReq,
-        // onApprove,
+        onApprove,
+        createOrder,
         // formEdit,
         // setFormEdit,
         // handleOrder,
-        // showSuccess,
+        showSuccess,
         // isButtonDisabled,
-        setEmail,
+        proceedToPayment,
+        // setEmail,
         orderData,
-        setOrderFata,
+        setOrderData,
         total,
         setTotal
 } = useCart({
         posts
     });
-    const [state, handleSubmit] = useFormSpreeForm(process.env.ORDERFORM_FORMSPREE_KEY);
+        const { register, handleSubmit, formState: {errors, isSubmitSuccessful, isSubmitting} } = useForm()
+        console.log({errors, isSubmitSuccessful, isSubmitting});
+    // const {removeValue} = useLocalStorage()
     useEffect(() => {
-        if(state.succeeded) {
+        if(showSuccess) {
             reduxStore.dispatch(cartData([]))
             localStorage.removeItem('cart')
+            // removeValue('cart')
         }
-    }, [state.succeeded]);
+    }, [showSuccess]);
     
-    return state.succeeded ? (
+    return showSuccess ? (
         <Success>
             <div>
                 <img alt="" src="success.webp"/>
@@ -152,41 +125,46 @@ const Content = ({posts}) => {
                     Together
                     <span>{currency + totalValue}</span>
                 </p>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit(proceedToPayment)}>
                     <label className="visually-hidden"
                         htmlFor="email">
                         email
                     </label>
                     <input
                         placeholder='Enter your email'
-                        name="email" value={email} type="email" required aria-required="true"
-                        onChange={e => setEmail(e.target.value)}/>
-                    <ValidationError 
-                        prefix="Email" 
-                        field="email"
-                        errors={state.errors}
-                    />
+                        name="email"
+                        type="email"
+                        {...register('email', { required: true })}
+                        />
+                        {errors.email && <div>This field is required</div>}
                     <textarea
                         className="visually-hidden"
-                        name="order" value={orderData} required aria-required="true"
-                        onChange={e => setOrderFata(e.target.value)}/>
+                        name="order"
+                        value={orderData}
+                        required
+                        aria-required="true"
+                        onChange={e => setOrderData(e.target.value)}
+                        {...register('data', { required: true })}/>
                     <input
+                        placeholder='total'
                         className="visually-hidden"
-                        name="total" value={total} type="text" required aria-required="true"
-                        onChange={e => setTotal(e.target.value)}/>
-                    <button  className="button" type="submit" disabled={state.submitting || state.errors}>
-                        Order now
-                    </button>
+                        name="total"
+                        value={total}
+                        type="text"
+                        required
+                        aria-required="true"
+                        onChange={e => setTotal(e.target.value)}
+                        {...register('total', { required: true})}
+                        />
+                    {!showPaypal && <input type="submit" className="button"
+                        disabled={isSubmitting}
+                        value="Order now"/>}
                 </form>
-                {/* {showPaypal && <PayPalScriptProvider options={options}>
+                {showPaypal && <PayPalScriptProvider options={options}>
                     <PayPalButtons style={style}
-                        onClick={clickHandler}
+                        createOrder={createOrder}
                         onApprove={onApprove}/>
                 </PayPalScriptProvider>}
-                {!showPaypal && <button  className="button"
-                    onClick={() => proceedToPayment()}>
-                    Pay with paypal
-                </button>} */}
                 <Link to="/shop" className="continue">Continue shopping</Link>
             </Summary>
             <WhatsNext/>
@@ -199,10 +177,10 @@ const Content = ({posts}) => {
 
 export default Content
 
-// export const Head = () => {
-//     return (
-//         <>
-//             <script src={"https://www.paypal.com/sdk/js?client-id="+process.env.CLIENT_ID} defer="true"/>
-//         </>
-//     )
-// }
+export const Head = () => {
+    return (
+        <>
+            <script src={"https://www.paypal.com/sdk/js?client-id="+process.env.CLIENT_ID} defer="true"/>
+        </>
+    )
+}

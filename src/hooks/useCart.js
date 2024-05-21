@@ -1,17 +1,19 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import useBasket from "@hooks/useBasket"
 import {createClient} from 'contentful-management'
-import useLocalStorage from "./useLocalStorage"
+// import useLocalStorage from "./useLocalStorage"
 import { currency } from '@constants';
+// import { useForm as useFormSpreeForm } from '@formspree/react';
 
 const useCart = ({
     posts
 }) => {
     const {cart, removeItem} = useBasket()
     let recommendArr = posts
-    const [order, setOrder] = useState(null)
-    const [email, setEmail] = useState('')
-    const [orderData, setOrderFata] = useState(cart.length > 0 ? `
+    // const [order, setOrder] = useState(null)
+    const orderNumber = useRef(null)
+    const email = useRef('')
+    const [orderData, setOrderData] = useState(cart.length > 0 ? `
 Order info:
         ${cart.map((product, i) => {
             return `
@@ -24,9 +26,10 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
     ` : '')
     const [showPaypal, setShowPaypal] = useState(false)
     // const [showEmailReq, setShowEmailReq] = useState(false)
+    const [showSuccess, setShowSuccess] = useState(false)
     // const [formEdit, setFormEdit] = useState(false)
-    const {removeValue} = useLocalStorage()
-    // const [state, handleOrder] = useFormSpreeForm(formId);
+    // const {removeValue} = useLocalStorage()
+    // const [state, handleOrder] = useFormSpreeForm(process.env.ORDERFORM_FORMSPREE_KEY);
     // console.log(state);
 
     let totalValue = 0
@@ -39,11 +42,12 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
     const [total, setTotal] = useState(totalValue > 0 ? (totalValue + currency) : '')
     const entryFields = {
             email: {
-                'en-US': email,
+                'en-US': email.current,
             },
             status: {
                 'en-US': 'unpaid'
             },
+            // TODO before local test update order key locally to yours!!!!!!!!!!!!!
             // sets: cart.map(set=>({
             //         id: {'en-US': set.id},
             //         postId: {'en-US': set.postId},
@@ -55,7 +59,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
             }
         }
     const contentType = 'order' // Contentful model type
-    const clickHandler = async () => {
+    const clickHandler = async (e = email.current) => {
         const client = await createClient({
             accessToken: process.env.PERSONAL_TOKEN
         })
@@ -63,48 +67,81 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
         const env = await space.getEnvironment('master')
         // Execute entry creation
         const entry = await env.createEntry(contentType, {
-                fields: entryFields
-            });
+            fields: entryFields
+        });
+
+        console.log('fiedls', entryFields, e);
         // If we get a new entry ID, then success, otherwise default to null
-        const newEntryId = entry.sys.id ?? null;
-        if (newEntryId) setOrder(entry);
-        console.log('order started');
+        // setOrder(entry.sys.id);
+        orderNumber.current = entry.sys.id;
+        console.log('order created yoba', entry);
+        console.log('order started', orderNumber.current);
     }
-    const publishOrder = () => {
-        console.log(order);
-        order.fields.status['en-US'] = 'paid'
-        order.update();
+    const publishOrder = async (n = orderNumber.current) => {
+        const client = await createClient({
+            accessToken: process.env.PERSONAL_TOKEN
+        })
+        const space = await client.getSpace(process.env.CONTENTFUL_SPACE_ID);
+        const env = await space.getEnvironment('master');
+        // Execute entry creation
+        const entry = await env.getEntry(orderNumber.current);
+        console.log('order number is', n);
+        console.log('got an entry to edit', entry);
+        entry.fields.status['en-US'] = 'paid';
+        entry.update();
+        // entry.publish();
         console.log('paid, now can remove order');
-        removeValue('cart');
+        // removeValue('cart');
+        // TODO clear localstorage in main page
     }
-    // const submitEmail = ({email}) => {
-    //     setEmail(email)
-    //     setFormEdit(false)
-    // }
+    const proceedToPayment = (data) => {
+        if (data.email) {
+            email.current = data.email
+            setShowPaypal(true)
+        }
+    }
+
     const onApprove = (data) => {
-        console.log(data); // TODO check what we have - maybe order ID or something
+        console.log('order id', data.orderId); // TODO check what we have - maybe order ID or something
         publishOrder();
+        setShowSuccess(true);
     }
+
+    const createOrder = (data,actions) => {
+        clickHandler();
+        return actions.order.create({
+            purchase_units: [
+                {
+                    amount: {
+                        value: totalValue
+                    },
+                },
+            ],
+        });
+    };
     
     return {
         cart,
         totalValue,
         removeItem,
         // clickHandler,
+        proceedToPayment,
         recommendArr,
-        email,
+        // email,
         showPaypal,
-        // showEmailReq: state.errors,
+        // showEmailReq,
+        showSuccess,
         // submitEmail,
         onApprove,
+        createOrder,
         // formEdit,
         // setFormEdit,
         // handleOrder,
         // showSuccess: state.succeeded,
         // isButtonDisabled: state.submitting || state.errors,
-        setEmail,
+        // setEmail,
         orderData,
-        setOrderFata,
+        setOrderData,
         total,
         setTotal
     }
