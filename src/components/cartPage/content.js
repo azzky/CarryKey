@@ -77,6 +77,8 @@ const Content = ({posts}) => {
             // removeValue('cart')
         }
     }, [showSuccess]);
+
+    console.log('aaa', process.env);
     
     return showSuccess ? (
         <Success>
