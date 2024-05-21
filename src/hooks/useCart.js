@@ -55,7 +55,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
             //         // preview: {'en-US': set.preview},
             //     })),
             priceType: {
-                'en-US': [...cart.map(set=>`${set.title} (id ${set.postId}) | ${set.priceType}`)]
+                'en-US': [...cart.map(set=>`${set.title} (id ${set.postId}) | ${set.priceType === 'min' ? 'cosplay' : 'topless'}`)]
             }
         }
     const contentType = 'order' // Contentful model type
@@ -101,19 +101,44 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
         }
     }
 
-    const onApprove = (data) => {
+    const onApprove = async (data) => {
+        const order = await actions.order.capture();
+        console.log('Order', order);
         console.log('order id', data.orderId); // TODO check what we have - maybe order ID or something
         publishOrder();
         setShowSuccess(true);
     }
 
+    console.log(cart);
+
     const createOrder = (data,actions) => {
         clickHandler();
         return actions.order.create({
+            intent: 'CAPTURE',
             purchase_units: [
                 {
+                    items: cart.map((product, i) => {
+                        return {
+                            name: product.title,
+                            description: product.priceType === 'min' ? 'cosplay' : 'topless',
+                            sku: product.postId,
+                            url: process.env.SITE_URL + '/shop/post/' + product.postId,
+                            quantity: 1,
+                            category: 'DIGITAL_GOODS',
+                            unit_amount: {
+                                value: product.priceType === 'min' ? product.price : product.priceMax,
+                                currency_code: 'USD'
+                            }
+                        }
+                    }),
                     amount: {
-                        value: totalValue
+                        value: totalValue,
+                        breakdown: {
+                            item_total: {
+                                value: totalValue,
+                                currency_code: 'USD'
+                            }
+                        }
                     },
                 },
             ],

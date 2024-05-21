@@ -13,7 +13,7 @@ import { useForm } from "react-hook-form";
 import Wrapper, { Summary, Items, WhatsNextWrapper, Success, EmptyCart } from "./content.styled";
 
 const options = {
-    currency: "EUR",
+    currency: "USD",
     clientId: process.env.CLIENT_ID,
     intent: "capture"
 };
