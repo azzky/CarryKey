@@ -72,7 +72,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
 
         // If we get a new entry ID, then success, otherwise default to null
         // setOrder(entry.sys.id);
-        orderNumber.current = entry.sys.id;
+        orderNumber.current = '';
     }
     const publishOrder = async (n = orderNumber.current) => {
         // const client = await createClient({
