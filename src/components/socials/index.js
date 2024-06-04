@@ -12,6 +12,7 @@ const SocialIcons = (props) => {
                     <svg width="36" height="36" viewBox="0 0 36 36" fill="#fff" xmlns="http://www.w3.org/2000/svg">
                         <use href={'#'+social.title.toLowerCase()}/>
                     </svg>
+                    <span className="visually-hidden">{`link to the ${social.title}`}</span>
                 </a>
             ))}
         </SocialsWrapper>

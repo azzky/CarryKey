@@ -1,14 +1,14 @@
 import React from "react"
 import { Link } from "gatsby";
-import { useState, useCallback } from "react";
-import Nav from "./bottomNavigation.styled";
+// import { useState, useCallback } from "react";
+// import Nav from "./bottomNavigation.styled";
 
 const BottomNavigation = (props) => {
-    const {title, links, isDesktop} = props;
-    const [isOpen, setIsOpen] = useState(false);
-    const clickHandler = useCallback(() => {
-        setIsOpen(prev=>!prev)
-    }, []);
+    const {links} = props;
+    // const [isOpen, setIsOpen] = useState(false);
+    // const clickHandler = useCallback(() => {
+    //     setIsOpen(prev=>!prev)
+    // }, []);
     return (
         <div className="column">
             {/* <Nav onClick={clickHandler}>

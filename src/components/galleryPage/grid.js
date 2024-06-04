@@ -11,7 +11,7 @@ const Item = ({post, setImage, setPhotoIndex, postIndex}) => {
     const clickHandler = useCallback(() => {
         setImage(post.file.url)
         setPhotoIndex(post.photoIndex)
-    }, []);
+    }, [post.file.url, post.photoIndex, setImage, setPhotoIndex]);
     return (
         <div className="item" onClick={clickHandler} id={post.photoIndex}>
             <GatsbyImage image={post.gatsbyImageData} alt="" backgroundColor="#adadad"/>

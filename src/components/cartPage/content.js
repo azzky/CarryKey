@@ -67,7 +67,7 @@ const Content = ({posts}) => {
         posts
     });
 
-    const { register, handleSubmit, formState: {errors, isSubmitSuccessful, isSubmitting} } = useForm()
+    const { register, handleSubmit, formState: {errors, isSubmitting} } = useForm()
     useEffect(() => {
         if(showSuccess) {
             reduxStore.dispatch(cartData([]))

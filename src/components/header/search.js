@@ -16,6 +16,7 @@ const Search = () => {
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
                     <use href="#search"/>
                 </svg>
+                <span className="visually-hidden">search</span>
             </button>
         </SearchWrapper>
     )

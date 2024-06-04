@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import ThreeImages from "@components/threeImages";
 
 import { AboutWrapper } from "./about.styled";

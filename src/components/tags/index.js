@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 import Select from 'react-select'
 
 import Wrapper from './tags.styled';
