@@ -7,7 +7,7 @@ import SearchWrapper from './search.styled'
 const Search = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
-        navigate(`/search?search=${data.search}`)
+        navigate(`/search?search=${data.search.replaceAll(' ', '_')}`)
     }
     return (
         <SearchWrapper onSubmit={handleSubmit(onSubmit)}>

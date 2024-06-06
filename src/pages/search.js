@@ -16,7 +16,7 @@ const Search = ({location}) => {
     posts.map(post => {
         if(
             string !== 'empty' && (
-                post.title.toLowerCase().includes(string.toLowerCase()) ||
+                post.title.toLowerCase().includes(string.replaceAll('_', ' ').toLowerCase()) ||
                 includesCase(string, post.categories) ||
                 includesCase(string, post.tags)
             )
@@ -27,7 +27,7 @@ const Search = ({location}) => {
     })
     return (
         <Layout hasNavigation isHero
-            h1={'Search results for: '+ string}
+            h1={'Search results for: '+ string.replaceAll('_', ' ')}
             heroImageDesktop={backDesk}>
             {arr?.length > 0 ? <Grid items={arr}/> : <h2>Nothing found</h2>}
         </Layout>
