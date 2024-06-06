@@ -114,7 +114,7 @@ module.exports = {
         {
             resolve: "gatsby-plugin-sitemap",
             options: {
-                excludes: ['/merch', '/feedback', '/search'],
+                excludes: ['/merch', '/feedback', '/search', '/dates'],
             },
         },
         // {
