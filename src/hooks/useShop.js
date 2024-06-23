@@ -4,7 +4,9 @@ const sortList = [
     { value: 'default', label: 'Editor\'s choice' },
     { value: 'bestsellers', label: 'Bestsellers' },
     { value: 'priceAsc', label: 'Price: Low to High' },
-    { value: 'priceDesc', label: 'Price: High to Low' }
+    { value: 'priceDesc', label: 'Price: High to Low' },
+    { value: 'alphaAsc', label: 'Name: A - Z'},
+    { value: 'alphaDesc', label: 'Name: Z- A'}
 ];
 
 const getTagsAndCategories = array => {
@@ -111,6 +113,12 @@ const useShop = (items, width, isTablet, banner, path) => {
                 break;
             case sortList[3].value: // price DESC
                 finalItems = finalItems.sort((el1,el2) => el2.price - el1.price)
+                break;
+            case sortList[4].value: // alphabetical ASC
+                finalItems = finalItems.sort((el1, el2) => el1.title.localeCompare(el2.title))
+                break;
+            case sortList[5].value: // alphabetical DESC
+                finalItems = finalItems.sort((el1, el2) => el2.title.localeCompare(el1.title))
                 break;
             default:
                 break;

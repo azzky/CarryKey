@@ -33,7 +33,7 @@ const WhatsNext = () => (
             </svg>
             <div>
                 <p className='heading'>What happens after the purchase</p>
-                <p>Enter your e-mail and I’ll contact you to discuss the payment method and offer you a juicy discount ;)</p>
+                <p>Enter your e-mail and I'll contact you after the payment completed with link to your set ;)</p>
             </div>
         </div>
     </WhatsNextWrapper>
