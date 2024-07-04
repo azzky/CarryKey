@@ -11,7 +11,7 @@ const Merch = ({
     return (
         <Layout hasNavigation isCart
             h1={data.title}>
-            <Item post={data}
+            <Item post={{...data, isMerch: true}}
             isMerch/>
         </Layout>
     )
