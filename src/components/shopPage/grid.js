@@ -10,7 +10,7 @@ import { Tags } from '@components/tags';
 import { GridWrapper } from "./shop.styled";
 
 const Grid = (props)=>{
-    const {items, banner, selectedTag} = props;
+    const {items, banner, selectedTag, showFilters, isMerch} = props;
     const {isMobile, isTablet, width} = useWidth()
     const {
         uniqueTags,categories,categoryNames,finalItems, setFilterCategories, filterCategories, resetFilters, removeFilter, setSortingValue, sortList,
@@ -44,7 +44,10 @@ const Grid = (props)=>{
                     return post.type ? (
                         <Banner post={post} key="banner"/>
                     ) : (
-                        <ShopItem post={post.node ? post.node : post} key={post.node ? post.node.postId : post.postId} isBanner={false}/>
+                        <ShopItem post={post.node ? post.node : post}
+                            key={post.node ? post.node.postId : post.postId}
+                            isBanner={false}
+                            isMerch={isMerch}/>
                     )
                 })}
             </ul>

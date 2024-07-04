@@ -4,7 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { Item } from "./shopItem.styled";
 import { currency } from "@constants";
 import { Link } from 'gatsby';
-const ShopItem = ({post}) => {
+const ShopItem = ({post, isMerch}) => {
     const {
         title,
         isBestseller,
@@ -17,7 +17,7 @@ const ShopItem = ({post}) => {
     const isHorizontal = preview?.file?.details?.image?.width > preview?.file?.details?.image?.height || false;
     return (
         <Item>
-            <Link to={'/shop/post/'+postId}
+            <Link to={isMerch ? '/shop/merch/'+postId : '/shop/post/'+postId}
                 aria-label={'link to post '+title}>
                 <span className="visually-hidden">{'link to post '+title}</span>
             </Link>
