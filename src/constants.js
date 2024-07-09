@@ -48,4 +48,6 @@ const subscriptionUrl = ''
 
 const currency = '$'
 
-export {MainMenu, ContactLinks, subscriptionUrl, currency}
+const shippingValue = 20.00
+
+export {MainMenu, ContactLinks, subscriptionUrl, currency, shippingValue}

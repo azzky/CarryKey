@@ -10,6 +10,8 @@ const useCart = ({
 }) => {
     const {cart, removeItem} = useBasket()
     let recommendArr = posts
+    const haveMerch = cart.filter(el => el.isMerch === true).length > 0
+    console.log(haveMerch);
     // const [order, setOrder] = useState(null)
     const orderNumber = useRef(null)
     const email = useRef('')
@@ -156,6 +158,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
         // showSuccess: state.succeeded,
         // isButtonDisabled: state.submitting || state.errors,
         // setEmail,
+        haveMerch,
         orderData,
         setOrderData,
         total,
