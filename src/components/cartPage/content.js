@@ -128,6 +128,32 @@ const Content = ({posts}) => {
                     <span>{currency + (totalValue + shippingValue)}</span>
                 </p>
                 <form onSubmit={handleSubmit(proceedToPayment)}>
+                    {haveMerch && <>
+                        <label htmlFor="address">
+                            Shipping address
+                        </label>
+                        <input
+                        style={{ width: 'initial', marginInlineStart: '10px'}}
+                        placeholder='Enter your address'
+                        name="address"
+                        type="checkbox"
+                        {...register('address', { required: true })}
+                        />
+                        {errors.address && <div style={{ color: 'red'}}>I'll check my paypal address to make sure delivery would happen there!</div>}
+                    </>}
+                    {/* {haveMerch && <>
+                        <label className="visually-hidden"
+                        htmlFor="address">
+                        shipping address
+                    </label>
+                    <textarea
+                        placeholder='Enter your address'
+                        name="address"
+                        type="text"
+                        {...register('address', { required: true })}
+                        />
+                        {errors.address && <div>This field is required for merch delivery</div>}
+                    </>} */}
                     <label className="visually-hidden"
                         htmlFor="email">
                         email

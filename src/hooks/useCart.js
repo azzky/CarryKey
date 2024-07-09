@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import useBasket from "@hooks/useBasket"
 // import {createClient} from 'contentful-management'
 // import useLocalStorage from "./useLocalStorage"
-import { currency } from '@constants';
+import { currency, shippingValue } from '@constants';
 // import { useForm as useFormSpreeForm } from '@formspree/react';
 
 const useCart = ({
@@ -11,10 +11,10 @@ const useCart = ({
     const {cart, removeItem} = useBasket()
     let recommendArr = posts
     const haveMerch = cart.filter(el => el.isMerch === true).length > 0
-    console.log(haveMerch);
     // const [order, setOrder] = useState(null)
     const orderNumber = useRef(null)
     const email = useRef('')
+    const address = useRef('')
     const [orderData, setOrderData] = useState(cart.length > 0 ? `
 Order info:
         ${cart.map((product, i) => {
@@ -91,7 +91,11 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
         // TODO clear localstorage in main page
     }
     const proceedToPayment = (data) => {
-        if (data.email) {
+        if (!haveMerch && data.email) {
+            email.current = data.email
+            setShowPaypal(true)
+        }
+        if(haveMerch && data.email && data.address) {
             email.current = data.email
             setShowPaypal(true)
         }
@@ -99,10 +103,54 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
 
     const onApprove = async (data, actions) => {
         const order = await actions.order.capture();
-        console.log(order);
+        // console.log(order);
         // publishOrder();
         setShowSuccess(true);
     }
+
+    const paypalItems = haveMerch ? [
+        ...cart.map((product, i) => {
+        return {
+            name: product.title,
+            description: product.isMerch ? 'merch' : product.priceType === 'min' ? 'cosplay' : 'topless',
+            sku: product.postId,
+            url: product.isMerch ? 
+                process.env.GATSBY_SITE_URL + '/shop/merch/' + product.postId :
+                process.env.GATSBY_SITE_URL + '/shop/post/' + product.postId,
+            quantity: 1,
+            category: 'DIGITAL_GOODS',
+            unit_amount: {
+                value: product.priceType === 'min' ? product.price : product.priceMax,
+                currency_code: 'USD'
+            }
+        }
+    }),
+        {
+            name: 'shipping',
+            description: '',
+            sku: 'shppingSKU',
+            url: '',
+            quantity: 1,
+            category: 'DIGITAL_GOODS',
+            unit_amount: {
+                value: shippingValue,
+                currency_code: 'USD'
+            }
+        }
+    ] : cart.map((product, i) => {
+        return {
+            name: product.title,
+            description: product.priceType === 'min' ? 'cosplay' : 'topless',
+            sku: product.postId,
+            url: process.env.GATSBY_SITE_URL + '/shop/post/' + product.postId,
+            quantity: 1,
+            category: 'DIGITAL_GOODS',
+            unit_amount: {
+                value: product.priceType === 'min' ? product.price : product.priceMax,
+                currency_code: 'USD'
+            }
+        }
+    });
 
     const createOrder = (data,actions) => {
         clickHandler();
@@ -110,25 +158,12 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
             intent: 'CAPTURE',
             purchase_units: [
                 {
-                    items: cart.map((product, i) => {
-                        return {
-                            name: product.title,
-                            description: product.priceType === 'min' ? 'cosplay' : 'topless',
-                            sku: product.postId,
-                            url: process.env.GATSBY_SITE_URL + '/shop/post/' + product.postId,
-                            quantity: 1,
-                            category: 'DIGITAL_GOODS',
-                            unit_amount: {
-                                value: product.priceType === 'min' ? product.price : product.priceMax,
-                                currency_code: 'USD'
-                            }
-                        }
-                    }),
+                    items: paypalItems,
                     amount: {
-                        value: totalValue,
+                        value: haveMerch ? totalValue + shippingValue : totalValue,
                         breakdown: {
                             item_total: {
-                                value: totalValue,
+                                value: haveMerch ? totalValue + shippingValue : totalValue,
                                 currency_code: 'USD'
                             }
                         }
