@@ -136,6 +136,7 @@ const Content = ({posts}) => {
                         style={{ width: 'initial', marginInlineStart: '10px'}}
                         placeholder='Enter your address'
                         name="address"
+                        id="address"
                         type="checkbox"
                         {...register('address', { required: true })}
                         />
