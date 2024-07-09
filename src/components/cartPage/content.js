@@ -130,7 +130,7 @@ const Content = ({posts}) => {
                 <form onSubmit={handleSubmit(proceedToPayment)}>
                     {haveMerch && <>
                         <label htmlFor="address">
-                            Shipping address
+                            Paypal shipping address confirm
                         </label>
                         <input
                         style={{ width: 'initial', marginInlineStart: '10px'}}
