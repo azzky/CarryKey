@@ -41,11 +41,11 @@ const thumbSliderSettings = {
 }
 
 const Item = (props) => {
-    const {post} = props
+    const {post, isMerch} = props
     const {isDesktop, isMobile} = useWidth();
     const {addItem, cart, editItem} = useBasket();
     const isInCart = cart && cart.filter(el => el.postId === post.postId).length > 0
-    const preselectedType = (cart && cart.filter(el => el.postId === post.postId)?.[0]?.priceType) || 'min';
+    const preselectedType = (cart && cart.filter(el => el.postId === post.postId)?.[0]?.priceType) || (isMerch ? 'max' : 'min');
     const [priceType, setPriceType] = useState(preselectedType)
 
     const handler = useCallback(() => {
@@ -127,20 +127,21 @@ const Item = (props) => {
             </div>
             <div className="column">
                 <h1>{post.title}</h1>
-                <p className="option-title">Choose a package</p>
+                {post.price && post.priceMax ? <p className="option-title">Choose a package</p> :
+                    <p className="option-title"></p>}
                 <div className="priceType">
-                    <div className="item">
+                    {(!isMerch || (isMerch && post.price)) && (<div className="item">
                         <button className="button" onClick={() => priceSelect('min')} disabled={priceType === 'min'}>
-                            {'Cosplay'}
+                            {isMerch ? (post.minPriceButtonText || '') : 'Cosplay'}
                         </button>
-                        <p className="details">Cosplay and sexy photos</p>
+                        {!isMerch && <p className="details">Cosplay and sexy photos</p>}
                         <p className="price">{currency + post.price}</p>
-                    </div>
+                    </div>)}
                     <div className="item">
                         <button className="button" onClick={() => priceSelect('max')} disabled={priceType === 'max'}>
-                            {'Topless'}
+                            {isMerch ? (post.maxPriceButtonText || 'one variant') : 'Topless'}
                         </button>
-                        <p className="details">Full set with topless photos</p>
+                        {!isMerch && <p className="details">Full set with topless photos</p>}
                         <p className="price">{currency + post.priceMax}</p>
                     </div>
                 </div>
@@ -148,7 +149,7 @@ const Item = (props) => {
                     {isInCart ? 'Edit' : 'Add to cart'}
                     {!isInCart && ' - ' + currency + (priceType === 'max' ? post.priceMax : post.price)}
                 </button>
-                <Link to="/shop" className="continue">Continue shopping</Link>
+                <Link to={isMerch ? '/shop/merch' : '/shop'} className="continue">Continue shopping</Link>
             </div>
         </Wrapper>
     )

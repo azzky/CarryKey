@@ -28,7 +28,7 @@ const ShopItem = ({post, isMerch}) => {
             <p className="title">{title}</p>
             <div className="details">
                 {isBestseller && <p className="bestseller">Best seller</p>}
-                <p className="price">{currency+price?.toFixed(0) || '0'}</p>
+                {price && <p className="price">{currency+price?.toFixed(0) || '0'}</p>}
                 <p className="price">{currency+priceMax?.toFixed(0) || '0'}</p>
                 <svg width="31" height="26" viewBox="0 0 31 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <use href="#basket"/>

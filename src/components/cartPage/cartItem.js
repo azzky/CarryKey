@@ -6,7 +6,7 @@ import { currency } from '@constants';
 import Item from "./cartItem.styled";
 
 const CartItem = ({item, removeItem}) => {
-    const {postId, title, priceType, price, priceMax, preview, isMerch} = item;
+    const {postId, title, priceType, price, priceMax, preview, isMerch, minPriceButtonText, maxPriceButtonText} = item;
     const image = getImage(preview)
     return (
         <Item>
@@ -16,7 +16,14 @@ const CartItem = ({item, removeItem}) => {
                 <div className="info">
                     <div className="options"/>
                     <div className="priceType">
-                        <p className="title">{priceType === 'min' ? 'Cosplay' : 'Topless'}</p>
+                        <p className="title">{
+                            isMerch ?
+                                priceType === 'max' && maxPriceButtonText ||
+                                priceType === 'min' && minPriceButtonText ||
+                                'one option'
+                            :
+                            priceType === 'min' ? 'Cosplay' : 'Topless'
+                        }</p>
                         <p className="price">{currency + (priceType === 'min' ? price : priceMax)}</p>
                     </div>
                 </div>

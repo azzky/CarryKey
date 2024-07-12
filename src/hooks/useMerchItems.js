@@ -28,6 +28,8 @@ export default function MerchItems() {
                         }
                     }
                 }
+                minPriceButtonText
+                maxPriceButtonText
             }
         }
     }

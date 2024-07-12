@@ -43,6 +43,8 @@ query ($slug: String!) {
                         url
                     }
                 }
+                minPriceButtonText
+                maxPriceButtonText
             }
         }
     }
