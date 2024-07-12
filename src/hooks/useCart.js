@@ -115,7 +115,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
             description: product.isMerch ? 'merch' : product.priceType === 'min' ? 'cosplay' : 'topless',
             sku: product.postId,
             url: product.isMerch ? 
-                process.env.GATSBY_SITE_URL + '/shop/merch/' + product.postId :
+                process.env.GATSBY_SITE_URL + '/merch/' + product.postId :
                 process.env.GATSBY_SITE_URL + '/shop/post/' + product.postId,
             quantity: 1,
             category: 'DIGITAL_GOODS',

@@ -28,7 +28,7 @@ const CartItem = ({item, removeItem}) => {
                     </div>
                 </div>
                 <div className="actions">
-                    <Link to={isMerch ? '/shop/merch/'+postId : '/shop/post/'+postId}>
+                    <Link to={isMerch ? '/merch/'+postId : '/shop/post/'+postId}>
                         <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <use href="#edit"/>
                         </svg>

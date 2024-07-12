@@ -149,7 +149,7 @@ const Item = (props) => {
                     {isInCart ? 'Edit' : 'Add to cart'}
                     {!isInCart && ' - ' + currency + (priceType === 'max' ? post.priceMax : post.price)}
                 </button>
-                <Link to={isMerch ? '/shop/merch' : '/shop'} className="continue">Continue shopping</Link>
+                <Link to={isMerch ? '/merch' : '/shop'} className="continue">Continue shopping</Link>
             </div>
         </Wrapper>
     )

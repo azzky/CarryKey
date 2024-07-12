@@ -74,7 +74,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
     const merchPromises = merch.map(async (post) => {
         createPage({
-            path: '/shop/merch/' + post.node.postId,
+            path: '/merch/' + post.node.postId,
             component: path.resolve(`./src/templates/merch.js`),
             context: {
                 slug: post.node.postId,
