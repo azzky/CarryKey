@@ -129,23 +129,23 @@ const Wrapper = styled.main`
             object-fit: cover;
             width: 100%;
             height: 100%;
+            z-index: -1;
         }
 
         h2 {
             color: inherit;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
+            // position: absolute;
+            // left: 0;
+            // top: 0;
+            // width: 100%;
+            // height: 100%;
             font-size: 16px;
             text-transform: none;
-            background: rgba(0,0,0,.2);
-            line-height: calc(50vw - 55px);
+            // line-height: calc(50vw - 55px);
             text-align: center;
 
             @media (min-width: 600px) {
-                line-height: 270px;
+                // line-height: 270px;
                 font-size: 24px;
             }
         }
@@ -155,7 +155,53 @@ const Wrapper = styled.main`
             border-radius: 30px;
             overflow: hidden;
             position: relative;
+            background: rgba(0,0,0,.2);
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            cursor: pointer;
+
+            > div {
+                grid-column: 1;
+                grid-row: 1;
+                display: grid;
+                place-items: center;
+            }
+        }
+
+        a {
+            // position: absolute;
         }
     }
+
+    & .popup {
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.75);
+        display: flex;
+        // place-items: center;
+        // grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+        color: white;
+        column-gap: 40px;
+
+        button {
+            position: absolute;
+            color: white;
+            top: 7%;
+            right: 7%;
+            cursor: pointer;
+        }
+
+        .description {
+        font-size: 22px;
+            // width: 90%;
+        }
+  }
 `
 export { Wrapper }

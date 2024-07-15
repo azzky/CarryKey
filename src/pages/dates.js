@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Meta from "@components/meta"
 import { useStaticQuery, graphql, Link } from "gatsby"
 // import { ContactLinks } from '@constants';
@@ -29,6 +29,9 @@ const DatesPage = () => {
                     image {
                         gatsbyImageData(width: 450, quality: 85)
                     }
+                    description {
+                        description
+                    }
                 }
             }
         }
@@ -36,6 +39,7 @@ const DatesPage = () => {
     `)
 
     const data = nodes[0]
+    const [selected, setSelected] = useState(null)
     return (
         <>
             <Wrapper>
@@ -52,16 +56,32 @@ const DatesPage = () => {
                 <section>
                     <ul className='grid dates'>
                         {data.tiles.map(item => (
-                            <li key={item.title}>
-                                <a href={item.link} rel="me noreferrer" target="_blank">
-                                    <GatsbyImage image={item.image.gatsbyImageData} alt=''/>
+                            <li key={item.title}
+                                onClick={() => setSelected(item)}>
+                                {/* <a href={item.link} rel="me noreferrer" target="_blank"> */}
+                                <GatsbyImage image={item.image.gatsbyImageData} alt=''/>
+                                <div>
                                     <h2>{item.title}</h2>
-                                </a>
+                                    <a className="button" href={item.link} rel="me noreferrer" target="_blank">Visit</a>
+                                {/* </a> */}
+                                </div>
                             </li>
                         ))}
                     </ul>
                 </section>
                 </div>
+                {selected && <div className='popup'>
+                    <button onClick={() => setSelected(null)}>
+                        <span className="visually-hidden">Close</span>
+                        <svg width="40" height="40" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#close"/>
+                        </svg>
+                    </button>
+                    <GatsbyImage image={selected.image.gatsbyImageData} alt=""/>
+                    <div className="description">
+                        <p>{selected.description?.description || ''}</p>
+                    </div>
+                </div>}
                 <GatsbyImage className='hero' image={data.background.gatsbyImageData}
                     alt=""/>
             </Wrapper>
