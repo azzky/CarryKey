@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react'
 
 const sortList = [
-    { value: 'default', label: 'Editor\'s choice' },
+    { value: 'default', label: 'New sets' },
     { value: 'bestsellers', label: 'Bestsellers' },
     { value: 'priceAsc', label: 'Price: Low to High' },
     { value: 'priceDesc', label: 'Price: High to Low' },
