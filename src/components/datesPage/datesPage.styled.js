@@ -16,7 +16,7 @@ const Wrapper = styled.main`
         z-index: 1;
         position: relative;
         background: rgba(0,0,0,.4);
-        padding: 12px 53px;
+        padding: 22px 55px;
         display: grid;
         color: white;
         align-items: start;
@@ -25,33 +25,51 @@ const Wrapper = styled.main`
         grid-template-rows: repeat(6, max-content);
         min-height: 95vw;
 
-        & > *:not(.logo) {
-            max-width: 800px;
+        @media (min-width: 768px) {
+            padding: 19px var(--tablet-offset);
+        }
+
+        @media (min-width: 1280px) {
+            padding: 42px var(--desktop-offset);
         }
     }
 
-    & .avatar {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        border: 2px solid var(--color-main);
+    & .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        justify-self: stretch;
     }
 
     & img.logo {
-        max-width: 90px;
+        max-width: 83px;
+
+        @media (min-width: 768px) {
+            max-width: 117px;
+        }
+
+        @media (min-width: 1280px) {
+            max-width: 148px;
+        }
     }
 
     & a.logo {
         display: block;
-        width: 100%;
     }
 
     & h1 {
-        font-size: 20px;
-        font-weight: 400;
+        font-size: 36px;
+        font-weight: 300;
+        line-height: 53.35px;
+        margin-top: 13px;
 
         @media (min-width: 768px) {
             font-size: 28px;
+        }
+
+        @media (min-width: 1280px) {
+            font-size: 80px;
+            margin-bottom: 30px;
         }
     }
 
@@ -117,45 +135,234 @@ const Wrapper = styled.main`
         display: grid;
         width: 100%;
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 30px;
         margin-bottom: 33px;
         margin-top: 33px;
 
-        @media (min-width: 600px) {
+        @media (min-width: 768px) {
             grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        @media (min-width: 1280px) {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
         .gatsby-image-wrapper {
             object-fit: cover;
             width: 100%;
             height: 100%;
+            z-index: -1;
         }
 
         h2 {
             color: inherit;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
+            // position: absolute;
+            // left: 0;
+            // top: 0;
+            // width: 100%;
+            // height: 100%;
             font-size: 16px;
             text-transform: none;
-            background: rgba(0,0,0,.2);
-            line-height: calc(50vw - 55px);
+            line-height: 55px;
             text-align: center;
+            width: 100%;
+            background: linear-gradient(to top, black, transparent);
 
-            @media (min-width: 600px) {
-                line-height: 270px;
-                font-size: 24px;
+            @media (min-width: 1280px) {
+                font-size: 20px;
+                line-height: 90px;
             }
         }
 
         li {
-            // aspect-ratio: 1 / 1;
-            border-radius: 30px;
+            aspect-ratio: 1 / 1;
+            border-radius: 10px;
             overflow: hidden;
             position: relative;
+            background: rgba(0,0,0,.2);
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            cursor: pointer;
+
+            @media (min-width: 768px) {
+                aspect-ratio: initial;
+            }
+
+            > div {
+                grid-column: 1;
+                grid-row: 1;
+                display: grid;
+                place-items: end center;
+                // padding: 15px;
+            }
         }
     }
+
+    & .popup {
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(255,255,255,0.5);
+        display: flex;
+        flex-direction: column;
+        // place-items: center;
+        // grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+        column-gap: 40px;
+        padding: 45px 55px;
+
+        .gatsby-image-wrapper {
+            border-top: 17px solid var(--color-secondary);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+
+            @media (min-width: 768px) {
+                border: 0;
+                border-radius: 0;
+            }
+
+            @media (min-width: 1024px) {
+                grid-area: image;
+            }
+        }
+
+        button {
+            position: absolute;
+            color: white;
+            top: 7%;
+            right: 7%;
+            cursor: pointer;
+        }
+
+        .description {
+            font-size: 16px;
+            background: var(--color-secondary);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            padding: 17px 12px 30px;
+            width: 100%;
+            line-height: 19.62px;
+            font-family: 'CG';
+
+            @media (min-width: 768px) {
+                padding-top: 22px;
+                padding-left: 39px;
+                padding-right: 39px;
+            }
+
+            @media (min-width: 1024px) {
+                grid-area: description;
+                padding: 0;
+                margin-top: 22px;
+            }
+        }
+
+        .button {
+            max-width: 235px;
+            background: var(--color-cta);
+            text-transform: none;
+            margin: 15px auto 0;
+
+            @media (min-width: 768px) {
+                max-width: 302px;
+            }
+
+            @media (min-width: 1024px) {
+                grid-area: button;
+                margin-left: 0;
+            }
+        }
+
+        h2 {
+            display: none;
+
+            @media (min-width: 768px) {
+                font-size: 36px;
+                text-transform: initial;
+                display: inline-block;
+                padding: 0 39px;
+                width: 100%;
+                background: var(--color-secondary);
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                padding-top: 20px;
+            }
+
+            @media (min-width: 1024px) {
+                grid-area: heading;
+                padding: 0;
+                font-size: 44px;
+                margin-top: 73px;
+                border-bottom: 1px solid var(--color-cta);
+            }
+        }
+
+        .popup-content {
+            @media (min-width: 768px) {
+                // background: var(--color-secondary);
+                max-width: 480px;
+                border-radius: 10px;
+            }
+
+            @media (min-width: 1024px) {
+                display: grid;
+                grid-template-areas:
+                    'header header'
+                    'image heading'
+                    'image description'
+                    'image button';
+                background: var(--color-secondary);
+                padding: 0 45px 55px;
+                gap: 20px 40px;
+                max-width: 960px;
+                grid-template-rows: 60px 144px auto auto;
+                grid-template-columns: 1fr 340px;
+            }
+        }
+
+        .close-btn {
+            color: var(--color-cta);
+
+            @media (max-width: 1023px) {
+                color: transparent;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: -1;
+            }
+
+            @media (min-width: 1024px) {
+                
+                position: initial;
+                width: 20px;
+                height: 20px;
+                align-self: center;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        .popup-header {
+            @media (min-width: 1024px) {
+                grid-area: header;
+                border-bottom: 1px solid var(--color-main);
+                display: flex;
+                align-items: center;
+                justify-content: end;
+            }
+        }
+  }
 `
 export { Wrapper }
