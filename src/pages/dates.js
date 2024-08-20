@@ -8,6 +8,8 @@ import SvgSprite from '../components/svg-sprite';
 import Footer from "@components/footer";
 import { Wrapper } from '@components/datesPage/datesPage.styled';
 
+import backDesk from '@images/back-dates.jpeg';
+
 const DatesPage = () => {
     const {allContentfulDatesPage: {nodes}} = useStaticQuery(graphql`
     query {
@@ -27,7 +29,7 @@ const DatesPage = () => {
                     title
                     link
                     image {
-                        gatsbyImageData(width: 450, quality: 85)
+                        gatsbyImageData(width: 480, quality: 85)
                     }
                     description {
                         description
@@ -45,14 +47,14 @@ const DatesPage = () => {
             <Wrapper>
             <SvgSprite/>
                 <div className='content'>
-                <Link className="logo" to={'/'}>
-                    <img src="/logo1.png" alt="CarryKey logo" className="logo" quality={100}/>
-                </Link>
-                {/* <GatsbyImage image={data.avatar.gatsbyImageData}
-                    className='avatar'
-                    alt=""/> */}
+                <header className='header'>
+                    <Link className="logo" to={'/'}>
+                        <img src="/logo1.png" alt="CarryKey logo" className="logo" quality={100}/>
+                    </Link>
+                    <SocialIcons isLinksPage size={18} gap={10}/>
+                </header>
+                
                 <h1>{data.title}</h1>
-                <SocialIcons isLinksPage size={25} gap={5}/>
                 <section>
                     <ul className='grid dates'>
                         {data.tiles.map(item => (
@@ -62,7 +64,6 @@ const DatesPage = () => {
                                 <GatsbyImage image={item.image.gatsbyImageData} alt=''/>
                                 <div>
                                     <h2>{item.title}</h2>
-                                    <a className="button" href={item.link} rel="me noreferrer" target="_blank">Visit</a>
                                 {/* </a> */}
                                 </div>
                             </li>
@@ -71,15 +72,22 @@ const DatesPage = () => {
                 </section>
                 </div>
                 {selected && <div className='popup'>
-                    <button onClick={() => setSelected(null)}>
-                        <span className="visually-hidden">Close</span>
-                        <svg width="40" height="40" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <use href="#close"/>
-                        </svg>
-                    </button>
-                    <GatsbyImage image={selected.image.gatsbyImageData} alt=""/>
-                    <div className="description">
-                        <p>{selected.description?.description || ''}</p>
+                    <div className='popup-content'>
+                        <div className="popup-header">
+                            <button className="close-btn"
+                                onClick={() => setSelected(null)}>
+                                <span className="visually-hidden">Close</span>
+                                <svg width="40" height="40" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <use href="#close"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <h2>{selected.title}</h2>
+                        <GatsbyImage image={selected.image.gatsbyImageData} alt=""/>
+                        <div className="description">
+                            <p>{selected.description?.description || ''}</p>
+                        </div>
+                        <a className="button" href={selected.link} rel="me noreferrer" target="_blank">Visit</a>
                     </div>
                 </div>}
                 <GatsbyImage className='hero' image={data.background.gatsbyImageData}
@@ -96,7 +104,7 @@ export const Head = () => {
     return (
         <Meta title="CarryKey Links"
             url="links"
-            thumbnail={''}
+            thumbnail={backDesk}
             />
     )
 }
