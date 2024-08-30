@@ -8,6 +8,8 @@ import SvgSprite from '../components/svg-sprite';
 import Footer from "@components/footer";
 import { Wrapper } from '@components/linksPage/linksPage.styled';
 
+import backDesk from '@images/back-dates.jpeg';
+
 const LinksPage = () => {
     const {allContentfulLinksPage: {nodes}} = useStaticQuery(graphql`
     query {
@@ -93,7 +95,7 @@ export const Head = () => {
     return (
         <Meta title="CarryKey Links"
             url="links"
-            thumbnail={''}
+            thumbnail={backDesk}
             />
     )
 }
