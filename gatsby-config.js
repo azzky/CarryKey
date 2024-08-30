@@ -117,16 +117,16 @@ module.exports = {
                 excludes: ['/merch', '/feedback', '/search', '/dates'],
             },
         },
-        // {
-        //     resolve: `gatsby-plugin-google-analytics`,
-        //     options: {
-        //         trackingId: "YOUR_GOOGLE_ANALYTICS_TRACKING_ID",
-        //         head: true,
-        //         exclude: ['/merch', '/feedback', '/search'],
-        //         pageTransitionDelay: 0,
-        //         defer: false,
-        //         enableWebVitalsTracking: true
-        //     },
-        // }
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: process.env.GATSBY_GA_NUMBER,
+                head: true,
+                exclude: ['/merch', '/feedback', '/search'],
+                pageTransitionDelay: 0,
+                defer: false,
+                enableWebVitalsTracking: true
+            },
+        }
     ]
 };
