@@ -163,6 +163,29 @@ module.exports = {
             resolve: "gatsby-plugin-sitemap",
             options: {
                 excludes: ['/merch', '/feedback', '/search', '/dates', '/cart'],
+                query: `
+                    {
+                        allSitePage {
+                            nodes {
+                                path
+                            }
+                        }
+                    }
+                    `,
+                resolvePages: ({ allSitePage: { nodes } }) => {
+                    return nodes.map((page) => {
+                        const priority = page.path === "/" ? 1.0 : 0.7;
+                        const changefreq = page.path === "/" ? 'daily' : 'weekly';
+                        return { ...page, priority, changefreq };
+                    });
+                },
+                serialize: ({ path, priority, changefreq }) => {
+                    return {
+                        url: path,
+                        priority: priority,
+                        changefreq: changefreq,
+                    };
+                },
             },
         },
         {
