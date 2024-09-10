@@ -93,9 +93,12 @@ export default LinksPage
 
 export const Head = () => {
     return (
+        <>
         <Meta title="CarryKey Links"
             url="links"
             thumbnail={backDesk}
             />
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>
+        </>
     )
 }

@@ -40,6 +40,7 @@ export const Head = () => {
     return (
         <>
             <title>Search | CarryKey</title>
+            <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>
         </>
     )
 }

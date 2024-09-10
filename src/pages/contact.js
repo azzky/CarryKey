@@ -29,9 +29,12 @@ export default Contact;
 
 export const Head = () => {
     return (
+        <>
         <Meta title="Contact"
             url="contact"
             thumbnail={backDesk}
         />
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>
+        </>
     )
 }

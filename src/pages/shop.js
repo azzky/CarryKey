@@ -24,8 +24,11 @@ export default Shop;
 
 export const Head = () => {
     return (
+        <>
         <Meta title="Shop"
             thumbnail={backDesk}
         />
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>
+        </>
     )
 }
