@@ -79,7 +79,10 @@ const Item = (props) => {
                         {post.gallery.map((pic, index) => {
                             return (
                                 <div key={pic.file.url} onClick={() =>clickHandler(index)}>
-                                <GatsbyImage className="slide-pic" image={pic.gatsbyImageData} alt="" backgroundColor="#adadad"/>
+                                <GatsbyImage className="slide-pic"
+                                image={pic.gatsbyImageData}
+                                alt={`${post.title} set image ${index + 1}`}
+                                backgroundColor="#adadad"/>
                                 </div>
                             )
                         })}
@@ -88,9 +91,13 @@ const Item = (props) => {
                         className="nav"
                         asNavFor={nav1}
                         ref={(slider2) => setNav2(slider2)}>
-                        {post.gallery.map(pic => {
+                        {post.gallery.map((pic, index) => {
                             return (
-                                <GatsbyImage className="slide-pic" key={pic.file.url} image={pic.gatsbyImageData} alt="" backgroundColor="#adadad"/>
+                                <GatsbyImage className="slide-pic"
+                                key={pic.file.url}
+                                image={pic.gatsbyImageData}
+                                alt={`thumbnail for ${post.title} set image ${index + 1}`}
+                                backgroundColor="#adadad"/>
                             )
                         })}
                     </Slider>
@@ -102,7 +109,9 @@ const Item = (props) => {
                             return (
                                 <div key={pic.file.url} 
                                 onClick={() =>clickHandler(index)}>
-                                    <GatsbyImage className="slide-pic" image={pic.gatsbyImageData} alt=""
+                                    <GatsbyImage className="slide-pic"
+                                        image={pic.gatsbyImageData}
+                                        alt={`${post.title} - ${index + 1}`}
                                         width={280} backgroundColor="#adadad"/>
                                 </div>
                             )

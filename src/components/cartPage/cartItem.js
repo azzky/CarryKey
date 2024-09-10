@@ -7,10 +7,10 @@ import Item from "./cartItem.styled";
 
 const CartItem = ({item, removeItem}) => {
     const {postId, title, priceType, price, priceMax, preview} = item;
-    const image = getImage(preview)
+    const image = getImage(preview);    
     return (
         <Item>
-            <GatsbyImage image={image} layout="fill" alt="" />
+            <GatsbyImage image={image} layout="fill" alt={'Thumbnail for '+item.title} />
             <div className="details">
                 <p className="title">{title}</p>
                 <div className="info">

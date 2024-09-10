@@ -12,9 +12,12 @@ const Item = ({post, setImage, setPhotoIndex, postIndex}) => {
         setImage(post.file.url)
         setPhotoIndex(post.photoIndex)
     }, [post.file.url, post.photoIndex, setImage, setPhotoIndex]);
+    
     return (
         <div className="item" onClick={clickHandler} id={post.photoIndex}>
-            <GatsbyImage image={post.gatsbyImageData} alt="" backgroundColor="#adadad"/>
+            <GatsbyImage image={post.gatsbyImageData}
+                alt={'Gallery item ' + post.photoIndex}
+                backgroundColor="#adadad"/>
         </div>
     )
 }

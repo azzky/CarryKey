@@ -23,7 +23,7 @@ const HomeSlider = (props) => {
     return (
         <SliderWrapper>
         <Slider {...settings}>
-            {slides.map(slide => {
+            {slides.map(slide => {                
             const text = renderRichText({raw: slide.text.raw})
             const image = isMobile ? getImage(slide.mobileImage) : getImage(slide.desktopImage)
             return (
@@ -35,7 +35,7 @@ const HomeSlider = (props) => {
                     <GatsbyImage image={image}
                         layout="fill"
                         quality={85}
-                        alt=""/>
+                        alt={slide.post.title}/>
                 </div>
             )})}
         </Slider>
