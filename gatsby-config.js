@@ -4,7 +4,6 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
-const siteUrl = process.env.URL || `https://carrykey.me`
 module.exports = {
     siteMetadata: {
         title: `Carrykey`,
@@ -172,7 +171,8 @@ module.exports = {
                             }
                         }
                     }
-                    `,
+                `,
+                resolveSiteUrl: () => 'https://carrykey.me',
                 resolvePages: ({ allSitePage: { nodes } }) => {
                     return nodes.map((page) => {
                         const priority = page.path === "/" ? 1.0 : 0.7;
