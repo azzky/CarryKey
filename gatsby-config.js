@@ -4,6 +4,7 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
+const siteUrl = process.env.URL || `https://carrykey.me`
 module.exports = {
     siteMetadata: {
         title: `Carrykey`,
