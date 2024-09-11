@@ -27,6 +27,7 @@ query ($slug: Int!) {
             node {
                 id
                 postId
+                url
                 title
                 price
                 priceMax
@@ -58,6 +59,9 @@ export const Head = ({pageContext}) => {
                 thumbnail={'https:' + pageContext.image}
                 // description={pageContext.description}
                 isPost
+                url={'/shop/set/' + pageContext.url}
+                priceMin={pageContext.priceMin}
+                priceMax={pageContext.priceMax}
             />
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/>

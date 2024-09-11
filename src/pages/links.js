@@ -95,7 +95,7 @@ export const Head = () => {
     return (
         <>
         <Meta title="CarryKey Links"
-            url="links"
+            url="/links"
             thumbnail={backDesk}
             />
         <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>

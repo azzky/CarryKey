@@ -5,8 +5,98 @@ const Meta = ({
     url,
     description,
     thumbnail,
+    priceMax,
+    priceMin,
+    isHome,
     isPost
 }) => {
+    console.log(url);
+    
+    const schemaSkeleton = {
+        '@context': 'https://schema.org',
+        '@graph': []
+    };
+    const schemaItems = schemaSkeleton['@graph'];
+    const schemaBreadcrumb = isPost ? {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                'position': 1,
+                "item":
+                    {
+                        "@id": process.env.GATSBY_SITE_URL + '/shop',
+                        "name": "Shop"
+                    }
+            },
+            {
+                '@type': 'ListItem',
+                'position': 2,
+                "item":
+                    {
+                        "@id": process.env.GATSBY_SITE_URL + url,
+                        "name": title
+                    }
+            }
+        ]
+    } : {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                'position': 1,
+                "item":
+                    {
+                        "@id": process.env.GATSBY_SITE_URL + url,
+                        "name": title
+                    }
+            }
+        ]
+    };
+    const schemaPage = {
+        '@type': 'WebPage',
+        'name': title,
+        // 'description': '',
+        'image': process.env.GATSBY_SITE_URL + thumbnail,
+        'inLanguage': 'en-US'
+    }
+    const schemaPostPage = isPost ? {
+        '@type': 'WebPage',
+        'name': title,
+        'breadcrumb': 'Shop',
+        // 'description': '',
+        'image': thumbnail,
+        'inLanguage': 'en-US',
+        // 'image': schemaArticleImages,
+        // 'datePublished': data.createdAt,
+    } : null;
+    const schemaProduct = isPost ? {
+        '@type': 'Product',
+        'name': title,
+        'image': thumbnail,
+        isFamilyFriendly: false,
+        hasAdultConsideration: true,
+        url: process.env.GATSBY_SITE_URL + url,
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "highPrice": priceMax,
+            "lowPrice": priceMin
+        }
+    } : null;
+    if (!isHome) schemaItems.push(schemaBreadcrumb);
+    if (isPost) {
+        schemaItems.push(schemaPostPage)
+        schemaItems.push(schemaProduct)
+    } else {
+        schemaItems.push(schemaPage)
+    }
+
+
+
+
+    console.log(schemaSkeleton);
+    
     return <>
         {title && <>
             <title>{title + ' | CarryKey'}</title>
@@ -19,13 +109,13 @@ const Meta = ({
         {url && <>
             <meta name="og:url"
                 property="og:url"
-                content={process.env.GATSBY_SITE_URL + '/' + url}/>
+                content={process.env.GATSBY_SITE_URL + url}/>
             <meta name="ia:markup_url"
                 property="ia:markup_url"
-                content={process.env.GATSBY_SITE_URL + '/' + url}/>
+                content={process.env.GATSBY_SITE_URL + url}/>
             <meta name="ia:rules_url"
                 property="ia:rules_url"
-                content={process.env.GATSBY_SITE_URL + '/' + url}/>
+                content={process.env.GATSBY_SITE_URL + url}/>
         </>}
         <meta property="og:type"
                 content="website"></meta>
@@ -56,7 +146,7 @@ const Meta = ({
         <meta name="twitter:card"
                 property="twitter:card"
                 content="summary_large_image"/>
-        {/* <script type="application/ld+json">{JSON.stringify(schemaSkeleton)}</script> */}
+        <script type="application/ld+json">{JSON.stringify(schemaSkeleton)}</script>
     </>
 }
 

@@ -113,7 +113,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
                             name: product.title,
                             description: product.priceType === 'min' ? 'cosplay' : 'topless',
                             sku: product.postId,
-                            url: process.env.GATSBY_SITE_URL + '/shop/post/' + product.postId,
+                            url: process.env.GATSBY_SITE_URL + '/shop/set/' + product.url,
                             quantity: 1,
                             category: 'DIGITAL_GOODS',
                             unit_amount: {

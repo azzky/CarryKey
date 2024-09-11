@@ -24,6 +24,7 @@ export default function Slides() {
                 post {
                     postId
                     title
+                    url
                 }
             }
         }

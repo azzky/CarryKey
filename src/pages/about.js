@@ -21,7 +21,7 @@ export const Head = () => {
     return (
         <>
         <Meta title="About"
-            url="about"
+            url="/about"
             thumbnail={backDesk}
         />
         <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>

@@ -11,6 +11,7 @@ export default function ShopITems() {
         ) {
             nodes {
                 id
+                url
                 postId
                 title
                 price

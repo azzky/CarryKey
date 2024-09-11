@@ -30,7 +30,7 @@ const HomeSlider = (props) => {
                 <div className="slide-inner" key={slide.title}>
                     <div className="slide-content">
                         {text}
-                        <Link className="button" to={'/shop/post/'+slide.post.postId}>Purchase</Link>
+                        <Link className="button" to={'/shop/set/'+slide.post.url}>Purchase</Link>
                     </div>
                     <GatsbyImage image={image}
                         layout="fill"

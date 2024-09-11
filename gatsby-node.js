@@ -10,6 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
             edges {
                 node {
                     tags
+                    url
                     postId
                     title
                     preview {
@@ -17,6 +18,8 @@ exports.createPages = async ({ graphql, actions }) => {
                             url
                         }
                     }
+                    price
+                    priceMax
                 }
             }
         }
@@ -26,12 +29,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const promises = posts.map(async (post) => {
         createPage({
-            path: '/shop/post/' + post.node.postId,
+            path: '/shop/set/' + post.node.url,
             component: path.resolve(`./src/templates/post.js`),
             context: {
                 slug: post.node.postId,
+                url: post.node.url,
                 image: post.node.preview.file.url,
-                title: post.node.title
+                title: post.node.title,
+                priceMin: post.node.price,
+                priceMax: post.node.priceMax
             }
         })
         // post.node.tags && post.node.tags.map(tag => {

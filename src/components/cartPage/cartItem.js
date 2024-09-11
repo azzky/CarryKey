@@ -6,7 +6,7 @@ import { currency } from '@constants';
 import Item from "./cartItem.styled";
 
 const CartItem = ({item, removeItem}) => {
-    const {postId, title, priceType, price, priceMax, preview} = item;
+    const {title, priceType, price, priceMax, preview, url} = item;
     const image = getImage(preview);    
     return (
         <Item>
@@ -21,7 +21,7 @@ const CartItem = ({item, removeItem}) => {
                     </div>
                 </div>
                 <div className="actions">
-                    <Link to={'/shop/post/'+postId}>
+                    <Link to={'/shop/set/'+url}>
                         <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <use href="#edit"/>
                         </svg>
