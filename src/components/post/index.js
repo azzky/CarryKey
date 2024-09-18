@@ -78,7 +78,7 @@ const Item = (props) => {
                         {post.gallery.map((pic, index) => {
                             return pic.file.contentType.includes('video') ? (
                                 <video controls>
-                                    <source type={pic.file.contentType} src={'https:' + pic.file.url}/>
+                                    <source type="video/mp4" src={'https:' + pic.file.url}/>
                                 </video>
                             ) : (
                                 <div key={pic.file.url} onClick={() =>clickHandler(index)}>
@@ -119,7 +119,7 @@ const Item = (props) => {
                         {post.gallery.map((pic, index) => {
                             return pic.file.contentType.includes('video') ? (
                                 <video controls>
-                                    <source type={pic.file.contentType} src={'https:' + pic.file.url}/>
+                                    <source type="video/mp4" src={'https:' + pic.file.url}/>
                                 </video>
                             ) : (
                                 <div key={pic.file.url} 
