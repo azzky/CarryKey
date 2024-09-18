@@ -43,6 +43,7 @@ query ($slug: Int!) {
                     gatsbyImageData(width: 450, quality: 90, formats: WEBP)
                     file {
                         url
+                        contentType
                     }
                 }
             }

@@ -41,7 +41,7 @@ const thumbSliderSettings = {
 }
 
 const Item = (props) => {
-    const {post} = props
+    const {post} = props    
     const {isDesktop, isMobile} = useWidth();
     const {addItem, cart, editItem} = useBasket();
     const isInCart = cart && cart.filter(el => el.postId === post.postId).length > 0
@@ -64,7 +64,6 @@ const Item = (props) => {
     const clickHandler = (index) => {
         setShowLightBox(true);
         setPhotoIndex(index);
-        console.log(index);
     };
 
     return (
@@ -77,7 +76,11 @@ const Item = (props) => {
                         asNavFor={nav2}
                         ref={(slider1) => setNav1(slider1)}>
                         {post.gallery.map((pic, index) => {
-                            return (
+                            return pic.file.contentType.includes('video') ? (
+                                <video controls>
+                                    <source type={pic.file.contentType} src={pic.file.url}/>
+                                </video>
+                            ) : (
                                 <div key={pic.file.url} onClick={() =>clickHandler(index)}>
                                 <GatsbyImage className="slide-pic"
                                 image={pic.gatsbyImageData}
@@ -92,7 +95,15 @@ const Item = (props) => {
                         asNavFor={nav1}
                         ref={(slider2) => setNav2(slider2)}>
                         {post.gallery.map((pic, index) => {
-                            return (
+                            return pic.file.contentType.includes('video') ? (
+                                <div className="video-thumb">
+                                    <GatsbyImage className="slide-pic"
+                                        key={post.gallery[index - 1].file.url}
+                                        image={post.gallery[index - 1].gatsbyImageData}
+                                        alt={`thumbnail for ${post.title} set image ${index + 1}`}
+                                        backgroundColor="#adadad"/>
+                                </div>
+                            ) : (
                                 <GatsbyImage className="slide-pic"
                                 key={pic.file.url}
                                 image={pic.gatsbyImageData}
@@ -106,7 +117,11 @@ const Item = (props) => {
                 <div className="images-grid">
                     <Slider {...settings(isDesktop)} slidesToShow={isMobile ? 1 : 3}>
                         {post.gallery.map((pic, index) => {
-                            return (
+                            return pic.file.contentType.includes('video') ? (
+                                <video controls>
+                                    <source type={pic.file.contentType} src={pic.file.url}/>
+                                </video>
+                            ) : (
                                 <div key={pic.file.url} 
                                 onClick={() =>clickHandler(index)}>
                                     <GatsbyImage className="slide-pic"

@@ -267,6 +267,39 @@ const Wrapper = styled.div`
             }
         }
     }
+
+    & .video-thumb {
+        place-items: center;
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        &:before {
+            position: absolute;
+            content: '';
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(255,255,255,.4);
+            z-index: 1;
+        }
+
+        &:after {
+            position: absolute;
+            content: '';
+            display: block;
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 12px 0 12px 25px;
+            border-color: transparent transparent transparent #000000;
+            transform: rotate(0deg);
+            z-index: 2;
+        }
+    }
 `
 
 export default Wrapper

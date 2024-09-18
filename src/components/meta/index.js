@@ -10,7 +10,7 @@ const Meta = ({
     isHome,
     isPost
 }) => {
-    console.log(url);
+    // console.log(url);
     
     const schemaSkeleton = {
         '@context': 'https://schema.org',
@@ -91,11 +91,7 @@ const Meta = ({
     } else {
         schemaItems.push(schemaPage)
     }
-
-
-
-
-    console.log(schemaSkeleton);
+    // console.log(schemaSkeleton);
     
     return <>
         {title && <>
