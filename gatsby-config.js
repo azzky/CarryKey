@@ -183,11 +183,11 @@ module.exports = {
                 resolvePages: ({ allSitePage: { nodes }, allContentfulPost }) => {
                     return nodes.map((page) => {
                         const matchingApiPage = allContentfulPost.nodes.find(apiPage => 
-                            page.path === '/shop/set/' + apiPage.path
+                            page.path === '/shop/set/' + apiPage.url
                         );
                         const priority = page.path === "/" ? 1.0 : 0.7;
                         const changefreq = page.path === "/" ? 'daily' : 'weekly';
-                        const lastmod = matchingApiPage ? matchingApiPage.lastModified : new Date().toISOString();
+                        const lastmod = matchingApiPage ? matchingApiPage.updatedAt : new Date().toISOString();
                         return { ...page, priority, changefreq, lastmod };
                     });
                 },
