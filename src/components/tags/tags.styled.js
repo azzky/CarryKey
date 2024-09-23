@@ -38,7 +38,7 @@ const Wrapper = styled.div`
             display: block;
             height: 25px;
             border-radius: 5px;
-            border: 1px solid #CECDCF;
+            border: 1px solid var(--color-copyright);
             letter-spacing: 0.7px;
             font-weight: 300;
             padding: 0 10px;

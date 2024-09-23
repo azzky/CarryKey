@@ -6,6 +6,7 @@ import SocialIcons from "../socials";
 import HomeSlider from "./slider";
 import MiniCart from "./minicart";
 import Search from './search';
+import ToTop from "./toTop";
 
 import { HeaderRoot, BottomBlock, SearchWrapper, Socials, FixedMinicart } from "./header.styled";
 
@@ -67,6 +68,7 @@ const Header = (props) => {
         <FixedMinicart>
             <MiniCart/>
         </FixedMinicart>
+        <ToTop/>
         </>
     )
 }

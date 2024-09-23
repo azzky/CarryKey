@@ -198,12 +198,9 @@ const FixedMinicart = styled.div`
     padding: 10px;
     border-radius: 50%;
     right: 40px;
-    bottom: 40px;
+    bottom: 53px;
     z-index: 999;
-
-    &:hover {
-        box-shadow: 5px 4px 8px 0px rgba(0, 0, 0, 0.25);
-    }
+    box-shadow: 5px 4px 8px 0px rgba(0, 0, 0, 0.25);
 `
 
 export {HeaderRoot, BottomBlock, SearchWrapper, Socials, FixedMinicart}
