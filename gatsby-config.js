@@ -180,7 +180,7 @@ module.exports = {
                     }
                 `,
                 resolveSiteUrl: () => 'https://carrykey.me',
-                resolvePages: ({ allSitePage: { nodes } }) => {
+                resolvePages: ({ allSitePage: { nodes }, allContentfulPost }) => {
                     return nodes.map((page) => {
                         const matchingApiPage = allContentfulPost.nodes.find(apiPage => 
                             page.path === '/shop/set/' + apiPage.path
