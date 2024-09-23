@@ -168,6 +168,13 @@ module.exports = {
                         allSitePage {
                             nodes {
                                 path
+
+                            }
+                        }
+                        allContentfulPost {
+                            nodes {
+                                url
+                                updatedAt
                             }
                         }
                     }
@@ -175,9 +182,13 @@ module.exports = {
                 resolveSiteUrl: () => 'https://carrykey.me',
                 resolvePages: ({ allSitePage: { nodes } }) => {
                     return nodes.map((page) => {
+                        const matchingApiPage = allContentfulPost.nodes.find(apiPage => 
+                            page.path === '/shop/set/' + apiPage.path
+                        );
                         const priority = page.path === "/" ? 1.0 : 0.7;
                         const changefreq = page.path === "/" ? 'daily' : 'weekly';
-                        return { ...page, priority, changefreq };
+                        const lastmod = matchingApiPage ? matchingApiPage.lastModified : new Date().toISOString();
+                        return { ...page, priority, changefreq, lastmod };
                     });
                 },
                 serialize: ({ path, priority, changefreq }) => {
@@ -185,6 +196,7 @@ module.exports = {
                         url: path,
                         priority: priority,
                         changefreq: changefreq,
+                        lastmod: lastmod
                     };
                 },
             },
