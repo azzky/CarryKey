@@ -254,7 +254,7 @@ export const MobileFiltersContent = styled.div`
         align-items: center;
 
         svg {
-            color: #CECDCF;
+            color: var(--color-copyright);
         }
     }
 

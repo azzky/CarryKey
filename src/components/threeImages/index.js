@@ -12,15 +12,15 @@ const ThreeImages = (props) => {
     const smallSizeH = isMobile ? 86 : isDesktop ? 353 : 307
     return (
         <ImagesBlock>
-            <img src={'/'+src+'1.jpg'} alt=""
+            <img src={'/'+src+'1.jpg'} alt="CarryKey in Gwenpoll cosplay"
                 width={bigSizeW}
                 height={bigSizeH}
                 loading="lazy"/>
-            <img src={'/'+src+'2.jpg'} alt=""
+            <img src={'/'+src+'2.jpg'} alt="CarryKey in Ariel cosplay"
                 width={smallSizeW}
                 height={smallSizeH}
                 loading="lazy"/>
-            <img src={'/'+src+'3.jpg'} alt=""
+            <img src={'/'+src+'3.jpg'} alt="CarryKey in Power cosplay"
                 width={87}
                 height={86}
                 loading="lazy"/>

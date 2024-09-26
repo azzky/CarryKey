@@ -1,0 +1,514 @@
+{
+  "redirects": [
+    {
+      "source": "/shop/post/103",
+      "destination": "/shop/set/raven-cloak",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/102",
+      "destination": "/shop/set/mitsuri-home",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/101",
+      "destination": "/shop/set/master-katara",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/100",
+      "destination": "/shop/set/ariel",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/99",
+      "destination": "/shop/set/white-zelda",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/98",
+      "destination": "/shop/set/ty-lee",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/97",
+      "destination": "/shop/set/tifa-nurse",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/96",
+      "destination": "/shop/set/tatsumaki",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/95",
+      "destination": "/shop/set/ryuko-home",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/94",
+      "destination": "/shop/set/raven-latex",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/93",
+      "destination": "/shop/set/nami-wano",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/92",
+      "destination": "/shop/set/luna-lovegood",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/91",
+      "destination": "/shop/set/harley-2024",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/90",
+      "destination": "/shop/set/gwen-latex",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/89",
+      "destination": "/shop/set/frieren",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/87",
+      "destination": "/shop/set/nico-alabasta",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/86",
+      "destination": "/shop/set/jury",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/85",
+      "destination": "/shop/set/ashley-re",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/84",
+      "destination": "/shop/set/misa-amane",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/83",
+      "destination": "/shop/set/shadowheart-black",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/82",
+      "destination": "/shop/set/carrot",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/81",
+      "destination": "/shop/set/zelda-longhair",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/80",
+      "destination": "/shop/set/gwenpool",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/79",
+      "destination": "/shop/set/gwen-student",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/78",
+      "destination": "/shop/set/reze",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/77",
+      "destination": "/shop/set/starfire",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/76",
+      "destination": "/shop/set/azula-beach",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/75",
+      "destination": "/shop/set/nami-timeskip",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/74",
+      "destination": "/shop/set/misato",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/73",
+      "destination": "/shop/set/marin-succubus",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/72",
+      "destination": "/shop/set/frost",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/71",
+      "destination": "/shop/set/zelda-xmas",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/70",
+      "destination": "/shop/set/belle",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/69",
+      "destination": "/shop/set/zelda-shorthair",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/68",
+      "destination": "/shop/set/vivi",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/67",
+      "destination": "/shop/set/kim-possible",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/66",
+      "destination": "/shop/set/bocchi",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/65",
+      "destination": "/shop/set/yor",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/64",
+      "destination": "/shop/set/yor-xmas",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/63",
+      "destination": "/shop/set/gwen-xmas",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/62",
+      "destination": "/shop/set/triss",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/61",
+      "destination": "/shop/set/starlight",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/60",
+      "destination": "/shop/set/rebecca",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/59",
+      "destination": "/shop/set/nico-thrillerbark",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/58",
+      "destination": "/shop/set/nami-stampede",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/57",
+      "destination": "/shop/set/nami-enies-lobby",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/56",
+      "destination": "/shop/set/mikasa",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/55",
+      "destination": "/shop/set/marin",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/54",
+      "destination": "/shop/set/makima",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/53",
+      "destination": "/shop/set/lucy",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/52",
+      "destination": "/shop/set/lady",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/51",
+      "destination": "/shop/set/jinx-arcane",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/50",
+      "destination": "/shop/set/hayasaka",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/49",
+      "destination": "/shop/set/harley-new52",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/48",
+      "destination": "/shop/set/gwen-stacy",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/47",
+      "destination": "/shop/set/futaba",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/46",
+      "destination": "/shop/set/azula",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/45",
+      "destination": "/shop/set/asuka-plugsuit",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/44",
+      "destination": "/shop/set/anti-gwenom",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/43",
+      "destination": "/shop/set/ankha",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/42",
+      "destination": "/shop/set/ahri",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/41",
+      "destination": "/shop/set/twobe",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/40",
+      "destination": "/shop/set/zero-two",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/39",
+      "destination": "/shop/set/zelda-summer",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/38",
+      "destination": "/shop/set/zelda-winter",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/37",
+      "destination": "/shop/set/wendy",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/36",
+      "destination": "/shop/set/viper",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/35",
+      "destination": "/shop/set/tracer-bunny",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/34",
+      "destination": "/shop/set/tracer",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/33",
+      "destination": "/shop/set/toga",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/32",
+      "destination": "/shop/set/tinkerbell",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/31",
+      "destination": "/shop/set/tifa",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/30",
+      "destination": "/shop/set/supergirl",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/29",
+      "destination": "/shop/set/succubus",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/28",
+      "destination": "/shop/set/seraphine-home",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/27",
+      "destination": "/shop/set/samsung-tyan",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/26",
+      "destination": "/shop/set/raven",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/25",
+      "destination": "/shop/set/power",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/24",
+      "destination": "/shop/set/perona",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/23",
+      "destination": "/shop/set/nico-fishisland",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/22",
+      "destination": "/shop/set/nami-alabasta",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/21",
+      "destination": "/shop/set/modeus",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/20",
+      "destination": "/shop/set/mercy-nurse",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/19",
+      "destination": "/shop/set/marin-bunny",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/18",
+      "destination": "/shop/set/lucy-bunny",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/17",
+      "destination": "/shop/set/katarina",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/16",
+      "destination": "/shop/set/katara",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/15",
+      "destination": "/shop/set/jinx-xmas",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/14",
+      "destination": "/shop/set/jinx-2021",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/13",
+      "destination": "/shop/set/harley-tv",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/12",
+      "destination": "/shop/set/elsa",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/11",
+      "destination": "/shop/set/ela-bosak",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/10",
+      "destination": "/shop/set/dokkaebi",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/9",
+      "destination": "/shop/set/diva",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/8",
+      "destination": "/shop/set/cerberus",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/7",
+      "destination": "/shop/set/catwoman",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/6",
+      "destination": "/shop/set/asuka-school",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/5",
+      "destination": "/shop/set/anna-winter",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/4",
+      "destination": "/shop/set/anna-autumn",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/3",
+      "destination": "/shop/set/albedo",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/2",
+      "destination": "/shop/set/ada-wong",
+      "permanent": true
+    },
+    {
+      "source": "/shop/post/1",
+      "destination": "/shop/set/harley-xmas",
+      "permanent": true
+    }
+  ]
+}

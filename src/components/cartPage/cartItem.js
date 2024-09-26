@@ -6,11 +6,12 @@ import { currency } from '@constants';
 import Item from "./cartItem.styled";
 
 const CartItem = ({item, removeItem}) => {
-    const {postId, title, priceType, price, priceMax, preview, isMerch, minPriceButtonText, maxPriceButtonText} = item;
-    const image = getImage(preview)
+    const {title, priceType, price, priceMax, preview, url, isMerch, minPriceButtonText, maxPriceButtonText} = item;
+    const image = getImage(preview);    
+
     return (
         <Item>
-            <GatsbyImage image={image} layout="fill" alt="" />
+            <GatsbyImage image={image} layout="fill" alt={'Thumbnail for '+item.title} />
             <div className="details">
                 <p className="title">{title}</p>
                 <div className="info">
@@ -18,8 +19,8 @@ const CartItem = ({item, removeItem}) => {
                     <div className="priceType">
                         <p className="title">{
                             isMerch ?
-                                priceType === 'max' && maxPriceButtonText ||
-                                priceType === 'min' && minPriceButtonText ||
+                                (priceType === 'max' && maxPriceButtonText) ||
+                                (priceType === 'min' && minPriceButtonText) ||
                                 'one option'
                             :
                             priceType === 'min' ? 'Cosplay' : 'Topless'
@@ -28,7 +29,7 @@ const CartItem = ({item, removeItem}) => {
                     </div>
                 </div>
                 <div className="actions">
-                    <Link to={isMerch ? '/merch/'+postId : '/shop/post/'+postId}>
+                    <Link to={isMerch ? '/merch/'+url : '/shop/set/'+url}>
                         <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <use href="#edit"/>
                         </svg>

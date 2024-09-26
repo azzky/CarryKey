@@ -24,7 +24,9 @@ export default Merch;
 
 export const Head = () => {
     return (
-        <Meta title="Merch"
-        />
+        <>
+            <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>
+            <Meta title="Merch"/>
+        </>
     )
 }

@@ -193,23 +193,50 @@ const Socials = styled.div`
 `;
 
 const Bottom = styled.div`
-    height: 80px;
+    min-height: 80px;
     background-color: var(--color-main);
     grid-area: bottom;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 34px calc(var(--mobile-offset) * -1) 0;
+    flex-wrap: wrap;
+
+    & .copyright {
+        color: var(--color-copyright);
+        width: 100%;
+        text-align: center;
+        order: 2;
+    }
+
+    & .space {
+        display: none;
+    }
 
     @media (min-width: 754px) {
         height: 63px;
         margin: 6px -86px 0;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding: 0 var(--tablet-offset);
+
+        
+        & .copyright {
+            order: 0;
+            width: auto;
+        }
+
+        & .space {
+            display: block;
+            width: 100px;
+        }
     }
 
     @media (min-width: 1280px) {
         height: 80px;
         margin: 6px calc(var(--desktop-offset) * -1) 0;
         grid-column: 1 / span 2;
+        padding: 0 var(--desktop-offset);
     }
 `;
 

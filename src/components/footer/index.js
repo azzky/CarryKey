@@ -14,6 +14,9 @@ import { FooterRoot, Socials, Bottom, UpperSection, BottomSection } from "./foot
 
 const Footer = () => {
     const {isDesktop, isMobile} = useWidth();
+    const time = new Date();
+    const year = time.getFullYear() === 2024 ? '2024' : `2024 - ${time.getFullYear()}`;
+    
     return (
         <FooterRoot>
             <UpperSection>
@@ -41,9 +44,13 @@ const Footer = () => {
                 <BottomNavigation isDesktop={!isMobile} title="Company" links={MainMenu}/>
             </BottomSection>
             <Bottom>
+                <p className="copyright">
+                    &copy; {` ${year}, CarryKey`}
+                </p>
                 <Socials>
                     <SocialIcons size={32} gap={10}/>
                 </Socials>
+                <span className="space"></span>
             </Bottom>
         </FooterRoot>
     )

@@ -9,12 +9,17 @@ export default function MerchItems() {
             nodes {
                 id
                 postId
+                url
                 title
                 price
                 priceMax
                 isBestseller
                 gallery {
                     gatsbyImageData(width: 450, quality: 85)
+                    file {
+                        url
+                        contentType
+                    }
                 }
                 preview {
                     gatsbyImageData(width: 450, quality: 85)

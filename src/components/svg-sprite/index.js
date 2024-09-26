@@ -43,6 +43,11 @@ const SvgSprite = () => {
                 <path d="M16.7316 18.3027L17.4892 19.4031L16.5912 20.4485L9.69944 28.4659H8L15.8335 19.3486L16.7316 18.3027Z"/>
                 <path d="M27.2909 8L19.8621 16.6425L18.9639 17.6872L18.2062 16.5868L19.1045 15.5414L24.1366 9.68429L25.5914 8H27.2909Z"/>
             </g>
+            <g id="totop">
+                <path d="M38.7361 77.7147L67.8348 48.6161" stroke="#904A9A" stroke-width="10.2507" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M96.9334 77.7147L67.8347 48.6161" stroke="#904A9A" stroke-width="10.2507" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M130 68C130 33.7583 102.242 6 68 6C33.7583 6 6 33.7583 6 68C6 102.242 33.7583 130 68 130C102.242 130 130 102.242 130 68Z" stroke="#904A9A" stroke-width="10.912" stroke-miterlimit="10"/>
+            </g>
         </defs>
     </svg>
     

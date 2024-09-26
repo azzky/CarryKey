@@ -89,11 +89,59 @@ module.exports = {
                 theme_color: `#A38ED2`,
                 display: `standalone`,
                 icon: `src/images/favic/favicon.png`,
+                "icons": [
+                    {
+                        "src": "/android-chrome-36x36.png",
+                        "sizes": "36x36",
+                        "type": "image/png"
+                    },
+                    {
+                        "src": "/android-chrome-48x48.png",
+                        "sizes": "48x48",
+                        "type": "image/png"
+                    },
+                    {
+                        "src": "/android-chrome-72x72.png",
+                        "sizes": "72x72",
+                        "type": "image/png"
+                    },
+                    {
+                        "src": "/android-chrome-96x96.png",
+                        "sizes": "96x96",
+                        "type": "image/png"
+                    },
+                    {
+                        "src": "/android-chrome-144x144.png",
+                        "sizes": "144x144",
+                        "type": "image/png"
+                    },
+                    {
+                        "src": "/android-chrome-192x192.png",
+                        "sizes": "192x192",
+                        "type": "image/png"
+                    },
+                    {
+                        "src": "/android-chrome-256x256.png",
+                        "sizes": "256x256",
+                        "type": "image/png"
+                    },
+                    {
+                        "src": "/android-chrome-384x384.png",
+                        "sizes": "384x384",
+                        "type": "image/png"
+                    },
+                    {
+                        "src": "/android-chrome-512x512.png",
+                        "sizes": "512x512",
+                        "type": "image/png"
+                    }
+                ],
                 include_favicon: true,
                 cache_busting_mode: 'none',
                 icon_options: {
                     purpose: `any maskable`,
-                }
+                },
+                legacy: true,
             }
         },
         {
@@ -103,10 +151,10 @@ module.exports = {
                 sitemap: 'https://carrykey.me/sitemap-0.xml',
                 env: {
                     development: {
-                        policy: [{ userAgent: '*', disallow: ['/'] }]
+                        policy: [{ userAgent: '*', disallow: ['/cart', '*?*'] }]
                     },
                     production: {
-                        policy: [{ userAgent: '*', allow: '/' }]
+                        policy: [{ userAgent: '*', disallow: ['/cart', '*?*'] }]
                     }
                 }
             }
@@ -114,19 +162,77 @@ module.exports = {
         {
             resolve: "gatsby-plugin-sitemap",
             options: {
-                excludes: ['/merch', '/feedback', '/search', '/dates'],
+                excludes: ['/merch', '/feedback', '/search', '/dates', '/cart'],
+                query: `
+                    {
+                        allSitePage {
+                            nodes {
+                                path
+
+                            }
+                        }
+                        allContentfulPost {
+                            nodes {
+                                url
+                                updatedAt
+                            }
+                        }
+                    }
+                `,
+                resolveSiteUrl: () => 'https://carrykey.me',
+                resolvePages: ({ allSitePage: { nodes }, allContentfulPost }) => {
+                    return nodes.map((page) => {
+                        const matchingApiPage = allContentfulPost.nodes.find(apiPage => 
+                            page.path === '/shop/set/' + apiPage.url
+                        );
+                        const priority = page.path === "/" ? 1.0 : 0.7;
+                        const changefreq = page.path === "/" ? 'daily' : 'weekly';
+                        const lastmod = matchingApiPage ? matchingApiPage.updatedAt : new Date().toISOString();
+                        return { ...page, priority, changefreq, lastmod };
+                    });
+                },
+                serialize: ({ path, priority, changefreq,lastmod }) => {
+                    return {
+                        url: path,
+                        priority: priority,
+                        changefreq: changefreq,
+                        lastmod: lastmod
+                    };
+                },
             },
         },
-        // {
-        //     resolve: `gatsby-plugin-google-analytics`,
-        //     options: {
-        //         trackingId: "YOUR_GOOGLE_ANALYTICS_TRACKING_ID",
-        //         head: true,
-        //         exclude: ['/merch', '/feedback', '/search'],
-        //         pageTransitionDelay: 0,
-        //         defer: false,
-        //         enableWebVitalsTracking: true
-        //     },
-        // }
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: process.env.GATSBY_GA_NUMBER,
+                head: true,
+                exclude: ['/merch', '/feedback', '/search'],
+                pageTransitionDelay: 0,
+                defer: false,
+                enableWebVitalsTracking: true
+            },
+        },
+        {
+            resolve: "gatsby-plugin-google-tagmanager",
+            options: {
+                id: process.env.GATSBY_GTM_NUMBER,
+
+                // Include GTM in development.
+                //
+                // Defaults to false meaning GTM will only be loaded in production.
+                includeInDevelopment: false,
+
+                // datalayer to be set before GTM is loaded
+                // should be an object or a function that is executed in the browser
+                //
+                // Defaults to null
+                defaultDataLayer: { platform: "gatsby" },
+                // defaultDataLayer: function () {
+                //     return {
+                //     pageType: window.pageType,
+                //     }
+                // },
+            },
+        },
     ]
 };

@@ -44,12 +44,11 @@ const PostCarousel = (props) => {
     return (
         <Wrapper>
         <Carousel {...settings} className={className}>
-            {items.map(slide => {
+            {items.map(slide => {                
                 return (
                 <div key={'slider1-'+slide.postId} className="item">
-                    {/* <GatsbyImage alt="" image={slide.preview.gatsbyImageData}/> */}
-                    <img src={'https:'+slide.preview.file.url + '?h=400&q=85'} alt={'preview for post ' + slide.postId}/>
-                    <Link to={'/shop/post/'+slide.postId} className="button">Purchase</Link>
+                    <img src={'https:'+slide.preview.file.url + '?h=400&q=85'} alt={'Visit ' + slide.title + ' cosplay set'}/>
+                    <Link to={'/shop/set/'+slide.url} className="button">Purchase</Link>
                 </div>
             )})}
         </Carousel>

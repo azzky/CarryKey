@@ -28,6 +28,7 @@ query ($slug: String!) {
             node {
                 id
                 postId
+                url
                 title
                 price
                 priceMax
@@ -41,6 +42,7 @@ query ($slug: String!) {
                     gatsbyImageData(width: 450, quality: 90, formats: WEBP)
                     file {
                         url
+                        contentType
                     }
                 }
                 minPriceButtonText

@@ -22,8 +22,12 @@ export default Gallery;
 
 export const Head = () => {
     return (
+        <>
         <Meta title="Gallery"
             thumbnail={backDesk}
+            url="/gallery"
         />
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>
+        </>
     )
 }
