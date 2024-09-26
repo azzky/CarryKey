@@ -21,7 +21,7 @@ const ShopItem = ({post, isMerch}) => {
                 aria-label={'link to post '+title}>
                 <span className="visually-hidden">{'link to post '+title}</span>
             </Link>
-            <div className={isHorizontal ? 'imageWrapper square' : 'imageWrapper'}>
+            <div className={isMerch ? 'merch' : isHorizontal ? 'imageWrapper square' : 'imageWrapper'}>
                 <GatsbyImage image={preview.gatsbyImageData}
                     alt={'preview for '+title}/>
             </div>

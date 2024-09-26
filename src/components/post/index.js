@@ -68,33 +68,48 @@ const Item = (props) => {
     };
 
     return (
-        <Wrapper>
+        <Wrapper $isMerch={isMerch}>
         <div>
             {isDesktop ? (
                 <div className="images-grid">
-                    <Slider {...settings(isDesktop)}
+                    {post.gallery?.length > 1 ? (
+                        <Slider {...settings(isDesktop)}
                         className="gallery"
                         asNavFor={nav2}
                         ref={(slider1) => setNav1(slider1)}>
-                        {post.gallery ? post.gallery.map((pic, index) => {
+                        {post.gallery.map((pic, index) => {
                             return pic.file.contentType.includes('video') ? (
                                 <video controls>
                                     <source type="video/mp4" src={'https:' + pic.file.url}/>
                                 </video>
                             ) : (
                                 <div key={pic.file.url} onClick={() =>clickHandler(index)}>
-                                <GatsbyImage className="slide-pic"
-                                image={pic.gatsbyImageData}
-                                alt={`${post.title} set image ${index + 1}`}
-                                backgroundColor="#adadad"/>
+                                    <GatsbyImage className="slide-pic"
+                                        image={pic.gatsbyImageData}
+                                        alt={`${post.title} set image ${index + 1}`}
+                                        backgroundColor="#adadad"/>
                                 </div>
                             )
-                        }) : <GatsbyImage className="slide-pic"
+                        })}
+                    </Slider>
+                    ) : post.gallery?.length === 1 ? (
+                        post.gallery[0].file.contentType.includes('video') ? (
+                            <video controls>
+                                    <source type="video/mp4" src={'https:' + post.gallery[0].file.url}/>
+                                </video>
+                        ) : (
+                            <GatsbyImage className="slide-pic"
+                                image={post.gallery[0].gatsbyImageData}
+                                alt={`${post.title} set image`}
+                                backgroundColor="#adadad"/>
+                        )
+                    ) : (
+                    <GatsbyImage className="slide-pic"
                                 image={post.preview.gatsbyImageData}
                                 alt={`thumbnail for ${post.title} set`}
-                                backgroundColor="#adadad"/>}
-                    </Slider>
-                    {post.gallery && <Slider {...thumbSliderSettings}
+                            backgroundColor="#adadad"/>
+                                )}
+                    {post.gallery?.length > 1 && <Slider {...thumbSliderSettings}
                         className="nav"
                         asNavFor={nav1}
                         ref={(slider2) => setNav2(slider2)}>
@@ -103,7 +118,7 @@ const Item = (props) => {
                                 <div className="video-thumb">
                                     <GatsbyImage className="slide-pic"
                                         key="video-thumb"
-                                        image={post.gallery[index - 1]?.gatsbyImageData || ''}
+                                        image={post.preview.gatsbyImageData}
                                         alt={`thumbnail for ${post.title} set video`}
                                         backgroundColor="#adadad"/>
                                 </div>
@@ -163,7 +178,7 @@ const Item = (props) => {
                 {post.price && post.priceMax ? <p className="option-title">Choose a package</p> :
                     <p className="option-title"></p>}
                 <div className="priceType">
-                    {(!isMerch || (isMerch && post.price)) && (<div className="item">
+                    {(!isMerch || (isMerch && post.price && post.price !== post.priceMax)) && (<div className="item">
                         <button className="button" onClick={() => priceSelect('min')} disabled={priceType === 'min'}>
                             {isMerch ? (post.minPriceButtonText || '') : 'Cosplay'}
                         </button>

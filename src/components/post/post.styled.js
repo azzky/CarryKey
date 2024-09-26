@@ -211,6 +211,14 @@ const Wrapper = styled.div`
 
     & .images-grid {
         max-width: 100%;
+        ${props => props.$isMerch && `
+        &.images-grid {
+            display: flex;
+        }
+        .gatsby-image-wrapper {
+            margin: 0 auto;
+        }
+        `}
     }
 
     & .nav {
