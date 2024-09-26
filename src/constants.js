@@ -11,10 +11,10 @@ const MainMenu = [
         title: 'Gallery',
         link: '/gallery'
     },
-    // {
-    //     title: 'Merch',
-    //     link: '/merch'
-    // },
+    {
+        title: 'Merch',
+        link: '/merch'
+    },
     // {
     //     title: 'Feedback',
     //     link: '/feedback'
@@ -48,4 +48,6 @@ const subscriptionUrl = ''
 
 const currency = '$'
 
-export {MainMenu, ContactLinks, subscriptionUrl, currency}
+const shippingValue = 20.00
+
+export {MainMenu, ContactLinks, subscriptionUrl, currency, shippingValue}
