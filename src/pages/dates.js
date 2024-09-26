@@ -31,6 +31,9 @@ const DatesPage = () => {
                     image {
                         gatsbyImageData(width: 480, quality: 85)
                     }
+                    popupImage {
+                        gatsbyImageData(width: 450, quality: 85)
+                    }
                     description {
                         description
                     }
@@ -83,7 +86,7 @@ const DatesPage = () => {
                             </button>
                         </div>
                         <h2>{selected.title}</h2>
-                        <GatsbyImage image={selected.image.gatsbyImageData} alt=""/>
+                        <GatsbyImage image={selected.popupImage.gatsbyImageData || selected.image.gatsbyImageData} alt=""/>
                         <div className="description">
                             <p>{selected.description?.description || ''}</p>
                         </div>
@@ -102,9 +105,12 @@ export default DatesPage
 
 export const Head = () => {
     return (
+        <>
         <Meta title="CarryKey Links"
             url="links"
             thumbnail={backDesk}
             />
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>
+        </>
     )
 }
