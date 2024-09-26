@@ -301,6 +301,7 @@ const Wrapper = styled.main`
                 font-size: 44px;
                 margin-top: 73px;
                 border-bottom: 1px solid var(--color-cta);
+                height: max-content;
             }
         }
 
@@ -322,7 +323,6 @@ const Wrapper = styled.main`
                 padding: 0 45px 55px;
                 gap: 20px 40px;
                 max-width: 960px;
-                grid-template-rows: 60px 144px auto auto;
                 grid-template-columns: 1fr 340px;
             }
         }
@@ -361,6 +361,7 @@ const Wrapper = styled.main`
                 display: flex;
                 align-items: center;
                 justify-content: end;
+                height: 60px;
             }
         }
   }

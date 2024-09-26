@@ -11,7 +11,7 @@ import { Wrapper } from '@components/datesPage/datesPage.styled';
 import backDesk from '@images/back-dates.jpeg';
 
 const DatesPage = () => {
-    const {allContentfulDatesPage: {nodes}} = useStaticQuery(graphql`
+    const {allContentfulDatesPage: {nodes}, allContentfulDatesTile: {nodes: tiles}} = useStaticQuery(graphql`
     query {
         allContentfulDatesPage{
             nodes {
@@ -25,18 +25,20 @@ const DatesPage = () => {
                     url
                     }
                 }
-                tiles {
-                    title
-                    link
-                    image {
-                        gatsbyImageData(width: 480, quality: 85)
-                    }
-                    popupImage {
-                        gatsbyImageData(width: 450, quality: 85)
-                    }
-                    description {
-                        description
-                    }
+            }
+        }
+        allContentfulDatesTile {
+            nodes {
+                title
+                link
+                image {
+                    gatsbyImageData(width: 480, quality: 85)
+                }
+                popupImage {
+                    gatsbyImageData(width: 450, quality: 85)
+                }
+                description {
+                    description
                 }
             }
         }
@@ -60,7 +62,7 @@ const DatesPage = () => {
                 <h1>{data.title}</h1>
                 <section>
                     <ul className='grid dates'>
-                        {data.tiles.map(item => (
+                        {tiles.map(item => (
                             <li key={item.title}
                                 onClick={() => setSelected(item)}>
                                 {/* <a href={item.link} rel="me noreferrer" target="_blank"> */}
