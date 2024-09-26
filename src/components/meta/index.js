@@ -80,10 +80,29 @@ const Meta = ({
         "offers": {
             "@type": "AggregateOffer",
             "priceCurrency": "USD",
+            "offerCount": 1,
             "highPrice": priceMax,
             "lowPrice": priceMin
         }
     } : null;
+    function extractValue(obj) {
+        if (obj.value) {
+            return obj.value;
+        }
+
+        if (obj.content && Array.isArray(obj.content)) {
+            for (const item of obj.content) {
+            const result = extractValue(item);
+            if (result) {
+                return result;
+            }
+            }
+        }
+
+        return null; // Return null if no value is found
+    }
+    if (description) schemaProduct.review = extractValue(JSON.parse(description));
+    
     if (!isHome) schemaItems.push(schemaBreadcrumb);
     if (isPost) {
         schemaItems.push(schemaPostPage)
