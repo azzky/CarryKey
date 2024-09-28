@@ -20,6 +20,9 @@ exports.createPages = async ({ graphql, actions }) => {
                     }
                     price
                     priceMax
+                    description {
+                        raw
+                    }
                 }
             }
         }
@@ -56,7 +59,8 @@ exports.createPages = async ({ graphql, actions }) => {
                 image: post.node.preview.file.url,
                 title: post.node.title,
                 priceMin: post.node.price,
-                priceMax: post.node.priceMax
+                priceMax: post.node.priceMax,
+                description: post.node.description
             }
         })
         // post.node.tags && post.node.tags.map(tag => {
