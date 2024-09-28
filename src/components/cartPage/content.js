@@ -34,6 +34,7 @@ const WhatsNext = () => (
             <div>
                 <p className='heading'>What happens after the purchase</p>
                 <p>Enter your e-mail and I'll contact you after the payment completed with link to your set ;)</p>
+                <p>Your Paypal Address will be used for shipping.</p>
             </div>
         </div>
     </WhatsNextWrapper>
