@@ -58,7 +58,7 @@ export const Head = ({pageContext}) => {
         <>
             <Meta title={pageContext.title + ' cosplay set'}
                 thumbnail={'https:' + pageContext.image}
-                description={pageContext.description.raw}
+                description={pageContext.description?.raw || null}
                 isPost
                 url={'/shop/set/' + pageContext.url}
                 priceMin={pageContext.priceMin}
