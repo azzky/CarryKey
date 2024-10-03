@@ -68,7 +68,7 @@ const Item = (props) => {
     };
 
     return (
-        <Wrapper $isMerch={isMerch}>
+        <Wrapper $isMerch={isMerch && post.gallery?.length === 1}>
         <div>
             {isDesktop ? (
                 <div className="images-grid">
@@ -79,7 +79,7 @@ const Item = (props) => {
                         ref={(slider1) => setNav1(slider1)}>
                         {post.gallery.map((pic, index) => {
                             return pic.file.contentType.includes('video') ? (
-                                <video controls>
+                                <video controls key="video">
                                     <source type="video/mp4" src={'https:' + pic.file.url}/>
                                 </video>
                             ) : (
@@ -115,7 +115,7 @@ const Item = (props) => {
                         ref={(slider2) => setNav2(slider2)}>
                         {post.gallery.map((pic, index) => {
                             return pic.file.contentType.includes('video') ? (
-                                <div className="video-thumb">
+                                <div className="video-thumb" key="video">
                                     <GatsbyImage className="slide-pic"
                                         key="video-thumb"
                                         image={post.preview.gatsbyImageData}
@@ -137,7 +137,7 @@ const Item = (props) => {
                     {post.gallery ? <Slider {...settings(isDesktop)} slidesToShow={isMobile ? 1 : 3}>
                         {post.gallery.map((pic, index) => {
                             return pic.file.contentType.includes('video') ? (
-                                <video controls>
+                                <video controls key="video">
                                     <source type="video/mp4" src={'https:' + pic.file.url}/>
                                 </video>
                             ) : (
