@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 const ToTopWrapper = styled.div`
     position: fixed;
-    right: 45px;
+    right: 50px;
     bottom: 0;
     z-index: 9;
     opacity: ${props=>props.$isVisible ? '1' : '0'};
