@@ -37,7 +37,7 @@ const ToTop = () => {
         <div ref={topRef} style={{ position: 'absolute', top: 0, bottom: 0 }}></div>
         <ToTopWrapper $isVisible={isVisible}>
             <button type="button" onClick={scrollToTop}>
-                <svg width="136" height="136" viewBox="0 0 136 136" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="70" height="40" viewBox="0 0 70 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <use href="#totop"/>
                 </svg>
             </button>

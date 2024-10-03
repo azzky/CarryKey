@@ -88,29 +88,6 @@ const Wrapper = styled.main`
             animation-fill-mode: both;
             animation-iteration-count: infinite;
         }
-
-        @keyframes bounce_small_infinite {
-            0%,
-            10%,
-            26.5%,
-            40%,
-            to {
-                animation-timing-function:cubic-bezier(.215,.61,.355,1);
-                transform:translateZ(0)
-            }
-            20%,
-            21.5% {
-                animation-timing-function:cubic-bezier(.755,.05,.855,.06);
-                transform:translate3d(0,-10px,0)
-            }
-            35% {
-                animation-timing-function:cubic-bezier(.755,.05,.855,.06);
-                transform:translate3d(0,-10px,0)
-            }
-            42.5% {
-                transform:translate3d(0,-2px,0)
-            }
-        }
     }
 
     & .grid {

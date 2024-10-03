@@ -7,12 +7,15 @@ const ToTopWrapper = styled.div`
     z-index: 9;
     opacity: ${props=>props.$isVisible ? '1' : '0'};
     transition: opacity 0.3s ease-in-out;
+    animation-name: bounce_small_infinite;
+    transform-origin: center bottom;
+    animation-duration: 4s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
 
     & svg {
         width: 40px;
         height: 40px;
-        box-shadow: 5px 4px 8px 0px rgba(0, 0, 0, 0.25);
-        border-radius: 50%;
         cursor: pointer;
     }
 `;
