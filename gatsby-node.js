@@ -28,7 +28,26 @@ exports.createPages = async ({ graphql, actions }) => {
         }
     }
   `)
+    const merchReq = await graphql(`
+        {
+            allContentfulMerch(sort: {postId: ASC}) {
+                edges {
+                    node {
+                        postId
+                        title
+                        url
+                        preview {
+                            file {
+                                url
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `)
     const posts = results.data.allContentfulPost.edges
+    const merch = merchReq.data.allContentfulMerch.edges
 
     const promises = posts.map(async (post) => {
         createPage({
@@ -64,6 +83,18 @@ exports.createPages = async ({ graphql, actions }) => {
         //     })
         // })
     })
+    const merchPromises = merch.map(async (post) => {
+        createPage({
+            path: '/merch/' + post.node.url,
+            component: path.resolve(`./src/templates/merch.js`),
+            context: {
+                slug: post.node.postId,
+                image: post.node.preview.file.url,
+                title: post.node.title
+            }
+        })
+    })
 
     await Promise.all(promises)
+    await Promise.all(merchPromises)
 }

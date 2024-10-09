@@ -41,11 +41,12 @@ const thumbSliderSettings = {
 }
 
 const Item = (props) => {
-    const {post} = props    
+    const {post, isMerch} = props
+    
     const {isDesktop, isMobile} = useWidth();
     const {addItem, cart, editItem} = useBasket();
     const isInCart = cart && cart.filter(el => el.postId === post.postId).length > 0
-    const preselectedType = (cart && cart.filter(el => el.postId === post.postId)?.[0]?.priceType) || 'min';
+    const preselectedType = (cart && cart.filter(el => el.postId === post.postId)?.[0]?.priceType) || (isMerch ? 'max' : 'min');
     const [priceType, setPriceType] = useState(preselectedType)
 
     const handler = useCallback(() => {
@@ -67,40 +68,58 @@ const Item = (props) => {
     };
 
     return (
-        <Wrapper>
+        <Wrapper $isMerch={isMerch && post.gallery?.length === 1}>
         <div>
             {isDesktop ? (
                 <div className="images-grid">
-                    <Slider {...settings(isDesktop)}
+                    {post.gallery?.length > 1 ? (
+                        <Slider {...settings(isDesktop)}
                         className="gallery"
                         asNavFor={nav2}
                         ref={(slider1) => setNav1(slider1)}>
                         {post.gallery.map((pic, index) => {
                             return pic.file.contentType.includes('video') ? (
-                                <video controls>
+                                <video controls key="video">
                                     <source type="video/mp4" src={'https:' + pic.file.url}/>
                                 </video>
                             ) : (
                                 <div key={pic.file.url} onClick={() =>clickHandler(index)}>
-                                <GatsbyImage className="slide-pic"
-                                image={pic.gatsbyImageData}
-                                alt={`${post.title} set image ${index + 1}`}
-                                backgroundColor="#adadad"/>
+                                    <GatsbyImage className="slide-pic"
+                                        image={pic.gatsbyImageData}
+                                        alt={`${post.title} set image ${index + 1}`}
+                                        backgroundColor="#adadad"/>
                                 </div>
                             )
                         })}
                     </Slider>
-                    <Slider {...thumbSliderSettings}
+                    ) : post.gallery?.length === 1 ? (
+                        post.gallery[0].file.contentType.includes('video') ? (
+                            <video controls>
+                                    <source type="video/mp4" src={'https:' + post.gallery[0].file.url}/>
+                                </video>
+                        ) : (
+                            <GatsbyImage className="slide-pic"
+                                image={post.gallery[0].gatsbyImageData}
+                                alt={`${post.title} set image`}
+                                backgroundColor="#adadad"/>
+                        )
+                    ) : (
+                    <GatsbyImage className="slide-pic"
+                                image={post.preview.gatsbyImageData}
+                                alt={`thumbnail for ${post.title} set`}
+                            backgroundColor="#adadad"/>
+                                )}
+                    {post.gallery?.length > 1 && <Slider {...thumbSliderSettings}
                         className="nav"
                         asNavFor={nav1}
                         ref={(slider2) => setNav2(slider2)}>
                         {post.gallery.map((pic, index) => {
                             return pic.file.contentType.includes('video') ? (
-                                <div className="video-thumb">
+                                <div className="video-thumb" key="video">
                                     <GatsbyImage className="slide-pic"
-                                        key={post.gallery[index - 1].file.url}
-                                        image={post.gallery[index - 1].gatsbyImageData}
-                                        alt={`thumbnail for ${post.title} set image ${index + 1}`}
+                                        key="video-thumb"
+                                        image={post.preview.gatsbyImageData}
+                                        alt={`thumbnail for ${post.title} set video`}
                                         backgroundColor="#adadad"/>
                                 </div>
                             ) : (
@@ -111,14 +130,14 @@ const Item = (props) => {
                                 backgroundColor="#adadad"/>
                             )
                         })}
-                    </Slider>
+                    </Slider>}
                 </div>
             ) : (
                 <div className="images-grid">
-                    <Slider {...settings(isDesktop)} slidesToShow={isMobile ? 1 : 3}>
+                    {post.gallery ? <Slider {...settings(isDesktop)} slidesToShow={isMobile ? 1 : 3}>
                         {post.gallery.map((pic, index) => {
                             return pic.file.contentType.includes('video') ? (
-                                <video controls>
+                                <video controls key="video">
                                     <source type="video/mp4" src={'https:' + pic.file.url}/>
                                 </video>
                             ) : (
@@ -131,7 +150,12 @@ const Item = (props) => {
                                 </div>
                             )
                         })}
-                    </Slider>
+                    </Slider> : (
+                        <GatsbyImage className="slide-pic"
+                                        image={post.preview.gatsbyImageData}
+                                        alt={post.title}
+                                        width={280} backgroundColor="#adadad"/>
+                    )}
                 </div>
             )}
             {showLightBox && (
@@ -151,20 +175,21 @@ const Item = (props) => {
             </div>
             <div className="column">
                 <h1>{post.title}</h1>
-                <p className="option-title">Choose a package</p>
+                {post.price && post.priceMax ? <p className="option-title">Choose a package</p> :
+                    <p className="option-title"></p>}
                 <div className="priceType">
-                    <div className="item">
+                    {(!isMerch || (isMerch && post.price && post.price !== post.priceMax)) && (<div className="item">
                         <button className="button" onClick={() => priceSelect('min')} disabled={priceType === 'min'}>
-                            {'Cosplay'}
+                            {isMerch ? (post.minPriceButtonText || '') : 'Cosplay'}
                         </button>
-                        <p className="details">Cosplay and sexy photos</p>
+                        {!isMerch && <p className="details">Cosplay and sexy photos</p>}
                         <p className="price">{currency + post.price}</p>
-                    </div>
+                    </div>)}
                     <div className="item">
                         <button className="button" onClick={() => priceSelect('max')} disabled={priceType === 'max'}>
-                            {'Topless'}
+                            {isMerch ? (post.maxPriceButtonText || 'one variant') : 'Topless'}
                         </button>
-                        <p className="details">Full set with topless photos</p>
+                        {!isMerch && <p className="details">Full set with topless photos</p>}
                         <p className="price">{currency + post.priceMax}</p>
                     </div>
                 </div>
@@ -172,7 +197,7 @@ const Item = (props) => {
                     {isInCart ? 'Edit' : 'Add to cart'}
                     {!isInCart && ' - ' + currency + (priceType === 'max' ? post.priceMax : post.price)}
                 </button>
-                <Link to="/shop" className="continue">Continue shopping</Link>
+                <Link to={isMerch ? '/merch' : '/shop'} className="continue">Continue shopping</Link>
             </div>
         </Wrapper>
     )

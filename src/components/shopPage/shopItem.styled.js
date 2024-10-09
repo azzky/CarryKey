@@ -24,7 +24,7 @@ const Item = styled.li`
             aspect-ratio: 1 / 1;
         }
 
-        &:not(.square) img {
+        &:not(.square):not(.merch) img {
             @media (min-width: 754px) {
                 aspect-ratio: 6 / 9;
             }

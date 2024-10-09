@@ -88,25 +88,26 @@ const Item = styled.li`
         }
 
         .title {
-            width: 100px;
+            min-width: 100px;
+            width: auto;
             height: 33px;
             background: var(--color-secondary);
             color: var(--color-cta);
             font-size: 14px;
             font-family: CG, sans-serif;
-            padding-left: 14px;
+            padding: 0 14px;
             letter-spacing: 0;
             line-height: 33px;
 
             @media (min-width: 600px) {
-                width: 140px;
+                min-width: 140px;
                 height: 36px;
                 line-height: 36px;
             }
 
             @media (min-width: 1280px) {
                 font-size: 16px;
-                width: 161px;
+                min-width: 161px;
                 height: 42px;
                 line-height: 42px;
             }
