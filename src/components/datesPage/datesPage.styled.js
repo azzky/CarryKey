@@ -262,6 +262,10 @@ const Wrapper = styled.main`
                 padding: 0;
                 margin-top: 22px;
             }
+
+            p {
+                margin-bottom: 10px;
+            }
         }
 
         .button {

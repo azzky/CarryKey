@@ -52,6 +52,23 @@ const SliderWrapper =styled.div`
 
     & .slide-inner {
         position: relative;
+
+        .desktop {
+            display: none;
+
+            img {
+                object-position: top;
+            }
+        }
+
+        @media (min-width: 754px) {
+            .desktop {
+                display: block;
+            }
+            .mobile {
+                display: none;
+            }
+        }
     }
 
     & .slide-content {

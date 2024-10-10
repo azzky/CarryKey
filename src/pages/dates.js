@@ -7,8 +7,13 @@ import SocialIcons from '../components/socials';
 import SvgSprite from '../components/svg-sprite';
 import Footer from "@components/footer";
 import { Wrapper } from '@components/datesPage/datesPage.styled';
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 
 import backDesk from '@images/back-dates.jpeg';
+
+const options = {
+    renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br />, text])
+}
 
 const DatesPage = () => {
     const {allContentfulDatesPage: {nodes}, allContentfulDatesTile: {nodes: tiles}} = useStaticQuery(graphql`
@@ -37,8 +42,8 @@ const DatesPage = () => {
                 popupImage {
                     gatsbyImageData(width: 450, quality: 85)
                 }
-                description {
-                    description
+                richDescription {
+                    raw
                 }
             }
         }
@@ -46,6 +51,7 @@ const DatesPage = () => {
     `)
 
     const data = nodes[0]
+
     const [selected, setSelected] = useState(null)
     return (
         <>
@@ -90,7 +96,7 @@ const DatesPage = () => {
                         <h2>{selected.title}</h2>
                         <GatsbyImage image={selected.popupImage.gatsbyImageData || selected.image.gatsbyImageData} alt=""/>
                         <div className="description">
-                            <p>{selected.description?.description || ''}</p>
+                            {selected.richDescription && <p>{renderRichText(selected.richDescription, options)}</p>}
                         </div>
                         <a className="button" href={selected.link} rel="me noreferrer" target="_blank">Visit</a>
                     </div>
