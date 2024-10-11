@@ -25,6 +25,8 @@ const MainMenu = [
     }
 ];
 
+const twitterLink = 'https://twitter.com/CarryKey_'
+
 const ContactLinks = [
     {
         title: 'Instagram',
@@ -32,7 +34,7 @@ const ContactLinks = [
     },
     {
         title: 'Twitter',
-        link: 'https://twitter.com/CarryKey_'
+        link: twitterLink
     },
     {
         title: 'Tiktok',
@@ -50,4 +52,4 @@ const currency = '$'
 
 const shippingValue = 20.00
 
-export {MainMenu, ContactLinks, subscriptionUrl, currency, shippingValue}
+export {MainMenu, ContactLinks, subscriptionUrl, currency, shippingValue, twitterLink}

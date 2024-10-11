@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import { twitterLink } from "@constants";
+
 const Meta = ({
     title,
     url,
@@ -53,12 +55,20 @@ const Meta = ({
             }
         ]
     };
+    const author = {
+        "@type": "Person",
+        "name": "Katsiaryna Ladzianava",
+        "alternateName": "Carrykey",
+        "jobTitle": "Cosplayer",
+        "url": twitterLink
+    }
     const schemaPage = {
         '@type': 'WebPage',
         'name': title,
         // 'description': '',
         'image': process.env.GATSBY_SITE_URL + thumbnail,
-        'inLanguage': 'en-US'
+        'inLanguage': 'en-US',
+        'author': author
     }
     const schemaPostPage = isPost ? {
         '@type': 'WebPage',
@@ -69,6 +79,7 @@ const Meta = ({
         'inLanguage': 'en-US',
         // 'image': schemaArticleImages,
         // 'datePublished': data.createdAt,
+        'author': author
     } : null;
     const schemaProduct = isPost ? {
         '@type': 'Product',
@@ -110,7 +121,7 @@ const Meta = ({
     } else {
         schemaItems.push(schemaPage)
     }
-    // console.log(schemaSkeleton);
+    console.log(schemaSkeleton);
     
     return <>
         {title && <>
