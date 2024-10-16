@@ -191,9 +191,9 @@ module.exports = {
                         return { ...page, priority, changefreq, lastmod };
                     });
                 },
-                serialize: ({ path, priority, changefreq,lastmod }) => {
+                serialize: ({ path, priority, changefreq,lastmod }) => {                    
                     return {
-                        url: path === '/' ? '' : path,
+                        url: path,
                         priority: priority,
                         changefreq: changefreq,
                         lastmod: lastmod

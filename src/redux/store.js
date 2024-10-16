@@ -1,8 +1,11 @@
 import { createStore } from 'redux';
 import Reducer from './reducer';
 let arr = []
+let value = null
 try {
-    const value = window ? window.localStorage.getItem('cart') : {}
+    if (typeof window !== 'undefined' && localStorage !== 'undefined') {
+        value = window?.localStorage?.getItem('cart');
+    }
     // Check if the local storage already has any values,
     // otherwise initialize it with the passed initialValue
     if (value) arr = JSON.parse(value)
