@@ -186,9 +186,6 @@ module.exports = {
                             page.path === '/shop/set/' + apiPage.url
                         );
                         const priority = page.path === "/" ? 1.0 : 0.7;
-                        if (page.path === '/') {
-                            page.path = ''
-                        }
                         const changefreq = page.path === "/" ? 'daily' : 'weekly';
                         const lastmod = matchingApiPage ? matchingApiPage.updatedAt : new Date().toISOString();
                         return { ...page, priority, changefreq, lastmod };
@@ -196,7 +193,7 @@ module.exports = {
                 },
                 serialize: ({ path, priority, changefreq,lastmod }) => {
                     return {
-                        url: path,
+                        url: path === '/' ? '' : path,
                         priority: priority,
                         changefreq: changefreq,
                         lastmod: lastmod
