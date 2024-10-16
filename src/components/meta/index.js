@@ -112,7 +112,7 @@ const Meta = ({
 
         return null; // Return null if no value is found
     }
-    if (description) schemaProduct.review = extractValue(JSON.parse(description));
+    // if (description) schemaProduct.review = extractValue(JSON.parse(description));
     
     if (!isHome) schemaItems.push(schemaBreadcrumb);
     if (isPost) {
@@ -121,7 +121,7 @@ const Meta = ({
     } else {
         schemaItems.push(schemaPage)
     }
-    // console.log(schemaSkeleton);
+    console.log(schemaSkeleton);
     
     return <>
         {title && <>
