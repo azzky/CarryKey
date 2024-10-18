@@ -159,12 +159,12 @@ const Meta = ({
         {thumbnail && <>
             <meta name="og:image"
                 property="og:image"
-                content={isPost ? thumbnail+'?w=400' : process.env.GATSBY_SITE_URL + '/' + thumbnail+'?w=400'}/>
+                content={isPost ? thumbnail+'?w=400' : process.env.GATSBY_SITE_URL + thumbnail}/>
             <meta name="twitter:image"
-                property="twitter:image"content={isPost ? thumbnail+'?w=400' : process.env.GATSBY_SITE_URL + '/' + thumbnail+'?w=400'}/>
+                property="twitter:image"content={isPost ? thumbnail+'?w=400' : process.env.GATSBY_SITE_URL + thumbnail}/>
             <meta name="vk:image"
                 property="vk:image"
-                content={isPost ? thumbnail+'?w=400' : process.env.GATSBY_SITE_URL + thumbnail+'?w=400'}/>
+                content={isPost ? thumbnail+'?w=400' : process.env.GATSBY_SITE_URL + thumbnail}/>
         </>}
         {/* <meta name="fb:app_id"
                 property="fb:app_id"
