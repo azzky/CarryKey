@@ -126,7 +126,9 @@ const Content = ({posts}) => {
                 </p>}
                 <p>
                     Together
-                    <span>{currency + (totalValue + shippingValue)}</span>
+                    <span>{currency + (
+                        haveMerch ? totalValue + shippingValue : totalValue
+                    )}</span>
                 </p>
                 <form onSubmit={handleSubmit(proceedToPayment)}>
                     {haveMerch && <>
