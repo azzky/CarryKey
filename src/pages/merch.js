@@ -14,7 +14,7 @@ const Merch = () => {
             h1={'Merch'}
             heroImageDesktop={backDesk}>
             {items?.length > 0 && <Grid items={items}
-                showFilters={false}
+                showFilters={true}
                 isMerch/>}
         </Layout>
     )
