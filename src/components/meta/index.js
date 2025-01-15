@@ -121,7 +121,6 @@ const Meta = ({
     } else {
         schemaItems.push(schemaPage)
     }
-    console.log(schemaSkeleton);
     
     return <>
         {title && <>

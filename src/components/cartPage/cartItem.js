@@ -7,7 +7,8 @@ import Item from "./cartItem.styled";
 
 const CartItem = ({item, removeItem}) => {
     const {title, priceType, price, priceMax, preview, url, isMerch, minPriceButtonText, maxPriceButtonText} = item;
-    const image = getImage(preview);    
+    const image = getImage(preview);
+    const showEdit = !isMerch && priceMax !== null;      
 
     return (
         <Item>
@@ -29,12 +30,12 @@ const CartItem = ({item, removeItem}) => {
                     </div>
                 </div>
                 <div className="actions">
-                    <Link to={isMerch ? '/merch/'+url : '/shop/set/'+url}>
+                    {showEdit && <Link to={isMerch ? '/merch/'+url : '/shop/set/'+url}>
                         <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <use href="#edit"/>
                         </svg>
                         <span>Edit...</span>
-                    </Link>
+                    </Link>}
                     <button onClick={() =>removeItem(item)}>
                         <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <use href="#bin"/>

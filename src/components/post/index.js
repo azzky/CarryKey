@@ -185,13 +185,13 @@ const Item = (props) => {
                         {!isMerch && <p className="details">Cosplay and sexy photos</p>}
                         <p className="price">{currency + post.price}</p>
                     </div>)}
-                    <div className="item">
+                    {post.priceMax && <div className="item">
                         <button className="button" onClick={() => priceSelect('max')} disabled={priceType === 'max'}>
                             {isMerch ? (post.maxPriceButtonText || 'one variant') : 'Topless'}
                         </button>
                         {!isMerch && <p className="details">Full set with topless photos</p>}
                         <p className="price">{currency + post.priceMax}</p>
-                    </div>
+                    </div>}
                 </div>
                 <button className="button add" onClick={isInCart ? () => editItem(priceType, post.postId) : handler}>
                     {isInCart ? 'Edit' : 'Add to cart'}
