@@ -41,6 +41,8 @@ exports.createPages = async ({ graphql, actions }) => {
                                 url
                             }
                         }
+                        price
+                        priceMax
                     }
                 }
             }
@@ -89,8 +91,12 @@ exports.createPages = async ({ graphql, actions }) => {
             component: path.resolve(`./src/templates/merch.js`),
             context: {
                 slug: post.node.postId,
+                url: post.node.url,
                 image: post.node.preview.file.url,
-                title: post.node.title
+                title: post.node.title,
+                priceMin: post.node.price,
+                priceMax: post.node.priceMax,
+                description: post.node.description
             }
         })
     })

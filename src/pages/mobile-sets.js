@@ -16,9 +16,9 @@ const options = {
 }
 
 const DatesPage = () => {
-    const {allContentfulDatesPage: {nodes}, allContentfulDatesTile: {nodes: tiles}} = useStaticQuery(graphql`
+    const {allContentfulMobileSetsPage: {nodes}, allContentfulMobileSetTile: {nodes: tiles}} = useStaticQuery(graphql`
     query {
-        allContentfulDatesPage{
+        allContentfulMobileSetsPage{
             nodes {
                 title
                 avatar {
@@ -32,7 +32,7 @@ const DatesPage = () => {
                 }
             }
         }
-        allContentfulDatesTile {
+        allContentfulMobileSetTile {
             nodes {
                 title
                 link
@@ -114,8 +114,8 @@ export default DatesPage
 export const Head = () => {
     return (
         <>
-        <Meta title="CarryKey Dates"
-            url="dates"
+        <Meta title="CarryKey Mobile Sets"
+            url="mobile-sets"
             thumbnail={backDesk}
             />
         <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>

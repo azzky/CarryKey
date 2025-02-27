@@ -12,6 +12,8 @@ const Meta = ({
     isHome,
     isPost
 }) => {
+    console.log(priceMax, priceMin);
+    
     // console.log(url);
     
     const schemaSkeleton = {
@@ -92,8 +94,8 @@ const Meta = ({
             "@type": "AggregateOffer",
             "priceCurrency": "USD",
             "offerCount": 1,
-            "highPrice": priceMax,
-            "lowPrice": priceMin
+            "highPrice": priceMax || priceMin,
+            "lowPrice": priceMin || priceMax
         }
     } : null;
     function extractValue(obj) {
@@ -121,6 +123,9 @@ const Meta = ({
     } else {
         schemaItems.push(schemaPage)
     }
+
+    console.log(schemaSkeleton);
+    
     
     return <>
         {title && <>
