@@ -318,6 +318,7 @@ const Wrapper = styled.main`
 
             @media (min-width: 1024px) {
                 display: grid;
+                max-height: 100vh;
                 grid-template-areas:
                     'header header'
                     'image heading'
@@ -327,7 +328,7 @@ const Wrapper = styled.main`
                 padding: 0 45px 55px;
                 gap: 20px 40px;
                 max-width: 960px;
-                grid-template-columns: 1fr 340px;
+                grid-template-columns: unset;
             }
         }
 
