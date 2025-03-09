@@ -3,7 +3,7 @@ import React from "react"
 import { MainMenu,
 // subscriptionUrl
 } from '@constants';
-import { Link } from "gatsby";
+import Link from "@components/intl/link";
 import useWidth from "@hooks/useWindowSize";
 import SocialIcons from "@components/socials";
 import BottomNavigation from "./bottomNavigation";
@@ -12,7 +12,7 @@ import { FooterRoot, Socials, Bottom, UpperSection, BottomSection } from "./foot
 
 // const SimpleForm = () => <MailchimpSubscribe url={subscriptionUrl}/>
 
-const Footer = () => {
+const Footer = ({lang}) => {
     const {isDesktop, isMobile} = useWidth();
     const time = new Date();
     const year = time.getFullYear() === 2024 ? '2024' : `2024 - ${time.getFullYear()}`;
@@ -21,11 +21,12 @@ const Footer = () => {
         <FooterRoot>
             <UpperSection>
                 <div>
-                    <Link to="/">
+                    <Link to="/" lang={lang}>
                         <img quality={100} alt="" src="/logo2.png" className="logo" width={isDesktop ? 145 : 81} height={isDesktop ? 63 : 35}/>
                     </Link>
                     {!isMobile && <p className="hiddenDescription">{'Contact me if you have any questions and I will answer them as soon as possible!'}</p>}
                     <Link to={'/contact'}
+                        lang={lang}
                         className="contact-link">{'Contact page'}</Link>
                 </div>
                 {/* <MailchimpSubscribe
@@ -41,7 +42,7 @@ const Footer = () => {
                 /> */}
             </UpperSection>
             <BottomSection>
-                <BottomNavigation isDesktop={!isMobile} title="Company" links={MainMenu}/>
+                <BottomNavigation isDesktop={!isMobile} title="Company" links={MainMenu} lang={lang}/>
             </BottomSection>
             <Bottom>
                 <p className="copyright">

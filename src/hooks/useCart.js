@@ -6,7 +6,7 @@ import { currency, shippingValue } from '@constants';
 // import { useForm as useFormSpreeForm } from '@formspree/react';
 
 const useCart = ({
-    posts
+    posts, lang
 }) => {
     const {cart, removeItem} = useBasket()
     let recommendArr = posts
@@ -111,7 +111,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
     const paypalItems = haveMerch ? [
         ...cart.map((product, i) => {
         return {
-            name: product.title,
+            name: product.title + ' (' + lang + ')',
             description: product.isMerch ? 'merch' : product.priceType === 'min' ? 'cosplay' : 'topless',
             sku: product.postId,
             url: product.isMerch ? 
@@ -139,7 +139,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
         }
     ] : cart.map((product, i) => {
         return {
-            name: product.title,
+            name: product.title + ' (' + lang + ')',
             description: product.priceType === 'min' ? 'cosplay' : 'topless',
             sku: product.postId,
             url: process.env.GATSBY_SITE_URL + '/shop/post/' + product.postId,
@@ -171,7 +171,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
                 },
             ],
         });
-    };
+    };    
     
     return {
         cart,

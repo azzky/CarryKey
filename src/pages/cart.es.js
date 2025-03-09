@@ -26,7 +26,7 @@ export const Head = () => {
     return (
         <>
             <Meta title="Cart"
-                url="/cart"
+                url="/es/cart"
             />
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
             <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>

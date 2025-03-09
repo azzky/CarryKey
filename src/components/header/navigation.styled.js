@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Link } from "gatsby";
+import Link from "@components/intl/link";
 
 const MobileTrigger = styled.button`
     width: 13px;

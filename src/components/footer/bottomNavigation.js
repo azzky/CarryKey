@@ -1,10 +1,11 @@
 import React from "react"
-import { Link } from "gatsby";
+import { FormattedMessage } from "react-intl";
+import Link from "@components/intl/link";
 // import { useState, useCallback } from "react";
 // import Nav from "./bottomNavigation.styled";
 
 const BottomNavigation = (props) => {
-    const {links} = props;
+    const {links, lang} = props;
     // const [isOpen, setIsOpen] = useState(false);
     // const clickHandler = useCallback(() => {
     //     setIsOpen(prev=>!prev)
@@ -21,7 +22,9 @@ const BottomNavigation = (props) => {
             <ul>
                 {links.map(item => (
                     <li key={item.link}>
-                        <Link to={item.link}>{item.title}</Link>
+                        <Link to={item.link} lang={lang}>
+                            <FormattedMessage id={item.title} />
+                        </Link>
                     </li>
                 ))}
             </ul>

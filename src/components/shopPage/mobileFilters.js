@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import Select from 'react-select'
+import { FormattedMessage } from "react-intl";
 
 import { MobileFiltersWrapper, MobileFiltersContent } from "./shop.styled";
 
@@ -25,9 +26,13 @@ export const MobileFilters = (props) => {
     return (
         <>
         <MobileFiltersWrapper>
-            <p className="results">{count + ' results'}</p>
+            <p className="results">
+                {count}
+                <FormattedMessage id="shop.results"/></p>
             <div className="sorting">
-                <p>Sort by:</p>
+                <p>
+                    <FormattedMessage id="shop.sort"/>
+                </p>
                 <Select options={sortList} unstyled isSearchable={false}
                     defaultValue={sortList[0]}
                     onChange={setSortingValue}
@@ -36,7 +41,7 @@ export const MobileFilters = (props) => {
             </div>
             <button className="filters"
                 onClick={() => setIsFilterOpen(prev=>!prev)}>
-                <p>Filters</p>
+                <p><FormattedMessage id="shop.filters"/></p>
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <use href="#filter"/>
                 </svg>
@@ -45,8 +50,8 @@ export const MobileFilters = (props) => {
         <MobileFiltersContent $isOpen={isFilterOpen}>
             <div className="content">
                 {filterCategories?.length > 0 ? (<div className="applied">
-                    <p className="applied-title">Applied filters</p>
-                    <button className="reset" onClick={resetFilters}>Clear all</button>
+                    <p className="applied-title"><FormattedMessage id="shop.activeFilters"/></p>
+                    <button className="reset" onClick={resetFilters}><FormattedMessage id="global.clear"/></button>
                     <div className="items">{filterCategories.map(el=>(
                         <button className="item"key={el}
                             onClick={()=>removeFilter(el)}>
@@ -58,7 +63,7 @@ export const MobileFilters = (props) => {
                     ))}</div>
                 </div>) : null}
                 <p className="filter-name">
-                    <span>Category</span>
+                    <span><FormattedMessage id="filter.category"/></span>
                     <svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg"> 
                         <use href="#arrowDownMobile"/>
                     </svg>
@@ -76,7 +81,9 @@ export const MobileFilters = (props) => {
                 </div>
             </div>
             <div className="bottom">
-                <button onClick={() => setIsFilterOpen(false)} className="button">Close</button>
+                <button onClick={() => setIsFilterOpen(false)} className="button">
+                    <FormattedMessage id="global.close"/>
+                </button>
             </div>
         </MobileFiltersContent>
         </>

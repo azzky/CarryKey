@@ -1,36 +1,33 @@
 import React from 'react';
 import Layout from '@components/layout'
-import GalleryItems from '@hooks/useGalleryItems'
-import GalleryGrid from '@components/galleryPage/grid';
+import AboutBlock from '@components/homepage/about'
 import Meta from "@components/meta"
 
-import backDesk from '@images/back-gallery.jpg';
+import backDesk from '@images/back-contact.jpg';
 
-const Gallery = ({
+const About = ({
     pageContext: {
         langKey: lang
     }
 }) => {
-    const images = GalleryItems()
-
     return (
         <Layout hasNavigation isHero
-            heroImageDesktop={backDesk}
+            h1={'About'}
             lang={lang}
-            h1={'Gallery'}>
-            {images.length > 0 && <GalleryGrid images={images} />}
+            heroImageDesktop={backDesk}>
+            <AboutBlock lang={lang}/>
         </Layout>
     )
 }
 
-export default Gallery;
+export default About;
 
 export const Head = () => {
     return (
         <>
-        <Meta title="Gallery"
+        <Meta title="About"
+            url="/es/about"
             thumbnail={backDesk}
-            url="/gallery"
         />
         <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>
         </>

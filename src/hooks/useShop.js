@@ -1,13 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-
-const sortList = [
-    { value: 'default', label: 'New sets' },
-    { value: 'bestsellers', label: 'Bestsellers' },
-    { value: 'priceAsc', label: 'Price: Low to High' },
-    { value: 'priceDesc', label: 'Price: High to Low' },
-    { value: 'alphaAsc', label: 'Name: A - Z'},
-    { value: 'alphaDesc', label: 'Name: Z- A'}
-];
+import { useIntl } from 'react-intl';
 
 const getTagsAndCategories = array => {
     let tags = [];
@@ -35,6 +27,15 @@ const getTagsAndCategories = array => {
 }
 
 const useShop = (items, width, isTablet, banner, path) => {
+    const intl = useIntl()
+    const sortList = [
+        { value: 'default', label: intl.formatMessage({id: 'sort.new'}) },
+        { value: 'bestsellers', label: intl.formatMessage({id: 'sort.bestsellers'}) },
+        { value: 'priceAsc', label: intl.formatMessage({id: 'sort.priceUp'}) },
+        { value: 'priceDesc', label: intl.formatMessage({id: 'sort.priceDown'}) },
+        { value: 'alphaAsc', label: intl.formatMessage({id: 'sort.nameUp'}) },
+        { value: 'alphaDesc', label: intl.formatMessage({id: 'sort.nameDown'}) }
+    ];
     let finalItems = items;
     const isGallery = path === 'gallery'
     const hasBanner = banner?.type || false;

@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import { FormattedMessage } from "react-intl";
 
 export const Filters = ({categories, categoryNames, setFilterCategories, filterCategories, resetFilters, removeFilter}) => {
     const handleClick = useCallback((value, isSelected) => {
@@ -18,10 +19,12 @@ export const Filters = ({categories, categoryNames, setFilterCategories, filterC
     }, [setFilterCategories])
     return (
         <div className="filters">
-            <h3>filters</h3>
+            <h3>
+                <FormattedMessage id="shop.filters"/>
+            </h3>
             {filterCategories?.length > 0 ? (<div className="applied">
-                <p className="applied-title">Applied filters</p>
-                <button className="reset" onClick={resetFilters}>Clear all</button>
+                <p className="applied-title"><FormattedMessage id="shop.activeFilters"/></p>
+                <button className="reset" onClick={resetFilters}><FormattedMessage id="global.clear"/></button>
                 <div className="items">{filterCategories.map(el=>(
                     <button className="item"key={el}
                         onClick={()=>removeFilter(el)}>
@@ -32,7 +35,7 @@ export const Filters = ({categories, categoryNames, setFilterCategories, filterC
                     </button>
                 ))}</div>
             </div>) : null}
-            <p className="filter-name">Category</p>
+            <p className="filter-name"><FormattedMessage id="filter.category"/></p>
             <div className="filter-items">
                 {categoryNames.map(category=>(
                     <button className="filter-item" key={category}

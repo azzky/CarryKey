@@ -2,13 +2,16 @@ import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 import { FormWrapper } from './form.styled';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 const ContactForm = () => {
+    const intl = useIntl()
     const [state, handleSubmit] = useForm(process.env.GATSBY_CONTACTFORM_FORMSPREE_KEY);
 
     return state.succeeded ? (
         <div>
-            <p>Your message is successfully submited!</p>
+            <p>
+                <FormattedMessage id=""/>Your message is successfully submited!</p>
             <p>We'll contact you soon</p>
         </div>
     ) : (
@@ -17,12 +20,12 @@ const ContactForm = () => {
             >
             <label className="visually-hidden"
                 htmlFor="name">
-                name
+                <FormattedMessage id="global.formName"/>
             </label>
             <input type="text"
                 name="name"
                 id="name"
-                placeholder="name"
+                placeholder={intl.formatMessage({id: 'global.formName'})}
                 required
                 aria-required="true"/>
             <ValidationError 
@@ -32,12 +35,12 @@ const ContactForm = () => {
             />
             <label className="visually-hidden"
                 htmlFor="email">
-                email
+                <FormattedMessage id="cart.email"/>
             </label>
             <input type="email"
                 name="email"
                 id="email"
-                placeholder="email"
+                placeholder={intl.formatMessage({id: 'cart.email'})}
                 required
                 aria-required="true"/>
             <ValidationError 
@@ -47,12 +50,12 @@ const ContactForm = () => {
             />
             <label className="visually-hidden"
                 htmlFor="title">
-                title
+                <FormattedMessage id="global.title"/>
             </label>
             <input type="text"
                 name="title"
                 id="title"
-                placeholder="title"
+                placeholder={intl.formatMessage({id: 'global.title'})}
                 required
                 aria-required="true"/>
             <ValidationError 
@@ -62,12 +65,12 @@ const ContactForm = () => {
             />
             <label className="visually-hidden"
                 htmlFor="message">
-                message
+                <FormattedMessage id="global.message"/>
             </label>
             <textarea name="message"
                 id="message"
                 rows="10"
-                placeholder="message"
+                placeholder={intl.formatMessage({id: 'global.message'})}
                 required
                 aria-required="true"/>
             <ValidationError 
@@ -78,7 +81,7 @@ const ContactForm = () => {
             <button type="submit"
                 disabled={state.submitting}
             >
-                Send
+                <FormattedMessage id="global.send"/>
             </button>
         </FormWrapper>
     )

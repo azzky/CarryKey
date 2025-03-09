@@ -1,18 +1,18 @@
 const MainMenu = [
     {
-        title: 'About',
+        title: 'menu.about',
         link: '/about'
     },
     {
-        title: 'Shop',
+        title: 'menu.shop',
         link: '/shop'
     },
     {
-        title: 'Gallery',
+        title: 'menu.gallery',
         link: '/gallery'
     },
     {
-        title: 'Merch',
+        title: 'menu.merch',
         link: '/merch'
     },
     // {
@@ -20,7 +20,7 @@ const MainMenu = [
     //     link: '/feedback'
     // },
     {
-        title: 'Contact us',
+        title: 'menu.contact',
         link: '/contact'
     }
 ];

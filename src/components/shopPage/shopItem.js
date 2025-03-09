@@ -3,8 +3,9 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { Item } from "./shopItem.styled";
 import { currency } from "@constants";
-import { Link } from 'gatsby';
-const ShopItem = ({post, isMerch}) => {
+import Link from "@components/intl/link";
+import { FormattedMessage } from 'react-intl';
+const ShopItem = ({post, isMerch, lang}) => {
     const {
         title,
         isBestseller,
@@ -18,7 +19,8 @@ const ShopItem = ({post, isMerch}) => {
     return (
         <Item>
             <Link to={isMerch ? '/merch/'+url : '/shop/set/'+url}
-                aria-label={'link to post '+title}>
+                aria-label={'link to post '+title}
+                lang={lang}>
                 <span className="visually-hidden">{'link to post '+title}</span>
             </Link>
             <div className={isMerch ? 'merch' : isHorizontal ? 'imageWrapper square' : 'imageWrapper'}>
@@ -27,7 +29,9 @@ const ShopItem = ({post, isMerch}) => {
             </div>
             <p className="title">{title}</p>
             <div className="details">
-                {isBestseller && <p className="bestseller">Best seller</p>}
+                {isBestseller && <p className="bestseller">
+                    <FormattedMessage id="shop.bestseller"/>
+                </p>}
                 {price && price !== priceMax && <p className="price">{currency+price?.toFixed(0) || '0'}</p>}
                 {priceMax && <p className="price">{currency+priceMax?.toFixed(0) || '0'}</p>}
                 <svg width="31" height="26" viewBox="0 0 31 26" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,23 +1,26 @@
 import React from "react"
-import { Link } from "gatsby";
+import Link from "@components/intl/link";
 import PostCarousel from "@components/postCarousel";
+import { FormattedMessage } from "react-intl"
 
 import Wrapper from './shopSlider.styled'
 
-const ShopSlider = ({posts})=> {
+const ShopSlider = ({posts, lang})=> {
     return (
         <Wrapper>
             <div className="heading">
-                <h2>Shop</h2>
-                <Link to="/shop">
+                <h2>
+                    <FormattedMessage id="menu.shop"/>
+                </h2>
+                <Link to="/shop" lang={lang}>
                     <p>Explore collection</p>
                     <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <use href="#arrowDiagonal"/>
                     </svg>
                 </Link>
             </div>
-            <PostCarousel className="row1" posts={posts} />
-            <PostCarousel className="row2" posts={posts} isReverse />
+            <PostCarousel className="row1" posts={posts} lang={lang} />
+            <PostCarousel className="row2" posts={posts} isReverse lang={lang} />
         </Wrapper>
     )
 }

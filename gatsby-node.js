@@ -62,7 +62,50 @@ exports.createPages = async ({ graphql, actions }) => {
                 title: post.node.title,
                 priceMin: post.node.price,
                 priceMax: post.node.priceMax,
-                description: post.node.description
+                description: post.node.description,
+                langKey: 'en'
+            }
+        })
+        createPage({
+            path: '/de/shop/set/' + post.node.url,
+            component: path.resolve(`./src/templates/post.js`),
+            context: {
+                slug: post.node.postId,
+                url: post.node.url,
+                image: post.node.preview.file.url,
+                title: post.node.title,
+                priceMin: post.node.price,
+                priceMax: post.node.priceMax,
+                description: post.node.description,
+                langKey: 'de'
+            }
+        })
+        createPage({
+            path: '/es/shop/set/' + post.node.url,
+            component: path.resolve(`./src/templates/post.js`),
+            context: {
+                slug: post.node.postId,
+                url: post.node.url,
+                image: post.node.preview.file.url,
+                title: post.node.title,
+                priceMin: post.node.price,
+                priceMax: post.node.priceMax,
+                description: post.node.description,
+                langKey: 'es'
+            }
+        })
+        createPage({
+            path: '/fr/shop/set/' + post.node.url,
+            component: path.resolve(`./src/templates/post.js`),
+            context: {
+                slug: post.node.postId,
+                url: post.node.url,
+                image: post.node.preview.file.url,
+                title: post.node.title,
+                priceMin: post.node.price,
+                priceMax: post.node.priceMax,
+                description: post.node.description,
+                langKey: 'fr'
             }
         })
         // post.node.tags && post.node.tags.map(tag => {

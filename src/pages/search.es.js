@@ -4,12 +4,11 @@ import ShopITems from '@hooks/useShopitems'
 import Grid from '@components/shopPage/grid';
 
 import backDesk from '@images/back-shop.jpg';
+import { FormattedMessage } from 'react-intl';
 
-const Search = ({location, 
-    pageContext: {
+const Search = ({location, pageContext: {
         langKey: lang
-    }
-}) => {
+    }}) => {
     const posts = ShopITems()
     const string = location.search.split('?search=')[1] || 'empty'
     const includesCase = function(str, arr){
@@ -34,7 +33,7 @@ const Search = ({location,
             h1={'Search results for: '+ string.replaceAll('_', ' ')}
             lang={lang}
             heroImageDesktop={backDesk}>
-            {arr?.length > 0 ? <Grid items={arr} lang={lang}/> : <h2>Nothing found</h2>}
+            {arr?.length > 0 ? <Grid items={arr} lang={lang}/> : <h2><FormattedMessage id="search.noResults"/></h2>}
         </Layout>
     )
 }

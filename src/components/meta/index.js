@@ -11,11 +11,7 @@ const Meta = ({
     priceMin,
     isHome,
     isPost
-}) => {
-    console.log(priceMax, priceMin);
-    
-    // console.log(url);
-    
+}) => {    
     const schemaSkeleton = {
         '@context': 'https://schema.org',
         '@graph': []
@@ -122,10 +118,7 @@ const Meta = ({
         schemaItems.push(schemaProduct)
     } else {
         schemaItems.push(schemaPage)
-    }
-
-    console.log(schemaSkeleton);
-    
+    }    
     
     return <>
         {title && <>

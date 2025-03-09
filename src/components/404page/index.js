@@ -1,6 +1,6 @@
 import * as React from "react"
 import Content from "./404.styled";
-import { Link } from "gatsby";
+import Link from "@components/intl/link";
 
 const randomGenerator = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min
