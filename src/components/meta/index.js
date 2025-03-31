@@ -11,11 +11,7 @@ const Meta = ({
     priceMin,
     isHome,
     isPost
-}) => {
-    console.log(priceMax, priceMin);
-    
-    // console.log(url);
-    
+}) => {    
     const schemaSkeleton = {
         '@context': 'https://schema.org',
         '@graph': []
@@ -114,18 +110,19 @@ const Meta = ({
 
         return null; // Return null if no value is found
     }
-    // if (description) schemaProduct.review = extractValue(JSON.parse(description));
+    let formattedDescription = null;
+    if (description) {
+        formattedDescription = extractValue(JSON.parse(description));
+        schemaProduct.review = formattedDescription;
+    }
     
     if (!isHome) schemaItems.push(schemaBreadcrumb);
     if (isPost) {
-        schemaItems.push(schemaPostPage)
-        schemaItems.push(schemaProduct)
+        schemaItems.push(schemaPostPage);
+        schemaItems.push(schemaProduct);
     } else {
-        schemaItems.push(schemaPage)
+        schemaItems.push(schemaPage);
     }
-
-    console.log(schemaSkeleton);
-    
     
     return <>
         {title && <>
@@ -152,13 +149,13 @@ const Meta = ({
         {description && <>
             <meta name="description"
                 property="description"
-                content={description} />
+                content={formattedDescription} />
             <meta name="og:description"
                 property="og:description"
-                content={description} />
+                content={formattedDescription} />
             <meta name="twitter:description"
                 property="twitter:description"
-                content={description}/>
+                content={formattedDescription} />
         </>}
         {thumbnail && <>
             <meta name="og:image"
