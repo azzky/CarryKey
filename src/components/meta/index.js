@@ -109,10 +109,14 @@ const Meta = ({
         }
 
         return null; // Return null if no value is found
-    }
+    }    
     let formattedDescription = null;
-    if (description) {
-        formattedDescription = extractValue(JSON.parse(description));
+    if (description && typeof description === 'object') {
+        formattedDescription = extractValue(JSON.parse(description.raw));
+        schemaProduct.review = formattedDescription;
+    }
+    if (description && typeof description === 'string') {
+        formattedDescription = description;
         schemaProduct.review = formattedDescription;
     }
     

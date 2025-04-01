@@ -23,6 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     description {
                         raw
                     }
+                    seoDescription
                 }
             }
         }
@@ -43,6 +44,10 @@ exports.createPages = async ({ graphql, actions }) => {
                         }
                         price
                         priceMax
+                        description {
+                            raw
+                        }
+                        seoDescription
                     }
                 }
             }
@@ -62,7 +67,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 title: post.node.title,
                 priceMin: post.node.price,
                 priceMax: post.node.priceMax,
-                description: post.node.description
+                description: post.node.seoDescription || post.node.description
             }
         })
         // post.node.tags && post.node.tags.map(tag => {
@@ -96,7 +101,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 title: post.node.title,
                 priceMin: post.node.price,
                 priceMax: post.node.priceMax,
-                description: post.node.description
+                description: post.node.seoDescription || post.node.description
             }
         })
     })
