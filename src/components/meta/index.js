@@ -109,16 +109,24 @@ const Meta = ({
         }
 
         return null; // Return null if no value is found
+    }    
+    let formattedDescription = null;
+    if (description && typeof description === 'object') {
+        formattedDescription = extractValue(JSON.parse(description.raw));
+        // schemaProduct.review = formattedDescription;
     }
-    // if (description) schemaProduct.review = extractValue(JSON.parse(description));
+    if (description && typeof description === 'string') {
+        formattedDescription = description;
+        // schemaProduct.review = formattedDescription;
+    }
     
     if (!isHome) schemaItems.push(schemaBreadcrumb);
     if (isPost) {
-        schemaItems.push(schemaPostPage)
-        schemaItems.push(schemaProduct)
+        schemaItems.push(schemaPostPage);
+        schemaItems.push(schemaProduct);
     } else {
         schemaItems.push(schemaPage)
-    }    
+    }
     
     return <>
         {title && <>
@@ -145,13 +153,13 @@ const Meta = ({
         {description && <>
             <meta name="description"
                 property="description"
-                content={description} />
+                content={formattedDescription} />
             <meta name="og:description"
                 property="og:description"
-                content={description} />
+                content={formattedDescription} />
             <meta name="twitter:description"
                 property="twitter:description"
-                content={description}/>
+                content={formattedDescription} />
         </>}
         {thumbnail && <>
             <meta name="og:image"
