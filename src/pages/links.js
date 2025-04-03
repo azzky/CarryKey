@@ -7,6 +7,7 @@ import SocialIcons from '../components/socials';
 import SvgSprite from '../components/svg-sprite';
 import Footer from "@components/footer";
 import { Wrapper } from '@components/linksPage/linksPage.styled';
+import Intl from "@components/intl";
 
 import backDesk from '@images/back-dates.jpeg';
 
@@ -46,7 +47,7 @@ const LinksPage = () => {
 
     const data = nodes[0]
     return (
-        <>
+        <Intl lang={'en'}>
             <Wrapper>
             <SvgSprite/>
                 <div className='content'>
@@ -85,7 +86,7 @@ const LinksPage = () => {
                     alt=""/>
             </Wrapper>
             <Footer lang="en"/>
-        </>
+        </Intl>
     )
 }
 
