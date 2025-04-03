@@ -104,7 +104,7 @@ const DatesPage = () => {
                 <GatsbyImage className='hero' image={data.background.gatsbyImageData}
                     alt=""/>
             </Wrapper>
-            <Footer/>
+            <Footer lang="en"/>
         </>
     )
 }
