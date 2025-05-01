@@ -101,10 +101,16 @@ const Navigation = styled.ul`
     }
 
     @media (min-width: 754px) {
+        margin-left: auto;
+
         a:hover,
         a.active {
             text-decoration: underline;
         }
+    }
+
+    @media (min-width: 1280px) {
+        margin-right: -4px;
     }
 
     & a {

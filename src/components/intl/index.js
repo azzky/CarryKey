@@ -5,7 +5,7 @@ import fr from '../../intl/fr.json'
 import de from '../../intl/de.json'
 import es from '../../intl/es.json'
 
-const messages = { en, fr, de, es }
+const messages = { en, de }
 
 const Intl = ({
     children,
