@@ -6,6 +6,7 @@ import useWidth from '@hooks/useWindowSize'
 
 import SliderWrapper from "./slider.styled";
 import Link from "@components/intl/link";
+import { FormattedMessage } from "react-intl";
 
 const HomeSlider = (props) => {
     const {slides, lang} = props
@@ -29,7 +30,9 @@ const HomeSlider = (props) => {
                 <div className="slide-inner" key={slide.title}>
                     <div className="slide-content">
                         {text}
-                        <Link className="button" lang={lang} to={'/shop/set/'+slide.post.url}>Purchase</Link>
+                        <Link className="button" lang={lang} to={'/shop/set/'+slide.post.url}>
+                            <FormattedMessage id="global.purchase"/>
+                        </Link>
                     </div>
                     <GatsbyImage image={getImage(slide.desktopImage)}
                         layout="fill"

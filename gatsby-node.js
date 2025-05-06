@@ -145,7 +145,22 @@ exports.createPages = async ({ graphql, actions }) => {
                 title: post.node.title,
                 priceMin: post.node.price,
                 priceMax: post.node.priceMax,
-                description: post.node.seoDescription || post.node.description
+                description: post.node.seoDescription || post.node.description,
+                langKey: 'en'
+            }
+        })
+        createPage({
+            path: '/de/merch/' + post.node.url,
+            component: path.resolve(`./src/templates/merch.js`),
+            context: {
+                slug: post.node.postId,
+                url: post.node.url,
+                image: post.node.preview.file.url,
+                title: post.node.title,
+                priceMin: post.node.price,
+                priceMax: post.node.priceMax,
+                description: post.node.seoDescriptionDe || post.node.descriptionDe || post.node.seoDescription || post.node.description,
+                langKey: 'de'
             }
         })
     })

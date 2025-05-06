@@ -4,6 +4,7 @@
     "menu.gallery": "Galerie",
     "menu.merch": "Fotobücher",
     "menu.contact": "Kontact",
+    "menu.home": "Homepage",
     "global.name": "CarryKey",
     "global.close": "Close",
     "global.requred": "This field is required",
@@ -17,6 +18,7 @@
     "global.message": "Message",
     "global.subscribe": "Subscribe",
     "global.sending": "Sending...",
+    "global.purchase": "Purchase",
     "set.choose": "Optionen",
     "set.cosplay": "Cosplay",
     "set.cosplayDescription": "Cosplay und sexy fotos",
@@ -69,6 +71,10 @@
     "about.description3": "Ich habe früher als Fotograf-/Grafikdesignerin gearbeitet bis ich mich entschied meiner großen Leidenschaft hauptberuflich nachzugehen und ein professionelles Cosplay-Model zu werden. Und hier bin ich – ich bastele, male, style Perücken, manchmal nähe ich auch, bearbeite Fotos, halte mich fit und feile an meinen schauspielerischen Fähigkeiten – wer hat gesagt, dass es einfach wird? 😄",
     "about.description4": "Ich freue mich meine Leidenschaft mit euch zu teilen und Charaktere in meiner persönlichen kreativen Vision zum Leben zu erwecken. Viel Spaß mit meiner Arbeit wünsche ich euch, bei Fragen kontaktiert mich jederzeit!",
     "about.description5": "Ich freu mich auf euch!",
-    "contact.success1": "",
-    "contact.success2": ""
+    "contact.success1": "Your message is successfully submited!",
+    "contact.success2": "We'll contact you soon",
+    "footer.contactLink": "Contact page",
+    "footer.description": "Contact me if you have any questions and I will answer them as soon as possible!",
+    "404.title": "Page not found :(",
+    "404.description": "You can visit"
 }

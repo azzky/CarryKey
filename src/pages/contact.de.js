@@ -16,7 +16,7 @@ const Contact = ({
 }) => {
     return (
         <Layout hasNavigation isHero isContact
-            h1={'Contact page'}
+            h1={'Kontact'}
             lang={lang}
             heroImageDesktop={backDesk}>
             <Content>
@@ -35,7 +35,7 @@ export default Contact;
 export const Head = () => {
     return (
         <>
-        <Meta title="Contact"
+        <Meta title="Kontact"
             url="/contact"
             thumbnail={backDesk}
         />

@@ -12,7 +12,7 @@ const About = ({
 }) => {
     return (
         <Layout hasNavigation isHero
-            h1={'About'}
+            h1={'Über Mich'}
             lang={lang}
             heroImageDesktop={backDesk}>
             <AboutBlock lang={lang}/>
@@ -25,7 +25,7 @@ export default About;
 export const Head = () => {
     return (
         <>
-        <Meta title="About"
+        <Meta title="Über Mich"
             url="/de/about"
             thumbnail={backDesk}
         />

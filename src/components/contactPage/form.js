@@ -11,8 +11,8 @@ const ContactForm = () => {
     return state.succeeded ? (
         <div>
             <p>
-                <FormattedMessage id=""/>Your message is successfully submited!</p>
-            <p>We'll contact you soon</p>
+                <FormattedMessage id="contact.success1"/></p>
+            <p><FormattedMessage id="contact.success2"/></p>
         </div>
     ) : (
         <FormWrapper

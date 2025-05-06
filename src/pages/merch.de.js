@@ -15,7 +15,7 @@ const Merch = ({
 
     return (
         <Layout hasNavigation isHero
-            h1={'Merch'}
+            h1={'Fotobücher'}
             lang={lang}
             heroImageDesktop={backDesk}>
             {items?.length > 0 && <Grid items={items}
@@ -32,7 +32,7 @@ export const Head = () => {
     return (
         <>
             <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>
-            <Meta title="Merch"
+            <Meta title="Fotobücher"
                 thumbnail={backDesk}/>
         </>
     )

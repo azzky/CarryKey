@@ -4,6 +4,7 @@
     "menu.gallery": "Gallery",
     "menu.merch": "Merch",
     "menu.contact": "Contact us",
+    "menu.home": "Homepage",
     "global.name": "CarryKey",
     "global.close": "Close",
     "global.requred": "This field is required",
@@ -17,6 +18,7 @@
     "global.message": "Message",
     "global.subscribe": "Subscribe",
     "global.sending": "Sending...",
+    "global.purchase": "Purchase",
     "set.choose": "Choose a package",
     "set.cosplay": "Cosplay",
     "set.cosplayDescription": "Cosplay and sexy photos",
@@ -69,6 +71,10 @@
     "about.description3": "I’ve been working as a photographer, photo editor and graphic designer until I decided to pursue my passion full-time and become a professional cosplay model. And here I am - crafting, painting, wigmaking, sometimes sewing, still photo editing, staying in shape and polishing my acting skills - who said it would be easy? 😄",
     "about.description4": "I’m happy to share my passion with you and make characters come alive with a touch of my personal creative vision. Please enjoy my work and contact me anytime if you have any questions!",
     "about.description5": "Yours faithfully,",
-    "contact.success1": "",
-    "contact.success2": ""
+    "contact.success1": "Your message is successfully submited!",
+    "contact.success2": "We'll contact you soon",
+    "footer.contactLink": "Contact page",
+    "footer.description": "Contact me if you have any questions and I will answer them as soon as possible!",
+    "404.title": "Page not found :(",
+    "404.description": "You can visit"
 }

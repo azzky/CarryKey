@@ -17,7 +17,7 @@ const Gallery = ({
         <Layout hasNavigation isHero
             heroImageDesktop={backDesk}
             lang={lang}
-            h1={'Gallery'}>
+            h1={'Galerie'}>
             {images.length > 0 && <GalleryGrid images={images} />}
         </Layout>
     )
@@ -28,7 +28,7 @@ export default Gallery;
 export const Head = () => {
     return (
         <>
-        <Meta title="Gallery"
+        <Meta title="Galerie"
             thumbnail={backDesk}
             url="/gallery"
         />
