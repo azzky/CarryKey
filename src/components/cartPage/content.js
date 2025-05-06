@@ -187,6 +187,7 @@ const Content = ({posts, lang}) => {
                         placeholder={intl.formatMessage({id: 'cart.emailPlaceholder'})}
                         name="email"
                         type="email"
+                        required
                         {...register('email', { required: true })}
                         />
                         {errors.email && <div><FormattedMessage id="global.requred"/></div>}
