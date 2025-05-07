@@ -177,6 +177,8 @@ const Wrapper = styled.div`
     & .add {
         min-width: 100%;
         background-color: var(--color-cta);
+        display: flex;
+        justify-content: center;
 
         &:hover {
             background: var(--color-cta-hover);

@@ -48,7 +48,16 @@ const ContactLinks = [
 
 const subscriptionUrl = ''
 
-const currency = '$'
+const currency = {
+    'en': {
+        symbol: '$',
+        code: 'USD'
+    },
+    'de': {
+        symbol: '€',
+        code: 'EUR'
+    }
+}
 
 const shippingValue = 20.00
 

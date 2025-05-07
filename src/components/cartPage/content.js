@@ -12,12 +12,6 @@ import { useForm } from "react-hook-form";
 import Wrapper, { Summary, Items, WhatsNextWrapper, Success, EmptyCart } from "./content.styled";
 import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 
-const options = {
-    currency: "USD",
-    clientId: process.env.GATSBY_CLIENT_ID,
-    intent: "capture"
-};
-
 const style = {
     layout: "vertical",
     shape: "pill",
@@ -129,7 +123,7 @@ const Content = ({posts, lang}) => {
                             {item.title}
                             <span>
                                 <FormattedNumber style="currency"
-                                    currency="USD"
+                                    currency={currency[lang].code}
                                     value={item.priceType === 'min' ? item.price : item.priceMax}/>
                             </span>
                         </p>
@@ -139,7 +133,7 @@ const Content = ({posts, lang}) => {
                     <FormattedMessage id="cart.shipping"/>
                     <span>
                         <FormattedNumber style="currency"
-                            currency="USD"
+                            currency={currency[lang].code}
                             value={shippingValue}/>
                     </span>
                 </p>}
@@ -147,7 +141,7 @@ const Content = ({posts, lang}) => {
                     <FormattedMessage id="cart.total"/>
                     <span>
                         <FormattedNumber style="currency"
-                            currency="USD"
+                            currency={currency[lang].code}
                             value={haveMerch ? totalValue + shippingValue : totalValue}/>
                     </span>
                 </p>
@@ -215,7 +209,11 @@ const Content = ({posts, lang}) => {
                             <FormattedMessage id="cart.order"/>
                         </button>}
                 </form>
-                {showPaypal && <PayPalScriptProvider options={options}>
+                {showPaypal && <PayPalScriptProvider options={{
+                    currency: currency[lang].code,
+                    clientId: process.env.GATSBY_CLIENT_ID,
+                    intent: "capture"
+                }}>
                     <PayPalButtons style={style}
                         createOrder={createOrder}
                         onApprove={onApprove}/>

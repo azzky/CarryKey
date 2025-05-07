@@ -22,7 +22,7 @@ Order info:
 product ${i + 1}:
 title: ${product.title};
 id: ${product.postId};
-set price: ${product.priceType} - ${product.priceType === 'min' ? product.price : product.priceMax}${currency};
+set price: ${product.priceType} - ${product.priceType === 'min' ? product.price : product.priceMax}${currency[lang].symbol};
 `;
         })}
     ` : '')
@@ -41,7 +41,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
         recommendArr = recommendArr.filter(post => post.postId !== item.postId)
         return null
     })
-    const [total, setTotal] = useState(totalValue > 0 ? (totalValue + currency) : '')
+    const [total, setTotal] = useState(totalValue > 0 ? (totalValue + currency[lang].symbol) : '')
     const entryFields = {
             email: {
                 'en-US': email.current,
@@ -121,7 +121,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
             category: 'DIGITAL_GOODS',
             unit_amount: {
                 value: product.priceType === 'min' ? product.price : product.priceMax,
-                currency_code: 'USD'
+                currency_code: currency[lang].code
             }
         }
     }),
@@ -134,7 +134,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
             category: 'DIGITAL_GOODS',
             unit_amount: {
                 value: shippingValue,
-                currency_code: 'USD'
+                currency_code: currency[lang].code
             }
         }
     ] : cart.map((product, i) => {
@@ -147,7 +147,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
             category: 'DIGITAL_GOODS',
             unit_amount: {
                 value: product.priceType === 'min' ? product.price : product.priceMax,
-                currency_code: 'USD'
+                currency_code: currency[lang].code
             }
         }
     });
@@ -164,7 +164,7 @@ set price: ${product.priceType} - ${product.priceType === 'min' ? product.price 
                         breakdown: {
                             item_total: {
                                 value: haveMerch ? totalValue + shippingValue : totalValue,
-                                currency_code: 'USD'
+                                currency_code: currency[lang].code
                             }
                         }
                     },

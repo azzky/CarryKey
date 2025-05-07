@@ -41,7 +41,7 @@ const DatesPage = () => {
                     gatsbyImageData(width: 480, quality: 85)
                 }
                 popupImage {
-                    gatsbyImageData(width: 450, quality: 85)
+                    gatsbyImageData(width: 900, quality: 90)
                 }
                 richDescription {
                     raw

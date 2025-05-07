@@ -188,7 +188,7 @@ const Item = (props) => {
                             </p>)}
                         <p className="price">
                             <FormattedNumber style="currency"
-                                currency="USD"
+                                currency={currency[lang].code}
                                 value={post.price}/>
                         </p>
                     </div>)}
@@ -204,14 +204,18 @@ const Item = (props) => {
                             </p>)}
                         <p className="price">
                             <FormattedNumber style="currency"
-                                currency="USD"
+                                currency={currency[lang].code}
                                 value={post.priceMax}/>
                         </p>
                     </div>}
                 </div>
                 <button className="button add" onClick={isInCart ? () => editItem(priceType, post.postId, lang) : handler}>
                     <FormattedMessage id={isInCart ? 'set.edit' : 'set.add'}/>
-                    {!isInCart && ' - ' + currency + (priceType === 'max' ? post.priceMax : post.price)}
+                    {!isInCart && (<>
+                        <span>&nbsp;-&nbsp;</span>
+                        <FormattedNumber style="currency"
+                        currency={currency[lang].code}
+                        value={(priceType === 'min' ? post.price : post.priceMax)}/></>)}
                 </button>
                 <Link to={isMerch ? '/merch' : '/shop'} className="continue" lang={lang}>
                     <FormattedMessage id="set.continue"/>

@@ -260,7 +260,7 @@ const Wrapper = styled.main`
             @media (min-width: 1024px) {
                 grid-area: description;
                 padding: 0;
-                margin-top: 22px;
+                // margin-top: 22px;
             }
 
             p {
@@ -303,7 +303,7 @@ const Wrapper = styled.main`
                 grid-area: heading;
                 padding: 0;
                 font-size: 44px;
-                margin-top: 73px;
+                // margin-top: 73px;
                 border-bottom: 1px solid var(--color-cta);
                 height: max-content;
             }
@@ -327,8 +327,9 @@ const Wrapper = styled.main`
                 background: var(--color-secondary);
                 padding: 0 45px 55px;
                 gap: 20px 40px;
-                max-width: 960px;
-                grid-template-columns: unset;
+                max-width: 90%;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto auto min-content auto;
             }
         }
 

@@ -29,7 +29,7 @@ const CartItem = ({item, removeItem, lang}) => {
                         }</p>
                         <p className="price">
                             <FormattedNumber style="currency"
-                                currency="USD"
+                                currency={currency[lang].code}
                                 value={priceType === 'min' ? price : priceMax}/>
                         </p>
                     </div>
