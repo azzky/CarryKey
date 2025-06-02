@@ -2,8 +2,10 @@ import React from 'react';
 import Layout from '@components/layout'
 import ShopITems from '@hooks/useShopitems'
 import Grid from '@components/shopPage/grid';
+import { FormattedMessage } from 'react-intl';
 
 import backDesk from '@images/back-shop.jpg';
+import { Content } from '@components/searchPage/search.styled';
 
 const Search = ({location, 
     pageContext: {
@@ -34,7 +36,7 @@ const Search = ({location,
             h1={'Search results for: '+ string.replaceAll('_', ' ')}
             lang={lang}
             heroImageDesktop={backDesk}>
-            {arr?.length > 0 ? <Grid items={arr} lang={lang}/> : <h2>Nothing found</h2>}
+            {arr?.length > 0 ? <Grid items={arr} lang={lang}/> : <Content><h2><FormattedMessage id="search.noResults"/></h2></Content>}
         </Layout>
     )
 }

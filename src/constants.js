@@ -54,8 +54,8 @@ const currency = {
         code: 'USD'
     },
     'de': {
-        symbol: '€',
-        code: 'EUR'
+        symbol: '$',
+        code: 'USD'
     }
 }
 
