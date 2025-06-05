@@ -11,14 +11,18 @@ import Meta from "@components/meta"
 
 import backDesk from '@images/back-contact.jpg';
 
-const IndexPage = () => {
+const IndexPage = ({
+    pageContext: {
+        langKey: lang
+    }
+}) => {
     const posts = ShopITems()
     const slides = Slides()
     // const reviews = Reviews()
 
     return (
         <>
-            <Layout hasNavigation isHero isHome slides={slides}>
+            <Layout hasNavigation isHero isHome slides={slides} lang={lang}>
                 <AboutBlock/>
                 <ShopSlider posts={posts}/>
                 {/* <Services/> */}

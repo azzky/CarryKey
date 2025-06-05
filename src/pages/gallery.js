@@ -6,12 +6,17 @@ import Meta from "@components/meta"
 
 import backDesk from '@images/back-gallery.jpg';
 
-const Gallery = () => {
+const Gallery = ({
+    pageContext: {
+        langKey: lang
+    }
+}) => {
     const images = GalleryItems()
 
     return (
         <Layout hasNavigation isHero
             heroImageDesktop={backDesk}
+            lang={lang}
             h1={'Gallery'}>
             {images.length > 0 && <GalleryGrid images={images} />}
         </Layout>

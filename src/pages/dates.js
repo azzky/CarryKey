@@ -8,6 +8,7 @@ import SvgSprite from '../components/svg-sprite';
 import Footer from "@components/footer";
 import { Wrapper } from '@components/datesPage/datesPage.styled';
 import { renderRichText } from "gatsby-source-contentful/rich-text";
+import Intl from "@components/intl";
 
 import backDesk from '@images/back-dates.jpeg';
 
@@ -54,7 +55,7 @@ const DatesPage = () => {
 
     const [selected, setSelected] = useState(null)
     return (
-        <>
+        <Intl lang={'en'}>
             <Wrapper>
             <SvgSprite/>
                 <div className='content'>
@@ -104,8 +105,8 @@ const DatesPage = () => {
                 <GatsbyImage className='hero' image={data.background.gatsbyImageData}
                     alt=""/>
             </Wrapper>
-            <Footer/>
-        </>
+            <Footer lang="en"/>
+        </Intl>
     )
 }
 

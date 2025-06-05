@@ -4,11 +4,12 @@ import Lightbox from 'react-image-lightbox';
 import useBasket from "@hooks/useBasket";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Slider from "react-slick";
-import { Link } from "gatsby";
+import Link from "@components/intl/link";
 import useWidth from "@hooks/useWindowSize";
 import { currency } from '@constants';
 
 import Wrapper from "./post.styled";
+import { FormattedMessage, FormattedNumber } from "react-intl";
 
 const options = {
     renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br />, text])
@@ -41,7 +42,7 @@ const thumbSliderSettings = {
 }
 
 const Item = (props) => {
-    const {post, isMerch} = props
+    const {post, isMerch, lang} = props    
     
     const {isDesktop, isMobile} = useWidth();
     const {addItem, cart, editItem} = useBasket();
@@ -113,21 +114,17 @@ const Item = (props) => {
                         className="nav"
                         asNavFor={nav1}
                         ref={(slider2) => setNav2(slider2)}>
-                        {post.gallery.map((pic, index) => {
+                        {post.gallery.map((pic, index) => {                            
                             return pic.file.contentType.includes('video') ? (
                                 <div className="video-thumb" key="video">
-                                    <GatsbyImage className="slide-pic"
-                                        key="video-thumb"
-                                        image={post.preview.gatsbyImageData}
-                                        alt={`thumbnail for ${post.title} set video`}
-                                        backgroundColor="#adadad"/>
+                                    <img src={post.preview.file.url + '?w=250'}
+                                        key={pic.file.url}
+                                        alt={`thumbnail for ${post.title} set video`}/>
                                 </div>
                             ) : (
-                                <GatsbyImage className="slide-pic"
+                                <img src={pic.file.url + '?w=250'}
                                 key={pic.file.url}
-                                image={pic.gatsbyImageData}
-                                alt={`thumbnail for ${post.title} set image ${index + 1}`}
-                                backgroundColor="#adadad"/>
+                                alt={`thumbnail for ${post.title} set image ${index + 1}`}/>
                             )
                         })}
                     </Slider>}
@@ -175,29 +172,54 @@ const Item = (props) => {
             </div>
             <div className="column">
                 <h1>{post.title}</h1>
-                {post.price && post.priceMax ? <p className="option-title">Choose a package</p> :
+                {post.price && post.priceMax ? <p className="option-title">
+                    <FormattedMessage id="set.choose"/>
+                </p> :
                     <p className="option-title"></p>}
                 <div className="priceType">
                     {(!isMerch || (isMerch && post.price && post.price !== post.priceMax)) && (<div className="item">
                         <button className="button" onClick={() => priceSelect('min')} disabled={priceType === 'min'}>
-                            {isMerch ? (post.minPriceButtonText || '') : 'Cosplay'}
+                            {isMerch ? (post.minPriceButtonText || '') : (
+                                <FormattedMessage id="set.cosplay"/>)}
                         </button>
-                        {!isMerch && <p className="details">Cosplay and sexy photos</p>}
-                        <p className="price">{currency + post.price}</p>
+                        {!isMerch && (
+                            <p className="details">
+                            <FormattedMessage id="set.cosplayDescription"/>
+                            </p>)}
+                        <p className="price">
+                            <FormattedNumber style="currency"
+                                currency={currency[lang].code}
+                                value={post.price}/>
+                        </p>
                     </div>)}
                     {post.priceMax && <div className="item">
                         <button className="button" onClick={() => priceSelect('max')} disabled={priceType === 'max'}>
-                            {isMerch ? (post.maxPriceButtonText || 'one variant') : 'Topless'}
+                            {isMerch ? (post.maxPriceButtonText || (
+                                <FormattedMessage id="set.oneVariant"/>
+                            )) : (<FormattedMessage id="set.topless"/>)}
                         </button>
-                        {!isMerch && <p className="details">Full set with topless photos</p>}
-                        <p className="price">{currency + post.priceMax}</p>
+                        {!isMerch && (
+                            <p className="details">
+                            <FormattedMessage id="set.toplessDescription"/>
+                            </p>)}
+                        <p className="price">
+                            <FormattedNumber style="currency"
+                                currency={currency[lang].code}
+                                value={post.priceMax}/>
+                        </p>
                     </div>}
                 </div>
-                <button className="button add" onClick={isInCart ? () => editItem(priceType, post.postId) : handler}>
-                    {isInCart ? 'Edit' : 'Add to cart'}
-                    {!isInCart && ' - ' + currency + (priceType === 'max' ? post.priceMax : post.price)}
+                <button className="button add" onClick={isInCart ? () => editItem(priceType, post.postId, lang) : handler}>
+                    <FormattedMessage id={isInCart ? 'set.edit' : 'set.add'}/>
+                    {!isInCart && (<>
+                        <span>&nbsp;-&nbsp;</span>
+                        <FormattedNumber style="currency"
+                        currency={currency[lang].code}
+                        value={(priceType === 'min' ? post.price : post.priceMax)}/></>)}
                 </button>
-                <Link to={isMerch ? '/merch' : '/shop'} className="continue">Continue shopping</Link>
+                <Link to={isMerch ? '/merch' : '/shop'} className="continue" lang={lang}>
+                    <FormattedMessage id="set.continue"/>
+                </Link>
             </div>
         </Wrapper>
     )

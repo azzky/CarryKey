@@ -9,16 +9,21 @@ import { SocialIconsWrapper, Content } from '@components/contactPage/contact.sty
 
 import backDesk from '@images/back-contact.jpg';
 
-const Contact = () => {
+const Contact = ({
+    pageContext: {
+        langKey: lang
+    }
+}) => {
     return (
         <Layout hasNavigation isHero isContact
             h1={'Contact page'}
+            lang={lang}
             heroImageDesktop={backDesk}>
             <Content>
                 <SocialIconsWrapper>
                     <SocialIcons size={51} gap={19}/>
                 </SocialIconsWrapper>
-                <ContactForm/>
+                <ContactForm lang={lang}/>
                 <ThreeImages src="contact" />
             </Content>
         </Layout>

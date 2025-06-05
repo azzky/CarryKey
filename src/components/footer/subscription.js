@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import jsonp from "jsonp";
 import toQueryString from "to-querystring";
+import { FormattedMessage } from "react-intl";
 
 const SimpleForm = ({ status, message, className, style, onSubmitted }) => {
   let input;
@@ -14,7 +15,7 @@ const SimpleForm = ({ status, message, className, style, onSubmitted }) => {
 
   return (
     <div className={className} style={style}>
-      {status === "sending" && <div style={{ color: "blue" }}>sending...</div>}
+      {status === "sending" && <div style={{ color: "blue" }}><FormattedMessage id="global.sending"/></div>}
       {status === "error" && (
         <div
           style={{ color: "red" }}
@@ -31,7 +32,7 @@ const SimpleForm = ({ status, message, className, style, onSubmitted }) => {
         ref={node => (input = node)}
         type="email"
         placeholder="Enter email address"/>
-      <button onClick={submit}>Subscribe</button>
+      <button onClick={submit}><FormattedMessage id="global.subscribe"/></button>
     </div>
   );
 };

@@ -34,14 +34,15 @@ const useBasket = () => {
         saveData(arr, false)
     }, [items, saveData])
 
-    const editItem = useCallback((type, id) => {
+    const editItem = useCallback((type, id, lang) => {
+        const langStr = lang !== 'en' ? '/' + lang : ''
         let arr = [...items]
         for(let i = 0;i < arr.length;i++) {
             if (arr[i].postId === id) {
                 arr[i].priceType = type
             }
         }
-        saveData(arr, '/cart')
+        saveData(arr, langStr + '/cart')
     }, [items, saveData])
     
     return {

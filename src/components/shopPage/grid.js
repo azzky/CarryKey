@@ -10,7 +10,7 @@ import { Tags } from '@components/tags';
 import { GridWrapper } from "./shop.styled";
 
 const Grid = (props)=>{
-    const {items, banner, selectedTag, showFilters, isMerch} = props;
+    const {items, banner, selectedTag, showFilters, isMerch, lang} = props;
     const {isMobile, isTablet, width} = useWidth()
     const {
         uniqueTags,categories,categoryNames,finalItems, setFilterCategories, filterCategories, resetFilters, removeFilter, setSortingValue, sortList,
@@ -20,6 +20,7 @@ const Grid = (props)=>{
         <GridWrapper>
             {isMobile && <MobileFilters count={hasBanner ? finalItems.length - 1 : finalItems.length}
                 categories={categories}
+                lang={lang}
                 setFilterCategories={setFilterCategories}
                 resetFilters={resetFilters}
                 removeFilter={removeFilter}
@@ -30,12 +31,14 @@ const Grid = (props)=>{
                 sortList={sortList}/>}
             {!isMobile && <Tags tags={uniqueTags} path="shop"
                 setSortingValue={setSortingValue}
+                lang={lang}
                 sortOption={sortOption}
                 selectedTag={selectedTag}
                 sortList={sortList} />}
             {!isMobile && <Filters categories={categories}
                 setFilterCategories={setFilterCategories}
                 resetFilters={resetFilters}
+                lang={lang}
                 removeFilter={removeFilter}
                 filterCategories={filterCategories}
                 categoryNames={categoryNames} />}
@@ -47,6 +50,7 @@ const Grid = (props)=>{
                         <ShopItem post={post.node ? post.node : post}
                             key={post.node ? post.node.postId : post.postId}
                             isBanner={false}
+                            lang={lang}
                             isMerch={isMerch}/>
                     )
                 })}

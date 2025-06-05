@@ -5,13 +5,15 @@ import Item from '@components/post';
 import Meta from "@components/meta"
 
 const Post = ({
-    data: {allContentfulPost: {edges}}
+    data: {allContentfulPost: {edges}},
+    pageContext
 }) => {
     const data = edges[0].node
     return (
         <Layout hasNavigation isCart
+            lang={pageContext.langKey}
             h1={data.title}>
-            <Item post={data}/>
+            <Item post={data} lang={pageContext.langKey}/>
         </Layout>
     )
 }
@@ -60,7 +62,9 @@ export const Head = ({pageContext}) => {
                 thumbnail={'https:' + pageContext.image}
                 description={pageContext.description || null}
                 isPost
-                url={'/shop/set/' + pageContext.url}
+                url={pageContext.langKey === 'en' ?
+                    '/shop/set/' + pageContext.url :
+                    '/' + pageContext.langKey + '/shop/set/' + pageContext.url}
                 priceMin={pageContext.priceMin}
                 priceMax={pageContext.priceMax}
             />

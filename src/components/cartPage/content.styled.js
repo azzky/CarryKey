@@ -29,10 +29,10 @@ const Wrapper = styled.div`
             text-align: start;
             letter-spacing: 1.2px;
         }
+    }
 
-        span {
-            text-transform: uppercase;
-        }
+    input[type="email"]::placeholder {
+        color: var(--color-red);
     }
 `;
 

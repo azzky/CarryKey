@@ -125,7 +125,7 @@ const Meta = ({
         schemaItems.push(schemaPostPage);
         schemaItems.push(schemaProduct);
     } else {
-        schemaItems.push(schemaPage);
+        schemaItems.push(schemaPage)
     }
     
     return <>

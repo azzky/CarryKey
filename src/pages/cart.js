@@ -4,13 +4,18 @@ import Content from '@components/cartPage/content'
 import ShopITems from '@hooks/useShopitems'
 import Meta from "@components/meta"
 
-const Cart = () => {
+const Cart = ({
+    pageContext: {
+        langKey: lang
+    }
+}) => {
     const posts = ShopITems()
 
     return (
         <Layout hasNavigation isCart
+            lang={lang}
             h1={'Cart'}>
-            <Content posts={posts}/>
+            <Content posts={posts} lang={lang}/>
         </Layout>
     )
 }

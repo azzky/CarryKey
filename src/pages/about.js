@@ -5,12 +5,17 @@ import Meta from "@components/meta"
 
 import backDesk from '@images/back-contact.jpg';
 
-const About = () => {
+const About = ({
+    pageContext: {
+        langKey: lang
+    }
+}) => {
     return (
         <Layout hasNavigation isHero
             h1={'About'}
+            lang={lang}
             heroImageDesktop={backDesk}>
-            <AboutBlock/>
+            <AboutBlock lang={lang}/>
         </Layout>
     )
 }

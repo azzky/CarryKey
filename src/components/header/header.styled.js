@@ -39,6 +39,10 @@ const HeaderRoot = styled.header`
                 grid-column-end: span 2;
             }
 
+            > div {
+                margin-left: auto;
+            }
+
             > div,
             > a {
                 grid-row: 1;
@@ -114,10 +118,6 @@ const HeaderRoot = styled.header`
         @media (min-width: 754px) {
             height: 80px;
             padding: 0 11.5vw;
-
-            ul {
-                margin-right: -11px;
-            }
         }
 
         @media (min-width: 1280px) {
@@ -126,10 +126,6 @@ const HeaderRoot = styled.header`
             margin: 0 auto;
             padding: 0;
             align-items: end;
-
-            ul {
-                margin-right: -15px;
-            }
         }
     }
 

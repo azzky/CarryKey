@@ -1,13 +1,14 @@
 import React from "react"
 // import { GatsbyImage } from "gatsby-plugin-image";
-import { Link } from "gatsby";
+import Link from "@components/intl/link";
 import Carousel from 'react-multi-carousel';
 
 import 'react-multi-carousel/lib/styles.css';
 import Wrapper from './postCarousel.styled'
+import { FormattedMessage } from "react-intl";
 
 const PostCarousel = (props) => {
-    const { className, posts, isReverse } = props
+    const { className, posts, isReverse, lang } = props
     const items = isReverse ? posts.reverse() : posts
     const responsive = {
         desktopXL: {
@@ -48,7 +49,9 @@ const PostCarousel = (props) => {
                 return (
                 <div key={'slider1-'+slide.postId} className="item">
                     <img src={'https:'+slide.preview.file.url + '?h=400&q=85'} alt={'Visit ' + slide.title + ' cosplay set'}/>
-                    <Link to={'/shop/set/'+slide.url} className="button">Purchase</Link>
+                    <Link to={'/shop/set/'+slide.url} className="button" lang={lang}>
+                        <FormattedMessage id="global.purchase"/>
+                    </Link>
                 </div>
             )})}
         </Carousel>

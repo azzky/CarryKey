@@ -6,15 +6,21 @@ import Meta from "@components/meta";
 
 import backDesk from '@images/back-contact.jpg';
 
-const Merch = () => {
+const Merch = ({
+    pageContext: {
+        langKey: lang
+    }
+}) => {
     const items = MerchItems()
 
     return (
         <Layout hasNavigation isHero
             h1={'Merch'}
+            lang={lang}
             heroImageDesktop={backDesk}>
             {items?.length > 0 && <Grid items={items}
                 showFilters={true}
+                lang={lang}
                 isMerch/>}
         </Layout>
     )

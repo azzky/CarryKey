@@ -5,14 +5,17 @@ import Item from '@components/post';
 import Meta from "@components/meta"
 
 const Merch = ({
-    data: {allContentfulMerch: {edges}}
+    data: {allContentfulMerch: {edges}},
+    pageContext
 }) => {
     const data = edges[0].node
     return (
         <Layout hasNavigation isCart
+            lang={pageContext.langKey}
             h1={data.title}>
             <Item post={{...data, isMerch: true}}
-            isMerch/>
+                lang={pageContext.langKey}
+                isMerch/>
         </Layout>
     )
 }
@@ -61,7 +64,9 @@ export const Head = ({pageContext}) => {
                 thumbnail={'https:' + pageContext.image}
                 description={pageContext.description?.raw || null}
                 isPost
-                url={'/merch/' + pageContext.url}
+                url={pageContext.langKey === 'en' ?
+                    '/merch/' + pageContext.url :
+                    '/' + pageContext.langKey + '/merch/' + pageContext.url}
                 priceMin={pageContext.priceMin}
                 priceMax={pageContext.priceMax}
             />

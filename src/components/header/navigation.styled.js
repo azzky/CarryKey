@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Link } from "gatsby";
+import Link from "@components/intl/link";
 
 const MobileTrigger = styled.button`
     width: 13px;
@@ -101,10 +101,16 @@ const Navigation = styled.ul`
     }
 
     @media (min-width: 754px) {
+        margin-left: auto;
+
         a:hover,
         a.active {
             text-decoration: underline;
         }
+    }
+
+    @media (min-width: 1280px) {
+        margin-right: -4px;
     }
 
     & a {

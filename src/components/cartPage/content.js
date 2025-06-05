@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import useCart from "@hooks/useCart";
 import Item from './cartItem';
-import { Link } from 'gatsby';
+import Link from "@components/intl/link";
 import Recommend from './recommend';
 import reduxStore from '../../redux/store';
 import {cartData } from '../../redux/actions'
@@ -10,12 +10,7 @@ import { currency, shippingValue } from '@constants';
 import { useForm } from "react-hook-form";
 
 import Wrapper, { Summary, Items, WhatsNextWrapper, Success, EmptyCart } from "./content.styled";
-
-const options = {
-    currency: "USD",
-    clientId: process.env.GATSBY_CLIENT_ID,
-    intent: "capture"
-};
+import { FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 
 const style = {
     layout: "vertical",
@@ -32,15 +27,15 @@ const WhatsNext = () => (
                 <use href='#hand'/>
             </svg>
             <div>
-                <p className='heading'>What happens after the purchase</p>
-                <p>Enter your e-mail and I'll contact you after the payment completed with link to your set ;)</p>
-                <p>Your Paypal Address will be used for shipping.</p>
+                <p className='heading'><FormattedMessage id="cart.whatsNextTitle"/></p>
+                <p><FormattedMessage id="cart.whatsNextText1"/></p>
+                <p><FormattedMessage id="cart.whatsNextText2"/></p>
             </div>
         </div>
     </WhatsNextWrapper>
 )
 
-const Content = ({posts}) => {
+const Content = ({posts, lang}) => {
     const {
         cart,
         totalValue,
@@ -66,10 +61,11 @@ const Content = ({posts}) => {
         total,
         setTotal
 } = useCart({
-        posts
+        posts, lang
     });
 
     const { register, handleSubmit, formState: {errors, isSubmitting} } = useForm()
+    const intl = useIntl()
     useEffect(() => {
         if(showSuccess) {
             reduxStore.dispatch(cartData([]))
@@ -85,8 +81,14 @@ const Content = ({posts}) => {
                     <path className="el" d="m.5,0s1.97,143.1,67.05,206.51c65.08,63.41,207.95,82.9,186.43,47.67-21.51-35.23-37.67,10.92-34.65,40.27,3.02,29.35,39.24,80.86,94.53,76.67,55.29-4.19,159.43-75.38,223.15-25.07"/>
                 </svg>
                 <div>
-                    <p className='text'>Your order is succeeded!<br/>We'll contact you soon</p>
-                    <Link className='link' to='/shop'>Go back to Shop</Link>
+                    <p className='text'>
+                        <FormattedMessage id="cart.success1"/>
+                        <br/>
+                        <FormattedMessage id="cart.success2"/>
+                    </p>
+                    <Link className='link' to='/shop' lang={lang}>
+                        <FormattedMessage id="cart.backToShop"/>
+                    </Link>
                 </div>
             </div>
         </Success>
@@ -95,55 +97,68 @@ const Content = ({posts}) => {
         <Wrapper>
             <Items>
                 <h1>
-                    <span>Basket</span>
-                    {` (Quantity: ${cart.length})`}
+                    <span>
+                        <FormattedMessage id="cart.basket"/>
+                    </span>
+                    <FormattedMessage id="cart.quantity"/> {cart.length}
                 </h1>
                 {cart.length > 0 && <ul>
                     {cart.map(item => {
                         return (
                             <Item key={item.postId}
                                 item={item}
+                                lang={lang}
                                 removeItem={removeItem}/>
                         )
                     })}
                 </ul>}
-                {!cart?.length && <EmptyCart>You have no items in your cart</EmptyCart>}
+                {!cart?.length && <EmptyCart><FormattedMessage id="cart.empty"/></EmptyCart>}
             </Items>
             {cart.length > 0 && <>
                 <Summary>
-                <h2>Order summary</h2>
+                <h2><FormattedMessage id="cart.summary"/></h2>
                 {cart.map(item => {
                     return (
                         <p key={item.postId}>
                             {item.title}
-                            <span>{currency+(item.priceType === 'min' ? item.price : item.priceMax)}</span>
+                            <span>
+                                <FormattedNumber style="currency"
+                                    currency={currency[lang].code}
+                                    value={item.priceType === 'min' ? item.price : item.priceMax}/>
+                            </span>
                         </p>
                     )
                 })}
                 {haveMerch && <p>
-                    Shipping
-                    <span>{currency + shippingValue}</span>
+                    <FormattedMessage id="cart.shipping"/>
+                    <span>
+                        <FormattedNumber style="currency"
+                            currency={currency[lang].code}
+                            value={shippingValue}/>
+                    </span>
                 </p>}
                 <p>
-                    Together
-                    <span>{currency + (
-                        haveMerch ? totalValue + shippingValue : totalValue
-                    )}</span>
+                    <FormattedMessage id="cart.total"/>
+                    <span>
+                        <FormattedNumber style="currency"
+                            currency={currency[lang].code}
+                            value={haveMerch ? totalValue + shippingValue : totalValue}/>
+                    </span>
                 </p>
                 <form onSubmit={handleSubmit(proceedToPayment)}>
                     {haveMerch && <>
                         <label htmlFor="address">
-                            Paypal shipping address confirm
+                            <FormattedMessage id="cart.shippingLabel"/>
                         </label>
                         <input
                         style={{ width: 'initial', marginInlineStart: '10px'}}
-                        placeholder='Enter your address'
+                        placeholder={intl.formatMessage({id: 'cart.emailPlaceholder'})}
                         name="address"
                         id="address"
                         type="checkbox"
                         {...register('address', { required: true })}
                         />
-                        {errors.address && <div style={{ color: 'red'}}>I'll check my paypal address to make sure delivery would happen there!</div>}
+                        {errors.address && <div style={{ color: 'red'}}><FormattedMessage id="cart.shippingHint"/></div>}
                     </>}
                     {/* {haveMerch && <>
                         <label className="visually-hidden"
@@ -160,15 +175,16 @@ const Content = ({posts}) => {
                     </>} */}
                     <label className="visually-hidden"
                         htmlFor="email">
-                        email
+                        <FormattedMessage id="cart.email"/>
                     </label>
                     <input
-                        placeholder='Enter your email'
+                        placeholder={intl.formatMessage({id: 'cart.emailPlaceholder'})}
                         name="email"
                         type="email"
+                        required
                         {...register('email', { required: true })}
                         />
-                        {errors.email && <div>This field is required</div>}
+                        {errors.email && <div><FormattedMessage id="global.requred"/></div>}
                     <textarea
                         className="visually-hidden"
                         name="order"
@@ -188,21 +204,26 @@ const Content = ({posts}) => {
                         onChange={e => setTotal(e.target.value)}
                         {...register('total', { required: true})}
                         />
-                    {!showPaypal && <input type="submit" className="button"
-                        disabled={isSubmitting}
-                        value="Order now"/>}
+                    {!showPaypal && <button type="submit" className="button"
+                        disabled={isSubmitting}>
+                            <FormattedMessage id="cart.order"/>
+                        </button>}
                 </form>
-                {showPaypal && <PayPalScriptProvider options={options}>
+                {showPaypal && <PayPalScriptProvider options={{
+                    currency: currency[lang].code,
+                    clientId: process.env.GATSBY_CLIENT_ID,
+                    intent: "capture"
+                }}>
                     <PayPalButtons style={style}
                         createOrder={createOrder}
                         onApprove={onApprove}/>
                 </PayPalScriptProvider>}
-                <Link to="/shop" className="continue">Continue shopping</Link>
+                <Link to="/shop" className="continue" lang={lang}><FormattedMessage id="set.continue"/></Link>
             </Summary>
             <WhatsNext/>
             </>}
         </Wrapper>
-        <Recommend posts={recommendArr} />
+        <Recommend posts={recommendArr} lang={lang}/>
         </>
     )
 }
