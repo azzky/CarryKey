@@ -106,6 +106,6 @@ exports.createPages = async ({ graphql, actions }) => {
         })
     })
 
-    await Promise.all(promises)
-    await Promise.all(merchPromises)
+    // await Promise.all(promises)
+    // await Promise.all(merchPromises)
 }

@@ -4,7 +4,7 @@ import Header from "@components/header";
 import Footer from "@components/footer";
 
 const Layout = (props) => {
-    const {hasNavigation, isHero, h1, isHome, heroImageDesktop, heroImageMobile, slides, isContact, isCart, isShop} = props;
+    const {hasNavigation, isHero, h1, isHome, heroImageDesktop, heroImageMobile, slides, isContact, isCart, isShop, hideFooter} = props;
     return (
         <>
             <Sprite/>
@@ -21,7 +21,7 @@ const Layout = (props) => {
             <main>
                 {props.children}
             </main>
-            <Footer/>
+            {!hideFooter && <Footer/>}
         </>
     )
 }

@@ -1,45 +1,29 @@
-import React from "react"
+import * as React from "react"
 import Layout from '@components/layout'
-import AboutBlock from '@components/homepage/about'
-import ShopSlider from '@components/homepage/shopSlider'
-// import Services from '@components/homepage/services'
-// import Feedback from '@components/homepage/feedback'
-import ShopITems from '@hooks/useShopitems'
-import Slides from '@hooks/useHomepageSlider'
-// import Reviews from "@hooks/useFeedbackData"
+import NotFound from "@components/404page"
 import Meta from "@components/meta"
 
-import backDesk from '@images/back-contact.jpg';
-
-const IndexPage = () => {
-    const posts = ShopITems()
-    const slides = Slides()
-    // const reviews = Reviews()
-
+const NotFoundPage = () => {
     return (
-        <>
-            <Layout hasNavigation isHero isHome slides={slides}>
-                <AboutBlock/>
-                <ShopSlider posts={posts}/>
-                {/* <Services/> */}
-                {/* <Feedback reviews={reviews}/> */}
-            </Layout>
-        </>
+        <Layout  isCart hideFooter>
+                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh'}}>
+                <h1>Temporary unavailable</h1>
+            <p>we're making something new for you!</p>
+
+                </div>
+        </Layout>
     )
 }
 
-export default IndexPage
+export default NotFoundPage
 
 export const Head = () => {
     return (
         <>
-            <Meta title="Hi I'm Carry"
-                thumbnail={backDesk}
-                isHome
+        <Meta title="Not found"
+            url="404"
             />
-            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>
-            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"/>
-            <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#fff"/>
         </>
     )
 }
