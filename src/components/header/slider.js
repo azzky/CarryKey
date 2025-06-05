@@ -20,11 +20,19 @@ const HomeSlider = (props) => {
         slidesToShow: 1,
         slidesToScroll: 1
     };
+    if (!slides || slides.length === 0) {
+        return null;
+    }
+    console.log(slides);
+    
     return (
         <SliderWrapper>
         <Slider {...settings}>
             {slides.map(slide => {                
-            const text = renderRichText({raw: slide.text.raw})
+            const text = renderRichText({raw: slide.text.raw});
+            if (!slide.post || !slide.post.url) {
+                return null; // Skip if post or URL is not available
+            }
             return (
                 <div className="slide-inner" key={slide.title}>
                     <div className="slide-content">
