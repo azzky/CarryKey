@@ -6,7 +6,6 @@ import SocialIcons from '../components/socials';
 import SvgSprite from '../components/svg-sprite';
 import Footer from "@components/footer";
 import { Wrapper } from '@components/datesPage/datesPage.styled';
-import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { PortableText } from '@portabletext/react';
 import Intl from "@components/intl";
 import Image from "@components/image"
