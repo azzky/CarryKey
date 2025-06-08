@@ -31,8 +31,8 @@ const Wrapper = styled.main`
     }
 
     & .avatar {
-        width: 120px;
-        height: 120px;
+        width: 120px !important;
+        height: 120px !important;
         border-radius: 50%;
         border: 2px solid var(--color-main);
     }

@@ -1,8 +1,8 @@
 import React from "react";
-import { GatsbyImage , getImage} from "gatsby-plugin-image";
+import Image from "@components/image";
 import Slider from "react-slick";
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
 import useWidth from '@hooks/useWindowSize'
+import {PortableText} from '@portabletext/react'
 
 import SliderWrapper from "./slider.styled";
 import Link from "@components/intl/link";
@@ -12,6 +12,7 @@ const HomeSlider = (props) => {
     const {slides, lang} = props
     const {isMobile} = useWidth()
     const settings = {
+        adaptiveHeight: true,
         dots: !isMobile,
         arrows: false,
         infinite: true,
@@ -24,34 +25,30 @@ const HomeSlider = (props) => {
     if (!slides || slides.length === 0) {
         return null;
     }
-    console.log(slides);
     
     return (
         <SliderWrapper>
         <Slider {...settings}>
-            {slides.map(slide => {                
-            const text = renderRichText({raw: slide.text.raw});
+            {slides.map(slide => {  
             if (!slide.post || !slide.post.url) {
                 return null; // Skip if post or URL is not available
             }
             return (
                 <div className="slide-inner" key={slide.title}>
                     <div className="slide-content">
-                        {text}
+                        <PortableText value={slide._rawText}/>
                         <Link className="button" lang={lang} to={'/shop/set/'+slide.post.url}>
                             <FormattedMessage id="global.purchase"/>
                         </Link>
                     </div>
-                    <GatsbyImage image={getImage(slide.desktopImage)}
-                        layout="fill"
-                        quality={85}
-                        className="desktop"
-                        alt={slide.post.title}/>
-                    <GatsbyImage image={getImage(slide.mobileImage)}
-                        layout="fill"
-                        quality={85}
-                        className="mobile"
-                        alt={slide.post.title}/>
+                    <div className="desktop">
+                        <Image image={slide.desktopImage}
+                            alt={slide.post.title}/>
+                    </div>
+                    <div className="mobile">
+                        <Image image={slide.mobileImage}
+                            alt={slide.post.title}/>
+                    </div>
                 </div>
             )})}
         </Slider>

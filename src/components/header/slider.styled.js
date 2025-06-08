@@ -52,12 +52,18 @@ const SliderWrapper =styled.div`
 
     & .slide-inner {
         position: relative;
+        overflow: hidden;
+        height: 100vh;
 
         .desktop {
             display: none;
 
             img {
                 object-position: top;
+                width: 100% !important;
+                height: 100%;
+                min-height: 100vh;
+                min-width: 100vw;
             }
         }
 

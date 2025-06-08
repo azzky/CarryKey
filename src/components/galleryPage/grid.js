@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react"
 import { GatsbyImage } from "gatsby-plugin-image";
+import Image from "@components/image";
 import useShop from '@hooks/useShop'
 import useWidth from '@hooks/useWindowSize'
 import Lightbox from 'react-image-lightbox'
@@ -9,15 +10,16 @@ import Wrapper from "./grid.styled";
 
 const Item = ({post, setImage, setPhotoIndex, postIndex}) => {
     const clickHandler = useCallback(() => {
-        setImage(post.file.url)
+        setImage(post.asset.url)
         setPhotoIndex(post.photoIndex)
-    }, [post.file.url, post.photoIndex, setImage, setPhotoIndex]);
+    }, [post.asset.url, post.photoIndex, setImage, setPhotoIndex]);
     
     return (
         <div className="item" onClick={clickHandler} id={post.photoIndex}>
-            <GatsbyImage image={post.gatsbyImageData}
+            <Image image={post}
                 alt={'Gallery item ' + post.photoIndex}
-                backgroundColor="#adadad"/>
+                width={400}
+                />
         </div>
     )
 }
@@ -59,9 +61,9 @@ const GalleryGrid = ({images}) => {
         </div>
         {image && (
           <Lightbox
-            mainSrc={'https:'+images[photoIndex].file.url +'?w=1920&h=1920&q=90'}
-            nextSrc={'https:' +images[photoIndex < images.length -1 ? photoIndex + 1 : 0].file.url + '?w=1920&h=1920&&q=90'}
-            prevSrc={'https:' +images[photoIndex > 0 ? photoIndex - 1 : images.length - 1].file.url + '?w=1920&h=1920&q=90'}
+            mainSrc={images[photoIndex].asset.url +'?w=1920&h=1920&q=90'}
+            nextSrc={images[photoIndex < images.length -1 ? photoIndex + 1 : 0].asset.url + '?w=1920&h=1920&&q=90'}
+            prevSrc={images[photoIndex > 0 ? photoIndex - 1 : images.length - 1].asset.url + '?w=1920&h=1920&q=90'}
             onCloseRequest={() => setImage(null)}
             onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
             onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}

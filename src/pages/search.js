@@ -1,6 +1,7 @@
 import React from 'react';
-import Layout from '@components/layout'
-import ShopITems from '@hooks/useShopitems'
+import Layout from '@components/layout';
+import ShopITems from '@hooks/useShopitems';
+import MerchItems from '@hooks/useMerchItems';
 import Grid from '@components/shopPage/grid';
 import { FormattedMessage } from 'react-intl';
 
@@ -13,13 +14,16 @@ const Search = ({location,
     }
 }) => {
     const posts = ShopITems()
+    const merch = MerchItems()
+    // Combine posts and merch items
+    const results = [...posts, ...merch].filter(item => item?.title && item?.title !== 'empty');
     const string = location.search.split('?search=')[1] || 'empty'
     const includesCase = function(str, arr){
         const state = arr?.filter(i => i.toLowerCase().includes(str.toLowerCase())) || []
         return state.length > 0
     }
     let arr = []
-    posts.map(post => {
+    results.map(post => {
         if(
             string !== 'empty' && (
                 post.title.toLowerCase().includes(string.replaceAll('_', ' ').toLowerCase()) ||

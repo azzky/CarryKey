@@ -3,23 +3,17 @@ import { useStaticQuery, graphql } from "gatsby"
 export default function Slides() {
   const data = useStaticQuery(graphql`
     query{
-        allContentfulHomePageSlide(
+        allSanityHomePageSlide(
             sort: {title: ASC}
         ) {
             nodes {
                 title
-                text {
-                    raw
-                }
+                _rawText
                 mobileImage {
-                    gatsbyImageData(
-                        width: 1280
-                    )
+                    ...ImageWithPreview
                 }
                 desktopImage {
-                    gatsbyImageData(
-                        width: 1920
-                    )
+                    ...ImageWithPreview
                 }
                 post {
                     postId
@@ -30,5 +24,5 @@ export default function Slides() {
         }
     }
     `)
-    return data.allContentfulHomePageSlide.nodes
+    return data.allSanityHomePageSlide.nodes
 }

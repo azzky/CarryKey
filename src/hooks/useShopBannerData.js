@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 export default function BannerItem() {
   const data = useStaticQuery(graphql`
     query {
-        allContentfulShopBanner {
+        allSanityShopBanner {
             nodes {
                 isEnabled
                 type
@@ -13,11 +13,11 @@ export default function BannerItem() {
                 link
                 position
                 image {
-                    gatsbyImageData(width: 800, quality: 85)
+                    ...ImageWithPreview
                 }
             }
         }
     }
     `)
-    return data?.isEnabled ? (data?.allContentfulShopBanner?.nodes && data?.allContentfulShopBanner?.nodes[0]) : {}
+    return data?.isEnabled ? (data?.allSanityShopBanner?.nodes && data?.allSanityShopBanner?.nodes[0]) : {}
 }

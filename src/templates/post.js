@@ -2,10 +2,11 @@ import React from 'react';
 import Layout from '@components/layout'
 import { graphql } from "gatsby"
 import Item from '@components/post';
-import Meta from "@components/meta"
+import Meta from "@components/meta";
+
 
 const Post = ({
-    data: {allContentfulPost: {edges}},
+    data: {allSanityPost: {edges}},
     pageContext
 }) => {
     const data = edges[0].node
@@ -21,8 +22,8 @@ const Post = ({
 export default Post;
 
 export const pageQuery = graphql`
-query ($slug: Int!) {
-    allContentfulPost(
+query ($slug: Float!) {
+    allSanityPost(
         filter: {postId: {eq: $slug}}
     ) {
         edges {
@@ -35,18 +36,16 @@ query ($slug: Int!) {
                 priceMax
                 tags
                 categories
-                description {
-                    raw
+                _rawDescription
+                gallery {
+                    ...ImageWithPreview
+                    asset {
+                        url
+                        mimeType
+                    }
                 }
                 preview {
-                    gatsbyImageData(width: 450, quality: 90)
-                }
-                gallery {
-                    gatsbyImageData(width: 450, quality: 90, formats: WEBP)
-                    file {
-                        url
-                        contentType
-                    }
+                    ...ImageWithPreview
                 }
             }
         }

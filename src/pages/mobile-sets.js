@@ -2,50 +2,41 @@ import React, { useState } from 'react';
 import Meta from "@components/meta"
 import { useStaticQuery, graphql, Link } from "gatsby"
 // import { ContactLinks } from '@constants';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import Image from '@components/image';
 import SocialIcons from '../components/socials';
 import SvgSprite from '../components/svg-sprite';
 import Footer from "@components/footer";
 import { Wrapper } from '@components/datesPage/datesPage.styled';
-import { renderRichText } from "gatsby-source-contentful/rich-text";
+import {PortableText} from '@portabletext/react'
 import Intl from "@components/intl";
 
 import backDesk from '@images/back-dates.jpeg';
 
-const options = {
-    renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br />, text])
-}
-
 const DatesPage = () => {
-    const {allContentfulMobileSetsPage: {nodes}, allContentfulMobileSetTile: {nodes: tiles}} = useStaticQuery(graphql`
+    const {allSanityMobileSetsPage: {nodes}, allSanityMobileSetTile: {nodes: tiles}} = useStaticQuery(graphql`
     query {
-        allContentfulMobileSetsPage{
+        allSanityMobileSetsPage{
             nodes {
                 title
                 avatar {
-                    gatsbyImageData(width: 200, quality: 90)
+                    ...ImageWithPreview
                 }
                 background {
-                    gatsbyImageData(width: 1920, quality: 85)
-                    file {
-                    url
-                    }
+                    ...ImageWithPreview
                 }
             }
         }
-        allContentfulMobileSetTile {
+        allSanityMobileSetTile {
             nodes {
                 title
                 link
                 image {
-                    gatsbyImageData(width: 480, quality: 85)
+                    ...ImageWithPreview
                 }
                 popupImage {
-                    gatsbyImageData(width: 900, quality: 90)
+                    ...ImageWithPreview
                 }
-                richDescription {
-                    raw
-                }
+                _rawRichDescription
             }
         }
     }
@@ -73,7 +64,7 @@ const DatesPage = () => {
                             <li key={item.title}
                                 onClick={() => setSelected(item)}>
                                 {/* <a href={item.link} rel="me noreferrer" target="_blank"> */}
-                                <GatsbyImage image={item.image.gatsbyImageData} alt=''/>
+                                <Image image={item.image}/>
                                 <div>
                                     <h2>{item.title}</h2>
                                 {/* </a> */}
@@ -95,15 +86,14 @@ const DatesPage = () => {
                             </button>
                         </div>
                         <h2>{selected.title}</h2>
-                        <GatsbyImage image={selected.popupImage.gatsbyImageData || selected.image.gatsbyImageData} alt=""/>
+                        <Image className='image' image={selected.popupImage || selected.image}/>
                         <div className="description">
-                            {selected.richDescription && <p>{renderRichText(selected.richDescription, options)}</p>}
+                            <PortableText value={selected._rawRichDescription}/>
                         </div>
                         <a className="button" href={selected.link} rel="me noreferrer" target="_blank">Visit</a>
                     </div>
                 </div>}
-                <GatsbyImage className='hero' image={data.background.gatsbyImageData}
-                    alt=""/>
+                <Image className='hero' image={data.background}/>
             </Wrapper>
             <Footer lang="en"/>
         </Intl>

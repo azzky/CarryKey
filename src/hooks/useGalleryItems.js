@@ -3,11 +3,11 @@ import { useStaticQuery, graphql } from "gatsby"
 export default function GalleryItems() {
   const data = useStaticQuery(graphql`
     query {
-        allContentfulGalleryPage {
+        allSanityGalleryPage {
             nodes {
                 images {
-                    gatsbyImageData(width: 450, quality: 90)
-                    file {
+                    ...ImageWithPreview
+                    asset {
                         url
                     }
                 }
@@ -15,5 +15,5 @@ export default function GalleryItems() {
         }
     }
     `)
-    return data.allContentfulGalleryPage.nodes[0].images || []
+    return data.allSanityGalleryPage.nodes[0].images || []
 }

@@ -12,6 +12,34 @@ module.exports = {
     trailingSlash: "never",
     plugins: [
         {
+            resolve: `gatsby-source-sanity`,
+            options: {
+                projectId: process.env.GATSBY_SANITY_PROJECT_ID,
+                dataset: process.env.GATSBY_SANITY_DATASET,
+                // a token with read permissions is required
+                // if you have a private dataset
+                token: process.env.SANITY_TOKEN,
+
+                // If the Sanity GraphQL API was deployed using `--tag <name>`,
+                // use `graphqlTag` to specify the tag name. Defaults to `default`.
+                graphqlTag: 'default',
+            },
+        },
+        {
+            resolve: "gatsby-plugin-sanity-image",
+            options: {
+                // Sanity project info (required)
+                projectId: process.env.GATSBY_SANITY_PROJECT_ID,
+                dataset: process.env.GATSBY_SANITY_DATASET,
+                customImageTypes: ['webp', 'avif'],
+                defaultImageConfig: {
+                    quality: 95,
+                    fit: "max",
+                    auto: "format",
+                },
+            },
+        },
+        {
             resolve: 'gatsby-source-contentful',
             options: {
                 "accessToken": process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
@@ -171,7 +199,7 @@ module.exports = {
 
                             }
                         }
-                        allContentfulPost {
+                        allSanityPost {
                             nodes {
                                 url
                                 updatedAt
@@ -180,9 +208,9 @@ module.exports = {
                     }
                 `,
                 resolveSiteUrl: () => 'https://carrykey.me',
-                resolvePages: ({ allSitePage: { nodes }, allContentfulPost }) => {
+                resolvePages: ({ allSitePage: { nodes }, allSanityPost }) => {
                     return nodes.map((page) => {
-                        const matchingApiPage = allContentfulPost.nodes.find(apiPage => 
+                        const matchingApiPage = allSanityPost.nodes.find(apiPage => 
                             page.path === '/shop/set/' + apiPage.url
                         );
                         const priority = page.path === "/" ? 1.0 : 0.7;

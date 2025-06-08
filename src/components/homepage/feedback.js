@@ -1,6 +1,6 @@
 import React from "react"
 import Slider from "react-slick";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Image from "@components/image";
 import useWidth from "@hooks/useWindowSize";
 
 import Wrapper, { RatingItem } from "./feedback.styled";
@@ -75,10 +75,9 @@ const Feedback = ({reviews}) => {
             <Slider {...settings}
                 slidesToShow={isMobile ? 2 : isDesktop ? 6 : 4}>
                 {reviews.map((item, index) => {
-                    const image = getImage(item.avatar)
                     return (
                     <div key={'slider-'+index} className="item">
-                        <GatsbyImage alt="" image={image} width={242} height={363} />
+                        <Image alt="" image={item.avatar} width={242} height={363} />
                         <div className="content">
                             <p className="nickname">{item.name}</p>
                             <p className="rating">{feedBackValue(item.rating)}</p>

@@ -1,19 +1,15 @@
 import React, { useCallback, useState } from "react";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
+import {PortableText} from '@portabletext/react'
 import Lightbox from 'react-image-lightbox';
 import useBasket from "@hooks/useBasket";
-import { GatsbyImage } from "gatsby-plugin-image";
 import Slider from "react-slick";
 import Link from "@components/intl/link";
 import useWidth from "@hooks/useWindowSize";
 import { currency } from '@constants';
+import Image from "@components/image";
 
 import Wrapper from "./post.styled";
 import { FormattedMessage, FormattedNumber } from "react-intl";
-
-const options = {
-    renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br />, text])
-}
 
 const settings = (isDesktop) => {
     return isDesktop ? {
@@ -79,51 +75,49 @@ const Item = (props) => {
                         asNavFor={nav2}
                         ref={(slider1) => setNav1(slider1)}>
                         {post.gallery.map((pic, index) => {
-                            return pic.file.contentType.includes('video') ? (
+                            return pic.asset?.mimeType?.includes('video') ? (
                                 <video controls key="video">
-                                    <source type="video/mp4" src={'https:' + pic.file.url}/>
+                                    <source type="video/mp4" src={pic.asset.url}/>
                                 </video>
                             ) : (
-                                <div key={pic.file.url} onClick={() =>clickHandler(index)}>
-                                    <GatsbyImage className="slide-pic"
-                                        image={pic.gatsbyImageData}
-                                        alt={`${post.title} set image ${index + 1}`}
-                                        backgroundColor="#adadad"/>
+                                pic.asset && <div key={pic.asset.url} onClick={() =>clickHandler(index)}>
+                                    <Image className="slide-pic"
+                                        image={pic}
+                                        width={400}
+                                        alt={`${post.title} set image ${index + 1}`}/>
                                 </div>
                             )
                         })}
                     </Slider>
                     ) : post.gallery?.length === 1 ? (
-                        post.gallery[0].file.contentType.includes('video') ? (
+                        post.gallery[0].asset.mimeType.includes('video') ? (
                             <video controls>
-                                    <source type="video/mp4" src={'https:' + post.gallery[0].file.url}/>
+                                    <source type="video/mp4" src={post.gallery[0].asset.url}/>
                                 </video>
                         ) : (
-                            <GatsbyImage className="slide-pic"
-                                image={post.gallery[0].gatsbyImageData}
-                                alt={`${post.title} set image`}
-                                backgroundColor="#adadad"/>
+                            <Image className="slide-pic"
+                                image={post.gallery[0]}
+                                alt={`${post.title} set image`}/>
                         )
                     ) : (
-                    <GatsbyImage className="slide-pic"
-                                image={post.preview.gatsbyImageData}
-                                alt={`thumbnail for ${post.title} set`}
-                            backgroundColor="#adadad"/>
+                    <Image className="slide-pic"
+                                image={post.preview}
+                                alt={`thumbnail for ${post.title} set`}/>
                                 )}
                     {post.gallery?.length > 1 && <Slider {...thumbSliderSettings}
                         className="nav"
                         asNavFor={nav1}
                         ref={(slider2) => setNav2(slider2)}>
                         {post.gallery.map((pic, index) => {                            
-                            return pic.file.contentType.includes('video') ? (
+                            return post.preview.asset?.url && pic.asset?.mimeType?.includes('video') ? (
                                 <div className="video-thumb" key="video">
-                                    <img src={post.preview.file.url + '?w=250'}
-                                        key={pic.file.url}
+                                    <img src={post.preview.asset.url + '?w=250'}
+                                        key={pic.asset.url}
                                         alt={`thumbnail for ${post.title} set video`}/>
                                 </div>
                             ) : (
-                                <img src={pic.file.url + '?w=250'}
-                                key={pic.file.url}
+                                pic.asset && <img src={pic.asset.url + '?w=250'}
+                                key={pic.asset.url}
                                 alt={`thumbnail for ${post.title} set image ${index + 1}`}/>
                             )
                         })}
@@ -133,41 +127,40 @@ const Item = (props) => {
                 <div className="images-grid">
                     {post.gallery ? <Slider {...settings(isDesktop)} slidesToShow={isMobile ? 1 : 3}>
                         {post.gallery.map((pic, index) => {
-                            return pic.file.contentType.includes('video') ? (
+                            return pic.asset?.mimeType.includes('video') ? (
                                 <video controls key="video">
-                                    <source type="video/mp4" src={'https:' + pic.file.url}/>
+                                    <source type="video/mp4" src={pic.asset.url}/>
                                 </video>
                             ) : (
-                                <div key={pic.file.url} 
-                                onClick={() =>clickHandler(index)}>
-                                    <GatsbyImage className="slide-pic"
-                                        image={pic.gatsbyImageData}
+                                pic.asset && <div key={pic.asset.url} 
+                                    onClick={() =>clickHandler(index)}>
+                                    <Image className="slide-pic"
+                                        image={pic}
                                         alt={`${post.title} - ${index + 1}`}
-                                        width={280} backgroundColor="#adadad"/>
+                                        width={280}/>
                                 </div>
                             )
                         })}
                     </Slider> : (
-                        <GatsbyImage className="slide-pic"
-                                        image={post.preview.gatsbyImageData}
+                        <Image className="slide-pic"
+                                        image={post.preview}
                                         alt={post.title}
-                                        width={280} backgroundColor="#adadad"/>
+                                        width={280}/>
                     )}
                 </div>
             )}
             {showLightBox && (
-                // <></>
             <Lightbox
-                mainSrc={'https:'+post.gallery[photoIndex].file.url +'?w=1920&h=1920&q=90'}
-                nextSrc={'https:' +post.gallery[photoIndex < post.gallery.length -1 ? photoIndex + 1 : 0].file.url + '?w=1920&h=1920&q=90'}
-                prevSrc={'https:' +post.gallery[photoIndex > 0 ? photoIndex - 1 : post.gallery.length - 1].file.url + '?w=1920&h=1920&q=90'}
+                mainSrc={post.gallery[photoIndex].asset.url +'?w=1920&h=1920&q=90'}
+                nextSrc={post.gallery[photoIndex < post.gallery.length -1 ? photoIndex + 1 : 0]?.asset ? post.gallery[photoIndex < post.gallery.length -1 ? photoIndex + 1 : 0]?.asset?.url + '?w=1920&h=1920&q=90' : null}
+                prevSrc={post.gallery[photoIndex > 0 ? photoIndex - 1 : post.gallery.length - 1].asset ? post.gallery[photoIndex > 0 ? photoIndex - 1 : post.gallery.length - 1]?.asset?.url + '?w=1920&h=1920&q=90' : null}
                 onCloseRequest={() => setShowLightBox(false)}
                 onMovePrevRequest={() => setPhotoIndex((photoIndex + post.gallery.length - 1) % post.gallery.length)}
                 onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % post.gallery.length)}
             />
             )}
-            {post.description && <div className="description">
-                {renderRichText(post.description, options)}
+            {post._rawDescription && <div className="description">            
+                <PortableText value={post._rawDescription}/>
             </div>}
             </div>
             <div className="column">

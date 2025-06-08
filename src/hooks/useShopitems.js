@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 export default function ShopITems() {
   const data = useStaticQuery(graphql`
     query {
-        allContentfulPost(
+        allSanityPost(
             sort: {postId: DESC}
             filter: {
                 showInShop: {eq: true}
@@ -21,23 +21,20 @@ export default function ShopITems() {
                 showInShop
                 tags
                 gallery {
-                    gatsbyImageData(width: 450, quality: 85)
+                    ...ImageWithPreview
                 }
                 preview {
-                    gatsbyImageData(width: 450, quality: 85)
-                    file {
+                    ...ImageWithPreview
+                    asset {
                         url
-                        details {
-                            image {
-                                width
-                                height
-                            }
-                        }
+                        mimeType
+                        width
+                        height
                     }
                 }
             }
         }
     }
     `)
-    return data.allContentfulPost.nodes
+    return data.allSanityPost.nodes
 }

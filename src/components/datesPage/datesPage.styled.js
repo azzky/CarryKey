@@ -268,6 +268,10 @@ const Wrapper = styled.main`
             }
         }
 
+        .image {
+            grid-area: image;
+        }
+
         .button {
             max-width: 235px;
             background: var(--color-cta);
@@ -329,7 +333,7 @@ const Wrapper = styled.main`
                 gap: 20px 40px;
                 max-width: 90%;
                 grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: auto auto min-content auto;
+                grid-template-rows: auto min-content min-content auto;
             }
         }
 

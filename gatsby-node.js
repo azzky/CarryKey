@@ -6,23 +6,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const results = await graphql(`
     {
-        allContentfulPost(sort: {postId: ASC}) {
+        allSanityPost(sort: {postId: ASC}) {
             edges {
                 node {
                     tags
                     url
                     postId
                     title
-                    preview {
-                        file {
-                            url
-                        }
-                    }
                     price
                     priceMax
-                    description {
-                        raw
-                    }
                     seoDescription
                 }
             }
@@ -31,30 +23,22 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
     const merchReq = await graphql(`
         {
-            allContentfulMerch(sort: {postId: ASC}) {
+            allSanityMerch(sort: {postId: ASC}) {
                 edges {
                     node {
                         postId
                         title
                         url
-                        preview {
-                            file {
-                                url
-                            }
-                        }
                         price
                         priceMax
-                        description {
-                            raw
-                        }
                         seoDescription
                     }
                 }
             }
         }
     `)
-    const posts = results.data.allContentfulPost.edges
-    const merch = merchReq.data.allContentfulMerch.edges
+    const posts = results.data.allSanityPost.edges
+    const merch = merchReq.data.allSanityMerch.edges
 
     const promises = posts.map(async (post) => {
         createPage({
@@ -63,11 +47,11 @@ exports.createPages = async ({ graphql, actions }) => {
             context: {
                 slug: post.node.postId,
                 url: post.node.url,
-                image: post.node.preview.file.url,
+                // image: post.node.preview.asset.url,
                 title: post.node.title,
                 priceMin: post.node.price,
                 priceMax: post.node.priceMax,
-                description: post.node.seoDescription || post.node.description,
+                // description: post.node.seoDescription || post.node.description,
                 langKey: 'en'
             }
         })
@@ -77,11 +61,11 @@ exports.createPages = async ({ graphql, actions }) => {
             context: {
                 slug: post.node.postId,
                 url: post.node.url,
-                image: post.node.preview.file.url,
+                // image: post.node.preview.asset.url,
                 title: post.node.title,
                 priceMin: post.node.price,
                 priceMax: post.node.priceMax,
-                description: post.node.seoDescriptionDe || post.node.descriptionDe || post.node.seoDescription || post.node.description,
+                // description: post.node.seoDescriptionDe || post.node.descriptionDe || post.node.seoDescription || post.node.description,
                 langKey: 'de'
             }
         })
@@ -91,7 +75,7 @@ exports.createPages = async ({ graphql, actions }) => {
         //     context: {
         //         slug: post.node.postId,
         //         url: post.node.url,
-        //         image: post.node.preview.file.url,
+        //         image: post.node.preview.asset.url,
         //         title: post.node.title,
         //         priceMin: post.node.price,
         //         priceMax: post.node.priceMax,
@@ -105,7 +89,7 @@ exports.createPages = async ({ graphql, actions }) => {
         //     context: {
         //         slug: post.node.postId,
         //         url: post.node.url,
-        //         image: post.node.preview.file.url,
+        //         image: post.node.preview.asset.url,
         //         title: post.node.title,
         //         priceMin: post.node.price,
         //         priceMax: post.node.priceMax,
@@ -121,7 +105,7 @@ exports.createPages = async ({ graphql, actions }) => {
         //         context: {
         //             slug: tag,
         //             type: 'shop',
-        //             image: post.node.preview.file.url
+        //             image: post.node.preview.asset.url
         //         }
         //     })
         //     createPage({
@@ -141,11 +125,11 @@ exports.createPages = async ({ graphql, actions }) => {
             context: {
                 slug: post.node.postId,
                 url: post.node.url,
-                image: post.node.preview.file.url,
+                // image: post.node.preview.asset.url,
                 title: post.node.title,
                 priceMin: post.node.price,
                 priceMax: post.node.priceMax,
-                description: post.node.seoDescription || post.node.description,
+                // description: post.node.seoDescription || post.node.description,
                 langKey: 'en'
             }
         })
@@ -155,11 +139,11 @@ exports.createPages = async ({ graphql, actions }) => {
             context: {
                 slug: post.node.postId,
                 url: post.node.url,
-                image: post.node.preview.file.url,
+                // image: post.node.preview.asset.url,
                 title: post.node.title,
                 priceMin: post.node.price,
                 priceMax: post.node.priceMax,
-                description: post.node.seoDescriptionDe || post.node.descriptionDe || post.node.seoDescription || post.node.description,
+                // description: post.node.seoDescriptionDe || post.node.descriptionDe || post.node.seoDescription || post.node.description,
                 langKey: 'de'
             }
         })

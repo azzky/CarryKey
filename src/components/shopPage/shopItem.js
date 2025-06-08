@@ -1,5 +1,6 @@
 import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
+import Image from "@components/image";
 
 import { Item } from "./shopItem.styled";
 import { currency } from "@constants";
@@ -24,7 +25,8 @@ const ShopItem = ({post, isMerch, lang}) => {
                 <span className="visually-hidden">{'link to post '+title}</span>
             </Link>
             <div className={isMerch ? 'merch' : isHorizontal ? 'imageWrapper square' : 'imageWrapper'}>
-                <GatsbyImage image={preview.gatsbyImageData}
+                <Image image={preview}
+                    width={450}
                     alt={'preview for '+title}/>
             </div>
             <p className="title">{title}</p>

@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 export default function MerchItems() {
   const data = useStaticQuery(graphql`
     query {
-        allContentfulMerch(
+        allSanityMerch(
             sort: {postId: DESC}
         ) {
             nodes {
@@ -15,23 +15,10 @@ export default function MerchItems() {
                 priceMax
                 isBestseller
                 gallery {
-                    gatsbyImageData(width: 450, quality: 85)
-                    file {
-                        url
-                        contentType
-                    }
+                    ...ImageWithPreview
                 }
                 preview {
-                    gatsbyImageData(width: 450, quality: 85)
-                    file {
-                        url
-                        details {
-                            image {
-                                width
-                                height
-                            }
-                        }
-                    }
+                    ...ImageWithPreview
                 }
                 minPriceButtonText
                 maxPriceButtonText
@@ -40,5 +27,5 @@ export default function MerchItems() {
         }
     }
     `)
-    return data.allContentfulMerch.nodes
+    return data.allSanityMerch.nodes
 }

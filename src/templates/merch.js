@@ -5,10 +5,12 @@ import Item from '@components/post';
 import Meta from "@components/meta"
 
 const Merch = ({
-    data: {allContentfulMerch: {edges}},
+    data: {allSanityMerch: {edges}},
     pageContext
 }) => {
     const data = edges[0].node
+    console.log(data);
+    
     return (
         <Layout hasNavigation isCart
             lang={pageContext.langKey}
@@ -24,7 +26,7 @@ export default Merch;
 
 export const pageQuery = graphql`
 query ($slug: String!) {
-    allContentfulMerch(
+    allSanityMerch(
         filter: {postId: {eq: $slug}}
     ) {
         edges {
@@ -35,17 +37,25 @@ query ($slug: String!) {
                 title
                 price
                 priceMax
-                description {
-                    raw
+                _rawDescription
+                gallery {
+                    ...ImageWithPreview
+                    asset {
+                        url
+                        mimeType
+                    }
                 }
                 preview {
-                    gatsbyImageData(width: 450, quality: 90)
-                }
-                gallery {
-                    gatsbyImageData(width: 450, quality: 90, formats: WEBP)
-                    file {
+                    ...ImageWithPreview
+                    asset {
                         url
-                        contentType
+                        mimeType
+                    }
+                }
+                video {
+                    asset {
+                        url
+                        mimeType
                     }
                 }
                 minPriceButtonText

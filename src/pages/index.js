@@ -24,7 +24,7 @@ const IndexPage = ({
         <>
             <Layout hasNavigation isHero isHome slides={slides} lang={lang}>
                 <AboutBlock/>
-                <ShopSlider posts={posts}/>
+                <ShopSlider posts={posts} lang={lang}/>
                 {/* <Services/> */}
                 {/* <Feedback reviews={reviews}/> */}
             </Layout>

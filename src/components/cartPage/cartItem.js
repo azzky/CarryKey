@@ -1,5 +1,5 @@
 import React from 'react';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import Image from '@components/image';
 import Link from "@components/intl/link";
 import { currency } from '@constants';
 
@@ -8,12 +8,11 @@ import { FormattedMessage, FormattedNumber } from 'react-intl';
 
 const CartItem = ({item, removeItem, lang}) => {
     const {title, priceType, price, priceMax, preview, url, isMerch, minPriceButtonText, maxPriceButtonText} = item;
-    const image = getImage(preview);
     const showEdit = !isMerch && priceMax !== null;      
 
     return (
         <Item>
-            <GatsbyImage image={image} layout="fill" alt={'Thumbnail for '+item.title} />
+            <Image image={preview} width={148} alt={'Thumbnail for '+item.title} />
             <div className="details">
                 <p className="title">{title}</p>
                 <div className="info">
