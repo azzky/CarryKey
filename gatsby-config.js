@@ -39,13 +39,13 @@ module.exports = {
                 },
             },
         },
-        {
-            resolve: 'gatsby-source-contentful',
-            options: {
-                "accessToken": process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
-                "spaceId": process.env.GATSBY_CONTENTFUL_SPACE_ID
-            }
-        },
+        // {
+        //     resolve: 'gatsby-source-contentful',
+        //     options: {
+        //         "accessToken": process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
+        //         "spaceId": process.env.GATSBY_CONTENTFUL_SPACE_ID
+        //     }
+        // },
         {
             resolve: 'gatsby-plugin-preconnect',
             options: {
@@ -202,7 +202,13 @@ module.exports = {
                         allSanityPost {
                             nodes {
                                 url
-                                updatedAt
+                                _updatedAt
+                            }
+                        }
+                        allSanityMerch {
+                            nodes {
+                                url
+                                _updatedAt
                             }
                         }
                     }
@@ -215,7 +221,7 @@ module.exports = {
                         );
                         const priority = page.path === "/" ? 1.0 : 0.7;
                         const changefreq = page.path === "/" ? 'daily' : 'weekly';
-                        const lastmod = matchingApiPage ? matchingApiPage.updatedAt : new Date().toISOString();
+                        const lastmod = matchingApiPage ? matchingApiPage._updatedAt : new Date().toISOString();
                         return { ...page, priority, changefreq, lastmod };
                     });
                 },
