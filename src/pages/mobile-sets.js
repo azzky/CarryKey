@@ -10,7 +10,7 @@ import { Wrapper } from '@components/datesPage/datesPage.styled';
 import {PortableText} from '@portabletext/react'
 import Intl from "@components/intl";
 
-import backDesk from '@images/back-dates.jpeg';
+import backDesk from '@images/back-dates.jpg';
 
 const DatesPage = () => {
     const {allSanityMobileSetsPage: {nodes}, allSanityMobileSetTile: {nodes: tiles}} = useStaticQuery(graphql`

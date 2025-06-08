@@ -9,7 +9,6 @@ const Merch = ({
     pageContext
 }) => {
     const data = edges[0].node
-    console.log(data);
     
     return (
         <Layout hasNavigation isCart
@@ -67,7 +66,6 @@ query ($slug: String!) {
 `
 
 export const Head = ({pageContext}) => {
-    // console.log(pageContext);
     return (
         <>
             <Meta title={pageContext.title}

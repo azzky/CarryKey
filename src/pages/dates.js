@@ -10,7 +10,7 @@ import { PortableText } from '@portabletext/react';
 import Intl from "@components/intl";
 import Image from "@components/image"
 
-import backDesk from '@images/back-dates.jpeg';
+import backDesk from '@images/back-dates.jpg';
 
 const DatesPage = () => {
     const {allSanityDatesPage: {nodes}, allSanityDatesTile: {nodes: tiles}} = useStaticQuery(graphql`
@@ -63,7 +63,6 @@ const DatesPage = () => {
                 <h1>{data.title}</h1>
                 <section>
                     <ul className='grid dates'>
-                    {console.log(tiles)}
                         {tiles.map(item => (
                             <li key={item.title}
                                 onClick={() => setSelected(item)}>

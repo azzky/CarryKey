@@ -11,7 +11,7 @@ import ToTop from "./toTop";
 import { HeaderRoot, BottomBlock, SearchWrapper, Socials, FixedMinicart } from "./header.styled";
 
 const Header = (props) => {
-    const {hasNavigation, isHero, heroImageDesktop, h1, isHome, slides, isContact, isCart, isShop, lang} = props;
+    const {hasNavigation, isHero, heroImageDesktop, heroImageMobile, h1, isHome, slides, isContact, isCart, isShop, lang} = props;
     const {isMobile, isDesktop} = useWidth();
     return (
         <>
@@ -23,9 +23,17 @@ const Header = (props) => {
                     isMobile={isMobile}
                     lang={lang}/>
             ) : (
-                <>{isHero && <img src={heroImageDesktop}
-                    alt="" loading="lazy"
-                    className="hero"/>}</>
+                <>
+                    {isHero && !heroImageMobile && <img src={heroImageDesktop}
+                        alt="" loading="lazy"
+                        className="hero"/>}
+                    {isHero && heroImageMobile && (
+                        <picture>
+                            <source media="(max-width: 767px)" srcSet={heroImageMobile}/>
+                            <img src={heroImageDesktop} alt="" loading="lazy" className="hero"/>
+                        </picture>
+                    )}
+                </>
             )}
             {isCart ? (
                 <>

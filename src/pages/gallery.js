@@ -5,6 +5,7 @@ import GalleryGrid from '@components/galleryPage/grid';
 import Meta from "@components/meta"
 
 import backDesk from '@images/back-gallery.jpg';
+import backMobile from '@images/back-gallery-m.jpg';
 
 const Gallery = ({
     pageContext: {
@@ -16,6 +17,7 @@ const Gallery = ({
     return (
         <Layout hasNavigation isHero
             heroImageDesktop={backDesk}
+            heroImageMobile={backMobile}
             lang={lang}
             h1={'Gallery'}>
             {images.length > 0 && <GalleryGrid images={images} />}
