@@ -123,6 +123,15 @@ video {
     max-width: 100%;
 }
 
+img {
+    display: block;
+}
+
+img:not([width]) {
+    max-width: 100%;
+    width: 100%;
+}
+
 @media screen and (min-width: 754px) {
     h2 {
         font-size: 44px;

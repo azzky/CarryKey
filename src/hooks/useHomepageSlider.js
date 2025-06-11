@@ -11,9 +11,15 @@ export default function Slides() {
                 _rawText
                 mobileImage {
                     ...ImageWithPreview
+                    asset {
+                        url
+                    }
                 }
                 desktopImage {
                     ...ImageWithPreview
+                    asset {
+                        url
+                    }
                 }
                 post {
                     postId

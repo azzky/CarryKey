@@ -1,11 +1,9 @@
 import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import Image from "@components/image";
-
 import { Item } from "./shopItem.styled";
 import { currency } from "@constants";
 import Link from "@components/intl/link";
 import { FormattedMessage, FormattedNumber } from 'react-intl';
+
 const ShopItem = ({post, isMerch, lang}) => {
     const {
         title,
@@ -17,6 +15,10 @@ const ShopItem = ({post, isMerch, lang}) => {
         preview
     } = post;
     const isHorizontal = preview?.file?.details?.image?.width > preview?.file?.details?.image?.height || false;
+
+    console.log(post);
+    
+
     return (
         <Item>
             <Link to={isMerch ? '/merch/'+url : '/shop/set/'+url}
@@ -25,9 +27,9 @@ const ShopItem = ({post, isMerch, lang}) => {
                 <span className="visually-hidden">{'link to post '+title}</span>
             </Link>
             <div className={isMerch ? 'merch' : isHorizontal ? 'imageWrapper square' : 'imageWrapper'}>
-                <Image image={preview}
-                    width={450}
-                    alt={'preview for '+title}/>
+                <img src={preview?.asset?.url + '?w=450&q=90&fm=webp'} alt={'preview for '+title}
+                    srcSet={`${preview?.asset?.url}?w=450&q=90&fm=webp 1x,
+                            ${preview?.asset?.url}?w=900&q=90 2x`}/>
             </div>
             <p className="title">{title}</p>
             <div className="details">

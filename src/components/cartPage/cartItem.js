@@ -8,11 +8,14 @@ import { FormattedMessage, FormattedNumber } from 'react-intl';
 
 const CartItem = ({item, removeItem, lang}) => {
     const {title, priceType, price, priceMax, preview, url, isMerch, minPriceButtonText, maxPriceButtonText} = item;
-    const showEdit = !isMerch && priceMax !== null;      
+    const showEdit = !isMerch && priceMax !== null;    
 
     return (
         <Item>
-            <Image image={preview} width={148} alt={'Thumbnail for '+item.title} />
+            <img src={preview?.asset?.url + '?w=148&h=148&fm=webp&q=90'}
+                alt={'Thumbnail for '+item.title}
+                srcSet={`${preview?.asset?.url}?w=148&fm=webp&q=85 1x,
+                    ${preview?.asset?.url}?w=296&fm=webp&q=85 2x`}/>
             <div className="details">
                 <p className="title">{title}</p>
                 <div className="info">

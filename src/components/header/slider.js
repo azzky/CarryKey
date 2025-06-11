@@ -16,7 +16,7 @@ const HomeSlider = (props) => {
         dots: !isMobile,
         arrows: false,
         infinite: true,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 5000,
         pauseOnHover:false,
         slidesToShow: 1,
@@ -33,6 +33,8 @@ const HomeSlider = (props) => {
             if (!slide.post || !slide.post.url) {
                 return null; // Skip if post or URL is not available
             }
+            console.log(slide);
+            
             return (
                 <div className="slide-inner" key={slide.title}>
                     <div className="slide-content">
@@ -42,8 +44,10 @@ const HomeSlider = (props) => {
                         </Link>
                     </div>
                     <div className="desktop">
-                        <Image image={slide.desktopImage}
-                            alt={slide.post.title}/>
+                        <img src={slide.desktopImage.asset.url + '?w=1920&q=90'} alt={slide.post.title}
+                            srcSet={`${slide.desktopImage.asset.url}?w=1920&q=90&fm=webp 1x,
+                                ${slide.desktopImage.asset.url}?w=3840&q=90 2x`}
+                                 />
                     </div>
                     <div className="mobile">
                         <Image image={slide.mobileImage}

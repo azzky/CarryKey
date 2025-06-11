@@ -48,7 +48,10 @@ const PostCarousel = (props) => {
             {items.map(slide => {                
                 return (
                 <div key={'slider1-'+slide.postId} className="item">
-                    <img src={slide.preview.asset.url + '?h=400&q=85'} alt={'Visit ' + slide.title + ' cosplay set'}/>
+                    <img src={slide.preview.asset.url + '?w=275&q=85&fm=webp'}
+                        alt={'Visit ' + slide.title + ' cosplay set'}
+                        srcSet={`${slide.preview.asset.url}?w=275&q=90&fm=webp 1x,
+                                ${slide.preview.asset.url}?w=550&q=90 2x`}/>
                     <Link to={'/shop/set/'+slide.url} className="button" lang={lang}>
                         <FormattedMessage id="global.purchase"/>
                     </Link>

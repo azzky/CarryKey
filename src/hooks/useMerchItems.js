@@ -16,9 +16,17 @@ export default function MerchItems() {
                 isBestseller
                 gallery {
                     ...ImageWithPreview
+                    asset {
+                        url
+                        mimeType
+                    }
                 }
                 preview {
                     ...ImageWithPreview
+                    asset {
+                        url
+                        mimeType
+                    }
                 }
                 minPriceButtonText
                 maxPriceButtonText

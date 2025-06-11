@@ -46,6 +46,10 @@ query ($slug: Float!) {
                 }
                 preview {
                     ...ImageWithPreview
+                    asset {
+                        url
+                        mimeType
+                    }
                 }
             }
         }
