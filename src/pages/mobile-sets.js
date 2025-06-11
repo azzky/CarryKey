@@ -12,9 +12,9 @@ import Intl from "@components/intl";
 import backDesk from '@images/back-dates.jpg';
 
 const DatesPage = () => {
-    const {allSanityMobileSetsPage: {nodes}, allSanityMobileSetTile: {nodes: tiles}} = useStaticQuery(graphql`
+    const {allSanityMobileSetsPage: {nodes}} = useStaticQuery(graphql`
     query {
-        allSanityMobileSetsPage(sort: {title: ASC}) {
+        allSanityMobileSetsPage {
             nodes {
                 title
                 avatar {
@@ -29,25 +29,23 @@ const DatesPage = () => {
                         url
                     }
                 }
-            }
-        }
-        allSanityMobileSetTile {
-            nodes {
-                title
-                link
-                image {
-                    ...ImageWithPreview
-                    asset {
-                        url
+                tiles {
+                    title
+                    link
+                    image {
+                        ...ImageWithPreview
+                        asset {
+                            url
+                        }
                     }
-                }
-                popupImage {
-                    ...ImageWithPreview
-                    asset {
-                        url
+                    popupImage {
+                        ...ImageWithPreview
+                        asset {
+                            url
+                        }
                     }
+                    _rawRichDescription
                 }
-                _rawRichDescription
             }
         }
     }
@@ -71,7 +69,7 @@ const DatesPage = () => {
                 <h1>{data.title}</h1>
                 <section>
                     <ul className='grid dates'>
-                        {tiles.map(item => (
+                        {data.tiles.map(item => (
                             <li key={item.title}
                                 onClick={() => setSelected(item)}>
                                 {/* <a href={item.link} rel="me noreferrer" target="_blank"> */}
