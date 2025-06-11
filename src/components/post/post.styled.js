@@ -217,10 +217,12 @@ const Wrapper = styled.div`
         &.images-grid {
             display: flex;
         }
-        .gatsby-image-wrapper {
-            margin: 0 auto;
-        }
         `}
+        img:not(.thumb) {
+            max-width: unset;
+            margin: 0 auto;
+            width: auto !important;
+        }
     }
 
     & .nav {
