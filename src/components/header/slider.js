@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "@components/image";
 import Slider from "react-slick";
 import useWidth from '@hooks/useWindowSize'
 import {PortableText} from '@portabletext/react'
@@ -16,7 +15,7 @@ const HomeSlider = (props) => {
         dots: !isMobile,
         arrows: false,
         infinite: true,
-        // autoplay: true,
+        autoplay: true,
         autoplaySpeed: 5000,
         pauseOnHover:false,
         slidesToShow: 1,
@@ -33,7 +32,6 @@ const HomeSlider = (props) => {
             if (!slide.post || !slide.post.url) {
                 return null; // Skip if post or URL is not available
             }
-            console.log(slide);
             
             return (
                 <div className="slide-inner" key={slide.title}>
@@ -43,15 +41,17 @@ const HomeSlider = (props) => {
                             <FormattedMessage id="global.purchase"/>
                         </Link>
                     </div>
-                    <div className="desktop">
+                    <div className="img desktop">
                         <img src={slide.desktopImage.asset.url + '?w=1920&q=90'} alt={slide.post.title}
                             srcSet={`${slide.desktopImage.asset.url}?w=1920&q=90&fm=webp 1x,
                                 ${slide.desktopImage.asset.url}?w=3840&q=90 2x`}
                                  />
                     </div>
-                    <div className="mobile">
-                        <Image image={slide.mobileImage}
-                            alt={slide.post.title}/>
+                    <div className="img mobile">
+                        <img src={slide.mobileImage.asset.url + '?w=800&q=90'} alt={slide.post.title}
+                            srcSet={`${slide.mobileImage.asset.url}?w=800&q=90&fm=webp 1x,
+                                ${slide.mobileImage.asset.url}?w=1600&q=90 2x`}
+                                 />
                     </div>
                 </div>
             )})}

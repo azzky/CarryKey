@@ -1,15 +1,18 @@
 import styled from "styled-components";
 
 const Wrapper = styled.main`
-    position: relative;
+    display: grid;
+    justify-items: center;
+    align-items: center;
 
     & .hero {
         object-fit: cover;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
+        grid-column: 1;
+        grid-row: 1;
+        object-position: center;
+        height: 100%;
+        width: 100%;
+        max-width: unset;
     }
 
     & .content {
@@ -17,13 +20,11 @@ const Wrapper = styled.main`
         position: relative;
         background: rgba(0,0,0,.4);
         padding: 22px 55px;
-        display: grid;
         color: white;
-        align-items: start;
-        justify-items: center;
-        gap: 0;
-        grid-template-rows: repeat(6, max-content);
         min-height: 95vw;
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
 
         @media (min-width: 768px) {
             padding: 19px var(--tablet-offset);
@@ -62,6 +63,7 @@ const Wrapper = styled.main`
         font-weight: 300;
         line-height: 53.35px;
         margin-top: 13px;
+        text-align: center;
 
         @media (min-width: 768px) {
             font-size: 28px;
@@ -90,7 +92,7 @@ const Wrapper = styled.main`
             border: 1px solid var(--color-main-hover);
         }
 
-        .gatsby-image-wrapper {
+        img {
             position: absolute;
             height: 48px;
             width: 48px;
@@ -138,22 +140,25 @@ const Wrapper = styled.main`
         gap: 30px;
         margin-bottom: 33px;
         margin-top: 33px;
+        justify-content: center;
 
         @media (min-width: 768px) {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 480px);
             gap: 15px;
         }
 
         @media (min-width: 1280px) {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 480px);
             gap: 30px;
         }
 
-        .gatsby-image-wrapper {
+        img {
             object-fit: cover;
             width: 100%;
             height: 100%;
             z-index: -1;
+            grid-column: 1;
+            grid-row: 1;
         }
 
         h2 {
@@ -218,7 +223,7 @@ const Wrapper = styled.main`
         column-gap: 40px;
         padding: 45px 55px;
 
-        .gatsby-image-wrapper {
+        img {
             border-top: 17px solid var(--color-secondary);
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;

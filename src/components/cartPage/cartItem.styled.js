@@ -72,7 +72,7 @@ const Item = styled.li`
         }
     }
 
-    & .gatsby-image-wrapper {
+    & img {
         margin-top: 6px;
     }
 

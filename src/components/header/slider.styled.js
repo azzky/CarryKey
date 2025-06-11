@@ -55,6 +55,10 @@ const SliderWrapper =styled.div`
         overflow: hidden;
         height: 100vh;
 
+        img {
+            object-fit: cover;
+        }
+
         .desktop {
             display: none;
 
@@ -139,11 +143,11 @@ const SliderWrapper =styled.div`
         }
     }
 
-    & .gatsby-image-wrapper-constrained {
+    & .img {
         display: block;
     }
 
-    & .gatsby-image-wrapper {
+    & .img {
         position: relative;
 
         &:after {

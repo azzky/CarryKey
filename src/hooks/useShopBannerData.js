@@ -14,6 +14,9 @@ export default function BannerItem() {
                 position
                 image {
                     ...ImageWithPreview
+                    asset {
+                        url
+                    }
                 }
             }
         }

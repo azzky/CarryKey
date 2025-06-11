@@ -1,6 +1,4 @@
 import React, { useCallback, useState } from "react"
-import { GatsbyImage } from "gatsby-plugin-image";
-import Image from "@components/image";
 import useShop from '@hooks/useShop'
 import useWidth from '@hooks/useWindowSize'
 import Lightbox from 'react-image-lightbox'
@@ -16,9 +14,10 @@ const Item = ({post, setImage, setPhotoIndex, postIndex}) => {
     
     return (
         <div className="item" onClick={clickHandler} id={post.photoIndex}>
-            <Image image={post}
+            <img src={post.asset.url + '?w=400&h=400&q=90&fm=webp'}
                 alt={'Gallery item ' + post.photoIndex}
-                width={400}
+                srcSet={`${post.asset.url}?w=400&h=400&q=90&fm=webp 1x,
+                    ${post.asset.url}?w=800&h=800&q=90&fm=webp 2x`}
                 />
         </div>
     )
@@ -61,9 +60,9 @@ const GalleryGrid = ({images}) => {
         </div>
         {image && (
           <Lightbox
-            mainSrc={images[photoIndex].asset.url +'?w=1920&h=1920&q=90'}
-            nextSrc={images[photoIndex < images.length -1 ? photoIndex + 1 : 0].asset.url + '?w=1920&h=1920&&q=90'}
-            prevSrc={images[photoIndex > 0 ? photoIndex - 1 : images.length - 1].asset.url + '?w=1920&h=1920&q=90'}
+            mainSrc={images[photoIndex].asset.url +'?w=1920&h=1920&q=90&fm=webp'}
+            nextSrc={images[photoIndex < images.length -1 ? photoIndex + 1 : 0].asset.url + '?w=1920&h=1920&&q=90&fm=webp'}
+            prevSrc={images[photoIndex > 0 ? photoIndex - 1 : images.length - 1].asset.url + '?w=1920&h=1920&q=90&fm=webp'}
             onCloseRequest={() => setImage(null)}
             onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
             onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}

@@ -35,6 +35,8 @@ const Wrapper = styled.main`
         height: 120px !important;
         border-radius: 50%;
         border: 2px solid var(--color-main);
+        object-fit: cover;
+        border-radius: 50%;
     }
 
     & img.logo {
@@ -72,7 +74,7 @@ const Wrapper = styled.main`
             border: 1px solid var(--color-main-hover);
         }
 
-        .gatsby-image-wrapper {
+        img {
             position: absolute;
             height: 48px;
             width: 48px;
@@ -97,7 +99,7 @@ const Wrapper = styled.main`
         gap: 8px;
         margin-bottom: 33px;
 
-        .gatsby-image-wrapper {
+        img {
             object-fit: cover;
             width: 100%;
             height: 100%;

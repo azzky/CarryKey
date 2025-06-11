@@ -9,6 +9,9 @@ export default function Reviews () {
                 rating
                 avatar {
                     ...ImageWithPreview
+                    asset {
+                        url
+                    }
                 }
                 text {
                     _rawChildren

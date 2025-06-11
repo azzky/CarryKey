@@ -1,6 +1,5 @@
 import React from "react"
 import Slider from "react-slick";
-import Image from "@components/image";
 import useWidth from "@hooks/useWindowSize";
 
 import Wrapper, { RatingItem } from "./feedback.styled";
@@ -77,7 +76,8 @@ const Feedback = ({reviews}) => {
                 {reviews.map((item, index) => {
                     return (
                     <div key={'slider-'+index} className="item">
-                        <Image alt="" image={item.avatar} width={242} height={363} />
+                        <img alt="" src={item.avatar.asset.url} srcSet={`${item.avatar.asset.url}?w=242&h=363&q=90 1x,
+                            ${item.avatar.asset.url}?w=484&h=726&q=90 2x`}/>
                         <div className="content">
                             <p className="nickname">{item.name}</p>
                             <p className="rating">{feedBackValue(item.rating)}</p>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from '@components/image';
 import Link from "@components/intl/link";
 import { currency } from '@constants';
 
