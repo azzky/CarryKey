@@ -21,7 +21,7 @@ const NavMenu = ({isCart, isShop, lang}) => {
         <>
         {isMobile && (
             <>
-                <ShopLink to={isShop ? '/about' : '/shop'}>
+                <ShopLink lang={lang} to={isShop ? '/about' : '/shop'}>
                     {isShop ? (
                         <FormattedMessage id="menu.about"/>
                     ) : (
