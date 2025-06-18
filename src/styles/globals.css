@@ -132,6 +132,13 @@ img:not([width]) {
     width: 100%;
 }
 
+.ril-image-current {
+    max-height: 100vw;
+    width: auto !important;
+    max-width: 100vw;
+    height: auto;
+}
+
 @media screen and (min-width: 754px) {
     h2 {
         font-size: 44px;

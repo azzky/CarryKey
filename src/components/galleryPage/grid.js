@@ -59,10 +59,10 @@ const GalleryGrid = ({images}) => {
             </Wrapper>
         </div>
         {image && (
-          <Lightbox
-            mainSrc={images[photoIndex].asset.url +'?w=1920&h=1920&q=90&fm=webp'}
-            nextSrc={images[photoIndex < images.length -1 ? photoIndex + 1 : 0].asset.url + '?w=1920&h=1920&&q=90&fm=webp'}
-            prevSrc={images[photoIndex > 0 ? photoIndex - 1 : images.length - 1].asset.url + '?w=1920&h=1920&q=90&fm=webp'}
+          <Lightbox className="lightbox"
+            mainSrc={images[photoIndex].asset.url +'?w=1920&h=1920&q=100&fm=webp'}
+            nextSrc={images[photoIndex < images.length -1 ? photoIndex + 1 : 0].asset.url + '?w=1920&h=1920&&q=100&fm=webp'}
+            prevSrc={images[photoIndex > 0 ? photoIndex - 1 : images.length - 1].asset.url + '?w=1920&h=1920&q=100&fm=webp'}
             onCloseRequest={() => setImage(null)}
             onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
             onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
