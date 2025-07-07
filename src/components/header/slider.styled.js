@@ -65,7 +65,6 @@ const SliderWrapper =styled.div`
                 object-position: top;
                 width: 100% !important;
                 height: 100%;
-                min-height: 100vh;
                 min-width: 100vw;
             }
         }
