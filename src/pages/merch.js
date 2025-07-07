@@ -17,6 +17,7 @@ const Merch = ({
         <Layout hasNavigation isHero
             h1={'Merch'}
             lang={lang}
+            type={'merch'}
             heroImageDesktop={backDesk}>
             {items?.length > 0 && <Grid items={items}
                 showFilters={true}

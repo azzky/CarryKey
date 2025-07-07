@@ -30,7 +30,7 @@ const twitterLink = 'https://twitter.com/CarryKey_'
 const ContactLinks = [
     {
         title: 'Instagram',
-        link: 'https://www.instagram.com/carry.key_cosplay'
+        link: 'https://www.instagram.com/carrydoingvids/'
     },
     {
         title: 'Twitter',

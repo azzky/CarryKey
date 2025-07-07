@@ -53,7 +53,6 @@ const SliderWrapper =styled.div`
     & .slide-inner {
         position: relative;
         overflow: hidden;
-        height: 100vh;
 
         img {
             object-fit: cover;

@@ -11,7 +11,7 @@ import ToTop from "./toTop";
 import { HeaderRoot, BottomBlock, SearchWrapper, Socials, FixedMinicart } from "./header.styled";
 
 const Header = (props) => {
-    const {hasNavigation, isHero, heroImageDesktop, heroImageMobile, h1, isHome, slides, isContact, isCart, isShop, lang} = props;
+    const {hasNavigation, isHero, heroImageDesktop, heroImageMobile, h1, isHome, slides, isContact, isCart, isShop, lang, type} = props;
     const {isMobile, isDesktop} = useWidth();
     return (
         <>
@@ -69,7 +69,8 @@ const Header = (props) => {
                 </>
             ) : (
                 <>
-                    <Search lang={lang}/>
+                    <Search lang={lang}
+                        type={type}/>
                     <MiniCart lang={lang}/>
                 </>
             )}

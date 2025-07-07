@@ -5,12 +5,12 @@ import { navigate } from "gatsby"
 import SearchWrapper from './search.styled'
 import { FormattedMessage, useIntl } from "react-intl"
 
-const Search = ({ lang }) => {
+const Search = ({ lang, type }) => {
     const { register, handleSubmit } = useForm();
     const intl = useIntl()
     const langStr = lang !== 'en' ? '/' + lang : ''
     const onSubmit = (data) => {
-        navigate(`${langStr}/search?search=${data.search.replaceAll(' ', '_')}`)
+        navigate(`${langStr}/search?q=${data.search.replaceAll(' ', '_')}&type=${type}`)
     }
     return (
         <SearchWrapper onSubmit={handleSubmit(onSubmit)}>

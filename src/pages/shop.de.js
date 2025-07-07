@@ -19,6 +19,7 @@ const Shop = ({
         <Layout hasNavigation isHero isShop
             h1={'Shop'}
             lang={lang}
+            type={'shop'}
             heroImageDesktop={backDesk}>
             {posts?.length > 0 && <Grid items={posts}
                 banner={banner}
