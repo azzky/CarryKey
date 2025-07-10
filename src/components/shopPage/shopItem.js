@@ -14,10 +14,7 @@ const ShopItem = ({post, isMerch, lang}) => {
         // gallery,
         preview
     } = post;
-    const isHorizontal = preview?.file?.details?.image?.width > preview?.file?.details?.image?.height || false;
-
-    console.log(post);
-    
+    const isHorizontal = preview?.file?.details?.image?.width > preview?.file?.details?.image?.height || false;    
 
     return (
         <Item>

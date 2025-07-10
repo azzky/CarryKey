@@ -141,9 +141,9 @@ const useShop = (items, width, isTablet, banner, path) => {
     if (hasBanner && finalItems.length <= index) {
         finalItems = [...finalItems, banner]
     }
-    useEffect(() => {
-        setSortingValue(sortList[1])
-    }, [setSortingValue])
+    // useEffect(() => {
+    //     setSortingValue(sortList[1])
+    // }, [setSortingValue])    
     
     return {
         uniqueTags: uniqueTags.sort(),
