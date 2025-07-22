@@ -190,7 +190,7 @@ module.exports = {
         {
             resolve: "gatsby-plugin-sitemap",
             options: {
-                excludes: ['/merch', '/feedback', '/search', '/dates', '/mobile-sets', '/cart'],
+                excludes: ['/merch', '/feedback', '/search', '/dates', '/mobile-sets', '/cart', '/start', '/links'],
                 query: `
                     {
                         allSitePage {
@@ -240,7 +240,7 @@ module.exports = {
             options: {
                 trackingId: process.env.GATSBY_GA_NUMBER,
                 head: true,
-                exclude: ['/merch', '/feedback', '/search'],
+                exclude: ['/merch', '/feedback', '/search', '/links', '/mobile-sets', '/cart', '/start'],
                 pageTransitionDelay: 0,
                 defer: false,
                 enableWebVitalsTracking: true

@@ -2,6 +2,15 @@ import styled from "styled-components";
 
 const Wrapper = styled.main`
     position: relative;
+    overflow: hidden;
+
+    ${props => props.$bouncing && `.links li:nth-child(${props.$bouncing}) {
+            animation-name: bounce_small_infinite;
+            transform-origin: center bottom;
+            animation-duration: 4s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+        }`}
 
     & .hero {
         object-fit: cover;
@@ -71,6 +80,7 @@ const Wrapper = styled.main`
             text-align: center;
             border-radius: 29px;
             line-height: 58px;
+            text-transform: uppercase;
             border: 1px solid var(--color-main-hover);
         }
 
@@ -81,14 +91,6 @@ const Wrapper = styled.main`
             border-radius: 50%;
             top: 5px;
             left: 5px;
-        }
-
-        li:nth-child(2) {
-            animation-name: bounce_small_infinite;
-            transform-origin: center bottom;
-            animation-duration: 4s;
-            animation-fill-mode: both;
-            animation-iteration-count: infinite;
         }
     }
 

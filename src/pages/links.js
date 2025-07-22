@@ -12,7 +12,7 @@ import backDesk from '@images/back-dates.jpg';
 const LinksPage = () => {
     const {allSanityLinksPage: {nodes}} = useStaticQuery(graphql`
     query {
-        allSanityLinksPage{
+        allSanityLinksPage (filter: {title: {eq: "CarryKey link in bio"}}) {
             nodes {
                 title
                 avatar {
@@ -55,18 +55,18 @@ const LinksPage = () => {
     const data = nodes[0]
     return (
         <Intl lang={'en'}>
-            <Wrapper>
+            <Wrapper $bouncing={2}>
             <SvgSprite/>
                 <div className='content'>
                 <Link className="logo" to={'/'}>
                     <img src="/logo1.png" alt="CarryKey logo" className="logo"/>
                 </Link>
-                <img className="avatar"
+                {data.avatar && <img className="avatar"
                     src={data.avatar.asset.url + '?w=120&q=90&fm=webp'}
                     srcSet={`${data.avatar.asset.url}?w=120&q=90&fm=webp 1x,
                         ${data.avatar.asset.url}?w=240&q=90&fm=webp 2x`}
                     width={120}
-                    height={120}/>
+                    height={120}/>}
                 <h1>Hi I'm Carry</h1>
                 <SocialIcons isLinksPage size={25} gap={5}/>
                 <ul className='links'>
@@ -98,10 +98,10 @@ const LinksPage = () => {
                     </ul>
                 </section>
                 </div>
-                <img className='hero' src={data.background.asset.url + '?w=1920&q=90&fm=webp'}
+                {data.background && <img className='hero' src={data.background.asset.url + '?w=1920&q=90&fm=webp'}
                     srcSet={`${data.background.asset.url}?w=1920&q=90&fm=webp 1x,
                         ${data.background.asset.url}?w=3840&q=90&fm=webp 2x`}
-                    alt=""/>
+                    alt=""/>}
             </Wrapper>
             <Footer lang="en"/>
         </Intl>
