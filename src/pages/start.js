@@ -55,7 +55,7 @@ const LinksPage = () => {
     const data = nodes[0]
     return (
         <Intl lang={'en'}>
-            <Wrapper $bouncing={1}>
+            <Wrapper $bouncing={3}>
             <SvgSprite/>
                 <div className='content'>
                 <Link className="logo" to={'/'}>
@@ -70,11 +70,6 @@ const LinksPage = () => {
                 <h1>Hi I'm Carry</h1>
                 <SocialIcons isLinksPage size={25} gap={5}/>
                 <ul className='links'>
-                    <li key="spicy">
-                        <Link to="/links" rel="me noreferrer" target="_blank">
-                            <span>Spicy Links</span>
-                        </Link>
-                    </li>
                     {data.links.map(link => (
                         <li key={link.text}>
                             <a href={link.link} rel="me noreferrer" target="_blank">
