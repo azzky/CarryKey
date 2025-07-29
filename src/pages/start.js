@@ -12,7 +12,7 @@ import backDesk from '@images/back-dates.jpg';
 const LinksPage = () => {
     const {allSanityLinksPage: {nodes}} = useStaticQuery(graphql`
     query {
-        allSanityLinksPage (filter: {title: {eq: "CarryKey link in bio - SFW"}}) {
+        allSanityLinksPage (filter: {title: {eq: "CarryKey Links SFW"}}) {
             nodes {
                 title
                 avatar {
@@ -61,7 +61,7 @@ const LinksPage = () => {
                 <Link className="logo" to={'/'}>
                     <img src="/logo1.png" alt="CarryKey logo" className="logo"/>
                 </Link>
-                {data.avatar && <img className="avatar"
+                {data?.avatar && <img className="avatar"
                     src={data.avatar.asset.url + '?w=120&q=90&fm=webp'}
                     srcSet={`${data.avatar.asset.url}?w=120&q=90&fm=webp 1x,
                         ${data.avatar.asset.url}?w=240&q=90&fm=webp 2x`}
