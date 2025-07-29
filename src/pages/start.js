@@ -7,7 +7,7 @@ import Footer from "@components/footer";
 import { Wrapper } from '@components/linksPage/linksPage.styled';
 import Intl from "@components/intl";
 
-import backDesk from '@images/back-dates.jpg';
+import backDesk from '@images/back-start.jpg';
 
 const LinksPage = () => {
     const {allSanityLinksPage: {nodes}} = useStaticQuery(graphql`
