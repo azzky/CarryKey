@@ -91,6 +91,8 @@ const Wrapper = styled.main`
             border-radius: 50%;
             top: 5px;
             left: 5px;
+            object-fit: cover;
+            object-position: top;
         }
     }
 
