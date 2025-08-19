@@ -204,6 +204,10 @@ const Wrapper = styled.main`
                 // padding: 15px;
             }
         }
+
+        &.dates li {
+            aspect-ratio: auto;
+        }
     }
 
     & .popup {
