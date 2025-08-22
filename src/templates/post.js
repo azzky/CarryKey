@@ -42,6 +42,8 @@ query ($slug: Float!) {
                     asset {
                         url
                         mimeType
+                        width
+                        height
                     }
                 }
                 preview {

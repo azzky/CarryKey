@@ -42,6 +42,8 @@ query ($slug: String!) {
                     asset {
                         url
                         mimeType
+                        width
+                        height
                     }
                 }
                 preview {

@@ -149,17 +149,17 @@ const HeaderRoot = styled.header`
 const BottomBlock = styled.div`
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50vw;
     right: 0;
-    padding: 0 var(--mobile-offset) 47px;
+    padding: 0 var(--mobile-offset) 47px 0;
 
     @media (min-width: 754px) {
         padding: 0 var(--tablet-offset) 60px;
         margin: 0 auto;
+        left: 0;
     }
 
     @media (min-width: 1280px) {
-        padding: 0 2vw 60px;
         max-width: var(--desktop-width);
         padding: ${props=>props.$isHome ? '0 0 108px' : '0 0 34px'};
     }

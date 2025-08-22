@@ -9,6 +9,8 @@ export default function GalleryItems() {
                     ...ImageWithPreview
                     asset {
                         url
+                        width
+                        height
                     }
                 }
             }
