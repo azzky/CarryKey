@@ -12,9 +12,11 @@ import Intl from "@components/intl";
 import backDesk from '@images/back-dates.jpg';
 
 const DatesPage = () => {
-    const {allSanityDatesPage: {nodes}, allSanityDatesTile: {nodes: tiles}} = useStaticQuery(graphql`
+    const {allSanityDatesPage: {nodes}} = useStaticQuery(graphql`
     query {
-        allSanityDatesPage{
+        allSanityDatesPage(
+            filter: {title: {eq: "Roleplay Dates"}}
+        ){
             nodes {
                 title
                 avatar {
@@ -29,31 +31,30 @@ const DatesPage = () => {
                         url
                     }
                 }
-            }
-        }
-        allSanityDatesTile {
-            nodes {
-                title
-                link
-                image {
-                    ...ImageWithPreview
-                    asset {
-                        url
+                tiles {
+                    title
+                    link
+                    image {
+                        ...ImageWithPreview
+                        asset {
+                            url
+                        }
                     }
-                }
-                popupImage {
-                    ...ImageWithPreview
-                    asset {
-                        url
+                    popupImage {
+                        ...ImageWithPreview
+                        asset {
+                            url
+                        }
                     }
+                    _rawRichDescription
                 }
-                _rawRichDescription
             }
         }
     }
     `)
 
     const data = nodes[0]
+    const tiles = data.tiles
 
     const [selected, setSelected] = useState(null)
     return (
