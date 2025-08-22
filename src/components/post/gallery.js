@@ -68,8 +68,8 @@ const DesktopGallery = ({
                     <Item key={post.gallery[0].asset.url}
                         original={post.gallery[0].asset.url + '?w=1920&h=1920&q=100&fm=webp'}
                         thumbnail={post.gallery[0].asset.url + '?w=80&h=80&q=90&fm=webp'}
-                        width={post.gallery[0].asset.width}
-                        height={post.gallery[0].asset.height}
+                        width={post.gallery[0].asset?.width || '1920'}
+                        height={post.gallery[0].asset?.height || 'auto'}
                     >
                     {({ ref, open }) => (
                         <img ref={ref} onClick={open} src={post.gallery[0].asset.url + '?w=450&fm=webp&q=90'}
@@ -134,13 +134,13 @@ const MobileGallery = ({ post, isDesktop, isMobile }) => {
                     })}
                 </Slider>
             </Gallery>
-            ) : (
+            ) : post.gallery[0]?.asset && (
             <Gallery>
-                <Item key={post.gallery[0].asset.url}
+                <Item key={post.gallery[0]?.asset?.url || 'video'}
                         original={post.gallery[0].asset.url + '?w=1920&h=1920&q=100&fm=webp'}
                         thumbnail={post.gallery[0].asset.url + '?w=80&h=80&q=90&fm=webp'}
-                        width={post.gallery[0].asset.width}
-                        height={post.gallery[0].asset.height}
+                        width={post.gallery[0].asset?.width || '1920'}
+                        height={post.gallery[0].asset?.height || 'auto'}
                     >
                     {({ ref, open }) => (
                         <img ref={ref} onClick={open}
