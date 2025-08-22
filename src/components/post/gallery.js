@@ -134,7 +134,7 @@ const MobileGallery = ({ post, isDesktop, isMobile }) => {
                     })}
                 </Slider>
             </Gallery>
-            ) : post.gallery[0]?.asset && (
+            ) : post.gallery.length === 1 && (
             <Gallery>
                 <Item key={post.gallery[0]?.asset?.url || 'video'}
                         original={post.gallery[0].asset.url + '?w=1920&h=1920&q=100&fm=webp'}
