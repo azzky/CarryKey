@@ -31,7 +31,7 @@ const LanguageSwitcher = () => {
     return (
         <LangSwitcherWrapper className="language-switcher">
             <button onClick={() => setShowDropdown(!showDropdown)}>
-                <img src={languages[currentLang].flag} alt={currentLang} />
+                <img src={languages[currentLang].flag} alt={currentLang} loading="lazy"/>
             </button>
             {showDropdown && (
                 <LangSwitcherDropdown className="dropdown">
@@ -39,7 +39,7 @@ const LanguageSwitcher = () => {
                         if (code !== currentLang) return (
                             <li key={code}>
                                 <button onClick={() => handleClick(code)}>
-                                    <img src={flag} alt={code} />
+                                    <img src={flag} alt={code} loading="lazy"/>
                                 </button>
                             </li>
                         )

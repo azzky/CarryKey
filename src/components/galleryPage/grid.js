@@ -19,6 +19,7 @@ const GalleryItem = ({post}) => {
             {({ ref, open }) => (
                 <img ref={ref}
                     onClick={open}
+                    loading="lazy"
                     src={post.asset.url + '?w=400&h=400&q=90&fm=webp'}
                     srcSet={`
                         ${post.asset.url}?w=400&h=400&q=90&fm=webp 1x,

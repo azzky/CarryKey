@@ -26,7 +26,8 @@ const ShopItem = ({post, isMerch, lang}) => {
             <div className={isMerch ? 'merch' : isHorizontal ? 'imageWrapper square' : 'imageWrapper'}>
                 <img src={preview?.asset?.url + '?w=450&q=90&fm=webp'} alt={'preview for '+title}
                     srcSet={`${preview?.asset?.url}?w=450&q=90&fm=webp 1x,
-                            ${preview?.asset?.url}?w=900&q=90 2x`}/>
+                            ${preview?.asset?.url}?w=900&q=90 2x`}
+                            loading="lazy"/>
             </div>
             <p className="title">{title}</p>
             <div className="details">

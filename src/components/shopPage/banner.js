@@ -13,13 +13,13 @@ const Banner = ({post, lang}) => {
                     <img src={image.asset.url + '?w=1920&q=90'} alt={post.title}
                         srcSet={`${image.asset.url}?w=1920&q=90&fm=webp 1x,
                             ${image.asset.url}?w=3840&q=90 2x`}
-                        />
+                        loading="lazy"/>
                 </Link>
             ) : (
                 <img className={'banner-to-post-'+postId} src={image.asset.url + '?w=1920&q=90'} alt={post.title}
                     srcSet={`${image.asset.url}?w=1920&q=90&fm=webp 1x,
                         ${image.asset.url}?w=3840&q=90 2x`}
-                />
+                    loading="lazy"/>
             )}
         </BannerWrapper>
     )

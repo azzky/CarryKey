@@ -39,7 +39,7 @@ const NavMenu = ({isCart, isShop, lang}) => {
         )}
         {isMobile ? (<NavWrapper $isOpen={isOpen}>
             <div className="top">
-                <img src="/logo1.png" alt="CarryKey logo" className="logo" quality={100}/>
+                <img src="/logo1.png" alt="CarryKey logo" className="logo" loading="lazy" quality={100}/>
                 <button className="close" onClick={clickHandler}>
                     <span>
                         <FormattedMessage id="global.close"/>

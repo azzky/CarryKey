@@ -64,7 +64,7 @@ const DatesPage = () => {
                 <div className='content'>
                 <header className='header'>
                     <Link className="logo" to={'/'}>
-                        <img src="/logo1.png" alt="CarryKey logo" className="logo" quality={100}/>
+                        <img src="/logo1.png" alt="CarryKey logo" className="logo" loading="lazy" quality={100}/>
                     </Link>
                     <SocialIcons isLinksPage size={18} gap={10}/>
                 </header>
@@ -78,7 +78,8 @@ const DatesPage = () => {
                                 {/* <a href={item.link} rel="me noreferrer" target="_blank"> */}
                                 <img src={item.image.asset.url + '?w=480&q=90&fm=webp'}
                                     srcSet={`${item.image.asset.url}?w=480&q=90&fm=webp 1x,
-                                        ${item.image.asset.url}?w=960&q=90&fm=webp 2x`}/>
+                                        ${item.image.asset.url}?w=960&q=90&fm=webp 2x`}
+                                        loading="lazy"/>
                                 {/* </a> */}
                                 <div>
                                     <h2>{item.title}</h2>
@@ -105,7 +106,7 @@ const DatesPage = () => {
                             src={selected.popupImage?.asset.url || selected.image.asset.url + '?w=800&q=90&fm=webp'}
                             srcSet={`${selected.popupImage?.asset.url || selected.image.asset.url}?w=800&q=90&fm=webp 1x,
                                 ${selected.popupImage?.asset.url || selected.image.asset.url}?w=1600&q=90&fm=webp 2x`}
-                            alt=""/>
+                            alt="" loading="lazy"/>
                         <div className="description">
                             <PortableText value={selected._rawRichDescription} />
                         </div>
@@ -115,7 +116,7 @@ const DatesPage = () => {
                 <img className='hero' src={data.background.asset.url + '?w=1920&q=90&fm=webp'}
                     srcSet={`${data.background.asset.url}?w=1920&q=90&fm=webp 1x,
                         ${data.background.asset.url}?w=3840&q=90&fm=webp 2x`}
-                    alt=""/>
+                    alt="" loading="lazy"/>
             </Wrapper>
             <Footer lang="en"/>
         </Intl>

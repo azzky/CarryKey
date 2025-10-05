@@ -38,7 +38,7 @@ const Header = (props) => {
             {isCart ? (
                 <>
                     <Link className="logo" to={'/'} lang={lang}>
-                        <img src="/logo1.png" alt="CarryKey logo" className="logo" quality={100}/>
+                        <img src="/logo1.png" alt="CarryKey logo" loading="lazy" className="logo" quality={100}/>
                     </Link>
                     <Socials>
                         {!isMobile && <SocialIcons size={23} gap={18}/>}
@@ -49,7 +49,7 @@ const Header = (props) => {
                 <>
                     <div className="header">
                         <Link className="logo" to={'/'} lang={lang}>
-                            <img src="/logo1.png" alt="CarryKey logo" className="logo"/>
+                            <img src="/logo1.png" alt="CarryKey logo" loading="lazy" className="logo"/>
                         </Link>
                         {hasNavigation && <NavMenu isShop={isShop} lang={lang}/>}
                     </div>

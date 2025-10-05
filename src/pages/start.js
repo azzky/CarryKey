@@ -59,12 +59,13 @@ const LinksPage = () => {
             <SvgSprite/>
                 <div className='content'>
                 <Link className="logo" to={'/'}>
-                    <img src="/logo1.png" alt="CarryKey logo" className="logo"/>
+                    <img src="/logo1.png" alt="CarryKey logo" className="logo" loading="lazy"/>
                 </Link>
                 {data?.avatar && <img className="avatar"
                     src={data.avatar.asset.url + '?w=120&q=90&fm=webp'}
                     srcSet={`${data.avatar.asset.url}?w=120&q=90&fm=webp 1x,
                         ${data.avatar.asset.url}?w=240&q=90&fm=webp 2x`}
+                    loading="lazy"
                     width={120}
                     height={120}/>}
                 <h1>Hi I'm Carry</h1>
@@ -76,6 +77,8 @@ const LinksPage = () => {
                                 <img src={link.icon.asset.url + '?w=48&q=90&fm=webp'}
                                     width={48}
                                     height={48}
+                                    alt={link.text + ' icon'}
+                                    loading="lazy"
                                     srcSet={`${link.icon.asset.url}?w=48&q=90&fm=webp 1x,
                                         ${link.icon.asset.url}?w=96&q=90&fm=webp 2x`}/>
                                 <span>{link.text}</span>
@@ -90,7 +93,8 @@ const LinksPage = () => {
                                 <a href={item.link} rel="me noreferrer" target="_blank">
                                     <img src={item.background.asset.url + '?w=271&q=90&fm=webp'}
                                         srcSet={`${item.background.asset.url}?w=271&q=90&fm=webp 1x,
-                                            ${item.background.asset.url}?w=542&q=90&fm=webp 2x`}/>
+                                            ${item.background.asset.url}?w=542&q=90&fm=webp 2x`}
+                                        loading="lazy"/>
                                     <h2>{item.name}</h2>
                                 </a>
                             </li>

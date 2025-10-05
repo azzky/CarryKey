@@ -45,12 +45,14 @@ const HomeSlider = (props) => {
                         <img src={slide.desktopImage.asset.url + '?w=1920&q=90'} alt={slide.post.title}
                             srcSet={`${slide.desktopImage.asset.url}?w=1920&q=90&fm=webp 1x,
                                 ${slide.desktopImage.asset.url}?w=3840&q=90 2x`}
+                                loading="lazy"
                                  />
                     </div>
                     <div className="img mobile">
                         <img src={slide.mobileImage.asset.url + '?w=800&q=90'} alt={slide.post.title}
                             srcSet={`${slide.mobileImage.asset.url}?w=800&q=90&fm=webp 1x,
                                 ${slide.mobileImage.asset.url}?w=1600&q=90 2x`}
+                                loading="lazy"
                                  />
                     </div>
                 </div>

@@ -13,6 +13,7 @@ const CartItem = ({item, removeItem, lang}) => {
         <Item>
             <img src={preview?.asset?.url + '?w=148&h=148&fm=webp&q=90'}
                 alt={'Thumbnail for '+item.title}
+                loading="lazy"
                 srcSet={`${preview?.asset?.url}?w=148&fm=webp&q=85 1x,
                     ${preview?.asset?.url}?w=296&fm=webp&q=85 2x`}/>
             <div className="details">
