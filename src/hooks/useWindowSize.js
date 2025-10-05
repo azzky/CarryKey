@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useLayoutEffect } from "react"
 
 function useWidth() {
     // Try to get initial values from localStorage
@@ -29,7 +29,7 @@ function useWidth() {
         }
     }, []);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         updateWidth();
         window.addEventListener("resize", updateWidth);
         window.addEventListener("orientationchange", updateWidth);
