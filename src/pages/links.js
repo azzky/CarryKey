@@ -6,6 +6,7 @@ import SvgSprite from '../components/svg-sprite';
 import Footer from "@components/footer";
 import { Wrapper } from '@components/linksPage/linksPage.styled';
 import Intl from "@components/intl";
+import fixImageUrl from '@utils/imageUrl';
 
 import backDesk from '@images/back-dates.jpg';
 
@@ -62,9 +63,9 @@ const LinksPage = () => {
                     <img src="/logo1.png" alt="CarryKey logo" className="logo" loading="lazy"/>
                 </div>
                 {data.avatar && <img className="avatar"
-                    src={data.avatar.asset.url + '?w=120&q=90&fm=webp'}
-                    srcSet={`${data.avatar.asset.url}?w=120&q=90&fm=webp 1x,
-                        ${data.avatar.asset.url}?w=240&q=90&fm=webp 2x`}
+                    src={fixImageUrl(data.avatar.asset.url) + '?w=120&q=90&fm=webp'}
+                    srcSet={`${fixImageUrl(data.avatar.asset.url)}?w=120&q=90&fm=webp 1x,
+                        ${fixImageUrl(data.avatar.asset.url)}?w=240&q=90&fm=webp 2x`}
                     width={120}
                     height={120}/>}
                 <h1>Hi I'm Carry</h1>
@@ -73,12 +74,12 @@ const LinksPage = () => {
                     {data.links.map(link => (
                         <li key={link.text}>
                             <a href={link.link} rel="me noreferrer" target="_blank">
-                                <img src={link.icon.asset.url + '?w=48&q=90&fm=webp'}
+                                <img src={fixImageUrl(link.icon.asset.url) + '?w=48&q=90&fm=webp'}
                                     width={48}
                                     height={48}
                                     loading="lazy"
-                                    srcSet={`${link.icon.asset.url}?w=48&q=90&fm=webp 1x,
-                                        ${link.icon.asset.url}?w=96&q=90&fm=webp 2x`}/>
+                                    srcSet={`${fixImageUrl(link.icon.asset.url)}?w=48&q=90&fm=webp 1x,
+                                        ${fixImageUrl(link.icon.asset.url)}?w=96&q=90&fm=webp 2x`}/>
                                 <span>{link.text}</span>
                             </a>
                         </li>
@@ -89,9 +90,9 @@ const LinksPage = () => {
                         {data.tiles.map(item => (
                             <li key={item.name}>
                                 <a href={item.link} rel="me noreferrer" target="_blank">
-                                    <img src={item.background.asset.url + '?w=271&q=90&fm=webp'}
-                                        srcSet={`${item.background.asset.url}?w=271&q=90&fm=webp 1x,
-                                            ${item.background.asset.url}?w=542&q=90&fm=webp 2x`}
+                                    <img src={fixImageUrl(item.background.asset.url) + '?w=271&q=90&fm=webp'}
+                                        srcSet={`${fixImageUrl(item.background.asset.url)}?w=271&q=90&fm=webp 1x,
+                                            ${fixImageUrl(item.background.asset.url)}?w=542&q=90&fm=webp 2x`}
                                             loading="lazy"/>
                                     <h2>{item.name}</h2>
                                 </a>
@@ -100,9 +101,9 @@ const LinksPage = () => {
                     </ul>
                 </section>
                 </div>
-                {data.background && <img className='hero' src={data.background.asset.url + '?w=1920&q=90&fm=webp'}
-                    srcSet={`${data.background.asset.url}?w=1920&q=90&fm=webp 1x,
-                        ${data.background.asset.url}?w=3840&q=90&fm=webp 2x`}
+                {data.background && <img className='hero' src={fixImageUrl(data.background.asset.url) + '?w=1920&q=90&fm=webp'}
+                    srcSet={`${fixImageUrl(data.background.asset.url)}?w=1920&q=90&fm=webp 1x,
+                        ${fixImageUrl(data.background.asset.url)}?w=3840&q=90&fm=webp 2x`}
                     alt="" loading="lazy"/>}
             </Wrapper>
             <Footer lang="en"/>

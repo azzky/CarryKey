@@ -7,6 +7,7 @@ import HomeSlider from "./slider";
 import MiniCart from "./minicart";
 import Search from './search';
 import ToTop from "./toTop";
+import fixImageUrl from '@utils/imageUrl';
 
 import { HeaderRoot, BottomBlock, SearchWrapper, Socials, FixedMinicart } from "./header.styled";
 
@@ -24,13 +25,13 @@ const Header = (props) => {
                     lang={lang}/>
             ) : (
                 <>
-                    {isHero && !heroImageMobile && <img src={heroImageDesktop}
+                    {isHero && !heroImageMobile && <img src={fixImageUrl(heroImageDesktop)}
                         alt="" loading="lazy"
                         className="hero"/>}
                     {isHero && heroImageMobile && (
                         <picture>
-                            <source media="(max-width: 767px)" srcSet={heroImageMobile}/>
-                            <img src={heroImageDesktop} alt="" loading="lazy" className="hero"/>
+                            <source media="(max-width: 767px)" srcSet={fixImageUrl(heroImageMobile)}/>
+                            <img src={fixImageUrl(heroImageDesktop)} alt="" loading="lazy" className="hero"/>
                         </picture>
                     )}
                 </>

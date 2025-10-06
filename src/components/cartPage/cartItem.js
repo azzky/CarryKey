@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from "@components/intl/link";
 import { currency } from '@constants';
+import fixImageUrl from '@utils/imageUrl';
 
 import Item from "./cartItem.styled";
 import { FormattedMessage, FormattedNumber } from 'react-intl';
@@ -11,11 +12,11 @@ const CartItem = ({item, removeItem, lang}) => {
 
     return (
         <Item>
-            <img src={preview?.asset?.url + '?w=148&h=148&fm=webp&q=90'}
+            <img src={fixImageUrl(preview?.asset?.url) + '?w=148&h=148&fm=webp&q=90'}
                 alt={'Thumbnail for '+item.title}
                 loading="lazy"
-                srcSet={`${preview?.asset?.url}?w=148&fm=webp&q=85 1x,
-                    ${preview?.asset?.url}?w=296&fm=webp&q=85 2x`}/>
+                srcSet={`${fixImageUrl(preview?.asset?.url)}?w=148&fm=webp&q=85 1x,
+                    ${fixImageUrl(preview?.asset?.url)}?w=296&fm=webp&q=85 2x`}/>
             <div className="details">
                 <p className="title">{title}</p>
                 <div className="info">

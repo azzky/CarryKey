@@ -8,6 +8,7 @@ import Footer from "@components/footer";
 import { Wrapper } from '@components/datesPage/datesPage.styled';
 import { PortableText } from '@portabletext/react';
 import Intl from "@components/intl";
+import fixImageUrl from '@utils/imageUrl';
 
 import backDesk from '@images/back-dates.jpg';
 
@@ -76,9 +77,9 @@ const DatesPage = () => {
                             <li key={item.title}
                                 onClick={() => setSelected(item)}>
                                 {/* <a href={item.link} rel="me noreferrer" target="_blank"> */}
-                                <img src={item.image.asset.url + '?w=480&q=90&fm=webp'}
-                                    srcSet={`${item.image.asset.url}?w=480&q=90&fm=webp 1x,
-                                        ${item.image.asset.url}?w=960&q=90&fm=webp 2x`}
+                                <img src={fixImageUrl(item.image.asset.url + '?w=480&q=90&fm=webp')}
+                                    srcSet={`${fixImageUrl(item.image.asset.url)}?w=480&q=90&fm=webp 1x,
+                                        ${fixImageUrl(item.image.asset.url)}?w=960&q=90&fm=webp 2x`}
                                         loading="lazy"/>
                                 {/* </a> */}
                                 <div>
@@ -103,9 +104,9 @@ const DatesPage = () => {
                         </div>
                         <h2>{selected.title}</h2>
                         <img className='image'
-                            src={selected.popupImage?.asset.url || selected.image.asset.url + '?w=800&q=90&fm=webp'}
-                            srcSet={`${selected.popupImage?.asset.url || selected.image.asset.url}?w=800&q=90&fm=webp 1x,
-                                ${selected.popupImage?.asset.url || selected.image.asset.url}?w=1600&q=90&fm=webp 2x`}
+                            src={fixImageUrl(selected.popupImage?.asset.url || selected.image.asset.url) + '?w=800&q=90&fm=webp'}
+                            srcSet={`${fixImageUrl(selected.popupImage?.asset.url || selected.image.asset.url)}?w=800&q=90&fm=webp 1x,
+                                ${fixImageUrl(selected.popupImage?.asset.url || selected.image.asset.url)}?w=1600&q=90&fm=webp 2x`}
                             alt="" loading="lazy"/>
                         <div className="description">
                             <PortableText value={selected._rawRichDescription} />
@@ -113,9 +114,9 @@ const DatesPage = () => {
                         <a className="button" href={selected.link} rel="me noreferrer" target="_blank">Visit</a>
                     </div>
                 </div>}
-                <img className='hero' src={data.background.asset.url + '?w=1920&q=90&fm=webp'}
-                    srcSet={`${data.background.asset.url}?w=1920&q=90&fm=webp 1x,
-                        ${data.background.asset.url}?w=3840&q=90&fm=webp 2x`}
+                <img className='hero' src={fixImageUrl(data.background.asset.url + '?w=1920&q=90&fm=webp')}
+                    srcSet={`${fixImageUrl(data.background.asset.url)}?w=1920&q=90&fm=webp 1x,
+                        ${fixImageUrl(data.background.asset.url)}?w=3840&q=90&fm=webp 2x`}
                     alt="" loading="lazy"/>
             </Wrapper>
             <Footer lang="en"/>

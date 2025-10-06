@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import useWidth from '@hooks/useWindowSize'
 import {PortableText} from '@portabletext/react'
+import fixImageUrl from '@utils/imageUrl';
 
 import SliderWrapper from "./slider.styled";
 import Link from "@components/intl/link";
@@ -24,7 +25,7 @@ const HomeSlider = (props) => {
     if (!slides || slides.length === 0) {
         return null;
     }
-    
+
     return (
         <SliderWrapper>
         <Slider {...settings}>
@@ -42,16 +43,16 @@ const HomeSlider = (props) => {
                         </Link>
                     </div>
                     <div className="img desktop">
-                        <img src={slide.desktopImage.asset.url + '?w=1920&q=90'} alt={slide.post.title}
-                            srcSet={`${slide.desktopImage.asset.url}?w=1920&q=90&fm=webp 1x,
-                                ${slide.desktopImage.asset.url}?w=3840&q=90 2x`}
+                        <img src={fixImageUrl(slide.desktopImage.asset.url) + '?w=1920&q=90'} alt={slide.post.title}
+                            srcSet={`${fixImageUrl(slide.desktopImage.asset.url)}?w=1920&q=90&fm=webp 1x,
+                                ${fixImageUrl(slide.desktopImage.asset.url)}?w=3840&q=90 2x`}
                                 loading="lazy"
                                  />
                     </div>
                     <div className="img mobile">
-                        <img src={slide.mobileImage.asset.url + '?w=800&q=90'} alt={slide.post.title}
-                            srcSet={`${slide.mobileImage.asset.url}?w=800&q=90&fm=webp 1x,
-                                ${slide.mobileImage.asset.url}?w=1600&q=90 2x`}
+                        <img src={fixImageUrl(slide.mobileImage.asset.url) + '?w=800&q=90'} alt={slide.post.title}
+                            srcSet={`${fixImageUrl(slide.mobileImage.asset.url)}?w=800&q=90&fm=webp 1x,
+                                ${fixImageUrl(slide.mobileImage.asset.url)}?w=1600&q=90 2x`}
                                 loading="lazy"
                                  />
                     </div>

@@ -3,6 +3,7 @@ import { Item } from "./shopItem.styled";
 import { currency } from "@constants";
 import Link from "@components/intl/link";
 import { FormattedMessage, FormattedNumber } from 'react-intl';
+import fixImageUrl from '@utils/imageUrl';
 
 const ShopItem = ({post, isMerch, lang}) => {
     const {
@@ -24,9 +25,9 @@ const ShopItem = ({post, isMerch, lang}) => {
                 <span className="visually-hidden">{'link to post '+title}</span>
             </Link>
             <div className={isMerch ? 'merch' : isHorizontal ? 'imageWrapper square' : 'imageWrapper'}>
-                <img src={preview?.asset?.url + '?w=450&q=90&fm=webp'} alt={'preview for '+title}
-                    srcSet={`${preview?.asset?.url}?w=450&q=90&fm=webp 1x,
-                            ${preview?.asset?.url}?w=900&q=90 2x`}
+                <img src={fixImageUrl(preview?.asset?.url + '?w=450&q=90&fm=webp')} alt={'preview for '+title}
+                    srcSet={`${fixImageUrl(preview?.asset?.url)}?w=450&q=90&fm=webp 1x,
+                            ${fixImageUrl(preview?.asset?.url)}?w=900&q=90 2x`}
                             loading="lazy"/>
             </div>
             <p className="title">{title}</p>

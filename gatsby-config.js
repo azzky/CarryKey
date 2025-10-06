@@ -78,7 +78,8 @@ module.exports = {
                 "@templates": "src/templates",
                 "@hooks": "src/hooks",
                 "@images": "src/images",
-                "@constants": "src/constants"
+                "@constants": "src/constants",
+                "@utils": "src/utils",
                 },
                 extensions: ["js"],
             }

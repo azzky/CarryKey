@@ -1,6 +1,7 @@
-import React, { useCallback, useState } from "react"
+import React from "react"
 import useShop from '@hooks/useShop'
 import useWidth from '@hooks/useWindowSize'
+import fixImageUrl from '@utils/imageUrl';
 
 import 'photoswipe/style.css'
 import { Gallery, Item } from 'react-photoswipe-gallery'
@@ -20,10 +21,10 @@ const GalleryItem = ({post}) => {
                 <img ref={ref}
                     onClick={open}
                     loading="lazy"
-                    src={post.asset.url + '?w=400&h=400&q=90&fm=webp'}
+                    src={fixImageUrl(post.asset.url) + '?w=400&h=400&q=90&fm=webp'}
                     srcSet={`
-                        ${post.asset.url}?w=400&h=400&q=90&fm=webp 1x,
-                        ${post.asset.url}?w=800&h=800&q=90&fm=webp 2x
+                        ${fixImageUrl(post.asset.url)}?w=400&h=400&q=90&fm=webp 1x,
+                        ${fixImageUrl(post.asset.url)}?w=800&h=800&q=90&fm=webp 2x
                     `}
                     alt={`Gallery item ${post.photoIndex}`} />
             )}

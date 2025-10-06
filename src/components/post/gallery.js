@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import 'photoswipe/dist/photoswipe.css';
 import { Gallery, Item } from 'react-photoswipe-gallery';
 import useWidth from "@hooks/useWindowSize";
-
+import fixImageUrl from '@utils/imageUrl';
 
 const settings = (isDesktop) => {
     return isDesktop ? {
@@ -55,8 +55,8 @@ const DesktopGallery = ({
                             <img ref={ref} onClick={open} src={pic.asset.url + '?w=450&fm=webp&q=90'}
                                 alt={`${post.title} set image ${index + 1}`}
                                 loading="lazy"
-                                srcSet={`${pic?.asset?.url}?w=450&fm=webp&q=90 1x,
-                                    ${pic?.asset?.url}?w=900&fm=webp&q=90 2x`}
+                                srcSet={`${fixImageUrl(pic?.asset?.url)}?w=450&fm=webp&q=90 1x,
+                                    ${fixImageUrl(pic?.asset?.url)}?w=900&fm=webp&q=90 2x`}
                                 className="slide-pic"/>
                         )}
                     </Item>
@@ -76,8 +76,8 @@ const DesktopGallery = ({
                         <img ref={ref} onClick={open} src={post.gallery[0].asset.url + '?w=450&fm=webp&q=90'}
                             alt={`${post.title} set image`}
                             loading="lazy"
-                            srcSet={`${post.gallery[0]?.asset?.url}?w=450&fm=webp&q=90 1x,
-                                ${post.gallery[0]?.asset?.url}?w=900&fm=webp&q=90 2x`}
+                            srcSet={`${fixImageUrl(post.gallery[0]?.asset?.url)}?w=450&fm=webp&q=90 1x,
+                                ${fixImageUrl(post.gallery[0]?.asset?.url)}?w=900&fm=webp&q=90 2x`}
                             className="slide-pic"/>
                     )}
                     </Item>
@@ -86,8 +86,8 @@ const DesktopGallery = ({
             <img src={post.preview.asset.url + '?w=450&fm=webp&q=90'}
                 alt={`thumbnail for ${post.title} set`}
                 loading="lazy"
-                srcSet={`${post.preview?.asset?.url}?w=450&fm=webp&q=90 1x,
-                    ${post.preview?.asset?.url}?w=900&fm=webp&q=90 2x`}
+                srcSet={`${fixImageUrl(post.preview?.asset?.url)}?w=450&fm=webp&q=90 1x,
+                    ${fixImageUrl(post.preview?.asset?.url)}?w=900&fm=webp&q=90 2x`}
                 className="slide-pic"/>
                         )}
             {/* thumbnails */}
@@ -97,13 +97,13 @@ const DesktopGallery = ({
                 ref={(slider2) => setNav2(slider2)}>
                 {post.gallery.map((pic, index) => {                            
                     return post.preview.asset?.url && (
-                        pic.asset && <img src={pic.asset.url + '?w=250&fm=webp&q=90'}
+                        pic.asset && <img src={fixImageUrl(pic.asset.url + '?w=250&fm=webp&q=90')}
                         key={pic.asset.url}
                         className="thumb"
                         loading="lazy"
-                        srcSet={`${pic.asset?.url}?w=250&fm=webp&q=85 1x,
-                                    ${pic.asset?.url}?w=500&fm=webp&q=85 2x`}
-                        alt={`thumbnail for ${post.title} set image ${index + 1}`}/>
+                        srcSet={`${fixImageUrl(pic.asset?.url)}?w=250&fm=webp&q=85 1x,
+                                    ${fixImageUrl(pic.asset?.url)}?w=500&fm=webp&q=85 2x`}
+                        alt={`thumbnail for ${post.title} set ${index + 1}`}/>
                     )
                 })}
             </Slider>}
@@ -127,11 +127,11 @@ const MobileGallery = ({ post, isDesktop, isMobile }) => {
                             >
                             {({ ref, open }) => (
                                 <img ref={ref} onClick={open}
-                                    src={pic.asset.url + '?w=280&fm=webp&q=90'}
+                                    src={fixImageUrl(pic.asset.url + '?w=280&fm=webp&q=90')}
                                     className="slide-pic"
                                     loading="lazy"
-                                    srcSet={`${pic.asset?.url}?w=280&fm=webp&q=85 1x,
-                                            ${pic.asset?.url}?w=560&fm=webp&q=85 2x`}
+                                    srcSet={`${fixImageUrl(pic.asset?.url)}?w=280&fm=webp&q=85 1x,
+                                            ${fixImageUrl(pic.asset?.url)}?w=560&fm=webp&q=85 2x`}
                                     alt={`${post.title} - ${index + 1}`}/>
                             )}
                             </Item>
@@ -149,11 +149,11 @@ const MobileGallery = ({ post, isDesktop, isMobile }) => {
                     >
                     {({ ref, open }) => (
                         <img ref={ref} onClick={open}
-                            src={post.preview.asset.url + '?w=280&fm=webp&q=90'}
+                            src={fixImageUrl(post.preview.asset.url + '?w=280&fm=webp&q=90')}
                             className="slide-pic"
                             loading="lazy"
-                            srcSet={`${post.preview.asset?.url}?w=280&fm=webp&q=85 1x,
-                                    ${post.preview.asset?.url}?w=560&fm=webp&q=85 2x`}
+                            srcSet={`${fixImageUrl(post.preview.asset?.url)}?w=280&fm=webp&q=85 1x,
+                                    ${fixImageUrl(post.preview.asset?.url)}?w=560&fm=webp&q=85 2x`}
                             alt={post.title}/>
                     )}
                     </Item>
