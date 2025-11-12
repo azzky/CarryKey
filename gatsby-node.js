@@ -312,7 +312,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
 
   const siteUrl = process.env.GATSBY_SITE_URL;
   const key = 'requests_indexnow_2bbe13fc752a449584db19a3eddd68ef';
-  const keyLocation = `${siteUrl}/${key}.txt`;
+  const keyLocation = `${siteUrl}/${key.replace('requests_indexnow_', '')}.txt`;
   const host = siteUrl.replace(/^https?:\/\//, "");
 
   const allPages = result.data.allSitePage.nodes.map(n => n.path);
