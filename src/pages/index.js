@@ -7,6 +7,7 @@ import ShopSlider from '@components/homepage/shopSlider'
 import ShopITems from '@hooks/useShopitems'
 import Slides from '@hooks/useHomepageSlider'
 // import Reviews from "@hooks/useFeedbackData"
+import PagePreview from '@hooks/usePreviews'
 import Meta from "@components/meta"
 
 import backDesk from '@images/back-contact.jpg';
@@ -35,10 +36,13 @@ const IndexPage = ({
 export default IndexPage
 
 export const Head = () => {
+    const preview = PagePreview()
+    console.log('preview', preview.homepagePreview)
     return (
         <>
             <Meta title="Hi I'm Carry"
-                thumbnail={backDesk}
+                isSanityPreview
+                thumbnail={preview?.homepagePreview?.asset?.url + '?w=1200' || backDesk}
                 isHome
             />
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"/>

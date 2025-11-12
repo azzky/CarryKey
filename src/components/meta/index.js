@@ -3,6 +3,7 @@ import * as React from "react"
 import { twitterLink } from "@constants";
 
 const Meta = ({
+    isSanityPreview,
     title,
     url,
     description,
@@ -64,7 +65,7 @@ const Meta = ({
         '@type': 'WebPage',
         'name': title,
         // 'description': '',
-        'image': process.env.GATSBY_SITE_URL + thumbnail,
+        'image': isSanityPreview ? thumbnail.replace('cdn.sanity.io','images.carrykey.me') : process.env.GATSBY_SITE_URL + thumbnail,
         'inLanguage': 'en-US',
         'author': author
     }
@@ -164,12 +165,12 @@ const Meta = ({
         {thumbnail && <>
             <meta name="og:image"
                 property="og:image"
-                content={isPost ? thumbnail+'?w=400' : process.env.GATSBY_SITE_URL + thumbnail}/>
+                content={isPost ? thumbnail+'?w=400' : isSanityPreview ? thumbnail.replace('cdn.sanity.io','images.carrykey.me') : process.env.GATSBY_SITE_URL + thumbnail}/>
             <meta name="twitter:image"
-                property="twitter:image"content={isPost ? thumbnail+'?w=400' : process.env.GATSBY_SITE_URL + thumbnail}/>
+                property="twitter:image"content={isPost ? thumbnail+'?w=400' : isSanityPreview ? thumbnail.replace('cdn.sanity.io','images.carrykey.me') : process.env.GATSBY_SITE_URL + thumbnail}/>
             <meta name="vk:image"
                 property="vk:image"
-                content={isPost ? thumbnail+'?w=400' : process.env.GATSBY_SITE_URL + thumbnail}/>
+                content={isPost ? thumbnail+'?w=400' : isSanityPreview ? thumbnail.replace('cdn.sanity.io','images.carrykey.me') : process.env.GATSBY_SITE_URL + thumbnail}/>
         </>}
         {/* <meta name="fb:app_id"
                 property="fb:app_id"
