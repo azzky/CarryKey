@@ -336,7 +336,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
 
   const payload = {
     host,
-    key,
+    key: key.replace('requests_indexnow_', ''),
     keyLocation,
     urlList,
   };
