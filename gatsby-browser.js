@@ -9,6 +9,14 @@ export const onServiceWorkerUpdateReady = () => {
   if (answer === true)  window.location.reload()
 }
 
+export const onRouteUpdate = ({ location }) => {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "page_view", {
+      page_path: location.pathname + location.search + location.hash,
+    });
+  }
+};
+
 // export const onRouteUpdate = () => {
 //   navigator.serviceWorker.register('/sw.js').then((reg) => {
 //     reg.update();
