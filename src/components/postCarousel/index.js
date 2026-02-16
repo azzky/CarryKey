@@ -54,7 +54,7 @@ const PostCarousel = (props) => {
                         loading="lazy"
                         srcSet={`${fixImageUrl(slide.preview.asset.url)}?w=275&q=90&fm=webp 1x,
                                 ${fixImageUrl(slide.preview.asset.url)}?w=550&q=90 2x`}/>
-                    <Link to={'/shop/set/'+slide.url} className="button" lang={lang}>
+                    <Link to={'/shop/'+slide.url} className="button" lang={lang}>
                         <FormattedMessage id="global.purchase"/>
                     </Link>
                 </div>

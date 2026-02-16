@@ -38,7 +38,7 @@ const HomeSlider = (props) => {
                 <div className="slide-inner" key={slide.title}>
                     <div className="slide-content">
                         <PortableText value={slide._rawText}/>
-                        <Link className="button" lang={lang} to={'/shop/set/'+slide.post.url}>
+                        <Link className="button" lang={lang} to={'/shop/'+slide.post.url}>
                             <FormattedMessage id="global.purchase"/>
                         </Link>
                     </div>

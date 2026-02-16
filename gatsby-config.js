@@ -218,7 +218,7 @@ module.exports = {
                 resolvePages: ({ allSitePage: { nodes }, allSanityPost }) => {
                     return nodes.map((page) => {
                         const matchingApiPage = allSanityPost.nodes.find(apiPage => 
-                            page.path === '/shop/set/' + apiPage.url
+                            page.path === '/shop/' + apiPage.url
                         );
                         const priority = page.path === "/" ? 1.0 : 0.7;
                         const changefreq = page.path === "/" ? 'daily' : 'weekly';

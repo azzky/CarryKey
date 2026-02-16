@@ -2,513 +2,799 @@
   "redirects": [
     {
       "source": "/shop/post/103",
-      "destination": "/shop/set/raven-cloak",
+      "destination": "/shop/raven-cloak",
       "permanent": true
     },
     {
       "source": "/shop/post/102",
-      "destination": "/shop/set/mitsuri-home",
+      "destination": "/shop/mitsuri-home",
       "permanent": true
     },
     {
       "source": "/shop/post/101",
-      "destination": "/shop/set/master-katara",
+      "destination": "/shop/master-katara",
       "permanent": true
     },
     {
       "source": "/shop/post/100",
-      "destination": "/shop/set/ariel",
+      "destination": "/shop/ariel",
       "permanent": true
     },
     {
       "source": "/shop/post/99",
-      "destination": "/shop/set/white-zelda",
+      "destination": "/shop/white-zelda",
       "permanent": true
     },
     {
       "source": "/shop/post/98",
-      "destination": "/shop/set/ty-lee",
+      "destination": "/shop/ty-lee",
       "permanent": true
     },
     {
       "source": "/shop/post/97",
-      "destination": "/shop/set/tifa-nurse",
+      "destination": "/shop/tifa-nurse",
       "permanent": true
     },
     {
       "source": "/shop/post/96",
-      "destination": "/shop/set/tatsumaki",
+      "destination": "/shop/tatsumaki",
       "permanent": true
     },
     {
       "source": "/shop/post/95",
-      "destination": "/shop/set/ryuko-home",
+      "destination": "/shop/ryuko-home",
       "permanent": true
     },
     {
       "source": "/shop/post/94",
-      "destination": "/shop/set/raven-latex",
+      "destination": "/shop/raven-latex",
       "permanent": true
     },
     {
       "source": "/shop/post/93",
-      "destination": "/shop/set/nami-wano",
+      "destination": "/shop/nami-wano",
       "permanent": true
     },
     {
       "source": "/shop/post/92",
-      "destination": "/shop/set/luna-lovegood",
+      "destination": "/shop/luna-lovegood",
       "permanent": true
     },
     {
       "source": "/shop/post/91",
-      "destination": "/shop/set/harley-2024",
+      "destination": "/shop/harley-2024",
       "permanent": true
     },
     {
       "source": "/shop/post/90",
-      "destination": "/shop/set/gwen-latex",
+      "destination": "/shop/gwen-latex",
       "permanent": true
     },
     {
       "source": "/shop/post/89",
-      "destination": "/shop/set/frieren",
+      "destination": "/shop/frieren",
       "permanent": true
     },
     {
       "source": "/shop/post/87",
-      "destination": "/shop/set/nico-alabasta",
+      "destination": "/shop/nico-alabasta",
       "permanent": true
     },
     {
       "source": "/shop/post/86",
-      "destination": "/shop/set/jury",
+      "destination": "/shop/jury",
       "permanent": true
     },
     {
       "source": "/shop/post/85",
-      "destination": "/shop/set/ashley-re",
+      "destination": "/shop/ashley-re",
       "permanent": true
     },
     {
       "source": "/shop/post/84",
-      "destination": "/shop/set/misa-amane",
+      "destination": "/shop/misa-amane",
       "permanent": true
     },
     {
       "source": "/shop/post/83",
-      "destination": "/shop/set/shadowheart-black",
+      "destination": "/shop/shadowheart-black",
       "permanent": true
     },
     {
       "source": "/shop/post/82",
-      "destination": "/shop/set/carrot",
+      "destination": "/shop/carrot",
       "permanent": true
     },
     {
       "source": "/shop/post/81",
-      "destination": "/shop/set/zelda-longhair",
+      "destination": "/shop/zelda-longhair",
       "permanent": true
     },
     {
       "source": "/shop/post/80",
-      "destination": "/shop/set/gwenpool",
+      "destination": "/shop/gwenpool",
       "permanent": true
     },
     {
       "source": "/shop/post/79",
-      "destination": "/shop/set/gwen-student",
+      "destination": "/shop/gwen-student",
       "permanent": true
     },
     {
       "source": "/shop/post/78",
-      "destination": "/shop/set/reze",
+      "destination": "/shop/reze",
       "permanent": true
     },
     {
       "source": "/shop/post/77",
-      "destination": "/shop/set/starfire",
+      "destination": "/shop/starfire",
       "permanent": true
     },
     {
       "source": "/shop/post/76",
-      "destination": "/shop/set/azula-beach",
+      "destination": "/shop/azula-beach",
       "permanent": true
     },
     {
       "source": "/shop/post/75",
-      "destination": "/shop/set/nami-timeskip",
+      "destination": "/shop/nami-timeskip",
       "permanent": true
     },
     {
       "source": "/shop/post/74",
-      "destination": "/shop/set/misato",
+      "destination": "/shop/misato",
       "permanent": true
     },
     {
       "source": "/shop/post/73",
-      "destination": "/shop/set/marin-succubus",
+      "destination": "/shop/marin-succubus",
       "permanent": true
     },
     {
       "source": "/shop/post/72",
-      "destination": "/shop/set/frost",
+      "destination": "/shop/frost",
       "permanent": true
     },
     {
       "source": "/shop/post/71",
-      "destination": "/shop/set/zelda-xmas",
+      "destination": "/shop/zelda-xmas",
       "permanent": true
     },
     {
       "source": "/shop/post/70",
-      "destination": "/shop/set/belle",
+      "destination": "/shop/belle",
       "permanent": true
     },
     {
       "source": "/shop/post/69",
-      "destination": "/shop/set/zelda-shorthair",
+      "destination": "/shop/zelda-shorthair",
       "permanent": true
     },
     {
       "source": "/shop/post/68",
-      "destination": "/shop/set/vivi",
+      "destination": "/shop/vivi",
       "permanent": true
     },
     {
       "source": "/shop/post/67",
-      "destination": "/shop/set/kim-possible",
+      "destination": "/shop/kim-possible",
       "permanent": true
     },
     {
       "source": "/shop/post/66",
-      "destination": "/shop/set/bocchi",
+      "destination": "/shop/bocchi",
       "permanent": true
     },
     {
       "source": "/shop/post/65",
-      "destination": "/shop/set/yor",
+      "destination": "/shop/yor",
       "permanent": true
     },
     {
       "source": "/shop/post/64",
-      "destination": "/shop/set/yor-xmas",
+      "destination": "/shop/yor-xmas",
       "permanent": true
     },
     {
       "source": "/shop/post/63",
-      "destination": "/shop/set/gwen-xmas",
+      "destination": "/shop/gwen-xmas",
       "permanent": true
     },
     {
       "source": "/shop/post/62",
-      "destination": "/shop/set/triss",
+      "destination": "/shop/triss",
       "permanent": true
     },
     {
       "source": "/shop/post/61",
-      "destination": "/shop/set/starlight",
+      "destination": "/shop/starlight",
       "permanent": true
     },
     {
       "source": "/shop/post/60",
-      "destination": "/shop/set/rebecca",
+      "destination": "/shop/rebecca",
       "permanent": true
     },
     {
       "source": "/shop/post/59",
-      "destination": "/shop/set/nico-thrillerbark",
+      "destination": "/shop/nico-thrillerbark",
       "permanent": true
     },
     {
       "source": "/shop/post/58",
-      "destination": "/shop/set/nami-stampede",
+      "destination": "/shop/nami-stampede",
       "permanent": true
     },
     {
       "source": "/shop/post/57",
-      "destination": "/shop/set/nami-enies-lobby",
+      "destination": "/shop/nami-enies-lobby",
       "permanent": true
     },
     {
       "source": "/shop/post/56",
-      "destination": "/shop/set/mikasa",
+      "destination": "/shop/mikasa",
       "permanent": true
     },
     {
       "source": "/shop/post/55",
-      "destination": "/shop/set/marin",
+      "destination": "/shop/marin",
       "permanent": true
     },
     {
       "source": "/shop/post/54",
-      "destination": "/shop/set/makima",
+      "destination": "/shop/makima",
       "permanent": true
     },
     {
       "source": "/shop/post/53",
-      "destination": "/shop/set/lucy",
+      "destination": "/shop/lucy",
       "permanent": true
     },
     {
       "source": "/shop/post/52",
-      "destination": "/shop/set/lady",
+      "destination": "/shop/lady",
       "permanent": true
     },
     {
       "source": "/shop/post/51",
-      "destination": "/shop/set/jinx-arcane",
+      "destination": "/shop/jinx-arcane",
       "permanent": true
     },
     {
       "source": "/shop/post/50",
-      "destination": "/shop/set/hayasaka",
+      "destination": "/shop/hayasaka",
       "permanent": true
     },
     {
       "source": "/shop/post/49",
-      "destination": "/shop/set/harley-new52",
+      "destination": "/shop/harley-new52",
       "permanent": true
     },
     {
       "source": "/shop/post/48",
-      "destination": "/shop/set/gwen-stacy",
+      "destination": "/shop/gwen-stacy",
       "permanent": true
     },
     {
       "source": "/shop/post/47",
-      "destination": "/shop/set/futaba",
+      "destination": "/shop/futaba",
       "permanent": true
     },
     {
       "source": "/shop/post/46",
-      "destination": "/shop/set/azula",
+      "destination": "/shop/azula",
       "permanent": true
     },
     {
       "source": "/shop/post/45",
-      "destination": "/shop/set/asuka-plugsuit",
+      "destination": "/shop/asuka-plugsuit",
       "permanent": true
     },
     {
       "source": "/shop/post/44",
-      "destination": "/shop/set/anti-gwenom",
+      "destination": "/shop/anti-gwenom",
       "permanent": true
     },
     {
       "source": "/shop/post/43",
-      "destination": "/shop/set/ankha",
+      "destination": "/shop/ankha",
       "permanent": true
     },
     {
       "source": "/shop/post/42",
-      "destination": "/shop/set/ahri",
+      "destination": "/shop/ahri",
       "permanent": true
     },
     {
       "source": "/shop/post/41",
-      "destination": "/shop/set/twobe",
+      "destination": "/shop/twobe",
       "permanent": true
     },
     {
       "source": "/shop/post/40",
-      "destination": "/shop/set/zero-two",
+      "destination": "/shop/zero-two",
       "permanent": true
     },
     {
       "source": "/shop/post/39",
-      "destination": "/shop/set/zelda-summer",
+      "destination": "/shop/zelda-summer",
       "permanent": true
     },
     {
       "source": "/shop/post/38",
-      "destination": "/shop/set/zelda-winter",
+      "destination": "/shop/zelda-winter",
       "permanent": true
     },
     {
       "source": "/shop/post/37",
-      "destination": "/shop/set/wendy",
+      "destination": "/shop/wendy",
       "permanent": true
     },
     {
       "source": "/shop/post/36",
-      "destination": "/shop/set/viper",
+      "destination": "/shop/viper",
       "permanent": true
     },
     {
       "source": "/shop/post/35",
-      "destination": "/shop/set/tracer-bunny",
+      "destination": "/shop/tracer-bunny",
       "permanent": true
     },
     {
       "source": "/shop/post/34",
-      "destination": "/shop/set/tracer",
+      "destination": "/shop/tracer",
       "permanent": true
     },
     {
       "source": "/shop/post/33",
-      "destination": "/shop/set/toga",
+      "destination": "/shop/toga",
       "permanent": true
     },
     {
       "source": "/shop/post/32",
-      "destination": "/shop/set/tinkerbell",
+      "destination": "/shop/tinkerbell",
       "permanent": true
     },
     {
       "source": "/shop/post/31",
-      "destination": "/shop/set/tifa",
+      "destination": "/shop/tifa",
       "permanent": true
     },
     {
       "source": "/shop/post/30",
-      "destination": "/shop/set/supergirl",
+      "destination": "/shop/supergirl",
       "permanent": true
     },
     {
       "source": "/shop/post/29",
-      "destination": "/shop/set/succubus",
+      "destination": "/shop/succubus",
       "permanent": true
     },
     {
       "source": "/shop/post/28",
-      "destination": "/shop/set/seraphine-home",
+      "destination": "/shop/seraphine-home",
       "permanent": true
     },
     {
       "source": "/shop/post/27",
-      "destination": "/shop/set/samsung-tyan",
+      "destination": "/shop/samsung-tyan",
       "permanent": true
     },
     {
       "source": "/shop/post/26",
-      "destination": "/shop/set/raven",
+      "destination": "/shop/raven",
       "permanent": true
     },
     {
       "source": "/shop/post/25",
-      "destination": "/shop/set/power",
+      "destination": "/shop/power",
       "permanent": true
     },
     {
       "source": "/shop/post/24",
-      "destination": "/shop/set/perona",
+      "destination": "/shop/perona",
       "permanent": true
     },
     {
       "source": "/shop/post/23",
-      "destination": "/shop/set/nico-fishisland",
+      "destination": "/shop/nico-fishisland",
       "permanent": true
     },
     {
       "source": "/shop/post/22",
-      "destination": "/shop/set/nami-alabasta",
+      "destination": "/shop/nami-alabasta",
       "permanent": true
     },
     {
       "source": "/shop/post/21",
-      "destination": "/shop/set/modeus",
+      "destination": "/shop/modeus",
       "permanent": true
     },
     {
       "source": "/shop/post/20",
-      "destination": "/shop/set/mercy-nurse",
+      "destination": "/shop/mercy-nurse",
       "permanent": true
     },
     {
       "source": "/shop/post/19",
-      "destination": "/shop/set/marin-bunny",
+      "destination": "/shop/marin-bunny",
       "permanent": true
     },
     {
       "source": "/shop/post/18",
-      "destination": "/shop/set/lucy-bunny",
+      "destination": "/shop/lucy-bunny",
       "permanent": true
     },
     {
       "source": "/shop/post/17",
-      "destination": "/shop/set/katarina",
+      "destination": "/shop/katarina",
       "permanent": true
     },
     {
       "source": "/shop/post/16",
-      "destination": "/shop/set/katara",
+      "destination": "/shop/katara",
       "permanent": true
     },
     {
       "source": "/shop/post/15",
-      "destination": "/shop/set/jinx-xmas",
+      "destination": "/shop/jinx-xmas",
       "permanent": true
     },
     {
       "source": "/shop/post/14",
-      "destination": "/shop/set/jinx-2021",
+      "destination": "/shop/jinx-2021",
       "permanent": true
     },
     {
       "source": "/shop/post/13",
-      "destination": "/shop/set/harley-tv",
+      "destination": "/shop/harley-tv",
       "permanent": true
     },
     {
       "source": "/shop/post/12",
-      "destination": "/shop/set/elsa",
+      "destination": "/shop/elsa",
       "permanent": true
     },
     {
       "source": "/shop/post/11",
-      "destination": "/shop/set/ela-bosak",
+      "destination": "/shop/ela-bosak",
       "permanent": true
     },
     {
       "source": "/shop/post/10",
-      "destination": "/shop/set/dokkaebi",
+      "destination": "/shop/dokkaebi",
       "permanent": true
     },
     {
       "source": "/shop/post/9",
-      "destination": "/shop/set/diva",
+      "destination": "/shop/diva",
       "permanent": true
     },
     {
       "source": "/shop/post/8",
-      "destination": "/shop/set/cerberus",
+      "destination": "/shop/cerberus",
       "permanent": true
     },
     {
       "source": "/shop/post/7",
-      "destination": "/shop/set/catwoman",
+      "destination": "/shop/catwoman",
       "permanent": true
     },
     {
       "source": "/shop/post/6",
-      "destination": "/shop/set/asuka-school",
+      "destination": "/shop/asuka-school",
       "permanent": true
     },
     {
       "source": "/shop/post/5",
-      "destination": "/shop/set/anna-winter",
+      "destination": "/shop/anna-winter",
       "permanent": true
     },
     {
       "source": "/shop/post/4",
-      "destination": "/shop/set/anna-autumn",
+      "destination": "/shop/anna-autumn",
       "permanent": true
     },
     {
       "source": "/shop/post/3",
-      "destination": "/shop/set/albedo",
+      "destination": "/shop/albedo",
       "permanent": true
     },
     {
       "source": "/shop/post/2",
-      "destination": "/shop/set/ada-wong",
+      "destination": "/shop/ada-wong",
       "permanent": true
     },
     {
       "source": "/shop/post/1",
-      "destination": "/shop/set/harley-xmas",
+      "destination": "/shop/harley-xmas",
       "permanent": true
-    }
+    },
+    { "source": "https://carrykey.me/shop/set/harley-xmas", "destination": "https://carrykey.me/shop/harley-xmas", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/harley-xmas", "destination": "https://carrykey.me/de/shop/harley-xmas", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/ada-wong", "destination": "https://carrykey.me/shop/ada-wong", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/ada-wong", "destination": "https://carrykey.me/de/shop/ada-wong", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/albedo", "destination": "https://carrykey.me/shop/albedo", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/albedo", "destination": "https://carrykey.me/de/shop/albedo", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/anna-autumn", "destination": "https://carrykey.me/shop/anna-autumn", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/anna-autumn", "destination": "https://carrykey.me/de/shop/anna-autumn", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/anna-winter", "destination": "https://carrykey.me/shop/anna-winter", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/anna-winter", "destination": "https://carrykey.me/de/shop/anna-winter", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/asuka-school", "destination": "https://carrykey.me/shop/asuka-school", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/asuka-school", "destination": "https://carrykey.me/de/shop/asuka-school", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/catwoman", "destination": "https://carrykey.me/shop/catwoman", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/catwoman", "destination": "https://carrykey.me/de/shop/catwoman", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/cerberus", "destination": "https://carrykey.me/shop/cerberus", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/cerberus", "destination": "https://carrykey.me/de/shop/cerberus", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/diva", "destination": "https://carrykey.me/shop/diva", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/diva", "destination": "https://carrykey.me/de/shop/diva", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/dokkaebi", "destination": "https://carrykey.me/shop/dokkaebi", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/dokkaebi", "destination": "https://carrykey.me/de/shop/dokkaebi", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/ela-bosak", "destination": "https://carrykey.me/shop/ela-bosak", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/ela-bosak", "destination": "https://carrykey.me/de/shop/ela-bosak", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/elsa", "destination": "https://carrykey.me/shop/elsa", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/elsa", "destination": "https://carrykey.me/de/shop/elsa", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/harley-tv", "destination": "https://carrykey.me/shop/harley-tv", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/harley-tv", "destination": "https://carrykey.me/de/shop/harley-tv", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/jinx-2021", "destination": "https://carrykey.me/shop/jinx-2021", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/jinx-2021", "destination": "https://carrykey.me/de/shop/jinx-2021", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/jinx-xmas", "destination": "https://carrykey.me/shop/jinx-xmas", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/jinx-xmas", "destination": "https://carrykey.me/de/shop/jinx-xmas", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/katara", "destination": "https://carrykey.me/shop/katara", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/katara", "destination": "https://carrykey.me/de/shop/katara", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/katarina", "destination": "https://carrykey.me/shop/katarina", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/katarina", "destination": "https://carrykey.me/de/shop/katarina", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/lucy-bunny", "destination": "https://carrykey.me/shop/lucy-bunny", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/lucy-bunny", "destination": "https://carrykey.me/de/shop/lucy-bunny", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/marin-bunny", "destination": "https://carrykey.me/shop/marin-bunny", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/marin-bunny", "destination": "https://carrykey.me/de/shop/marin-bunny", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/mercy-nurse", "destination": "https://carrykey.me/shop/mercy-nurse", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/mercy-nurse", "destination": "https://carrykey.me/de/shop/mercy-nurse", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/modeus", "destination": "https://carrykey.me/shop/modeus", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/modeus", "destination": "https://carrykey.me/de/shop/modeus", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/nami-alabasta", "destination": "https://carrykey.me/shop/nami-alabasta", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/nami-alabasta", "destination": "https://carrykey.me/de/shop/nami-alabasta", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/nico-fishisland", "destination": "https://carrykey.me/shop/nico-fishisland", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/nico-fishisland", "destination": "https://carrykey.me/de/shop/nico-fishisland", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/perona", "destination": "https://carrykey.me/shop/perona", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/perona", "destination": "https://carrykey.me/de/shop/perona", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/power", "destination": "https://carrykey.me/shop/power", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/power", "destination": "https://carrykey.me/de/shop/power", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/raven", "destination": "https://carrykey.me/shop/raven", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/raven", "destination": "https://carrykey.me/de/shop/raven", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/samsung-tyan", "destination": "https://carrykey.me/shop/samsung-tyan", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/samsung-tyan", "destination": "https://carrykey.me/de/shop/samsung-tyan", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/seraphine-home", "destination": "https://carrykey.me/shop/seraphine-home", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/seraphine-home", "destination": "https://carrykey.me/de/shop/seraphine-home", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/succubus", "destination": "https://carrykey.me/shop/succubus", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/succubus", "destination": "https://carrykey.me/de/shop/succubus", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/supergirl", "destination": "https://carrykey.me/shop/supergirl", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/supergirl", "destination": "https://carrykey.me/de/shop/supergirl", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/tifa", "destination": "https://carrykey.me/shop/tifa", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/tifa", "destination": "https://carrykey.me/de/shop/tifa", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/tinkerbell", "destination": "https://carrykey.me/shop/tinkerbell", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/tinkerbell", "destination": "https://carrykey.me/de/shop/tinkerbell", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/toga", "destination": "https://carrykey.me/shop/toga", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/toga", "destination": "https://carrykey.me/de/shop/toga", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/tracer", "destination": "https://carrykey.me/shop/tracer", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/tracer", "destination": "https://carrykey.me/de/shop/tracer", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/tracer-bunny", "destination": "https://carrykey.me/shop/tracer-bunny", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/tracer-bunny", "destination": "https://carrykey.me/de/shop/tracer-bunny", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/viper", "destination": "https://carrykey.me/shop/viper", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/viper", "destination": "https://carrykey.me/de/shop/viper", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/wendy", "destination": "https://carrykey.me/shop/wendy", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/wendy", "destination": "https://carrykey.me/de/shop/wendy", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/zelda-winter", "destination": "https://carrykey.me/shop/zelda-winter", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/zelda-winter", "destination": "https://carrykey.me/de/shop/zelda-winter", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/zelda-summer", "destination": "https://carrykey.me/shop/zelda-summer", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/zelda-summer", "destination": "https://carrykey.me/de/shop/zelda-summer", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/zero-two", "destination": "https://carrykey.me/shop/zero-two", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/zero-two", "destination": "https://carrykey.me/de/shop/zero-two", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/twobe", "destination": "https://carrykey.me/shop/twobe", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/twobe", "destination": "https://carrykey.me/de/shop/twobe", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/aerith", "destination": "https://carrykey.me/shop/aerith", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/aerith", "destination": "https://carrykey.me/de/shop/aerith", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/ankha", "destination": "https://carrykey.me/shop/ankha", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/ankha", "destination": "https://carrykey.me/de/shop/ankha", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/anti-gwenom", "destination": "https://carrykey.me/shop/anti-gwenom", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/anti-gwenom", "destination": "https://carrykey.me/de/shop/anti-gwenom", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/asuka-plugsuit", "destination": "https://carrykey.me/shop/asuka-plugsuit", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/asuka-plugsuit", "destination": "https://carrykey.me/de/shop/asuka-plugsuit", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/azula", "destination": "https://carrykey.me/shop/azula", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/azula", "destination": "https://carrykey.me/de/shop/azula", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/futaba", "destination": "https://carrykey.me/shop/futaba", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/futaba", "destination": "https://carrykey.me/de/shop/futaba", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/gwen-stacy", "destination": "https://carrykey.me/shop/gwen-stacy", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/gwen-stacy", "destination": "https://carrykey.me/de/shop/gwen-stacy", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/harley-new52", "destination": "https://carrykey.me/shop/harley-new52", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/harley-new52", "destination": "https://carrykey.me/de/shop/harley-new52", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/hayasaka", "destination": "https://carrykey.me/shop/hayasaka", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/hayasaka", "destination": "https://carrykey.me/de/shop/hayasaka", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/jinx-arcane", "destination": "https://carrykey.me/shop/jinx-arcane", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/jinx-arcane", "destination": "https://carrykey.me/de/shop/jinx-arcane", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/lady", "destination": "https://carrykey.me/shop/lady", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/lady", "destination": "https://carrykey.me/de/shop/lady", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/lucy", "destination": "https://carrykey.me/shop/lucy", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/lucy", "destination": "https://carrykey.me/de/shop/lucy", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/makima", "destination": "https://carrykey.me/shop/makima", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/makima", "destination": "https://carrykey.me/de/shop/makima", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/marin", "destination": "https://carrykey.me/shop/marin", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/marin", "destination": "https://carrykey.me/de/shop/marin", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/mikasa", "destination": "https://carrykey.me/shop/mikasa", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/mikasa", "destination": "https://carrykey.me/de/shop/mikasa", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/nami-enies-lobby", "destination": "https://carrykey.me/shop/nami-enies-lobby", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/nami-enies-lobby", "destination": "https://carrykey.me/de/shop/nami-enies-lobby", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/nami-stampede", "destination": "https://carrykey.me/shop/nami-stampede", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/nami-stampede", "destination": "https://carrykey.me/de/shop/nami-stampede", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/nico-thrillerbark", "destination": "https://carrykey.me/shop/nico-thrillerbark", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/nico-thrillerbark", "destination": "https://carrykey.me/de/shop/nico-thrillerbark", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/rebecca", "destination": "https://carrykey.me/shop/rebecca", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/rebecca", "destination": "https://carrykey.me/de/shop/rebecca", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/starlight", "destination": "https://carrykey.me/shop/starlight", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/starlight", "destination": "https://carrykey.me/de/shop/starlight", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/triss", "destination": "https://carrykey.me/shop/triss", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/triss", "destination": "https://carrykey.me/de/shop/triss", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/gwen-xmas", "destination": "https://carrykey.me/shop/gwen-xmas", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/gwen-xmas", "destination": "https://carrykey.me/de/shop/gwen-xmas", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/yor-xmas", "destination": "https://carrykey.me/shop/yor-xmas", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/yor-xmas", "destination": "https://carrykey.me/de/shop/yor-xmas", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/yor", "destination": "https://carrykey.me/shop/yor", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/yor", "destination": "https://carrykey.me/de/shop/yor", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/bocchi", "destination": "https://carrykey.me/shop/bocchi", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/bocchi", "destination": "https://carrykey.me/de/shop/bocchi", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/kim-possible", "destination": "https://carrykey.me/shop/kim-possible", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/kim-possible", "destination": "https://carrykey.me/de/shop/kim-possible", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/vivi", "destination": "https://carrykey.me/shop/vivi", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/vivi", "destination": "https://carrykey.me/de/shop/vivi", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/zelda-shorthair", "destination": "https://carrykey.me/shop/zelda-shorthair", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/zelda-shorthair", "destination": "https://carrykey.me/de/shop/zelda-shorthair", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/belle", "destination": "https://carrykey.me/shop/belle", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/belle", "destination": "https://carrykey.me/de/shop/belle", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/zelda-xmas", "destination": "https://carrykey.me/shop/zelda-xmas", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/zelda-xmas", "destination": "https://carrykey.me/de/shop/zelda-xmas", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/frost", "destination": "https://carrykey.me/shop/frost", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/frost", "destination": "https://carrykey.me/de/shop/frost", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/marin-succubus", "destination": "https://carrykey.me/shop/marin-succubus", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/marin-succubus", "destination": "https://carrykey.me/de/shop/marin-succubus", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/misato", "destination": "https://carrykey.me/shop/misato", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/misato", "destination": "https://carrykey.me/de/shop/misato", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/nami-timeskip", "destination": "https://carrykey.me/shop/nami-timeskip", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/nami-timeskip", "destination": "https://carrykey.me/de/shop/nami-timeskip", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/azula-beach", "destination": "https://carrykey.me/shop/azula-beach", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/azula-beach", "destination": "https://carrykey.me/de/shop/azula-beach", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/starfire", "destination": "https://carrykey.me/shop/starfire", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/starfire", "destination": "https://carrykey.me/de/shop/starfire", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/reze", "destination": "https://carrykey.me/shop/reze", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/reze", "destination": "https://carrykey.me/de/shop/reze", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/gwen-student", "destination": "https://carrykey.me/shop/gwen-student", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/gwen-student", "destination": "https://carrykey.me/de/shop/gwen-student", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/gwenpool", "destination": "https://carrykey.me/shop/gwenpool", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/gwenpool", "destination": "https://carrykey.me/de/shop/gwenpool", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/zelda-longhair", "destination": "https://carrykey.me/shop/zelda-longhair", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/zelda-longhair", "destination": "https://carrykey.me/de/shop/zelda-longhair", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/carrot", "destination": "https://carrykey.me/shop/carrot", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/carrot", "destination": "https://carrykey.me/de/shop/carrot", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/shadowheart-black", "destination": "https://carrykey.me/shop/shadowheart-black", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/shadowheart-black", "destination": "https://carrykey.me/de/shop/shadowheart-black", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/misa-amane", "destination": "https://carrykey.me/shop/misa-amane", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/misa-amane", "destination": "https://carrykey.me/de/shop/misa-amane", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/ashley-re", "destination": "https://carrykey.me/shop/ashley-re", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/ashley-re", "destination": "https://carrykey.me/de/shop/ashley-re", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/juri-han", "destination": "https://carrykey.me/shop/juri-han", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/juri-han", "destination": "https://carrykey.me/de/shop/juri-han", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/nico-alabasta", "destination": "https://carrykey.me/shop/nico-alabasta", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/nico-alabasta", "destination": "https://carrykey.me/de/shop/nico-alabasta", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/frieren", "destination": "https://carrykey.me/shop/frieren", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/frieren", "destination": "https://carrykey.me/de/shop/frieren", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/gwen-latex", "destination": "https://carrykey.me/shop/gwen-latex", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/gwen-latex", "destination": "https://carrykey.me/de/shop/gwen-latex", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/harley-2024", "destination": "https://carrykey.me/shop/harley-2024", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/harley-2024", "destination": "https://carrykey.me/de/shop/harley-2024", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/luna-lovegood", "destination": "https://carrykey.me/shop/luna-lovegood", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/luna-lovegood", "destination": "https://carrykey.me/de/shop/luna-lovegood", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/nami-wano", "destination": "https://carrykey.me/shop/nami-wano", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/nami-wano", "destination": "https://carrykey.me/de/shop/nami-wano", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/raven-latex", "destination": "https://carrykey.me/shop/raven-latex", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/raven-latex", "destination": "https://carrykey.me/de/shop/raven-latex", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/ryuko-home", "destination": "https://carrykey.me/shop/ryuko-home", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/ryuko-home", "destination": "https://carrykey.me/de/shop/ryuko-home", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/tatsumaki", "destination": "https://carrykey.me/shop/tatsumaki", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/tatsumaki", "destination": "https://carrykey.me/de/shop/tatsumaki", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/tifa-nurse", "destination": "https://carrykey.me/shop/tifa-nurse", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/tifa-nurse", "destination": "https://carrykey.me/de/shop/tifa-nurse", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/ty-lee", "destination": "https://carrykey.me/shop/ty-lee", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/ty-lee", "destination": "https://carrykey.me/de/shop/ty-lee", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/white-zelda", "destination": "https://carrykey.me/shop/white-zelda", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/white-zelda", "destination": "https://carrykey.me/de/shop/white-zelda", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/ariel", "destination": "https://carrykey.me/shop/ariel", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/ariel", "destination": "https://carrykey.me/de/shop/ariel", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/master-katara", "destination": "https://carrykey.me/shop/master-katara", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/master-katara", "destination": "https://carrykey.me/de/shop/master-katara", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/mitsuri-home", "destination": "https://carrykey.me/shop/mitsuri-home", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/mitsuri-home", "destination": "https://carrykey.me/de/shop/mitsuri-home", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/raven-cloak", "destination": "https://carrykey.me/shop/raven-cloak", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/raven-cloak", "destination": "https://carrykey.me/de/shop/raven-cloak", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/minthara", "destination": "https://carrykey.me/shop/minthara", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/minthara", "destination": "https://carrykey.me/de/shop/minthara", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/princess-peach", "destination": "https://carrykey.me/shop/princess-peach", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/princess-peach", "destination": "https://carrykey.me/de/shop/princess-peach", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/sport-tifa", "destination": "https://carrykey.me/shop/sport-tifa", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/sport-tifa", "destination": "https://carrykey.me/de/shop/sport-tifa", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/shadowheart-white", "destination": "https://carrykey.me/shop/shadowheart-white", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/shadowheart-white", "destination": "https://carrykey.me/de/shop/shadowheart-white", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/black-cat-wednesday", "destination": "https://carrykey.me/shop/black-cat-wednesday", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/black-cat-wednesday", "destination": "https://carrykey.me/de/shop/black-cat-wednesday", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/morrigan-aensland", "destination": "https://carrykey.me/shop/morrigan-aensland", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/morrigan-aensland", "destination": "https://carrykey.me/de/shop/morrigan-aensland", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/triss-iii", "destination": "https://carrykey.me/shop/triss-iii", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/triss-iii", "destination": "https://carrykey.me/de/shop/triss-iii", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/jinx-finale", "destination": "https://carrykey.me/shop/jinx-finale", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/jinx-finale", "destination": "https://carrykey.me/de/shop/jinx-finale", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/frieren-winter", "destination": "https://carrykey.me/shop/frieren-winter", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/frieren-winter", "destination": "https://carrykey.me/de/shop/frieren-winter", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/2b-winter", "destination": "https://carrykey.me/shop/2b-winter", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/2b-winter", "destination": "https://carrykey.me/de/shop/2b-winter", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/scarlet-witch", "destination": "https://carrykey.me/shop/scarlet-witch", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/scarlet-witch", "destination": "https://carrykey.me/de/shop/scarlet-witch", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/jane-doeh", "destination": "https://carrykey.me/shop/jane-doeh", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/jane-doeh", "destination": "https://carrykey.me/de/shop/jane-doeh", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/boa-hancock", "destination": "https://carrykey.me/shop/boa-hancock", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/boa-hancock", "destination": "https://carrykey.me/de/shop/boa-hancock", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/harley-md", "destination": "https://carrykey.me/shop/harley-md", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/harley-md", "destination": "https://carrykey.me/de/shop/harley-md", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/arcane-powder", "destination": "https://carrykey.me/shop/arcane-powder", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/arcane-powder", "destination": "https://carrykey.me/de/shop/arcane-powder", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/ubel", "destination": "https://carrykey.me/shop/ubel", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/ubel", "destination": "https://carrykey.me/de/shop/ubel", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/orobi", "destination": "https://carrykey.me/shop/orobi", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/orobi", "destination": "https://carrykey.me/de/shop/orobi", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/harley-pool", "destination": "https://carrykey.me/shop/harley-pool", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/harley-pool", "destination": "https://carrykey.me/de/shop/harley-pool", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/chunli", "destination": "https://carrykey.me/shop/chunli", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/chunli", "destination": "https://carrykey.me/de/shop/chunli", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/chel", "destination": "https://carrykey.me/shop/chel", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/chel", "destination": "https://carrykey.me/de/shop/chel", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/emma", "destination": "https://carrykey.me/shop/emma", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/emma", "destination": "https://carrykey.me/de/shop/emma", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/namicat", "destination": "https://carrykey.me/shop/namicat", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/namicat", "destination": "https://carrykey.me/de/shop/namicat", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/shadowheart-wavedress", "destination": "https://carrykey.me/shop/shadowheart-wavedress", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/shadowheart-wavedress", "destination": "https://carrykey.me/de/shop/shadowheart-wavedress", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/garlick", "destination": "https://carrykey.me/shop/garlick", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/garlick", "destination": "https://carrykey.me/de/shop/garlick", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/sue-storm", "destination": "https://carrykey.me/shop/sue-storm", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/sue-storm", "destination": "https://carrykey.me/de/shop/sue-storm", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/hinata-hyuga", "destination": "https://carrykey.me/shop/hinata-hyuga", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/hinata-hyuga", "destination": "https://carrykey.me/de/shop/hinata-hyuga", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/enid", "destination": "https://carrykey.me/shop/enid", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/enid", "destination": "https://carrykey.me/de/shop/enid", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/momo", "destination": "https://carrykey.me/shop/momo", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/momo", "destination": "https://carrykey.me/de/shop/momo", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/ryuko", "destination": "https://carrykey.me/shop/ryuko", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/ryuko", "destination": "https://carrykey.me/de/shop/ryuko", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/ada-2025", "destination": "https://carrykey.me/shop/ada-2025", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/ada-2025", "destination": "https://carrykey.me/de/shop/ada-2025", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/psylocke", "destination": "https://carrykey.me/shop/psylocke", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/psylocke", "destination": "https://carrykey.me/de/shop/psylocke", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/weirdy", "destination": "https://carrykey.me/shop/weirdy", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/weirdy", "destination": "https://carrykey.me/de/shop/weirdy", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/jinkies", "destination": "https://carrykey.me/shop/jinkies", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/jinkies", "destination": "https://carrykey.me/de/shop/jinkies", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/yor-princess", "destination": "https://carrykey.me/shop/yor-princess", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/yor-princess", "destination": "https://carrykey.me/de/shop/yor-princess", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/aira", "destination": "https://carrykey.me/shop/aira", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/aira", "destination": "https://carrykey.me/de/shop/aira", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/emma-frost", "destination": "https://carrykey.me/shop/emma-frost", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/emma-frost", "destination": "https://carrykey.me/de/shop/emma-frost", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/queen-raven", "destination": "https://carrykey.me/shop/queen-raven", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/queen-raven", "destination": "https://carrykey.me/de/shop/queen-raven", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/luna", "destination": "https://carrykey.me/shop/luna", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/luna", "destination": "https://carrykey.me/de/shop/luna", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/visi", "destination": "https://carrykey.me/shop/visi", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/visi", "destination": "https://carrykey.me/de/shop/visi", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/travelieren", "destination": "https://carrykey.me/shop/travelieren", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/travelieren", "destination": "https://carrykey.me/de/shop/travelieren", "permanent": true },
+{ "source": "https://carrykey.me/shop/set/gothsue", "destination": "https://carrykey.me/shop/gothsue", "permanent": true },
+{ "source": "https://carrykey.me/de/shop/set/gothsue", "destination": "https://carrykey.me/de/shop/gothsue", "permanent": true }
   ]
 }

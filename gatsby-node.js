@@ -43,7 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const promises = posts.map(async (post) => {
         createPage({
-            path: '/shop/set/' + post.node.url,
+            path: '/shop/' + post.node.url,
             component: path.resolve(`./src/templates/post.js`),
             context: {
                 slug: post.node.postId,
@@ -57,7 +57,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
         })
         createPage({
-            path: '/de/shop/set/' + post.node.url,
+            path: '/de/shop/' + post.node.url,
             component: path.resolve(`./src/templates/post.js`),
             context: {
                 slug: post.node.postId,
@@ -71,7 +71,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
         })
         // createPage({
-        //     path: '/es/shop/set/' + post.node.url,
+        //     path: '/es/shop/' + post.node.url,
         //     component: path.resolve(`./src/templates/post.js`),
         //     context: {
         //         slug: post.node.postId,
@@ -85,7 +85,7 @@ exports.createPages = async ({ graphql, actions }) => {
         //     }
         // })
         // createPage({
-        //     path: '/fr/shop/set/' + post.node.url,
+        //     path: '/fr/shop/' + post.node.url,
         //     component: path.resolve(`./src/templates/post.js`),
         //     context: {
         //         slug: post.node.postId,

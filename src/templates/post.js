@@ -68,8 +68,8 @@ export const Head = ({pageContext}) => {
                 description={pageContext.description || null}
                 isPost
                 url={pageContext.langKey === 'en' ?
-                    '/shop/set/' + pageContext.url :
-                    '/' + pageContext.langKey + '/shop/set/' + pageContext.url}
+                    '/shop/' + pageContext.url :
+                    '/' + pageContext.langKey + '/shop/' + pageContext.url}
                 priceMin={pageContext.priceMin}
                 priceMax={pageContext.priceMax}
             />

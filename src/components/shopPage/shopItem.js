@@ -19,7 +19,7 @@ const ShopItem = ({post, isMerch, lang}) => {
 
     return (
         <Item>
-            <Link to={isMerch ? '/merch/'+url : '/shop/set/'+url}
+            <Link to={isMerch ? '/merch/'+url : '/shop/'+url}
                 aria-label={'link to post '+title}
                 lang={lang}>
                 <span className="visually-hidden">{'link to post '+title}</span>
