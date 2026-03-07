@@ -239,6 +239,10 @@ const Wrapper = styled.div`
 
     & .description {
         margin-top: 70px;
+
+        p {
+            margin-bottom: 10px;
+        }
     }
 
     & .images-grid {
