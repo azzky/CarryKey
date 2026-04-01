@@ -13,7 +13,7 @@ const AboutBlock = () => {
             </h2>
             <div className="numbers">
                 <p>
-                    <span className="number">90+</span>
+                    <span className="number">150+</span>
                     <span><FormattedMessage id="about.characters"/></span>
                 </p>
                 <p>
@@ -21,7 +21,7 @@ const AboutBlock = () => {
                     <span><FormattedMessage id="about.photoshoots"/></span>
                 </p>
                 <p>
-                    <span className="number">30+</span>
+                    <span className="number">40+</span>
                     <span><FormattedMessage id="about.custom"/></span>
                 </p>
             </div>
