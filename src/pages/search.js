@@ -29,8 +29,8 @@ const Search = ({location,
         if(
             string !== 'empty' && (
                 post.title.toLowerCase().includes(string.replaceAll('_', ' ').toLowerCase()) ||
-                includesCase(string, post.categories) ||
-                includesCase(string, post.tags)
+                includesCase(string.replaceAll('_', ' '), post.categories) ||
+                includesCase(string.replaceAll('_', ' '), post.tags)
             )
         ) {
             arr.push(post)
@@ -38,10 +38,10 @@ const Search = ({location,
         return null
     })
     return (
-        <Layout hasNavigation isHero
+        <Layout hasNavigation isHero searchValue={string.replaceAll('_', ' ')}
             h1={'Search results for: '+ string.replaceAll('_', ' ')}
             lang={lang}
-            type={'shop'}
+            type={type}
             heroImageDesktop={backDesk}>
             {arr?.length > 0 ? <Grid items={arr}
                 lang={lang}

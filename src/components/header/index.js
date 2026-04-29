@@ -12,7 +12,7 @@ import fixImageUrl from '@utils/imageUrl';
 import { HeaderRoot, BottomBlock, SearchWrapper, Socials, FixedMinicart } from "./header.styled";
 
 const Header = (props) => {
-    const {hasNavigation, isHero, heroImageDesktop, heroImageMobile, h1, isHome, slides, isContact, isCart, isShop, lang, type} = props;
+    const {hasNavigation, isHero, heroImageDesktop, heroImageMobile, h1, isHome, slides, isContact, isCart, isShop, lang, type, searchValue} = props;
     const {isMobile, isDesktop} = useWidth();
     return (
         <>
@@ -71,7 +71,8 @@ const Header = (props) => {
             ) : (
                 <>
                     <Search lang={lang}
-                        type={type}/>
+                        type={type}
+                        initialValue={searchValue}/>
                     <MiniCart lang={lang}/>
                 </>
             )}

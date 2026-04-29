@@ -5,7 +5,7 @@ import Header from "@components/header";
 import Footer from "@components/footer";
 
 const Layout = (props) => {
-    const {hasNavigation, isHero, h1, isHome, heroImageDesktop, heroImageMobile, slides, isContact, isCart, isShop, hideFooter, lang, type} = props;
+    const {hasNavigation, isHero, h1, isHome, heroImageDesktop, heroImageMobile, slides, isContact, isCart, isShop, hideFooter, lang, type, searchValue} = props;
     return (
         <Intl lang={lang}>
             <Sprite/>
@@ -20,6 +20,7 @@ const Layout = (props) => {
                 slides={slides}
                 lang={lang}
                 type={type}
+                searchValue={searchValue}
                 h1={h1}/>
             <main>
                 {props.children}
