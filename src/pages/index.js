@@ -40,7 +40,7 @@ export const Head = () => {
     console.log('preview', preview.homepagePreview)
     return (
         <>
-            <Meta title="Hi I'm Carry"
+            <Meta title="Hi! I'm Carry, cosplayer and content creator. Follow me to stay close."
                 isSanityPreview
                 thumbnail={preview?.homepagePreview?.asset?.url + '?w=1200' || backDesk}
                 isHome
