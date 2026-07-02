@@ -85,7 +85,7 @@ const LinksPage = () => {
                         </li>
                     ))}
                 </ul>
-                <section>
+                {/* <section>
                     <ul className='grid'>
                         {data.tiles.map(item => (
                             <li key={item.name}>
@@ -99,7 +99,7 @@ const LinksPage = () => {
                             </li>
                         ))}
                     </ul>
-                </section>
+                </section> */}
                 </div>
                 {data.background && <img className='hero' src={fixImageUrl(data.background.asset.url) + '?w=1920&q=90&fm=webp'}
                     srcSet={`${fixImageUrl(data.background.asset.url)}?w=1920&q=90&fm=webp 1x,
@@ -116,7 +116,7 @@ export default LinksPage
 export const Head = () => {
     return (
         <>
-        <Meta title="CarryKey Links"
+        <Meta title="My socials | CarryKey Cosplay"
             url="/links"
             thumbnail={backDesk}
             />

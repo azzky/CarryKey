@@ -56,20 +56,20 @@ exports.createPages = async ({ graphql, actions }) => {
                 langKey: 'en'
             }
         })
-        createPage({
-            path: '/de/shop/' + post.node.url,
-            component: path.resolve(`./src/templates/post.js`),
-            context: {
-                slug: post.node.postId,
-                url: post.node.url,
-                // image: post.node.preview.asset.url,
-                title: post.node.title,
-                priceMin: post.node.price,
-                priceMax: post.node.priceMax,
-                // description: post.node.seoDescriptionDe || post.node.descriptionDe || post.node.seoDescription || post.node.description,
-                langKey: 'de'
-            }
-        })
+        // createPage({
+        //     path: '/de/shop/' + post.node.url,
+        //     component: path.resolve(`./src/templates/post.js`),
+        //     context: {
+        //         slug: post.node.postId,
+        //         url: post.node.url,
+        //         // image: post.node.preview.asset.url,
+        //         title: post.node.title,
+        //         priceMin: post.node.price,
+        //         priceMax: post.node.priceMax,
+        //         // description: post.node.seoDescriptionDe || post.node.descriptionDe || post.node.seoDescription || post.node.description,
+        //         langKey: 'de'
+        //     }
+        // })
         // createPage({
         //     path: '/es/shop/' + post.node.url,
         //     component: path.resolve(`./src/templates/post.js`),
@@ -134,20 +134,20 @@ exports.createPages = async ({ graphql, actions }) => {
                 langKey: 'en'
             }
         })
-        createPage({
-            path: '/de/merch/' + post.node.url,
-            component: path.resolve(`./src/templates/merch.js`),
-            context: {
-                slug: post.node.postId,
-                url: post.node.url,
-                // image: post.node.preview.asset.url,
-                title: post.node.title,
-                priceMin: post.node.price,
-                priceMax: post.node.priceMax,
-                // description: post.node.seoDescriptionDe || post.node.descriptionDe || post.node.seoDescription || post.node.description,
-                langKey: 'de'
-            }
-        })
+        // createPage({
+        //     path: '/de/merch/' + post.node.url,
+        //     component: path.resolve(`./src/templates/merch.js`),
+        //     context: {
+        //         slug: post.node.postId,
+        //         url: post.node.url,
+        //         // image: post.node.preview.asset.url,
+        //         title: post.node.title,
+        //         priceMin: post.node.price,
+        //         priceMax: post.node.priceMax,
+        //         // description: post.node.seoDescriptionDe || post.node.descriptionDe || post.node.seoDescription || post.node.description,
+        //         langKey: 'de'
+        //     }
+        // })
     })
 
     // await Promise.all(promises)
@@ -319,19 +319,19 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
   const urlList = allPages
     .filter(p => !p.includes("dev-404-page"))
     .filter(p => !p.startsWith("/404"))
-    .filter(p => !p.startsWith("/de/404"))
+    // .filter(p => !p.startsWith("/de/404"))
     .filter(p => !p.startsWith("/cart"))
-    .filter(p => !p.startsWith("/de/cart"))
+    // .filter(p => !p.startsWith("/de/cart"))
     .filter(p => !p.startsWith("/dates"))
-    .filter(p => !p.startsWith("/de/dates"))
+    // .filter(p => !p.startsWith("/de/dates"))
     .filter(p => !p.startsWith("/links"))
-    .filter(p => !p.startsWith("/de/links"))
+    // .filter(p => !p.startsWith("/de/links"))
     .filter(p => !p.startsWith("/mobile-sets"))
-    .filter(p => !p.startsWith("/de/mobile-sets"))
+    // .filter(p => !p.startsWith("/de/mobile-sets"))
     .filter(p => !p.startsWith("/search"))
-    .filter(p => !p.startsWith("/de/search"))
+    // .filter(p => !p.startsWith("/de/search"))
     .filter(p => !p.startsWith("/start"))
-    .filter(p => !p.startsWith("/de/start"))
+    // .filter(p => !p.startsWith("/de/start"))
     .map(p => `${siteUrl}${p}`);
 
   const payload = {

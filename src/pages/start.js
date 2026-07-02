@@ -118,7 +118,7 @@ export default LinksPage
 export const Head = () => {
     return (
         <>
-        <Meta title="CarryKey Links"
+        <Meta title="My socials | CarryKey Cosplay"
             url="/links"
             thumbnail={backDesk}
             />

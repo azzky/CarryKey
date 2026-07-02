@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 const SliderWrapper =styled.div`
     & img {
-        height: 126.66vw;
+        height: 100dvh;
         width: 100vw;
 
         @media (min-width: 754px) {

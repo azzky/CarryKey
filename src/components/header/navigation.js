@@ -7,7 +7,7 @@ import useWidth from "@hooks/useWindowSize";
 import { MobileTrigger, ShopLink, Navigation, NavWrapper } from "./navigation.styled";
 import SocialIcons from "../socials";
 import { FormattedMessage } from "react-intl";
-import LanguageSwitcher from "../langSwitcher";
+// import LanguageSwitcher from "../langSwitcher";
 
 const NavMenu = ({isCart, isShop, lang}) => {
     const {isMobile} = useWidth();
@@ -28,7 +28,7 @@ const NavMenu = ({isCart, isShop, lang}) => {
                         <FormattedMessage id="menu.shop"/>
                     )}
                 </ShopLink>
-                <LanguageSwitcher/>
+                {/* <LanguageSwitcher/> */}
                 <MobileTrigger onClick={clickHandler}
                     $isOpen={isOpen}>
                     <span/>
@@ -68,7 +68,7 @@ const NavMenu = ({isCart, isShop, lang}) => {
                         </Link>
                     </li>
                 ))}
-                <LanguageSwitcher/>
+                {/* <LanguageSwitcher/> */}
             </Navigation>
         </>)}
     </>
