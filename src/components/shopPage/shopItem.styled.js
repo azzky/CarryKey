@@ -42,6 +42,7 @@ const Item = styled.li`
         font-weight: 400;
         letter-spacing: 1.2px;
         padding: 4px 0;
+        border-bottom: 1px solid var(--color-main);
     }
 
     & .details {
