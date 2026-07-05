@@ -7,10 +7,10 @@ const MainMenu = [
         title: 'menu.shop',
         link: '/shop'
     },
-    // {
-    //     title: 'menu.gallery',
-    //     link: '/gallery'
-    // },
+    {
+        title: 'menu.gallery',
+        link: '/gallery'
+    },
     {
         title: 'menu.merch',
         link: '/merch'
